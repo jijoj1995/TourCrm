@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainOuterPane" nodeOrientation="LEFT_TO_RIGHT" prefWidth="800.0" stylesheets="/resource/css/mainPage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.MainPage">
+   <children>
+      <VBox fx:id="sideBarVbox" prefWidth="200.0" style="-fx-background-color: #323444;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" depthTest="DISABLE" opacity="0.9" prefHeight="29.0" prefWidth="200.0" text="Inventory Management" textFill="#f8f3f3" underline="true">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <content>
+                  <VBox prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showQuickTransactionPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIconView>
+                              <Button fx:id="customerButton1" mnemonicParsing="false" onAction="#showCustomerPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Quick Transaction" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showCustomerPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIconView>
+                              <Button fx:id="customerButton" mnemonicParsing="false" onAction="#showCustomerPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Customer" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                     <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="DATABASE" onMouseClicked="#showStockPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                              <Button fx:id="stockButton" mnemonicParsing="false" onAction="#showStockPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Stocks" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                     <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="MONEY" onMouseClicked="#showPaymentHistoryPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                              <Button fx:id="paymentButton" mnemonicParsing="false" onAction="#showPaymentHistoryPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Payments" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                     <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="USERS" onMouseClicked="#showSuppliersPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                               <Button fx:id="suppliersButton" mnemonicParsing="false" onAction="#showSuppliersPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Suppliers" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                     <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="BANK" onMouseClicked="#showSuppliersPaymentHistoryPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                              <Button fx:id="suppliersButton2" mnemonicParsing="false" onAction="#showSuppliersPaymentHistoryPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="S. Payments" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" onMouseClicked="#showSettingsPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                              <Button fx:id="settingsButton1" mnemonicParsing="false" onAction="#showSettingsPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Settings" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                               <FontAwesomeIconView fill="WHITE" glyphName="COMPASS" onMouseClicked="#showLoginPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" text="" VBox.vgrow="ALWAYS">
+                                   <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                   </cursor>
+                               </FontAwesomeIconView>
+                              <Button fx:id="settingsLogoutButton" mnemonicParsing="false" onAction="#showLoginPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="LogOut" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="570.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showCustomerPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIconView>
+                              <Button fx:id="customerButton11" mnemonicParsing="false" onAction="#showCustomerPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Customer" textFill="#f5eded" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children></VBox>
+      <AnchorPane fx:id="innerAnchorPane" layoutX="207.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="WELCOME TO INVENTORY MANAGEMENT" textAlignment="CENTER">
+                     <font>
+                        <Font name="AngsanaUPC Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <VBox styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="pendingNumber" text="\$0" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" text="TOTAL RECEIVABLE" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="receiveAmountNumber" text="\$0" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" text="TOTAL RECEIVED" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="124.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="revenueNumber" text="\$0" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" text="TOTAL REVENUE" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="\$0" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" text="To be Received" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="58.0">
+                     <children>
+                        <VBox styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="SIGNAL" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL INVOICE" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView accessibleRoleDescription="COG" fill="#022f02" glyphName="COG" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="SALES" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="INBOX" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL ITEMS SOLD" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="TAGS" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL RECEIVABLE" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="183.0">
+                     <children>
+                        <VBox styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="USERS" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL CUSTOMERS" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="customerNumber" alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView accessibleRoleDescription="COG" fill="#022f02" glyphName="DATABASE" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL SUPPLIERS" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="supplierNumber" alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="RANDOM" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL ITEMS IN STOCK" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="totalStocksNumber" alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="10.0" styleClass="amountVbox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <FontAwesomeIconView fill="#022f02" glyphName="SHOPPING_CART" size="50" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" text="TOTAL CATEGORIES STOCK" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="categoryNumber" alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="135.0" text="70" textAlignment="RIGHT" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="TOP_CENTER" fillHeight="false">
+                           <children>
+                              <VBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox fx:id="pieChartVbox" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label alignment="TOP_RIGHT" text="TOTAL CUSTOMERS" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <PieChart fx:id="salesChart" prefHeight="300.0" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="20.0" layoutY="10.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox fx:id="pieChartVbox1" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label alignment="TOP_RIGHT" text="TOTAL CUSTOMERS" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <BarChart fx:id="barChart" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </BarChart>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </VBox>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
