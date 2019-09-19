@@ -113,10 +113,10 @@ public class CustomerBilling implements Initializable {
         else{
             detailsPageIcon.setDisable(false);
         }
-        payAndPrintButton.setDisable(true);
-        saveOnlyButton.setDisable(true);
+//        payAndPrintButton.setDisable(true);
+  //      saveOnlyButton.setDisable(true);
 
-        productComboBox.getItems().addAll(BService.getStockList());
+/*        productComboBox.getItems().addAll(BService.getStockList());
         FxUtilTest.autoCompleteComboBoxPlus(productComboBox, (typedText, itemToCompare) -> itemToCompare.getName().toLowerCase().contains(typedText.toLowerCase()) || itemToCompare.getCategory().toString().equals(typedText));
         FxUtilTest.getComboBoxValue(productComboBox);
 
@@ -265,7 +265,7 @@ public class CustomerBilling implements Initializable {
                 //save payment id for next summary page
 
 
-               /* FXMLLoader Loader = new FXMLLoader();
+               *//* FXMLLoader Loader = new FXMLLoader();
                 Loader.setLocation(getClass().getResource("/view/billing/customerBillingSummary.fxml"));
                 try {
                     Loader.load();
@@ -277,7 +277,7 @@ public class CustomerBilling implements Initializable {
                 CustomerBillingSummary CBS = Loader.getController();
                 CBS.initialize(customer, itemsList, totalAmount.getText(), payedAmount.getText(), String.valueOf(payment_id), billingDateValue);
                 Parent p = Loader.getRoot();
-                customerBillingOuterPane.getChildren().setAll(p);*/
+                customerBillingOuterPane.getChildren().setAll(p);*//*
             }
         });
 
@@ -392,7 +392,7 @@ public class CustomerBilling implements Initializable {
                 });
             }
         });
-        table.setItems(data);
+        table.setItems(data);*/
     }
 
     public void setCst(Customer cst) {
