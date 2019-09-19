@@ -68,3 +68,124 @@
 2019-09-18 22:52:04 INFO  InventoryTimers:26 - initializing all timers
 2019-09-18 22:52:04 INFO  InventoryTimers:36 - initializing auto database backup timer
 2019-09-18 22:52:04 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:22:33 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:22:38 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:22:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:22:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:22:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:22:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:22:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:22:41 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:22:41 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:22:41 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:23:28 INFO  SupplierService:264 - fetching suppliers list
+2019-09-19 21:23:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:23:28 INFO  SupplierService:292 - fetched number of suppliers= 0
+2019-09-19 21:23:32 INFO  SupplierService:264 - fetching suppliers list
+2019-09-19 21:23:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:23:32 INFO  SupplierService:292 - fetched number of suppliers= 0
+2019-09-19 21:23:33 INFO  StockService:112 - fetching stocks from stockList method
+2019-09-19 21:23:33 INFO  StockService:132 - All stock fetched from database
+2019-09-19 21:23:37 INFO  SupplierService:264 - fetching suppliers list
+2019-09-19 21:23:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:23:37 INFO  SupplierService:292 - fetched number of suppliers= 0
+2019-09-19 21:26:47 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:26:54 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:26:54 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:26:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:26:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:26:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:26:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:26:55 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:26:55 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:26:55 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:28:04 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:28:13 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:28:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:28:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:28:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:28:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:28:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:28:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:28:14 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:28:14 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:31:36 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:31:42 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:31:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:31:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:31:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:31:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:31:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:31:43 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:31:43 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:31:43 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:33:40 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:33:47 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:33:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:33:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:33:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:33:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:33:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:33:48 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:33:48 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:33:48 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:35:01 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:35:05 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:35:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:35:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:35:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:35:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:35:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:35:06 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:35:06 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:35:06 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:36:58 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:37:04 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:37:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:37:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:37:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:37:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:37:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:37:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:37:05 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:37:05 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:41:01 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:41:05 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:41:06 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:06 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:06 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:06 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:06 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:06 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:41:06 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:41:06 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 21:41:25 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 21:41:29 INFO  UserService:59 - in authenticating user method
+2019-09-19 21:41:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 21:41:30 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 21:41:30 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 21:41:30 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 22:03:30 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 22:03:37 INFO  UserService:59 - in authenticating user method
+2019-09-19 22:03:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:03:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:03:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:03:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:03:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:03:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 22:03:38 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 22:03:38 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-19 22:29:15 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-19 22:29:34 INFO  UserService:59 - in authenticating user method
+2019-09-19 22:29:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:29:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:29:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:29:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:29:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-19 22:29:35 INFO  InventoryTimers:26 - initializing all timers
+2019-09-19 22:29:35 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-19 22:29:35 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
