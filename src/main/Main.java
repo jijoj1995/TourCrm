@@ -79,7 +79,7 @@ public class Main extends Application {
         PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
                             //check whether the product is original
-        if(!Validator.validateProduct()){
+        if(/*!Validator.validateProduct()*/false){
             root = FXMLLoader.load(getClass().getResource("/view/main/UnauthorizedPage.fxml"));
             primaryStage.setTitle("Product Validation Failed");
         }
@@ -114,7 +114,7 @@ public class Main extends Application {
             public void handle(WindowEvent t) {
                                               //save updated application Properties before exit
                 try {
-                    FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+"\\src\\"+ InventoryConstants.appPropertiesFile);
+                    FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/"+ InventoryConstants.appPropertiesFile);
                     inventoryConfig.getAppProperties().store(out, null);
                     out.close();
                 }

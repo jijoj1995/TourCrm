@@ -101,12 +101,12 @@ public class MainPage implements Initializable {
 
     @FXML
     private void showQuickTransactionPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/billing/tourBilling.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/query/mainQuery.fxml"));
         innerAnchorPane.getChildren().setAll(root);
     }
     @FXML
     private void showStockPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/stock/listStock.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/booking/mainBooking.fxml"));
         innerAnchorPane.getChildren().setAll(root);
     }
     @FXML
