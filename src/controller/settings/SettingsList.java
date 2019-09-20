@@ -70,6 +70,7 @@ public class SettingsList implements Initializable {
                                         //set vbox visibility based on backup property
         if (!isAutomaticBackupEnabled) {
             backupDetailsBox.setVisible(false);
+            //test log
         }
         automaticBackupCheckBox.setSelected(isAutomaticBackupEnabled);
 
