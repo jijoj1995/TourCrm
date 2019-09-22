@@ -1,5 +1,7 @@
 package controller.query;
 
+import com.jfoenix.controls.JFXTextField;
+import dto.CoreLead;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +19,14 @@ public class SubQuery implements Initializable {
     private AnchorPane mainPane;
     @FXML
     private TabPane queryTabs;
+    @FXML
+    private JFXTextField hotelDestination,hotelCheckInDate,hotelCheckOutDate,hotelCurrencyCode,hotelCategory,hotelNumberOfNights,hotelNumberOfAdult,
+            hotelNumberOfChild,hotelNumberOfInfant,hotelTotalPax,hotelRoomTariff,hotelExtraBed,hotelTotalPrice,hotelPlan,hotelStatus,
+            holidaysFrom,holidaysTo,holidaysDepartureDate,holidaysReturnDate,holidaysCurrencyCode,holidaysHotelCategory,holidaysNumberOfNights,holidaysNumberOfAdult,
+            holidaysNumberOfChild,holidaysTotalInfant,holidaysAdultFare,holidaysChildFare,holidaysInfantFare,holidaysTotalPrice,holidaysTravelType,holidaysStatus,
+            railDepartureCity,railArrivalCity,railDateOfDeparture,railTrainNumber,railNumberOfAdult,railNumberOfChild,railNumberOfInfant,railTotalPax,railAdultFare,
+            railChildFare,railTotalFare,railClassOfTravel,railStatus;
+    private CoreLead coreLeadDto;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
@@ -35,4 +45,15 @@ public class SubQuery implements Initializable {
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/mainQuery.fxml"));
         mainPane.getChildren().setAll(root);
     }
+
+    @FXML
+    private void saveSubQueryData(){
+      //  add save method and go back to mainquery Page
+    }
+
+    public void initializeCoreLeadObject(CoreLead coreLead){
+        this.coreLeadDto=coreLead;
+    }
+
+
 }

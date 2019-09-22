@@ -26,7 +26,7 @@ public class MainBooking implements Initializable {
     private void initializeDefaultLayout() {
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 5 - 20;
         bookingTabs.setTabMinWidth(paneWidth);
         bookingTabs.setTabMaxWidth(paneWidth);
     }

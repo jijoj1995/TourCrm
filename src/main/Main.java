@@ -3,6 +3,8 @@ package main;
 import com.sun.javafx.application.LauncherImpl;
 import constants.InventoryConstants;
 import db.BaseConnection;
+import dto.CoreLead;
+import dto.CoreLeadCommunication;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.application.Preloader;
@@ -22,12 +24,16 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import service.HibernateUtil;
 import service.Validator;
 import timers.InventoryTimers;
 
 import java.io.*;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -73,6 +79,31 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        String hql = "FROM CoreLead";
+        Query query = session.createQuery(hql);
+        List results = query.list();
+        HibernateUtil.shutdown();
+        //System.out.println(results.get(0));
+
+        // Add new Employee object
+       /* CoreLead emp = new CoreLead();
+        emp.setCoreLeadId(1);
+        emp.setFirstName("jijo");
+        emp.setMiddleName("demo");
+        emp.setLastName("joseph");
+        CoreLeadCommunication coreLeadCommunication=new CoreLeadCommunication();
+        coreLeadCommunication.setLandline("1234556");
+        coreLeadCommunication.setPaxEmail("jijoj1995@gmail.com");
+        coreLeadCommunication.setUsaMobile("1738217381");
+        coreLeadCommunication.setUsaWorkNumber("35557557");
+        emp.setCoreLeadCommunication(coreLeadCommunication);
+        session.save(emp);
+        session.getTransaction().commit();
+        HibernateUtil.shutdown();*/
+
 
         //loading log4j file
         String log4jConfigFile = "/main/log4j.properties";
