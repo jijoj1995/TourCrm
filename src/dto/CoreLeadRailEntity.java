@@ -9,8 +9,7 @@ import java.io.Serializable;
 @Table( name = "core_lead_rail" )
 public class CoreLeadRailEntity implements Serializable {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "core_lead_rail_id")
     private Integer coreLeadRailId;
     private String departureCity;

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -768,7 +768,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Infants:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="railNumberOfInfants" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXTextField fx:id="railNumberOfInfant" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />
@@ -902,7 +902,7 @@
                                   <children>
                                       <HBox spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup" HBox.hgrow="NEVER">
                                           <children>
-                                              <FontAwesomeIconView fx:id="admin" fill="#022f02" glyphName="SAVE" size="35" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                              <FontAwesomeIconView fx:id="admin" fill="#022f02" glyphName="SAVE" onMouseClicked="#saveSubQueryData" size="35" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                                   <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                   </cursor>

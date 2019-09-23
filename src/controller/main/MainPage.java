@@ -101,7 +101,7 @@ public class MainPage implements Initializable {
 
     @FXML
     private void showQuickTransactionPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/mainQuery.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
         innerAnchorPane.getChildren().setAll(root);
     }
     @FXML

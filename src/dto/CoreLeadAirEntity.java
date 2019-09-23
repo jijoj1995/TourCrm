@@ -9,8 +9,7 @@ import java.io.Serializable;
 @Table( name = "core_lead_air" )
 public class CoreLeadAirEntity implements Serializable {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "core_lead_air_id")
     private Integer coreLeadAirId;
     private String destination;
@@ -28,6 +27,8 @@ public class CoreLeadAirEntity implements Serializable {
     private String totalPrice;
     private String hotelPlan;
     private String status;
+
+
 
     public Integer getCoreLeadAirId() {
         return coreLeadAirId;

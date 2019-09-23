@@ -9,14 +9,14 @@ import java.io.Serializable;
 @Table( name = "core_lead_communication" )
 public class CoreLeadCommunicationEntity implements Serializable {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "core_lead_communication_id")
     private Integer coreLeadCommunicationId;
     private String usaMobile;
     private String usaWorkNumber;
     private String landline;
     private String paxEmail;
+
 
     public Integer getCoreLeadCommunicationId() {
         return coreLeadCommunicationId;

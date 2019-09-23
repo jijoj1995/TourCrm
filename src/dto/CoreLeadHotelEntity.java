@@ -8,10 +8,8 @@ import java.io.Serializable;
 @Entity
 @Table( name = "core_lead_hotel" )
 public class CoreLeadHotelEntity implements Serializable {
-
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "core_lead_hotel_id")
     private Integer coreLeadHotelId;
     private String destination;

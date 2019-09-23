@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,7 @@ public class MainQuery implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+
     }
 
     private void initializeDefaultLayout() {
@@ -39,14 +41,16 @@ public class MainQuery implements Initializable {
         double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
-        if(coreLeadDto !=null){
-            initializeAllInputTexts(coreLeadDto);
-        }
+
     }
 
 
     @FXML
     private void showSubQueryPage() throws IOException {
+
+        logger.info("saving entered data to Core Lead dto before going to subQueryPage");
+        setTextFieldDataToDto();
+            //loading sub queryPage
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getResource("/view/query/subQuery.fxml"));
         try {
@@ -54,17 +58,14 @@ public class MainQuery implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        logger.info("payment complete. now showing billing summary page");
         SubQuery subQueryPage = Loader.getController();
         subQueryPage.initializeCoreLeadObject(coreLeadDto);
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
-        // Parent root= FXMLLoader.load(getClass().getResource("/view/query/subQuery.fxml"));
-        //mainPane.getChildren().setAll(root);
     }
     @FXML
     private void showNotesTab() throws IOException {
-       // Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+       //show notes tab upfront
         Stage stage=new Stage();
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/notesPopup.fxml"));
         stage.setScene(new Scene(root, 450, 450));
@@ -73,7 +74,7 @@ public class MainQuery implements Initializable {
     }
 
     public void initializeAllInputTexts(CoreLead coreLeadDto){
-
+            logger.info("initialising all text fields from dto object");
         if (coreLeadDto ==null){
             logger.warn("coreLeadDto is null. returning");
             return;
@@ -103,8 +104,21 @@ public class MainQuery implements Initializable {
     }
 
     @FXML
-    private void saveCompleteLeadInformation(){
+    private void saveCompleteLeadInformation() throws IOException{
+       setTextFieldDataToDto();
 
+        //save to db
+        if (new QueryService().saveQueryData(coreLeadDto)){
+            //saving successfull
+            showQuickTransactionPage();
+        }
+        else{
+            Stage stage = (Stage) mainPane.getScene().getWindow();
+            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+        }
+    }
+
+    private void setTextFieldDataToDto(){
         if (coreLeadDto ==null){
             coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
@@ -123,13 +137,20 @@ public class MainQuery implements Initializable {
         coreLeadDto.setShift(shift.getText());
         coreLeadDto.setCallReason(reasonOfCall.getText());
         coreLeadDto.setLobCode(lobCode.getText());
+        coreLeadDto.setBranchCode(branchCode.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(usaWork.getText());
         coreLeadDto.getCoreLeadCommunication().setPaxEmail(paxEmail.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaMobile(usaMobile.getText());
         coreLeadDto.getCoreLeadCommunication().setLandline(landLine.getText());
+    }
 
-
-        //save to db
-        new QueryService().saveQueryData(coreLeadDto);
+    @FXML
+    private void showQuickTransactionPage() throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
+        mainPane.getChildren().setAll(root);
+    }
+    public void initializeCoreLeadDto(CoreLead coreLead){
+        this.coreLeadDto=coreLead;
+        initializeAllInputTexts(coreLeadDto);
     }
 }

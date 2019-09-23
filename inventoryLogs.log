@@ -317,3 +317,656 @@
 2019-09-23 08:47:03 INFO  InventoryTimers:26 - initializing all timers
 2019-09-23 08:47:03 INFO  InventoryTimers:36 - initializing auto database backup timer
 2019-09-23 08:47:03 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 11:36:25 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 11:36:30 INFO  UserService:59 - in authenticating user method
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  UserService:59 - in authenticating user method
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:36:31 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 11:36:31 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 11:36:31 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 11:36:31 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 11:36:31 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 11:36:31 WARN  InventoryTimers:47 - database auto backup timer already initialized
+2019-09-23 11:46:53 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 11:46:58 INFO  UserService:59 - in authenticating user method
+2019-09-23 11:46:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:46:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:46:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:46:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:46:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:46:58 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 11:46:58 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 11:46:58 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 11:47:40 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 11:48:08 INFO  SubQuery:136 - saving sub-query all tabs data to dto
+2019-09-23 11:49:01 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 11:49:44 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 11:52:26 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 11:52:44 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 11:52:49 INFO  UserService:59 - in authenticating user method
+2019-09-23 11:52:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:52:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:52:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:52:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:52:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:52:49 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 11:52:49 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 11:52:49 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 11:53:21 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 11:53:46 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 11:56:04 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 11:56:09 INFO  UserService:59 - in authenticating user method
+2019-09-23 11:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 11:56:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 11:56:09 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 11:56:09 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 11:56:33 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 11:56:51 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 11:57:39 INFO  MainQuery:72 - initialising all text fields from dto object
+2019-09-23 11:57:55 WARN  MainQuery:90 - coreLeadCommunication object is null of coreLead. returning
+2019-09-23 12:02:42 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 12:02:49 INFO  UserService:59 - in authenticating user method
+2019-09-23 12:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:02:49 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 12:02:49 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 12:02:49 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 12:03:07 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 12:03:22 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 12:04:09 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 12:04:48 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 12:05:19 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 12:05:19 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 12:05:27 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 12:05:27 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 12:05:36 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 12:05:36 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 12:05:45 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 12:05:45 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 12:06:21 INFO  QueryService:12 - in save queryData to db method
+2019-09-23 12:06:27 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 12:06:37 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 12:06:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 12:06:40 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 12:06:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 12:06:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 12:06:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2019-09-23 12:06:44 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 12:07:07 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@fdce436] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 12:07:38 WARN  QueryService:26 - unable to save queryPage data::: Unknown entity: dto.CoreLead
+2019-09-23 12:44:12 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 12:44:17 INFO  UserService:59 - in authenticating user method
+2019-09-23 12:44:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:44:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:44:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:44:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:44:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 12:44:18 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 12:44:18 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 12:44:18 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 12:44:42 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 12:44:53 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 12:45:44 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 12:46:01 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 12:46:35 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 12:46:37 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 12:47:53 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 12:48:03 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 12:48:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 12:48:06 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 12:48:06 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 12:48:06 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 12:48:07 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2019-09-23 12:48:10 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 12:48:33 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@699db49f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 12:48:45 WARN  SqlExceptionHelper:137 - SQL Error: 1406, SQLState: 22001
+2019-09-23 12:48:45 ERROR SqlExceptionHelper:142 - Data truncation: Data too long for column 'coreLeadHolidaysEntity' at row 1
+2019-09-23 12:49:29 WARN  QueryService:30 - unable to save queryPage data::: org.hibernate.exception.DataException: could not execute statement
+2019-09-23 14:39:55 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:46:10 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:48:52 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:50:34 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:51:25 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:57:52 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 14:58:32 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:00:16 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:02:50 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:05:21 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:06:09 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:06:55 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:16:07 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:16:12 INFO  UserService:59 - in authenticating user method
+2019-09-23 15:16:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:16:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:16:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:16:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:16:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:16:13 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 15:16:13 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 15:16:13 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 15:17:36 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:17:54 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:18:56 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:19:11 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:19:34 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:19:51 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:20:24 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:21:01 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:22:02 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:22:04 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:24:29 WARN  QueryService:30 - unable to save queryPage data::: EntityManagerFactory is closed
+2019-09-23 15:27:53 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:27:57 INFO  UserService:59 - in authenticating user method
+2019-09-23 15:27:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:27:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:27:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:27:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:27:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:27:58 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 15:27:58 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 15:27:58 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 15:28:29 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:28:34 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:29:19 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:29:23 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:29:32 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:29:33 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:29:54 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 15:30:04 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 15:30:07 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 15:30:07 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 15:30:07 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 15:30:07 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 15:30:07 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 15:30:11 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 15:30:35 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4222725e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 15:31:29 WARN  QueryService:30 - unable to save queryPage data::: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect) : [dto.CoreLeadHotelEntity#0]
+2019-09-23 15:32:42 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:32:44 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:35:06 WARN  QueryService:30 - unable to save queryPage data::: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect) : [dto.CoreLeadHotelEntity#0]
+2019-09-23 15:38:58 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:39:07 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:39:19 INFO  UserService:59 - in authenticating user method
+2019-09-23 15:39:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:39:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:39:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:39:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:39:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:39:20 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 15:39:20 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 15:39:20 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 15:39:47 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:39:47 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:40:15 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:40:15 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:40:24 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:40:24 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:40:35 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:40:35 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:40:48 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:40:50 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:41:49 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 15:42:00 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 15:42:03 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 15:42:03 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 15:42:03 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 15:42:03 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 15:42:03 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 15:42:06 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 15:42:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@a8fc5cc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 15:42:40 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 15:45:12 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:45:18 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:46:09 WARN  QueryService:30 - unable to save queryPage data::: EntityManagerFactory is closed
+2019-09-23 15:49:04 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 15:49:08 INFO  UserService:59 - in authenticating user method
+2019-09-23 15:49:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:49:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:49:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:49:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:49:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 15:49:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 15:49:09 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 15:49:09 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 15:49:14 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 15:49:14 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 15:49:27 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 15:52:01 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 15:52:52 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:53:04 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 15:55:01 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 15:55:11 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 15:55:15 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 15:55:15 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 15:55:15 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 15:55:15 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 15:55:15 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 15:55:18 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 15:55:42 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b0e4960] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 15:56:48 INFO  QueryService:13 - in save queryData to db method
+2019-09-23 15:56:51 WARN  QueryService:19 - Converting dto object to entity obj to save in db
+2019-09-23 16:44:48 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 16:45:04 INFO  UserService:59 - in authenticating user method
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  UserService:59 - in authenticating user method
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:45:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 16:45:05 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 16:45:05 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 16:45:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 16:45:05 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 16:45:05 WARN  InventoryTimers:47 - database auto backup timer already initialized
+2019-09-23 16:45:28 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 16:45:55 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 16:46:06 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 16:46:09 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 16:46:09 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 16:46:09 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 16:46:09 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 16:46:09 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 16:46:13 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 16:46:37 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@593f1716] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 16:46:49 INFO  DefaultLoadEventListener:116 - HHH000327: Error performing load command : org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [dto.CoreLeadHotelEntity#0]
+2019-09-23 16:47:55 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 16:48:00 INFO  UserService:59 - in authenticating user method
+2019-09-23 16:48:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:48:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:48:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:48:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:48:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:48:01 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 16:48:01 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 16:48:01 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 16:48:09 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 16:48:19 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 16:48:22 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 16:48:22 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 16:48:22 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 16:48:22 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 16:48:22 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 16:48:26 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 16:48:50 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@43c12e46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 16:57:02 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 16:57:11 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 16:57:16 INFO  UserService:59 - in authenticating user method
+2019-09-23 16:57:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:57:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:57:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:57:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:57:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 16:57:16 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 16:57:16 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 16:57:16 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 16:57:32 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 16:57:42 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 16:57:46 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 16:57:46 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 16:57:46 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 16:57:46 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 16:57:46 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 16:57:49 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 16:58:13 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@790ca2c3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 17:00:07 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 17:00:10 INFO  UserService:59 - in authenticating user method
+2019-09-23 17:00:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:00:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:00:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:00:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:00:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:00:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 17:00:11 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 17:00:11 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 17:00:13 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 17:00:13 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 17:00:14 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 17:00:14 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 17:00:14 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 17:00:14 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 17:00:14 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 17:00:14 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 17:00:16 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7b5e6190] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 17:02:44 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 17:02:49 INFO  UserService:59 - in authenticating user method
+2019-09-23 17:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:02:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:02:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:02:50 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 17:02:50 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 17:02:50 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 17:02:52 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 17:02:53 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 17:02:53 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 17:02:53 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 17:02:53 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 17:02:53 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 17:02:53 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 17:02:53 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 17:02:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@72187e29] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 17:04:03 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 17:04:16 INFO  UserService:59 - in authenticating user method
+2019-09-23 17:04:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:04:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:04:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:04:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:04:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:04:16 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 17:04:16 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 17:04:16 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 17:04:19 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 17:04:19 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 17:04:20 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 17:04:20 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 17:04:20 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 17:04:20 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 17:04:20 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 17:04:20 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 17:04:21 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7216e9a9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 17:53:54 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 17:54:02 INFO  UserService:59 - in authenticating user method
+2019-09-23 17:54:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:54:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:54:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:54:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:54:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 17:54:02 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 17:54:02 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 17:54:02 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 17:54:12 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 17:54:22 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 17:54:25 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 17:54:25 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 17:54:25 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 17:54:25 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 17:54:26 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 17:54:29 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 17:54:53 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7e8f18b1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 17:56:38 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 17:57:09 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 17:57:10 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 17:58:01 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 17:58:28 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 17:59:03 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 17:59:06 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:01:20 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:01:26 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:01:30 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:01:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:01:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:01:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:01:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:01:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:01:31 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:01:31 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:01:31 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:01:39 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:01:39 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:01:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:01:40 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:01:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:01:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:01:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:01:40 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:01:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e29463b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 18:01:47 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 18:01:52 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 18:01:52 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 18:02:07 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 18:02:07 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 18:02:10 INFO  MainQuery:50 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 18:02:10 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 18:02:16 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 18:02:16 INFO  MainQuery:76 - initialising all text fields from dto object
+2019-09-23 18:02:25 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:02:27 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:02:55 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:02:56 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:07:13 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:07:26 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:07:30 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:07:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:07:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:07:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:07:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:07:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:07:30 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:07:30 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:07:30 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:07:32 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:07:32 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:07:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:07:33 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:07:33 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:07:33 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:07:33 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:07:33 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:07:34 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@10380a0f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 18:07:38 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:08:00 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:08:01 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:12:36 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:12:40 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:12:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:12:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:12:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:12:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:12:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:12:40 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:12:40 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:12:40 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:12:42 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:12:43 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:12:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:12:43 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:12:43 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:12:43 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:12:43 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:12:43 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:12:44 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6f6bdcac] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 18:12:48 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:12:52 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 18:12:52 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 18:12:59 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:13:17 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:13:17 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:13:22 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:13:28 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:13:28 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:13:29 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:13:31 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 18:13:32 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 18:13:36 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 18:13:36 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:13:38 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:13:38 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:13:39 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:13:41 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 18:13:41 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 18:13:44 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:50:06 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:50:14 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:50:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:50:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:50:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:50:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:50:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:50:15 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:50:15 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:50:15 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:50:16 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:50:17 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:50:17 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:50:17 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:50:17 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:50:17 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:50:17 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:50:17 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:50:19 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5462229f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 18:50:44 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:52:36 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 18:52:38 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 18:52:38 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 18:52:45 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:58:17 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:58:22 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:58:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:58:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:58:23 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:58:23 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:58:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:58:23 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:58:23 WARN  InventoryTimers:47 - database auto backup timer already initialized
+2019-09-23 18:58:26 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:58:27 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:58:27 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:58:27 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:58:27 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:58:27 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:58:27 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:58:28 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:58:29 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65a6c45c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 18:59:03 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 18:59:08 INFO  UserService:59 - in authenticating user method
+2019-09-23 18:59:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:59:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:59:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:59:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:59:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 18:59:08 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 18:59:08 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 18:59:08 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 18:59:10 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 18:59:10 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 18:59:10 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 18:59:10 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 18:59:10 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 18:59:10 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 18:59:10 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 18:59:10 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 18:59:11 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@792beb35] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 19:02:57 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 19:03:01 INFO  UserService:59 - in authenticating user method
+2019-09-23 19:03:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:02 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 19:03:02 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 19:03:02 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 19:03:03 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 19:03:03 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 19:03:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 19:03:04 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 19:03:04 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 19:03:04 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 19:03:04 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 19:03:04 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 19:03:05 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2fce99a4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 19:03:22 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 19:03:27 INFO  UserService:59 - in authenticating user method
+2019-09-23 19:03:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:03:27 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 19:03:27 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 19:03:27 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 19:03:29 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 19:03:29 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 19:03:30 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 19:03:30 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 19:03:30 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 19:03:30 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 19:03:30 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 19:03:30 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 19:03:31 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4bd26832] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 19:04:32 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 19:04:37 INFO  UserService:59 - in authenticating user method
+2019-09-23 19:04:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:04:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:04:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:04:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:04:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:04:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 19:04:38 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 19:04:38 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 19:04:39 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 19:04:39 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 19:04:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 19:04:40 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 19:04:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 19:04:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 19:04:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 19:04:40 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 19:04:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4c5886f2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 19:06:06 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 19:06:17 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-23 19:06:21 INFO  UserService:59 - in authenticating user method
+2019-09-23 19:06:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:06:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:06:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:06:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:06:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-23 19:06:22 INFO  InventoryTimers:26 - initializing all timers
+2019-09-23 19:06:22 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-23 19:06:22 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 23 20:43:59 IST 2019
+2019-09-23 19:06:24 INFO  Version:46 - HHH000412: Hibernate Core {5.4.4.Final}
+2019-09-23 19:06:25 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-09-23 19:06:25 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2019-09-23 19:06:25 INFO  pooling:115 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test?useSSL=false]
+2019-09-23 19:06:25 INFO  pooling:124 - HHH10001001: Connection properties: {user=root, password=****}
+2019-09-23 19:06:25 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2019-09-23 19:06:25 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 100 (min=1)
+2019-09-23 19:06:25 INFO  Dialect:172 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-23 19:06:26 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5604f0ea] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2019-09-23 19:07:44 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 19:07:44 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 19:08:15 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 19:08:15 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 19:08:17 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 19:08:17 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 19:08:23 INFO  SubQuery:139 - saving sub-query all tabs data to dto
+2019-09-23 19:08:23 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 19:08:27 INFO  QueryService:17 - in save queryData to db method
+2019-09-23 19:08:27 WARN  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-23 19:09:54 INFO  MainQuery:77 - initialising all text fields from dto object
+2019-09-23 19:09:59 INFO  MainQuery:51 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-23 19:09:59 INFO  SubQuery:41 -  in setAllTextFieldsFromDto method in sub query
+2019-09-23 19:10:25 INFO  MainQuery:77 - initialising all text fields from dto object

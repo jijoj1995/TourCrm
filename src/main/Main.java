@@ -3,6 +3,7 @@ package main;
 import com.sun.javafx.application.LauncherImpl;
 import constants.InventoryConstants;
 import db.BaseConnection;
+import dto.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -60,6 +61,9 @@ public class Main extends Application {
         System.out.println(Main.STEP() + "MyApplication#init (doing some heavy lifting), thread: " + Thread.currentThread().getName());
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
+       /* Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        HibernateUtil.shutdown();*/
       /*  for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
@@ -68,27 +72,43 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
 
-        String hql = "FROM CoreLeadEntity";
+
+       /* String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();
-        HibernateUtil.shutdown();
         //System.out.println(results.get(0));
 
         // Add new Employee object
-       /* CoreLeadEntity emp = new CoreLeadEntity();
+        CoreLeadEntity emp = new CoreLeadEntity();
         emp.setCoreLeadId(1);
         emp.setFirstName("jijo");
         emp.setMiddleName("demo");
         emp.setLastName("joseph");
-        CoreLeadCommunication coreLeadCommunication=new CoreLeadCommunication();
+        CoreLeadCommunicationEntity coreLeadCommunication=new CoreLeadCommunicationEntity();
         coreLeadCommunication.setLandline("1234556");
         coreLeadCommunication.setPaxEmail("jijoj1995@gmail.com");
         coreLeadCommunication.setUsaMobile("1738217381");
         coreLeadCommunication.setUsaWorkNumber("35557557");
-        emp.setCoreLeadCommunication(coreLeadCommunication);
+        CoreLeadAirEntity coreLeadAirEntity=new CoreLeadAirEntity();
+        coreLeadAirEntity.setTotalPrice("adasd");
+        coreLeadAirEntity.setTotalPax("adasd");
+        coreLeadAirEntity.setRoomTariff("adasd");
+        emp.setCoreLeadAirEntity(coreLeadAirEntity);
+
+        CoreLeadRailEntity coreLeadRailEntity=new CoreLeadRailEntity();
+        coreLeadRailEntity.setTrainNumber("asdsad");
+        coreLeadRailEntity.setStatus("asdsad");
+        coreLeadRailEntity.setNumberOfAdult("5");
+        emp.setCoreLeadRailEntity(coreLeadRailEntity);
+
+        CoreLeadHotelEntity coreLeadHotelEntity=new CoreLeadHotelEntity();
+        coreLeadHotelEntity.setCheckInDate("234234");
+        coreLeadHotelEntity.setHotelPlan("sdfs");
+        emp.setCoreLeadHotelEntity(coreLeadHotelEntity);
+
+        //coreLeadCommunication.setCoreLeadEntity(emp);
+        emp.setCoreLeadCommunicationEntity(coreLeadCommunication);
         session.save(emp);
         session.getTransaction().commit();
         HibernateUtil.shutdown();*/

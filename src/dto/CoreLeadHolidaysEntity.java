@@ -10,8 +10,7 @@ import java.io.Serializable;
 public class CoreLeadHolidaysEntity implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "core_lead_holidays_id")
     private Integer coreLeadHolidaysId;
     private String fromDestination;
@@ -30,6 +29,7 @@ public class CoreLeadHolidaysEntity implements Serializable {
     private String totalPrice;
     private String travelType;
     private String status;
+
 
     public Integer getCoreLeadHolidaysId() {
         return coreLeadHolidaysId;

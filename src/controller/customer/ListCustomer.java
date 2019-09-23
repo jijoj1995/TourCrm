@@ -34,7 +34,6 @@ public class ListCustomer {
     private AnchorPane listCustomerMainAnchor;
     @FXML
     private TextField filterField;
-
     @FXML
     private TableView<CustomerList> personTable;
     @FXML

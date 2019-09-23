@@ -7,23 +7,11 @@ import java.io.Serializable;
 
 @Entity
 @Table( name = "core_lead" )
-@SecondaryTables({
-        @SecondaryTable(name="core_lead_communication", pkJoinColumns={
-                @PrimaryKeyJoinColumn(name="core_lead_communication_id", referencedColumnName="core_lead_id") }),
-        @SecondaryTable(name="core_lead_air", pkJoinColumns={
-                @PrimaryKeyJoinColumn(name="core_lead_air_id", referencedColumnName="core_lead_id") }),
-        @SecondaryTable(name="core_lead_holidays", pkJoinColumns={
-                @PrimaryKeyJoinColumn(name="core_lead_holidays_id", referencedColumnName="core_lead_id") }),
-        @SecondaryTable(name="core_lead_hotel", pkJoinColumns={
-                @PrimaryKeyJoinColumn(name="core_lead_hotel_id", referencedColumnName="core_lead_id") }),
-        @SecondaryTable(name="core_lead_rail", pkJoinColumns={
-                @PrimaryKeyJoinColumn(name="core_lead_rail_id", referencedColumnName="core_lead_id") }),
 
-})
 public class CoreLeadEntity implements Serializable {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @PrimaryKeyJoinColumn
     @Column(name = "core_lead_id")
     private Integer coreLeadId;
     private String firstName;
@@ -38,19 +26,24 @@ public class CoreLeadEntity implements Serializable {
     private String callReason;
     private String lobCode;
 
-    @Column(table="core_lead_communication")
+    @OneToOne(targetEntity=CoreLeadCommunicationEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_communication_id")
     private CoreLeadCommunicationEntity coreLeadCommunicationEntity;
 
-    @Column(table="core_lead_air")
+    @OneToOne(targetEntity=CoreLeadAirEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_Air_id")
     private CoreLeadAirEntity coreLeadAirEntity;
 
-    @Column(table="core_lead_holidays")
+    @OneToOne(targetEntity=CoreLeadHolidaysEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_holidays_id")
     private CoreLeadHolidaysEntity coreLeadHolidaysEntity;
 
-    @Column(table="core_lead_hotel")
+    @OneToOne(targetEntity=CoreLeadHotelEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_hotel_id")
     private CoreLeadHotelEntity coreLeadHotelEntity;
 
-    @Column(table="core_lead_rail")
+    @OneToOne(targetEntity=CoreLeadRailEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_rail_id")
     private CoreLeadRailEntity coreLeadRailEntity;
 
     public Integer getCoreLeadId() {
@@ -188,4 +181,6 @@ public class CoreLeadEntity implements Serializable {
     public void setCoreLeadRailEntity(CoreLeadRailEntity coreLeadRailEntity) {
         this.coreLeadRailEntity = coreLeadRailEntity;
     }
+
+
 }
