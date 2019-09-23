@@ -1,26 +1,34 @@
 package dto;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 public class CoreLeadRail implements Serializable {
 
-    private IntegerProperty coreLeadRailId;
-    private StringProperty departureCity;
-    private StringProperty arrivalCity;
-    private StringProperty departureDate;
-    private StringProperty trainNumber;
-    private StringProperty numberofAdult;
-    private StringProperty numberofChild;
-    private StringProperty numberOfInfant;
-    private StringProperty totalPax;
-    private StringProperty adultFare;
-    private StringProperty childFare;
-    private StringProperty totalFare;
-    private StringProperty classOfTravel;
-    private StringProperty status;
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "core_lead_rail_id")
+    private IntegerProperty coreLeadRailId=new SimpleIntegerProperty();
+    private StringProperty departureCity=new SimpleStringProperty();
+    private StringProperty arrivalCity=new SimpleStringProperty();
+    private StringProperty departureDate=new SimpleStringProperty();
+    private StringProperty trainNumber=new SimpleStringProperty();
+    private StringProperty numberOfAdult=new SimpleStringProperty();
+    private StringProperty numberOfChild=new SimpleStringProperty();
+    private StringProperty numberOfInfant=new SimpleStringProperty();
+    private StringProperty totalPax=new SimpleStringProperty();
+    private StringProperty adultFare=new SimpleStringProperty();
+    private StringProperty childFare=new SimpleStringProperty();
+    private StringProperty totalFare=new SimpleStringProperty();
+    private StringProperty classOfTravel=new SimpleStringProperty();
+    private StringProperty status=new SimpleStringProperty();
 
     public int getCoreLeadRailId() {
         return coreLeadRailId.get();
@@ -82,28 +90,28 @@ public class CoreLeadRail implements Serializable {
         this.trainNumber.set(trainNumber);
     }
 
-    public String getNumberofAdult() {
-        return numberofAdult.get();
+    public String getNumberOfAdult() {
+        return numberOfAdult.get();
     }
 
-    public StringProperty numberofAdultProperty() {
-        return numberofAdult;
+    public StringProperty numberOfAdultProperty() {
+        return numberOfAdult;
     }
 
-    public void setNumberofAdult(String numberofAdult) {
-        this.numberofAdult.set(numberofAdult);
+    public void setNumberOfAdult(String numberOfAdult) {
+        this.numberOfAdult.set(numberOfAdult);
     }
 
-    public String getNumberofChild() {
-        return numberofChild.get();
+    public String getNumberOfChild() {
+        return numberOfChild.get();
     }
 
-    public StringProperty numberofChildProperty() {
-        return numberofChild;
+    public StringProperty numberOfChildProperty() {
+        return numberOfChild;
     }
 
-    public void setNumberofChild(String numberofChild) {
-        this.numberofChild.set(numberofChild);
+    public void setNumberOfChild(String numberOfChild) {
+        this.numberOfChild.set(numberOfChild);
     }
 
     public String getNumberOfInfant() {

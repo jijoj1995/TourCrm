@@ -1,29 +1,34 @@
 package dto;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 public class CoreLeadHolidays implements Serializable {
 
-    private IntegerProperty coreLeadHolidaysId;
-    private StringProperty fromDestination;
-    private StringProperty toDestination;
-    private StringProperty departureDate;
-    private StringProperty returnDate;
-    private StringProperty currencyCode;
-    private StringProperty hotelCategory;
-    private StringProperty numberOfNights;
-    private StringProperty numberOfAdult;
-    private StringProperty numberOfChild;
-    private StringProperty numberOfInfant;
-    private StringProperty adultFare;
-    private StringProperty childFare;
-    private StringProperty infantFare;
-    private StringProperty totalPrice;
-    private StringProperty travelType;
-    private StringProperty status;
+   
+    private IntegerProperty coreLeadHolidaysId=new SimpleIntegerProperty();
+    private StringProperty fromDestination=new SimpleStringProperty();
+    private StringProperty toDestination=new SimpleStringProperty();
+    private StringProperty departureDate=new SimpleStringProperty();
+    private StringProperty returnDate=new SimpleStringProperty();
+    private StringProperty currencyCode=new SimpleStringProperty();
+    private StringProperty hotelCategory=new SimpleStringProperty();
+    private StringProperty numberOfNights=new SimpleStringProperty();
+    private StringProperty numberOfAdult=new SimpleStringProperty();
+    private StringProperty numberOfChild=new SimpleStringProperty();
+    private StringProperty numberOfInfant=new SimpleStringProperty();
+    private StringProperty adultFare=new SimpleStringProperty();
+    private StringProperty childFare=new SimpleStringProperty();
+    private StringProperty infantFare=new SimpleStringProperty();
+    private StringProperty totalPrice=new SimpleStringProperty();
+    private StringProperty travelType=new SimpleStringProperty();
+    private StringProperty status=new SimpleStringProperty();
 
     public int getCoreLeadHolidaysId() {
         return coreLeadHolidaysId.get();

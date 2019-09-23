@@ -2,6 +2,9 @@ package controller.query;
 
 import com.jfoenix.controls.JFXTextField;
 import dto.CoreLead;
+import dto.CoreLeadCommunication;
+import dto.CoreLeadCommunicationEntity;
+import dto.CoreLeadEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -49,10 +52,14 @@ public class SubQuery implements Initializable {
     @FXML
     private void saveSubQueryData(){
       //  add save method and go back to mainquery Page
+        if(coreLeadDto ==null){
+            coreLeadDto =new CoreLead();
+            coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
+        }
     }
 
     public void initializeCoreLeadObject(CoreLead coreLead){
-        this.coreLeadDto=coreLead;
+        this.coreLeadDto = coreLead;
     }
 
 

@@ -1,17 +1,15 @@
 package controller.query;
 
 import com.jfoenix.controls.JFXTextField;
-import dto.CoreLead;
-import dto.CoreLeadCommunication;
+import db.QueryService;
+import dto.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
@@ -41,7 +39,7 @@ public class MainQuery implements Initializable {
         double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
-        if(coreLeadDto!=null){
+        if(coreLeadDto !=null){
             initializeAllInputTexts(coreLeadDto);
         }
     }
@@ -76,7 +74,7 @@ public class MainQuery implements Initializable {
 
     public void initializeAllInputTexts(CoreLead coreLeadDto){
 
-        if (coreLeadDto==null){
+        if (coreLeadDto ==null){
             logger.warn("coreLeadDto is null. returning");
             return;
         }
@@ -107,11 +105,14 @@ public class MainQuery implements Initializable {
     @FXML
     private void saveCompleteLeadInformation(){
 
-        if (coreLeadDto==null){
-            coreLeadDto=new CoreLead();
+        if (coreLeadDto ==null){
+            coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
+            coreLeadDto.setCoreLeadAir(new CoreLeadAir());
+            coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
+            coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
+            coreLeadDto.setCoreLeadRail(new CoreLeadRail());
         }
-
         coreLeadDto.setFirstName(firstName.getText());
         coreLeadDto.setMiddleName(middleName.getText());
         coreLeadDto.setLastName(lastName.getText());
@@ -127,5 +128,8 @@ public class MainQuery implements Initializable {
         coreLeadDto.getCoreLeadCommunication().setUsaMobile(usaMobile.getText());
         coreLeadDto.getCoreLeadCommunication().setLandline(landLine.getText());
 
+
+        //save to db
+        new QueryService().saveQueryData(coreLeadDto);
     }
 }

@@ -1,6 +1,5 @@
 package service;
-import dto.CoreLead;
-import dto.CoreLeadCommunication;
+import dto.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +17,11 @@ public class HibernateUtil
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
                 configuration.addAnnotatedClass(CoreLeadCommunication.class);
-                configuration.addAnnotatedClass(CoreLead.class);
+                configuration.addAnnotatedClass(CoreLeadAirEntity.class);
+                configuration.addAnnotatedClass(CoreLeadHolidaysEntity.class);
+                configuration.addAnnotatedClass(CoreLeadHotelEntity.class);
+                configuration.addAnnotatedClass(CoreLeadRailEntity.class);
+                configuration.addAnnotatedClass(CoreLeadEntity.class);
                 StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
                 serviceRegistryBuilder.applySettings(configuration.getProperties());
                 ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();

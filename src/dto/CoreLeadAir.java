@@ -1,26 +1,28 @@
 package dto;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class CoreLeadAir {
 
-    private IntegerProperty coreLeadAirId;
-    private StringProperty destination;
-    private StringProperty checkInDate;
-    private StringProperty checkoutDate;
-    private StringProperty currencyCode;
-    private StringProperty hotelCategory;
-    private StringProperty numberOfNights;
-    private StringProperty numberOfAdult;
-    private StringProperty numberOfChild;
-    private StringProperty numberOfInfants;
-    private StringProperty totalPax;
-    private StringProperty RoomTariff;
-    private StringProperty ExtraBed;
-    private StringProperty totalPrice;
-    private StringProperty hotelPlan;
-    private StringProperty status;
+    private IntegerProperty coreLeadAirId=new SimpleIntegerProperty();
+    private StringProperty destination=new SimpleStringProperty();
+    private StringProperty checkInDate=new SimpleStringProperty();
+    private StringProperty checkoutDate=new SimpleStringProperty();
+    private StringProperty currencyCode=new SimpleStringProperty();
+    private StringProperty hotelCategory=new SimpleStringProperty();
+    private StringProperty numberOfNights=new SimpleStringProperty();
+    private StringProperty numberOfAdult=new SimpleStringProperty();
+    private StringProperty numberOfChild=new SimpleStringProperty();
+    private StringProperty numberOfInfants=new SimpleStringProperty();
+    private StringProperty totalPax=new SimpleStringProperty();
+    private StringProperty RoomTariff=new SimpleStringProperty();
+    private StringProperty ExtraBed=new SimpleStringProperty();
+    private StringProperty totalPrice=new SimpleStringProperty();
+    private StringProperty hotelPlan=new SimpleStringProperty();
+    private StringProperty status=new SimpleStringProperty();
 
 
     public int getCoreLeadAirId() {

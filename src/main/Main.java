@@ -3,32 +3,21 @@ package main;
 import com.sun.javafx.application.LauncherImpl;
 import constants.InventoryConstants;
 import db.BaseConnection;
-import dto.CoreLead;
-import dto.CoreLeadCommunication;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.application.Preloader;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.PropertyConfigurator;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import service.HibernateUtil;
-import service.Validator;
-import timers.InventoryTimers;
 
 import java.io.*;
 import java.nio.file.Paths;
@@ -82,14 +71,14 @@ public class Main extends Application {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        String hql = "FROM CoreLead";
+        String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();
         HibernateUtil.shutdown();
         //System.out.println(results.get(0));
 
         // Add new Employee object
-       /* CoreLead emp = new CoreLead();
+       /* CoreLeadEntity emp = new CoreLeadEntity();
         emp.setCoreLeadId(1);
         emp.setFirstName("jijo");
         emp.setMiddleName("demo");
