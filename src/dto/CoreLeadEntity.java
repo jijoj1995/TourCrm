@@ -46,6 +46,11 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_lead_rail_id")
     private CoreLeadRailEntity coreLeadRailEntity;
 
+    @OneToOne(targetEntity=CoreBookingEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_id")
+    private CoreBookingEntity corebookingEntity;
+
+
     public Integer getCoreLeadId() {
         return coreLeadId;
     }
@@ -182,5 +187,11 @@ public class CoreLeadEntity implements Serializable {
         this.coreLeadRailEntity = coreLeadRailEntity;
     }
 
+    public CoreBookingEntity getCorebookingEntity() {
+        return corebookingEntity;
+    }
 
+    public void setCorebookingEntity(CoreBookingEntity corebookingEntity) {
+        this.corebookingEntity = corebookingEntity;
+    }
 }

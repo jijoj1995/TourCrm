@@ -28,6 +28,49 @@ public class CoreBookingEntity implements Serializable {
     private String supplierName;
     private String lobCode;
 
+
+    @OneToOne(targetEntity=CoreBookingBillingAddressEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_billing_address_id")
+    private CoreBookingBillingAddressEntity coreBookingBillingAddressEntity;
+
+    @OneToOne(targetEntity=CoreBookingShippingAddressEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_shipping_address_id")
+    private CoreBookingShippingAddressEntity coreBookingShippingAddressEntity;
+
+    @OneToOne(targetEntity=CoreBookingCommunicationEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_communication_id")
+    private CoreBookingCommunicationEntity coreBookingCommunicationEntity;
+
+    @OneToOne(targetEntity=CoreBookingStatusEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_status_id")
+    private CoreBookingStatusEntity coreBookingStatusEntity;
+
+    @OneToOne(targetEntity=CoreBookingPassengerEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_passenger_id")
+    private CoreBookingPassengerEntity coreBookingPassengerEntity;
+
+    @OneToOne(targetEntity=CoreBookingPricingEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_pricing_id")
+    private CoreBookingPricingEntity coreBookingPricingEntity;
+
+    @OneToOne(targetEntity=CoreBookingItineraryEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_itinerary_id")
+    private CoreBookingItineraryEntity coreBookingItineraryEntity;
+
+    @OneToOne(targetEntity=CoreBookingTicketingEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_ticketing_id")
+    private CoreBookingTicketingEntity coreBookingTicketingEntity;
+
+    @OneToOne(targetEntity=CoreBookingFareEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_fare_id")
+    private CoreBookingFareEntity coreBookingFareEntity;
+
+    @OneToOne(targetEntity=CoreBookingPromotionEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_promotion_id")
+    private CoreBookingPromotionEntity coreBookingPromotionEntity;
+
+
+
     public Integer getCoreBookingId() {
         return coreBookingId;
     }
@@ -162,5 +205,85 @@ public class CoreBookingEntity implements Serializable {
 
     public void setLobCode(String lobCode) {
         this.lobCode = lobCode;
+    }
+
+    public CoreBookingBillingAddressEntity getCoreBookingBillingAddressEntity() {
+        return coreBookingBillingAddressEntity;
+    }
+
+    public void setCoreBookingBillingAddressEntity(CoreBookingBillingAddressEntity coreBookingBillingAddressEntity) {
+        this.coreBookingBillingAddressEntity = coreBookingBillingAddressEntity;
+    }
+
+    public CoreBookingShippingAddressEntity getCoreBookingShippingAddressEntity() {
+        return coreBookingShippingAddressEntity;
+    }
+
+    public void setCoreBookingShippingAddressEntity(CoreBookingShippingAddressEntity coreBookingShippingAddressEntity) {
+        this.coreBookingShippingAddressEntity = coreBookingShippingAddressEntity;
+    }
+
+    public CoreBookingCommunicationEntity getCoreBookingCommunicationEntity() {
+        return coreBookingCommunicationEntity;
+    }
+
+    public void setCoreBookingCommunicationEntity(CoreBookingCommunicationEntity coreBookingCommunicationEntity) {
+        this.coreBookingCommunicationEntity = coreBookingCommunicationEntity;
+    }
+
+    public CoreBookingStatusEntity getCoreBookingStatusEntity() {
+        return coreBookingStatusEntity;
+    }
+
+    public void setCoreBookingStatusEntity(CoreBookingStatusEntity coreBookingStatusEntity) {
+        this.coreBookingStatusEntity = coreBookingStatusEntity;
+    }
+
+    public CoreBookingPassengerEntity getCoreBookingPassengerEntity() {
+        return coreBookingPassengerEntity;
+    }
+
+    public void setCoreBookingPassengerEntity(CoreBookingPassengerEntity coreBookingPassengerEntity) {
+        this.coreBookingPassengerEntity = coreBookingPassengerEntity;
+    }
+
+    public CoreBookingPricingEntity getCoreBookingPricingEntity() {
+        return coreBookingPricingEntity;
+    }
+
+    public void setCoreBookingPricingEntity(CoreBookingPricingEntity coreBookingPricingEntity) {
+        this.coreBookingPricingEntity = coreBookingPricingEntity;
+    }
+
+    public CoreBookingItineraryEntity getCoreBookingItineraryEntity() {
+        return coreBookingItineraryEntity;
+    }
+
+    public void setCoreBookingItineraryEntity(CoreBookingItineraryEntity coreBookingItineraryEntity) {
+        this.coreBookingItineraryEntity = coreBookingItineraryEntity;
+    }
+
+    public CoreBookingTicketingEntity getCoreBookingTicketingEntity() {
+        return coreBookingTicketingEntity;
+    }
+
+    public void setCoreBookingTicketingEntity(CoreBookingTicketingEntity coreBookingTicketingEntity) {
+        this.coreBookingTicketingEntity = coreBookingTicketingEntity;
+    }
+
+    public CoreBookingFareEntity getCoreBookingFareEntity() {
+        return coreBookingFareEntity;
+    }
+
+    public void setCoreBookingFareEntity(CoreBookingFareEntity coreBookingFareEntity) {
+        this.coreBookingFareEntity = coreBookingFareEntity;
+    }
+
+    public CoreBookingPromotionEntity getCoreBookingPromotionEntity() {
+        return coreBookingPromotionEntity;
+    }
+
+    public void setCoreBookingPromotionEntity(CoreBookingPromotionEntity coreBookingPromotionEntity) {
+        this.coreBookingPromotionEntity = coreBookingPromotionEntity;
     }
 }

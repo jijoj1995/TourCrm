@@ -16,6 +16,17 @@ public class HibernateUtil
             if (sessionFactory == null)
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
+                configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
+                configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
+                configuration.addAnnotatedClass(CoreBookingFareEntity.class);
+                configuration.addAnnotatedClass(CoreBookingTicketingEntity.class);
+                configuration.addAnnotatedClass(CoreBookingItineraryEntity.class);
+                configuration.addAnnotatedClass(CoreBookingPricingEntity.class);
+                configuration.addAnnotatedClass(CoreBookingPassengerEntity.class);
+                configuration.addAnnotatedClass(CoreBookingCommunicationEntity.class);
+                configuration.addAnnotatedClass(CoreBookingShippingAddressEntity.class);
+                configuration.addAnnotatedClass(CoreBookingBillingAddressEntity.class);
+                configuration.addAnnotatedClass(CoreBookingEntity.class);
                 configuration.addAnnotatedClass(CoreLeadCommunicationEntity.class);
                 configuration.addAnnotatedClass(CoreLeadAirEntity.class);
                 configuration.addAnnotatedClass(CoreLeadHolidaysEntity.class);

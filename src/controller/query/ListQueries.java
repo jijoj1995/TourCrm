@@ -129,13 +129,10 @@ public class ListQueries implements Initializable {
                         "    -fx-padding: 5;-fx-min-width:100");
                 listIcon.setGlyphSize(25);
                 setGraphic(listIcon);
-                deleteButton.setOnAction(event -> {
+                listIcon.setOnMouseClicked(event -> {
 
                     //show booking page
-
-
-
-
+                    showMainBookingPage(queriesListDto.getCoreLeadDto());
                 });
             } });
 
@@ -188,7 +185,7 @@ public class ListQueries implements Initializable {
     }
 
     @FXML
-    private void showMainBookingPage(CoreLead coreLeadDto) throws IOException {
+    private void showMainBookingPage(CoreLead coreLeadDto)  {
         logger.info("showing Main booking page for query id= "+coreLeadDto.getCoreLeadId());
         //loading mainBookingPage
         FXMLLoader Loader = new FXMLLoader();
@@ -199,7 +196,7 @@ public class ListQueries implements Initializable {
             e.printStackTrace();
         }
         MainBooking mainBookingPage = Loader.getController();
-       // mainBookingPage.initializeCoreLeadObject(coreLeadDto);
+        mainBookingPage.initializeCoreLeadDto(coreLeadDto);
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
     }

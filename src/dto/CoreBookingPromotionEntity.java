@@ -12,7 +12,7 @@ public class CoreBookingPromotionEntity implements Serializable {
     @Column(name = "core_booking_promotion_id")
     private Integer coreBookingPromotionId;
     private String firstName;
-    private Integer middleName;
+    private String middleName;
     private String lastName;
     private String typeOfPassenger;
     private String typeOfPromotion;
@@ -36,11 +36,11 @@ public class CoreBookingPromotionEntity implements Serializable {
         this.firstName = firstName;
     }
 
-    public Integer getMiddleName() {
+    public String getMiddleName() {
         return middleName;
     }
 
-    public void setMiddleName(Integer middleName) {
+    public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
 

@@ -13,19 +13,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-                <VBox alignment="CENTER" prefHeight="54.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Label text="QUERY PAGE">
-                            <font>
-                                <Font name="Aharoni Bold" size="25.0" />
-                            </font>
+            <HBox>
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label alignment="TOP_CENTER" prefHeight="31.0" text="Main Query Section" underline="true" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
                         </Label>
-                    </children>
-                </VBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" prefWidth="450.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
+                           <children>
+                              <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showQuickTransactionPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIconView>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
             </top>
             <center>
                 <TabPane fx:id="queryTabs" prefHeight="200.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
@@ -287,22 +307,6 @@
                                             </children>
                                         </VBox>
                                     </children></AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="Suppliers">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <children>
-                                        <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <children>
-                                                <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0" />
-                                            </children>
-                                            <padding>
-                                                <Insets top="10.0" />
-                                            </padding>
-                                        </VBox>
-                                    </children>
-                                </AnchorPane>
                             </content>
                         </Tab>
                     </tabs>

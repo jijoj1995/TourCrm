@@ -20,7 +20,7 @@ public class QueryService {
             return false;
         }
         try{
-            logger.warn("Converting dto object to entity obj to save in db");
+            logger.info("Converting dto object to entity obj to save in db");
             CoreLeadEntity coreLeadEntity= setValuesFromCoreLeadDto(coreLead);
 
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -150,6 +150,9 @@ public class QueryService {
             coreLeadEntity.getCoreLeadRailEntity().setTotalPax(coreLeadDto.getCoreLeadRail().getTotalPax());
             coreLeadEntity.getCoreLeadRailEntity().setTrainNumber(coreLeadDto.getCoreLeadRail().getTrainNumber());
         }
+
+        //bookingDetails
+        coreLeadEntity.setCorebookingEntity(coreLeadDto.getCoreBookingEntity());
         return coreLeadEntity;
     }
 
@@ -267,6 +270,8 @@ public class QueryService {
             coreLeadDto.getCoreLeadRail().setTotalPax(coreLeadEntity.getCoreLeadRailEntity().getTotalPax());
             coreLeadDto.getCoreLeadRail().setTrainNumber(coreLeadEntity.getCoreLeadRailEntity().getTrainNumber());
         }
+        //booking details
+        coreLeadDto.setCoreBookingEntity(coreLeadEntity.getCorebookingEntity());
         return coreLeadDto;
     }
 

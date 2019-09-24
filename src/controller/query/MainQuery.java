@@ -31,50 +31,17 @@ public class MainQuery implements Initializable {
     private Logger logger=Logger.getLogger(MainQuery.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+                                        //set window based on screen size
         initializeDefaultLayout();
-
+    }
+    public void initializeCoreLeadDto(CoreLead coreLead){
+                                 //this method called when already present queryData is clicked
+        this.coreLeadDto=coreLead;
+        initializeAllInputTextsFromDto(coreLeadDto);
     }
 
-    private void initializeDefaultLayout() {
-        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
-        queryTabs.setTabMinWidth(paneWidth);
-        queryTabs.setTabMaxWidth(paneWidth);
-
-    }
-
-
-    @FXML
-    private void showSubQueryPage() throws IOException {
-
-        logger.info("saving entered data to Core Lead dto before going to subQueryPage");
-        setTextFieldDataToDto();
-            //loading sub queryPage
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/query/subQuery.fxml"));
-        try {
-            Loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        SubQuery subQueryPage = Loader.getController();
-        subQueryPage.initializeCoreLeadObject(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
-    }
-    @FXML
-    private void showNotesTab() throws IOException {
-       //show notes tab upfront
-        Stage stage=new Stage();
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/notesPopup.fxml"));
-        stage.setScene(new Scene(root, 450, 450));
-        stage.show();
-
-    }
-
-    public void initializeAllInputTexts(CoreLead coreLeadDto){
-            logger.info("initialising all text fields from dto object");
+    public void initializeAllInputTextsFromDto(CoreLead coreLeadDto){
+        logger.info("initialising all text fields from dto object");
         if (coreLeadDto ==null){
             logger.warn("coreLeadDto is null. returning");
             return;
@@ -103,19 +70,24 @@ public class MainQuery implements Initializable {
         }
     }
 
-    @FXML
-    private void saveCompleteLeadInformation() throws IOException{
-       setTextFieldDataToDto();
 
-        //save to db
-        if (new QueryService().saveQueryData(coreLeadDto)){
-            //saving successfull
-            showQuickTransactionPage();
+
+    @FXML
+    private void showSubQueryPage(){
+        logger.info("saving entered data to Core Lead dto before going to subQueryPage");
+            setTextFieldDataToDto();
+            //loading sub queryPage
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("/view/query/subQuery.fxml"));
+        try {
+            Loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else{
-            Stage stage = (Stage) mainPane.getScene().getWindow();
-            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
-        }
+        SubQuery subQueryPage = Loader.getController();
+        subQueryPage.initializeCoreLeadObject(coreLeadDto);
+        Parent p = Loader.getRoot();
+        mainPane.getChildren().setAll(p);
     }
 
     private void setTextFieldDataToDto(){
@@ -145,12 +117,44 @@ public class MainQuery implements Initializable {
     }
 
     @FXML
+    private void showNotesTab() throws IOException {
+       //show notes tab upfront
+        Stage stage=new Stage();
+        Parent root= FXMLLoader.load(getClass().getResource("/view/query/notesPopup.fxml"));
+        stage.setScene(new Scene(root, 450, 450));
+        stage.show();
+
+    }
+
+    @FXML
+    private void saveCompleteLeadInformation() throws IOException{
+        //before saving set data from all textFields
+        setTextFieldDataToDto();
+
+            //save to db
+        if (new QueryService().saveQueryData(coreLeadDto)){
+            //saving successfull
+            showQuickTransactionPage();
+        }
+        else{
+            Stage stage = (Stage) mainPane.getScene().getWindow();
+            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+        }
+    }
+
+    @FXML
     private void showQuickTransactionPage() throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
         mainPane.getChildren().setAll(root);
     }
-    public void initializeCoreLeadDto(CoreLead coreLead){
-        this.coreLeadDto=coreLead;
-        initializeAllInputTexts(coreLeadDto);
+
+    private void initializeDefaultLayout() {
+        //setting window size based on screen size
+        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
+        mainPane.setPrefHeight(Main.HEIGHT - 30);
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
+        queryTabs.setTabMinWidth(paneWidth);
+        queryTabs.setTabMaxWidth(paneWidth);
+
     }
 }

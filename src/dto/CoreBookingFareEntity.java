@@ -13,7 +13,7 @@ public class CoreBookingFareEntity implements Serializable {
     @Column(name = "core_booking_fare_id")
     private Integer coreBookingFareId;
     private String departureCity;
-    private Integer arrivalCity;
+    private String arrivalCity;
     private String dateOfDeparture;
     private String trainNumber;
     private String numberOfAdult;
@@ -42,11 +42,11 @@ public class CoreBookingFareEntity implements Serializable {
         this.departureCity = departureCity;
     }
 
-    public Integer getArrivalCity() {
+    public String getArrivalCity() {
         return arrivalCity;
     }
 
-    public void setArrivalCity(Integer arrivalCity) {
+    public void setArrivalCity(String arrivalCity) {
         this.arrivalCity = arrivalCity;
     }
 

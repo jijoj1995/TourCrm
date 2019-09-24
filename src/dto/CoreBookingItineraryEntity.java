@@ -7,7 +7,6 @@ import java.io.Serializable;
 @Entity
 @Table( name = "core_booking_itinerary" )
 public class CoreBookingItineraryEntity implements Serializable {
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @PrimaryKeyJoinColumn
@@ -21,8 +20,8 @@ public class CoreBookingItineraryEntity implements Serializable {
     private String classType;
     private String travelType;
     private String departureDate;
-    private String from;
-    private String to;
+    private String fromDestination;
+    private String toDestination;
     private String departureTime;
     private String arrivalDate;
     private String arrivalTime;
@@ -100,20 +99,20 @@ public class CoreBookingItineraryEntity implements Serializable {
         this.departureDate = departureDate;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFromDestination() {
+        return fromDestination;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFromDestination(String fromDestination) {
+        this.fromDestination = fromDestination;
     }
 
-    public String getTo() {
-        return to;
+    public String getToDestination() {
+        return toDestination;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setToDestination(String toDestination) {
+        this.toDestination = toDestination;
     }
 
     public String getDepartureTime() {

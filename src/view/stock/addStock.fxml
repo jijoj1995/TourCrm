@@ -173,7 +173,7 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Label text="Add stocks from excel File" HBox.hgrow="NEVER">
+                                    <Label text="Add stocks fromDestination excel File" HBox.hgrow="NEVER">
                                        <font>
                                           <Font size="14.0" />
                                        </font>

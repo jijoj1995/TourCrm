@@ -73,7 +73,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-
        /* String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();

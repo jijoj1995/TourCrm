@@ -25,6 +25,7 @@ public class CoreLead implements Serializable {
     private CoreLeadHolidays coreLeadHolidays;
     private CoreLeadHotel coreLeadHotel;
     private CoreLeadRail coreLeadRail;
+    private CoreBookingEntity coreBookingEntity;
 
     public int getCoreLeadId() {
         return coreLeadId.get();
@@ -208,5 +209,13 @@ public class CoreLead implements Serializable {
 
     public void setCoreLeadRail(CoreLeadRail coreLeadRail) {
         this.coreLeadRail = coreLeadRail;
+    }
+
+    public CoreBookingEntity getCoreBookingEntity() {
+        return coreBookingEntity;
+    }
+
+    public void setCoreBookingEntity(CoreBookingEntity coreBookingEntity) {
+        this.coreBookingEntity = coreBookingEntity;
     }
 }

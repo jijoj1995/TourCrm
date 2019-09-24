@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table( name = "core_booking_status" )
-public class coreBookingStatusEntity implements Serializable {
+public class CoreBookingStatusEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "core_booking_status_id")

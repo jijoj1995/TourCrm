@@ -32,15 +32,19 @@ public class SubQuery implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
-
     }
 
+    public void initializeCoreLeadObject(CoreLead coreLead){
+        this.coreLeadDto = coreLead;
+        setAllTextFieldsFromDto();
+    }
     private void setAllTextFieldsFromDto(){
 
         //set data from coreLead Dto to all textfields
         logger.info(" in setAllTextFieldsFromDto method in sub query");
         if(coreLeadDto==null){
-            coreLeadDto=new CoreLead();
+           logger.warn("coreLead Dto is null. Returning");
+           return;
         }
         if(coreLeadDto.getCoreLeadHotel()!=null){
             setHotelTabTextFieldsFromDto();
@@ -107,29 +111,6 @@ public class SubQuery implements Initializable {
         railStatus.setText(coreLeadDto.getCoreLeadRail().getStatus());
     }
     private void setAirTabTextFieldsFromDto(){
-    }
-
-    private void initializeDefaultLayout() {
-        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 20;
-        queryTabs.setTabMinWidth(paneWidth);
-        queryTabs.setTabMaxWidth(paneWidth);
-    }
-
-    @FXML
-    private void showMainQueryPage() {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/query/mainQuery.fxml"));
-        try {
-            Loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        MainQuery mainQuery = Loader.getController();
-        mainQuery.initializeCoreLeadDto(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
     }
 
     @FXML
@@ -216,10 +197,28 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadRail().setTrainNumber(railTrainNumber.getText());
     }
 
-    public void initializeCoreLeadObject(CoreLead coreLead){
-        this.coreLeadDto = coreLead;
-        setAllTextFieldsFromDto();
+
+    @FXML
+    private void showMainQueryPage() {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("/view/query/mainQuery.fxml"));
+        try {
+            Loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        MainQuery mainQuery = Loader.getController();
+        mainQuery.initializeCoreLeadDto(coreLeadDto);
+        Parent p = Loader.getRoot();
+        mainPane.getChildren().setAll(p);
     }
 
+    private void initializeDefaultLayout() {
+        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
+        mainPane.setPrefHeight(Main.HEIGHT - 30);
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 20;
+        queryTabs.setTabMinWidth(paneWidth);
+        queryTabs.setTabMaxWidth(paneWidth);
+    }
 
 }
