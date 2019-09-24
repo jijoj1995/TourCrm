@@ -127,7 +127,7 @@ public class ListQueries implements Initializable {
                         "    -fx-border-radius: 20;\n" +
                         "    -fx-background-radius: 20;\n" +
                         "    -fx-padding: 5;-fx-min-width:100");
-                listIcon.setGlyphSize(25);
+                listIcon.setGlyphSize(30);
                 setGraphic(listIcon);
                 listIcon.setOnMouseClicked(event -> {
 
