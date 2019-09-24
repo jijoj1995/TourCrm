@@ -281,7 +281,9 @@ public class QueryService {
             QueriesListDto limitedQueriesListDto=new QueriesListDto();
             limitedQueriesListDto.setBranchCode(coreLeadEntity.getBranchCode());
             limitedQueriesListDto.setCallReason(coreLeadEntity.getCallReason());
-            limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
+            if (coreLeadEntity.getCoreLeadCommunicationEntity()!=null) {
+                limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
+            }
             limitedQueriesListDto.setFirstname(coreLeadEntity.getFirstName());
             limitedQueriesListDto.setLastName(coreLeadEntity.getLastName());
             limitedQueriesListDto.setQueryId(coreLeadEntity.getCoreLeadId());

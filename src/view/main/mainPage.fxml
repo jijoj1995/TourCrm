@@ -34,9 +34,9 @@
                <content>
                   <VBox prefWidth="200.0">
                      <children>
-                        <VBox alignment="TOP_CENTER">
+                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                            <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showQuickTransactionPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showQuickTransactionPage" size="65" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -56,7 +56,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showCustomerPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showCustomerPage" size="65" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -76,7 +76,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="DATABASE" onMouseClicked="#showStockPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                               <FontAwesomeIconView fill="WHITE" glyphName="DATABASE" onMouseClicked="#showStockPage" size="65" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
                                    <cursor>
                                        <Cursor fx:constant="HAND" />
                                    </cursor>
@@ -96,7 +96,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="MONEY" onMouseClicked="#showPaymentHistoryPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
+                               <FontAwesomeIconView fill="WHITE" glyphName="MONEY" onMouseClicked="#showPaymentHistoryPage" size="65" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
                                    <cursor>
                                        <Cursor fx:constant="HAND" />
                                    </cursor>
@@ -104,97 +104,6 @@
                               <Button fx:id="paymentButton" mnemonicParsing="false" onAction="#showPaymentHistoryPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Payments" textFill="#f5eded" VBox.vgrow="ALWAYS">
                                  <font>
                                      <Font name="Bell MT Bold" size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="USERS" onMouseClicked="#showSuppliersPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
-                                   <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                   </cursor>
-                               </FontAwesomeIconView>
-                               <Button fx:id="suppliersButton" mnemonicParsing="false" onAction="#showSuppliersPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Suppliers" textFill="#f5eded" VBox.vgrow="ALWAYS">
-                                 <font>
-                                     <Font name="Bell MT Bold" size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="BANK" onMouseClicked="#showSuppliersPaymentHistoryPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
-                                   <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                   </cursor>
-                               </FontAwesomeIconView>
-                              <Button fx:id="suppliersButton2" mnemonicParsing="false" onAction="#showSuppliersPaymentHistoryPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="S. Payments" textFill="#f5eded" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                           <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" onMouseClicked="#showSettingsPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
-                                   <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                   </cursor>
-                               </FontAwesomeIconView>
-                              <Button fx:id="settingsButton1" mnemonicParsing="false" onAction="#showSettingsPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Settings" textFill="#f5eded" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                               <FontAwesomeIconView fill="WHITE" glyphName="COMPASS" onMouseClicked="#showLoginPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" text="" VBox.vgrow="ALWAYS">
-                                   <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                   </cursor>
-                               </FontAwesomeIconView>
-                              <Button fx:id="settingsLogoutButton" mnemonicParsing="false" onAction="#showLoginPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="LogOut" textFill="#f5eded" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="570.0">
-                           <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="USER" onMouseClicked="#showCustomerPage" size="45" strokeType="OUTSIDE" strokeWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </FontAwesomeIconView>
-                              <Button fx:id="customerButton11" mnemonicParsing="false" onAction="#showCustomerPage" prefWidth="200.0" style="-fx-background-color: transparent;" text="Customer" textFill="#f5eded" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="18.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
