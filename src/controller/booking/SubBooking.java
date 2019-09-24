@@ -74,7 +74,7 @@ public class SubBooking implements Initializable {
             e.printStackTrace();
         }
         MainBooking mainBooking = Loader.getController();
-        mainBooking.initializeCoreBookingDto(coreBookingEntity);
+        //mainBooking.initializeCoreBookingDto(coreBookingEntity);
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
     }

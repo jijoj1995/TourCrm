@@ -61,9 +61,9 @@ public class Main extends Application {
         System.out.println(Main.STEP() + "MyApplication#init (doing some heavy lifting), thread: " + Thread.currentThread().getName());
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
-       /* Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        HibernateUtil.shutdown();*/
+        //HibernateUtil.shutdown();
       /*  for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));

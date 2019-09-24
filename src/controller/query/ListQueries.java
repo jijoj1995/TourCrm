@@ -1,5 +1,6 @@
 package controller.query;
 
+import controller.booking.MainBooking;
 import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -19,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import main.Main;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +51,7 @@ public class ListQueries implements Initializable {
 
     private ObservableList<QueriesListDto> masterData = FXCollections.observableArrayList();
     private QueryService queryService=new QueryService();
+    private Logger logger=Logger.getLogger(ListQueries.class);
 
     public ListQueries() {
         masterData.addAll(queryService.getAllQueriesList());
@@ -182,6 +185,23 @@ public class ListQueries implements Initializable {
     private void showMainQueryPage() throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/mainQuery.fxml"));
         mainPane.getChildren().setAll(root);
+    }
+
+    @FXML
+    private void showMainBookingPage(CoreLead coreLeadDto) throws IOException {
+        logger.info("showing Main booking page for query id= "+coreLeadDto.getCoreLeadId());
+        //loading mainBookingPage
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("/view/booking/mainBooking.fxml"));
+        try {
+            Loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        MainBooking mainBookingPage = Loader.getController();
+       // mainBookingPage.initializeCoreLeadObject(coreLeadDto);
+        Parent p = Loader.getRoot();
+        mainPane.getChildren().setAll(p);
     }
 
 

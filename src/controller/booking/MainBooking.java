@@ -94,8 +94,8 @@ public class MainBooking implements Initializable {
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
         mainPane.getChildren().setAll(root);
     }
-    public void initializeCoreBookingDto(CoreBookingEntity coreBookingEntity){
-        this.coreBookingEntity=coreBookingEntity;
+    public void initializeCoreLeadDto(CoreLead coreLead){
+       // this.coreBookingEntity=coreLead;
         initializeAllInputTexts(this.coreBookingEntity);
     }
 }
