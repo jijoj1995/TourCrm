@@ -74,21 +74,26 @@ public class QueryService {
         //airdetails
         if (coreLeadDto.getCoreLeadAir()!=null){
             coreLeadEntity.getCoreLeadAirEntity().setCoreLeadAirId(coreLeadDto.getCoreLeadAir().getCoreLeadAirId()==0? null:coreLeadDto.getCoreLeadAir().getCoreLeadAirId());
-            coreLeadEntity.getCoreLeadAirEntity().setCheckInDate(coreLeadDto.getCoreLeadAir().getCheckInDate());
-            coreLeadEntity.getCoreLeadAirEntity().setCheckoutDate(coreLeadDto.getCoreLeadAir().getCheckoutDate());
+
+            coreLeadEntity.getCoreLeadAirEntity().setFromDestination(coreLeadDto.getCoreLeadAir().getFromDestination());
+            coreLeadEntity.getCoreLeadAirEntity().setToDestination(coreLeadDto.getCoreLeadAir().getToDestination());
+            coreLeadEntity.getCoreLeadAirEntity().setDepartureDate(coreLeadDto.getCoreLeadAir().getDepartureDate());
+            coreLeadEntity.getCoreLeadAirEntity().setReturnDate(coreLeadDto.getCoreLeadAir().getReturnDate());
+            coreLeadEntity.getCoreLeadAirEntity().setAirlinesOffered(coreLeadDto.getCoreLeadAir().getAirlinesOffered());
             coreLeadEntity.getCoreLeadAirEntity().setCurrencyCode(coreLeadDto.getCoreLeadAir().getCurrencyCode());
-            coreLeadEntity.getCoreLeadAirEntity().setDestination(coreLeadDto.getCoreLeadAir().getDestination());
-            coreLeadEntity.getCoreLeadAirEntity().setExtraBed(coreLeadDto.getCoreLeadAir().getExtraBed());
-            coreLeadEntity.getCoreLeadAirEntity().setHotelCategory(coreLeadDto.getCoreLeadAir().getHotelCategory());
-            coreLeadEntity.getCoreLeadAirEntity().setHotelPlan(coreLeadDto.getCoreLeadAir().getHotelPlan());
             coreLeadEntity.getCoreLeadAirEntity().setNumberOfAdult(coreLeadDto.getCoreLeadAir().getNumberOfAdult());
             coreLeadEntity.getCoreLeadAirEntity().setNumberOfChild(coreLeadDto.getCoreLeadAir().getNumberOfChild());
-            coreLeadEntity.getCoreLeadAirEntity().setNumberOfInfants(coreLeadDto.getCoreLeadAir().getNumberOfInfants());
-            coreLeadEntity.getCoreLeadAirEntity().setNumberOfNights(coreLeadDto.getCoreLeadAir().getNumberOfNights());
-            coreLeadEntity.getCoreLeadAirEntity().setRoomTariff(coreLeadDto.getCoreLeadAir().getRoomTariff());
-            coreLeadEntity.getCoreLeadAirEntity().setStatus(coreLeadDto.getCoreLeadAir().getStatus());
+            coreLeadEntity.getCoreLeadAirEntity().setNumberOfInfant(coreLeadDto.getCoreLeadAir().getNumberOfInfant());
             coreLeadEntity.getCoreLeadAirEntity().setTotalPax(coreLeadDto.getCoreLeadAir().getTotalPax());
+            coreLeadEntity.getCoreLeadAirEntity().setAdultFare(coreLeadDto.getCoreLeadAir().getAdultFare());
+            coreLeadEntity.getCoreLeadAirEntity().setChildFare(coreLeadDto.getCoreLeadAir().getChildFare());
+            coreLeadEntity.getCoreLeadAirEntity().setInfantFare(coreLeadDto.getCoreLeadAir().getInfantFare());
             coreLeadEntity.getCoreLeadAirEntity().setTotalPrice(coreLeadDto.getCoreLeadAir().getTotalPrice());
+            coreLeadEntity.getCoreLeadAirEntity().setTypeOfTravel(coreLeadDto.getCoreLeadAir().getTypeOfTravel());
+            coreLeadEntity.getCoreLeadAirEntity().setClassOfTravel(coreLeadDto.getCoreLeadAir().getClassOfTravel());
+            coreLeadEntity.getCoreLeadAirEntity().setStatus(coreLeadDto.getCoreLeadAir().getStatus());
+
+
         }
 
         //hotelDetails
@@ -194,21 +199,23 @@ public class QueryService {
         //airdetails
         if (coreLeadEntity.getCoreLeadAirEntity()!=null){
             coreLeadDto.getCoreLeadAir().setCoreLeadAirId(coreLeadEntity.getCoreLeadAirEntity().getCoreLeadAirId());
-            coreLeadDto.getCoreLeadAir().setCheckInDate(coreLeadEntity.getCoreLeadAirEntity().getCheckInDate());
-            coreLeadDto.getCoreLeadAir().setCheckoutDate(coreLeadEntity.getCoreLeadAirEntity().getCheckoutDate());
+            coreLeadDto.getCoreLeadAir().setFromDestination(coreLeadEntity.getCoreLeadAirEntity().getFromDestination());
+            coreLeadDto.getCoreLeadAir().setToDestination(coreLeadEntity.getCoreLeadAirEntity().getToDestination());
+            coreLeadDto.getCoreLeadAir().setDepartureDate(coreLeadEntity.getCoreLeadAirEntity().getDepartureDate());
+            coreLeadDto.getCoreLeadAir().setReturnDate(coreLeadEntity.getCoreLeadAirEntity().getReturnDate());
+            coreLeadDto.getCoreLeadAir().setAirlinesOffered(coreLeadEntity.getCoreLeadAirEntity().getAirlinesOffered());
             coreLeadDto.getCoreLeadAir().setCurrencyCode(coreLeadEntity.getCoreLeadAirEntity().getCurrencyCode());
-            coreLeadDto.getCoreLeadAir().setDestination(coreLeadEntity.getCoreLeadAirEntity().getDestination());
-            coreLeadDto.getCoreLeadAir().setExtraBed(coreLeadEntity.getCoreLeadAirEntity().getExtraBed());
-            coreLeadDto.getCoreLeadAir().setHotelCategory(coreLeadEntity.getCoreLeadAirEntity().getHotelCategory());
-            coreLeadDto.getCoreLeadAir().setHotelPlan(coreLeadEntity.getCoreLeadAirEntity().getHotelPlan());
             coreLeadDto.getCoreLeadAir().setNumberOfAdult(coreLeadEntity.getCoreLeadAirEntity().getNumberOfAdult());
             coreLeadDto.getCoreLeadAir().setNumberOfChild(coreLeadEntity.getCoreLeadAirEntity().getNumberOfChild());
-            coreLeadDto.getCoreLeadAir().setNumberOfInfants(coreLeadEntity.getCoreLeadAirEntity().getNumberOfInfants());
-            coreLeadDto.getCoreLeadAir().setNumberOfNights(coreLeadEntity.getCoreLeadAirEntity().getNumberOfNights());
-            coreLeadDto.getCoreLeadAir().setRoomTariff(coreLeadEntity.getCoreLeadAirEntity().getRoomTariff());
-            coreLeadDto.getCoreLeadAir().setStatus(coreLeadEntity.getCoreLeadAirEntity().getStatus());
+            coreLeadDto.getCoreLeadAir().setNumberOfInfant(coreLeadEntity.getCoreLeadAirEntity().getNumberOfInfant());
             coreLeadDto.getCoreLeadAir().setTotalPax(coreLeadEntity.getCoreLeadAirEntity().getTotalPax());
+            coreLeadDto.getCoreLeadAir().setAdultFare(coreLeadEntity.getCoreLeadAirEntity().getAdultFare());
+            coreLeadDto.getCoreLeadAir().setChildFare(coreLeadEntity.getCoreLeadAirEntity().getChildFare());
+            coreLeadDto.getCoreLeadAir().setInfantFare(coreLeadEntity.getCoreLeadAirEntity().getInfantFare());
             coreLeadDto.getCoreLeadAir().setTotalPrice(coreLeadEntity.getCoreLeadAirEntity().getTotalPrice());
+            coreLeadDto.getCoreLeadAir().setTypeOfTravel(coreLeadEntity.getCoreLeadAirEntity().getTypeOfTravel());
+            coreLeadDto.getCoreLeadAir().setClassOfTravel(coreLeadEntity.getCoreLeadAirEntity().getClassOfTravel());
+            coreLeadDto.getCoreLeadAir().setStatus(coreLeadEntity.getCoreLeadAirEntity().getStatus());
         }
 
         //hotelDetails

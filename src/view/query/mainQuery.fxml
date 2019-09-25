@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -55,7 +55,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0">
                                     <children>
-                                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
                                                 <VBox VBox.vgrow="ALWAYS">
                                                     <VBox.margin>
@@ -139,7 +139,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Channel Code:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="channelCode" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="channelCode" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                 </HBox>
                                                                             </children>
@@ -161,7 +161,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Query Source:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="querySource" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="querySource" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                 </HBox>
                                                                             </children>
@@ -171,7 +171,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="currencyCode" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="currencyCode" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                     <opaqueInsets>
                                                                                         <Insets right="10.0" />
@@ -183,7 +183,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Shift:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="shift" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="shift" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                 </HBox>
                                                                             </children>
@@ -193,7 +193,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Reason of Call:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="reasonOfCall" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="reasonOfCall" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                     <opaqueInsets>
                                                                                         <Insets right="10.0" />
@@ -205,7 +205,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="LOB CODE:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXComboBox fx:id="lobCode" prefHeight="25.0" prefWidth="155.0" />
+                                                                  <JFXComboBox fx:id="lobCode" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                 </HBox>
                                                                             </children>
@@ -215,7 +215,7 @@
                                                                         <Insets />
                                                                     </HBox.margin>
                                                                     <padding>
-                                                                        <Insets left="50.0" right="50.0" />
+                                                                        <Insets left="30.0" right="30.0" />
                                                                     </padding>
 
                                                                 </VBox>

@@ -16,6 +16,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -110,7 +111,6 @@ public class ListQueries implements Initializable {
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
-            private final Button deleteButton = new Button();
             FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.LIST);
 
             @Override
@@ -120,13 +120,7 @@ public class ListQueries implements Initializable {
                     setGraphic(null);
                     return;
                 }
-
-                deleteButton.setText("Booking Section");
-                deleteButton.setStyle("-fx-text-fill: #006464;\n" +
-                        "    -fx-background-color: #b8ffb0;\n" +
-                        "    -fx-border-radius: 20;\n" +
-                        "    -fx-background-radius: 20;\n" +
-                        "    -fx-padding: 5;-fx-min-width:100");
+                listIcon.setCursor(Cursor.HAND);
                 listIcon.setGlyphSize(30);
                 setGraphic(listIcon);
                 listIcon.setOnMouseClicked(event -> {

@@ -1,6 +1,8 @@
 package controller.booking;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import constants.LeadsConstants;
 import dto.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,24 +22,28 @@ public class SubBooking implements Initializable {
     @FXML
     private TabPane bookingTabs;
     @FXML
-    private JFXTextField passengerSegmentNumber,passengerGdsPnrNumber,passengerFirstName,passengerMiddleName,passengerLastName,passengerType,
-            passengerGender,passengerDateOfBirth,passengerPassportNumber,passengerNationality,passengerTypeOfVisa,
+    private JFXTextField passengerSegmentNumber,passengerGdsPnrNumber,passengerFirstName,passengerMiddleName,passengerLastName,
+            passengerDateOfBirth,passengerPassportNumber,passengerNationality,passengerTypeOfVisa,
             pricingSellingPrice,pricingTotalGpm,pricingTotalCost,pricingDiscount,pricingServiceCharge,pricingTotalReceivable,pricingCommision,pricingCouponAmount,
             pricingLossAmount,pricingCurrencyCode,pricingTotalCommitted,pricingAmountDue,pricingTotalReceived,pricingSurcharges,
             itinerarySegmentnumber,itineraryAirlinePnr,itineraryPnrNumber,itineraryOfferedAirline,itineraryFlightnumber,itineraryClass,itineraryTravelType,
             itineraryDepartureTime,itineraryArrivalDate,itineraryArrivalTime,itineraryBookingStatus,itineraryDepartureDate,itineraryFrom,itineraryTo,
-            ticketingSegmentNumber,ticketingGdPnrNumber,ticketingFirstName,ticketingMiddleName,ticketingLastName,ticketingPassengerType,ticketingGender,
-            ticketingStatus,ticketingAirlines,ticketingTicketNumber,ticketingSupplier,
-            fareDepartureCity,fareArrivalCity,fareDateOfDeparture,fareTrainNumber,fareNumberOfAdult,fareNumberOfChild,fareNumberOfInfants,fareTotalPax,
-            fareAdultFare,fareChildFare,fareTotalFare,fareClassOfTravel,fareStatus,
-            promotionFirstName,promotionMiddleName,promotionLastName,promotionTypeOfPassenger,promotionTypeOfPromotion,promotionPromotionCode,
+            ticketingSegmentNumber,ticketingGdPnrNumber,ticketingFirstName,ticketingMiddleName,ticketingLastName,
+            ticketingAirlines,ticketingTicketNumber,ticketingSupplier,
+            fareSegmentNumber,fareGdsPnrNumber,farePassengerType,fareNumberOfPassenger,fareFromDestination,fareToDestination,fareAirlines,fareCurrencyCode,fareRoe,fareSupplier,fareBaseFare,
+            fareTaxes,fareCommissionPercent,fareCommissionAmount,fareServiceCharge,fareSellingPrice,fareDiscountAmount,fareLossAmount,
+            fareFreezeFareLine,fareDateChangePenalityBeforeDep,fareDateChangePenalityAfterDep,fareCancellationPenaltyBeforeDep,fareCancellationPenalityAfterDep,
+            promotionFirstName,promotionMiddleName,promotionLastName,promotionPromotionCode,promotionTypeOfPromotion,
             promotionDiscountAmount,promotionCurrencyCode;
+    @FXML
+    JFXComboBox<String> passengerType,passengerGender,ticketingPassengerType,ticketingGender,ticketingStatus,promotionTypeOfPassenger;
     private CoreBookingEntity coreBookingEntity;
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(SubBooking.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+        initialiseAllCheckBoxDefalutValues();
     }
 
 
@@ -67,9 +73,9 @@ public class SubBooking implements Initializable {
         passengerFirstName.setText(coreBookingEntity.getCoreBookingPassengerEntity().getFirstName());
         passengerMiddleName.setText(coreBookingEntity.getCoreBookingPassengerEntity().getMiddleName());
         passengerLastName.setText(coreBookingEntity.getCoreBookingPassengerEntity().getLastName());
-        passengerType.setText(coreBookingEntity.getCoreBookingPassengerEntity().getPassengerType());
+        passengerType.setValue(coreBookingEntity.getCoreBookingPassengerEntity().getPassengerType());
         passengerTypeOfVisa.setText(coreBookingEntity.getCoreBookingPassengerEntity().getTypeOfVisa());
-        passengerGender.setText(coreBookingEntity.getCoreBookingPassengerEntity().getGender());
+        passengerGender.setValue(coreBookingEntity.getCoreBookingPassengerEntity().getGender());
         passengerDateOfBirth.setText(coreBookingEntity.getCoreBookingPassengerEntity().getDateOfBirth());
         passengerPassportNumber.setText(coreBookingEntity.getCoreBookingPassengerEntity().getPassportNumber());
         passengerNationality.setText(coreBookingEntity.getCoreBookingPassengerEntity().getNationality());
@@ -113,33 +119,43 @@ public class SubBooking implements Initializable {
         ticketingFirstName.setText(coreBookingEntity.getCoreBookingTicketingEntity().getFirstName());
         ticketingMiddleName.setText(coreBookingEntity.getCoreBookingTicketingEntity().getMiddleName());
         ticketingLastName.setText(coreBookingEntity.getCoreBookingTicketingEntity().getLastName());
-        ticketingPassengerType.setText(coreBookingEntity.getCoreBookingTicketingEntity().getPassengerType());
-        ticketingGender.setText(coreBookingEntity.getCoreBookingTicketingEntity().getGender());
-        ticketingStatus.setText(coreBookingEntity.getCoreBookingTicketingEntity().getStatus());
+        ticketingPassengerType.setValue(coreBookingEntity.getCoreBookingTicketingEntity().getPassengerType());
+        ticketingGender.setValue(coreBookingEntity.getCoreBookingTicketingEntity().getGender());
+        ticketingStatus.setValue(coreBookingEntity.getCoreBookingTicketingEntity().getStatus());
         ticketingAirlines.setText(coreBookingEntity.getCoreBookingTicketingEntity().getAirlines());
         ticketingSupplier.setText(coreBookingEntity.getCoreBookingTicketingEntity().getSupplier());
         ticketingTicketNumber.setText(coreBookingEntity.getCoreBookingTicketingEntity().getTicketNumber());
     }
     private void initialiseFareDetailsFromDto(){
-        fareDepartureCity.setText(coreBookingEntity.getCoreBookingFareEntity().getDepartureCity());
-        fareArrivalCity.setText(coreBookingEntity.getCoreBookingFareEntity().getArrivalCity());
-        fareDateOfDeparture.setText(coreBookingEntity.getCoreBookingFareEntity().getDateOfDeparture());
-        fareTrainNumber.setText(coreBookingEntity.getCoreBookingFareEntity().getTrainNumber());
-        fareNumberOfAdult.setText(coreBookingEntity.getCoreBookingFareEntity().getNumberOfAdult());
-        fareNumberOfChild.setText(coreBookingEntity.getCoreBookingFareEntity().getNumberOfChild());
-        fareNumberOfInfants.setText(coreBookingEntity.getCoreBookingFareEntity().getNumberOfInfants());
-        fareTotalPax.setText(coreBookingEntity.getCoreBookingFareEntity().getTotalPax());
-        fareStatus.setText(coreBookingEntity.getCoreBookingFareEntity().getStatus());
-        fareAdultFare.setText(coreBookingEntity.getCoreBookingFareEntity().getAdultFare());
-        fareChildFare.setText(coreBookingEntity.getCoreBookingFareEntity().getChildFare());
-        fareTotalFare.setText(coreBookingEntity.getCoreBookingFareEntity().getTotalFare());
-        fareClassOfTravel.setText(coreBookingEntity.getCoreBookingFareEntity().getClassOfTravel());
+        fareSegmentNumber.setText(coreBookingEntity.getCoreBookingFareEntity().getSegmentNumber());
+        fareGdsPnrNumber.setText(coreBookingEntity.getCoreBookingFareEntity().getGdsPnrNumber());
+        farePassengerType.setText(coreBookingEntity.getCoreBookingFareEntity().getPassengerType());
+        fareNumberOfPassenger.setText(coreBookingEntity.getCoreBookingFareEntity().getNumberOfPassenger());
+        fareFromDestination.setText(coreBookingEntity.getCoreBookingFareEntity().getFromDestination());
+        fareToDestination.setText(coreBookingEntity.getCoreBookingFareEntity().getToDestination());
+        fareAirlines.setText(coreBookingEntity.getCoreBookingFareEntity().getAirlines());
+        fareCurrencyCode.setText(coreBookingEntity.getCoreBookingFareEntity().getCurrencyCode());
+        fareRoe.setText(coreBookingEntity.getCoreBookingFareEntity().getRoe());
+        fareSupplier.setText(coreBookingEntity.getCoreBookingFareEntity().getSupplier());
+        fareBaseFare.setText(coreBookingEntity.getCoreBookingFareEntity().getBaseFare());
+        fareTaxes.setText(coreBookingEntity.getCoreBookingFareEntity().getTaxes());
+        fareCommissionPercent.setText(coreBookingEntity.getCoreBookingFareEntity().getCommissionPercent());
+        fareCommissionAmount.setText(coreBookingEntity.getCoreBookingFareEntity().getCommissionAmount());
+        fareServiceCharge.setText(coreBookingEntity.getCoreBookingFareEntity().getServiceCharge());
+        fareSellingPrice.setText(coreBookingEntity.getCoreBookingFareEntity().getSellingPrice());
+        fareDiscountAmount.setText(coreBookingEntity.getCoreBookingFareEntity().getDiscountAmount());
+        fareLossAmount.setText(coreBookingEntity.getCoreBookingFareEntity().getLossAmount());
+        fareFreezeFareLine.setText(coreBookingEntity.getCoreBookingFareEntity().getFreezeFareLine());
+        fareDateChangePenalityBeforeDep.setText(coreBookingEntity.getCoreBookingFareEntity().getDateChangePenalitybeforeDep());
+        fareDateChangePenalityAfterDep.setText(coreBookingEntity.getCoreBookingFareEntity().getDateChangePenalityAfterDep());
+        fareCancellationPenaltyBeforeDep.setText(coreBookingEntity.getCoreBookingFareEntity().getCancellationPenaltyBeforeDep());
+        fareCancellationPenalityAfterDep.setText(coreBookingEntity.getCoreBookingFareEntity().getCancellationPenalityAfterDep());
     }
     private void initialisePromotionDetailsFromDto(){
         promotionFirstName.setText(coreBookingEntity.getCoreBookingPromotionEntity().getFirstName());
         promotionMiddleName.setText(coreBookingEntity.getCoreBookingPromotionEntity().getMiddleName());
         promotionLastName.setText(coreBookingEntity.getCoreBookingPromotionEntity().getLastName());
-        promotionTypeOfPassenger.setText(coreBookingEntity.getCoreBookingPromotionEntity().getTypeOfPassenger());
+        promotionTypeOfPassenger.setValue(coreBookingEntity.getCoreBookingPromotionEntity().getTypeOfPassenger());
         promotionDiscountAmount.setText(coreBookingEntity.getCoreBookingPromotionEntity().getDiscountAmount());
         promotionCurrencyCode.setText(coreBookingEntity.getCoreBookingPromotionEntity().getCurrencyCode());
         promotionTypeOfPromotion.setText(coreBookingEntity.getCoreBookingPromotionEntity().getTypeOfPromotion());
@@ -180,9 +196,9 @@ public class SubBooking implements Initializable {
         coreBookingEntity.getCoreBookingPassengerEntity().setFirstName(passengerFirstName.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setMiddleName(passengerMiddleName.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setLastName(passengerLastName.getText());
-        coreBookingEntity.getCoreBookingPassengerEntity().setPassengerType(passengerType.getText());
+        coreBookingEntity.getCoreBookingPassengerEntity().setPassengerType(passengerType.getValue());
         coreBookingEntity.getCoreBookingPassengerEntity().setTypeOfVisa(passengerTypeOfVisa.getText());
-        coreBookingEntity.getCoreBookingPassengerEntity().setGender(passengerGender.getText());
+        coreBookingEntity.getCoreBookingPassengerEntity().setGender(passengerGender.getValue());
         coreBookingEntity.getCoreBookingPassengerEntity().setDateOfBirth(passengerDateOfBirth.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setPassportNumber(passengerPassportNumber.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setNationality(passengerNationality.getText());
@@ -233,28 +249,38 @@ public class SubBooking implements Initializable {
         coreBookingEntity.getCoreBookingTicketingEntity().setFirstName(ticketingFirstName.getText());
         coreBookingEntity.getCoreBookingTicketingEntity().setMiddleName(ticketingMiddleName.getText());
         coreBookingEntity.getCoreBookingTicketingEntity().setLastName(ticketingLastName.getText());
-        coreBookingEntity.getCoreBookingTicketingEntity().setPassengerType(ticketingPassengerType.getText());
-        coreBookingEntity.getCoreBookingTicketingEntity().setGender(ticketingGender.getText());
-        coreBookingEntity.getCoreBookingTicketingEntity().setStatus(ticketingStatus.getText());
+        coreBookingEntity.getCoreBookingTicketingEntity().setPassengerType(ticketingPassengerType.getValue());
+        coreBookingEntity.getCoreBookingTicketingEntity().setGender(ticketingGender.getValue());
+        coreBookingEntity.getCoreBookingTicketingEntity().setStatus(ticketingStatus.getValue());
         coreBookingEntity.getCoreBookingTicketingEntity().setAirlines(ticketingAirlines.getText());
         coreBookingEntity.getCoreBookingTicketingEntity().setTicketNumber(ticketingTicketNumber.getText());
     }
     private void setFareDataToDto(){
         if(coreBookingEntity.getCoreBookingFareEntity()==null)coreBookingEntity.setCoreBookingFareEntity(new CoreBookingFareEntity());
 
-        coreBookingEntity.getCoreBookingFareEntity().setDepartureCity(fareDepartureCity.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setStatus(fareStatus.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setArrivalCity(fareArrivalCity.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setDateOfDeparture(fareDateOfDeparture.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setTrainNumber(fareTrainNumber.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setNumberOfAdult(fareNumberOfAdult.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setNumberOfChild(fareNumberOfChild.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setNumberOfInfants(fareNumberOfInfants.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setTotalPax(fareTotalPax.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setAdultFare(fareAdultFare.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setChildFare(fareChildFare.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setTotalFare(fareTotalFare.getText());
-        coreBookingEntity.getCoreBookingFareEntity().setClassOfTravel(fareClassOfTravel.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setSegmentNumber(fareSegmentNumber.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setGdsPnrNumber(fareGdsPnrNumber.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setPassengerType(farePassengerType.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setNumberOfPassenger(fareNumberOfPassenger.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setFromDestination(fareFromDestination.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setToDestination(fareToDestination.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setAirlines(fareAirlines.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setCurrencyCode(fareCurrencyCode.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setRoe(fareRoe.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setSupplier(fareSupplier.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setBaseFare(fareBaseFare.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setTaxes(fareTaxes.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setCommissionPercent(fareCommissionPercent.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setCommissionAmount(fareCommissionAmount.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setServiceCharge(fareServiceCharge.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setSellingPrice(fareSellingPrice.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setDiscountAmount(fareDiscountAmount.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setLossAmount(fareLossAmount.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setFreezeFareLine(fareFreezeFareLine.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setDateChangePenalitybeforeDep(fareDateChangePenalityBeforeDep.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setDateChangePenalityAfterDep(fareDateChangePenalityAfterDep.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setCancellationPenaltyBeforeDep(fareCancellationPenaltyBeforeDep.getText());
+        coreBookingEntity.getCoreBookingFareEntity().setCancellationPenalityAfterDep(fareCancellationPenalityAfterDep.getText());
 
     }
     private void setPromotionDataToDto(){
@@ -264,7 +290,7 @@ public class SubBooking implements Initializable {
         coreBookingEntity.getCoreBookingPromotionEntity().setFirstName(promotionFirstName.getText());
         coreBookingEntity.getCoreBookingPromotionEntity().setMiddleName(promotionMiddleName.getText());
         coreBookingEntity.getCoreBookingPromotionEntity().setLastName(promotionLastName.getText());
-        coreBookingEntity.getCoreBookingPromotionEntity().setTypeOfPassenger(promotionTypeOfPassenger.getText());
+        coreBookingEntity.getCoreBookingPromotionEntity().setTypeOfPassenger(promotionTypeOfPassenger.getValue());
         coreBookingEntity.getCoreBookingPromotionEntity().setTypeOfPromotion(promotionTypeOfPromotion.getText());
         coreBookingEntity.getCoreBookingPromotionEntity().setPromotionCode(promotionPromotionCode.getText());
         coreBookingEntity.getCoreBookingPromotionEntity().setDiscountAmount(promotionDiscountAmount.getText());
@@ -291,5 +317,27 @@ public class SubBooking implements Initializable {
         double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 6 - 20;
         bookingTabs.setTabMinWidth(paneWidth);
         bookingTabs.setTabMaxWidth(paneWidth);
+    }
+
+    private void initialiseAllCheckBoxDefalutValues(){
+
+        passengerType.getItems().addAll(LeadsConstants.passengerType);
+        passengerType.setValue(LeadsConstants.passengerType[0]);
+
+        ticketingPassengerType.getItems().addAll(LeadsConstants.passengerType);
+        ticketingPassengerType.setValue(LeadsConstants.passengerType[0]);
+
+        passengerGender.getItems().addAll(LeadsConstants.gender);
+        passengerGender.setValue(LeadsConstants.gender[0]);
+
+        ticketingGender.getItems().addAll(LeadsConstants.gender);
+        ticketingGender.setValue(LeadsConstants.gender[0]);
+
+        ticketingStatus.getItems().addAll(LeadsConstants.ticketStatus);
+        ticketingStatus.setValue(LeadsConstants.ticketStatus[0]);
+
+        promotionTypeOfPassenger.getItems().addAll(LeadsConstants.passengerType);
+        promotionTypeOfPassenger.setValue(LeadsConstants.passengerType[0]);
+
     }
 }

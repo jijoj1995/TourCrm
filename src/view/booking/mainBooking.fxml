@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
@@ -160,7 +161,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Channel Code:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="channelCode" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="channelCode" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -182,7 +183,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Query Source:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="querySource" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="querySource" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -204,7 +205,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="currencyCode" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="currencyCode" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -248,7 +249,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Supplier Name:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="supplierName" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="supplierName" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -582,7 +583,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Payment Committed" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="statusPaymentCommitted" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="statusPaymentCommitted" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />
@@ -598,7 +599,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="QC Status:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="statusQcStatus" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="statusQcStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />
@@ -646,7 +647,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Move toDestination Dispatch:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="statusMoveToDispatch" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXComboBox fx:id="statusMoveToDispatch" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />

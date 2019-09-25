@@ -8,22 +8,23 @@ import javafx.beans.property.StringProperty;
 public class CoreLeadAir {
 
     private IntegerProperty coreLeadAirId=new SimpleIntegerProperty();
-    private StringProperty destination=new SimpleStringProperty();
-    private StringProperty checkInDate=new SimpleStringProperty();
-    private StringProperty checkoutDate=new SimpleStringProperty();
+    private StringProperty fromDestination=new SimpleStringProperty();
+    private StringProperty toDestination=new SimpleStringProperty();
+    private StringProperty departureDate=new SimpleStringProperty();
+    private StringProperty returnDate=new SimpleStringProperty();
+    private StringProperty airlinesOffered=new SimpleStringProperty();
     private StringProperty currencyCode=new SimpleStringProperty();
-    private StringProperty hotelCategory=new SimpleStringProperty();
-    private StringProperty numberOfNights=new SimpleStringProperty();
     private StringProperty numberOfAdult=new SimpleStringProperty();
     private StringProperty numberOfChild=new SimpleStringProperty();
-    private StringProperty numberOfInfants=new SimpleStringProperty();
+    private StringProperty numberOfInfant=new SimpleStringProperty();
     private StringProperty totalPax=new SimpleStringProperty();
-    private StringProperty RoomTariff=new SimpleStringProperty();
-    private StringProperty ExtraBed=new SimpleStringProperty();
+    private StringProperty adultFare=new SimpleStringProperty();
+    private StringProperty childFare=new SimpleStringProperty();
+    private StringProperty infantFare=new SimpleStringProperty();
     private StringProperty totalPrice=new SimpleStringProperty();
-    private StringProperty hotelPlan=new SimpleStringProperty();
+    private StringProperty typeOfTravel=new SimpleStringProperty();
+    private StringProperty classOfTravel=new SimpleStringProperty();
     private StringProperty status=new SimpleStringProperty();
-
 
     public int getCoreLeadAirId() {
         return coreLeadAirId.get();
@@ -37,40 +38,64 @@ public class CoreLeadAir {
         this.coreLeadAirId.set(coreLeadAirId);
     }
 
-    public String getDestination() {
-        return destination.get();
+    public String getFromDestination() {
+        return fromDestination.get();
     }
 
-    public StringProperty destinationProperty() {
-        return destination;
+    public StringProperty fromDestinationProperty() {
+        return fromDestination;
     }
 
-    public void setDestination(String destination) {
-        this.destination.set(destination);
+    public void setFromDestination(String fromDestination) {
+        this.fromDestination.set(fromDestination);
     }
 
-    public String getCheckInDate() {
-        return checkInDate.get();
+    public String getToDestination() {
+        return toDestination.get();
     }
 
-    public StringProperty checkInDateProperty() {
-        return checkInDate;
+    public StringProperty toDestinationProperty() {
+        return toDestination;
     }
 
-    public void setCheckInDate(String checkInDate) {
-        this.checkInDate.set(checkInDate);
+    public void setToDestination(String toDestination) {
+        this.toDestination.set(toDestination);
     }
 
-    public String getCheckoutDate() {
-        return checkoutDate.get();
+    public String getDepartureDate() {
+        return departureDate.get();
     }
 
-    public StringProperty checkoutDateProperty() {
-        return checkoutDate;
+    public StringProperty departureDateProperty() {
+        return departureDate;
     }
 
-    public void setCheckoutDate(String checkoutDate) {
-        this.checkoutDate.set(checkoutDate);
+    public void setDepartureDate(String departureDate) {
+        this.departureDate.set(departureDate);
+    }
+
+    public String getReturnDate() {
+        return returnDate.get();
+    }
+
+    public StringProperty returnDateProperty() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate.set(returnDate);
+    }
+
+    public String getAirlinesOffered() {
+        return airlinesOffered.get();
+    }
+
+    public StringProperty airlinesOfferedProperty() {
+        return airlinesOffered;
+    }
+
+    public void setAirlinesOffered(String airlinesOffered) {
+        this.airlinesOffered.set(airlinesOffered);
     }
 
     public String getCurrencyCode() {
@@ -83,30 +108,6 @@ public class CoreLeadAir {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode.set(currencyCode);
-    }
-
-    public String getHotelCategory() {
-        return hotelCategory.get();
-    }
-
-    public StringProperty hotelCategoryProperty() {
-        return hotelCategory;
-    }
-
-    public void setHotelCategory(String hotelCategory) {
-        this.hotelCategory.set(hotelCategory);
-    }
-
-    public String getNumberOfNights() {
-        return numberOfNights.get();
-    }
-
-    public StringProperty numberOfNightsProperty() {
-        return numberOfNights;
-    }
-
-    public void setNumberOfNights(String numberOfNights) {
-        this.numberOfNights.set(numberOfNights);
     }
 
     public String getNumberOfAdult() {
@@ -133,16 +134,16 @@ public class CoreLeadAir {
         this.numberOfChild.set(numberOfChild);
     }
 
-    public String getNumberOfInfants() {
-        return numberOfInfants.get();
+    public String getNumberOfInfant() {
+        return numberOfInfant.get();
     }
 
-    public StringProperty numberOfInfantsProperty() {
-        return numberOfInfants;
+    public StringProperty numberOfInfantProperty() {
+        return numberOfInfant;
     }
 
-    public void setNumberOfInfants(String numberOfInfants) {
-        this.numberOfInfants.set(numberOfInfants);
+    public void setNumberOfInfant(String numberOfInfant) {
+        this.numberOfInfant.set(numberOfInfant);
     }
 
     public String getTotalPax() {
@@ -157,28 +158,40 @@ public class CoreLeadAir {
         this.totalPax.set(totalPax);
     }
 
-    public String getRoomTariff() {
-        return RoomTariff.get();
+    public String getAdultFare() {
+        return adultFare.get();
     }
 
-    public StringProperty roomTariffProperty() {
-        return RoomTariff;
+    public StringProperty adultFareProperty() {
+        return adultFare;
     }
 
-    public void setRoomTariff(String roomTariff) {
-        this.RoomTariff.set(roomTariff);
+    public void setAdultFare(String adultFare) {
+        this.adultFare.set(adultFare);
     }
 
-    public String getExtraBed() {
-        return ExtraBed.get();
+    public String getChildFare() {
+        return childFare.get();
     }
 
-    public StringProperty extraBedProperty() {
-        return ExtraBed;
+    public StringProperty childFareProperty() {
+        return childFare;
     }
 
-    public void setExtraBed(String extraBed) {
-        this.ExtraBed.set(extraBed);
+    public void setChildFare(String childFare) {
+        this.childFare.set(childFare);
+    }
+
+    public String getInfantFare() {
+        return infantFare.get();
+    }
+
+    public StringProperty infantFareProperty() {
+        return infantFare;
+    }
+
+    public void setInfantFare(String infantFare) {
+        this.infantFare.set(infantFare);
     }
 
     public String getTotalPrice() {
@@ -193,16 +206,28 @@ public class CoreLeadAir {
         this.totalPrice.set(totalPrice);
     }
 
-    public String getHotelPlan() {
-        return hotelPlan.get();
+    public String getTypeOfTravel() {
+        return typeOfTravel.get();
     }
 
-    public StringProperty hotelPlanProperty() {
-        return hotelPlan;
+    public StringProperty typeOfTravelProperty() {
+        return typeOfTravel;
     }
 
-    public void setHotelPlan(String hotelPlan) {
-        this.hotelPlan.set(hotelPlan);
+    public void setTypeOfTravel(String typeOfTravel) {
+        this.typeOfTravel.set(typeOfTravel);
+    }
+
+    public String getClassOfTravel() {
+        return classOfTravel.get();
+    }
+
+    public StringProperty classOfTravelProperty() {
+        return classOfTravel;
+    }
+
+    public void setClassOfTravel(String classOfTravel) {
+        this.classOfTravel.set(classOfTravel);
     }
 
     public String getStatus() {

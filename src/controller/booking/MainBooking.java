@@ -1,6 +1,8 @@
 package controller.booking;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import constants.LeadsConstants;
 import db.QueryService;
 import dto.*;
 import javafx.fxml.FXML;
@@ -25,18 +27,21 @@ public class MainBooking implements Initializable {
     @FXML
     private TabPane bookingTabs;
     @FXML
-    private JFXTextField bookingId,bookingTime,queryId,userId,firstName,middleName,lastName,departmentCode,channelCode,querySource,gdsType,currencyCode,
-    pnrNumber,dueDate,holdBooking,supplierName,lobCode,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
+    private JFXTextField bookingId,bookingTime,queryId,userId,firstName,middleName,lastName,departmentCode,gdsType,
+    pnrNumber,dueDate,holdBooking,lobCode,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
     billingAddressCity,billingAddressZipCode,shippingAddressName,shippingAddress1,shippingAddress2,shippingAddressState,shippingAddressCountry,
     shippingAddressCity,shippingAddressZipCode,communicationPaxEmail,communicationUsaMobile,communicationUsaWork,communicationLandline,
-    statusQueryDate,statusBookingDate,statusUserId,statusPaymentCommitted,statusQcStatus,statusQcDoneBy,statusQcDate,statusMoveToDispatch;
+    statusQueryDate,statusBookingDate,statusUserId,statusQcDoneBy,statusQcDate;
 
+    @FXML
+    JFXComboBox<String>channelCode,currencyCode,querySource,supplierName,statusPaymentCommitted,statusQcStatus,statusMoveToDispatch;
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
     private Logger logger =Logger.getLogger(MainBooking.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+        initialiseAllCheckBoxDefalutValues();
     }
 
     public void initializeCoreLeadDto(CoreLead coreLead){
@@ -71,13 +76,13 @@ public class MainBooking implements Initializable {
         middleName.setText(coreBookingEntity.getMiddleName());
         lastName.setText(coreBookingEntity.getLastName());
         departmentCode.setText(coreBookingEntity.getDepartmentCode());
-        channelCode.setText(coreBookingEntity.getChannelCode());
-        querySource.setText(coreBookingEntity.getQuerySource());
+        channelCode.setValue(coreBookingEntity.getChannelCode());
+        querySource.setValue(coreBookingEntity.getQuerySource());
         gdsType.setText(coreBookingEntity.getGdsType());
-        currencyCode.setText(coreBookingEntity.getCurrencyCode());
+        currencyCode.setValue(coreBookingEntity.getCurrencyCode());
         dueDate.setText(coreBookingEntity.getDueDate());
         pnrNumber.setText(coreBookingEntity.getPnrNumber());
-        supplierName.setText(coreBookingEntity.getSupplierName());
+        supplierName.setValue(coreBookingEntity.getSupplierName());
         lobCode.setText(coreBookingEntity.getLobCode());
         holdBooking.setText(coreBookingEntity.getHoldBooking());
     }
@@ -110,11 +115,11 @@ public class MainBooking implements Initializable {
         statusQueryDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate());
         statusBookingDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getBookingDate());
         statusUserId.setText(coreBookingEntity.getCoreBookingStatusEntity().getUserId());
-        statusPaymentCommitted.setText(coreBookingEntity.getCoreBookingStatusEntity().getPaymentCommitted());
-        statusQcStatus.setText(coreBookingEntity.getCoreBookingStatusEntity().getQcStatus());
+        statusPaymentCommitted.setValue(coreBookingEntity.getCoreBookingStatusEntity().getPaymentCommitted());
+        statusQcStatus.setValue(coreBookingEntity.getCoreBookingStatusEntity().getQcStatus());
         statusQcDoneBy.setText(coreBookingEntity.getCoreBookingStatusEntity().getQcDoneBy());
         statusQcDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getQcDate());
-        statusMoveToDispatch.setText(coreBookingEntity.getCoreBookingStatusEntity().getMoveToDispatch());
+        statusMoveToDispatch.setValue(coreBookingEntity.getCoreBookingStatusEntity().getMoveToDispatch());
     }
 
 
@@ -163,15 +168,15 @@ public class MainBooking implements Initializable {
         coreBookingEntity.setMiddleName(middleName.getText());
         coreBookingEntity.setLastName(lastName.getText());
         coreBookingEntity.setDepartmentCode(departmentCode.getText());
-        coreBookingEntity.setChannelCode(channelCode.getText());
-        coreBookingEntity.setQuerySource(querySource.getText());
+        coreBookingEntity.setChannelCode(channelCode.getValue());
+        coreBookingEntity.setQuerySource(querySource.getValue());
         coreBookingEntity.setGdsType(gdsType.getText());
-        coreBookingEntity.setCurrencyCode(currencyCode.getText());
+        coreBookingEntity.setCurrencyCode(currencyCode.getValue());
         coreBookingEntity.setPnrNumber(pnrNumber.getText());
         coreBookingEntity.setDueDate(dueDate.getText());
         coreBookingEntity.setHoldBooking(holdBooking.getText());
         coreBookingEntity.setLobCode(lobCode.getText());
-        coreBookingEntity.setSupplierName(supplierName.getText());
+        coreBookingEntity.setSupplierName(supplierName.getValue());
     }
 
     private void setBillingAddressTextFieldDataToDto(){
@@ -205,12 +210,12 @@ public class MainBooking implements Initializable {
         coreBookingEntity.getCoreBookingStatusEntity().setQueryDate(statusQueryDate.getText());
         coreBookingEntity.getCoreBookingStatusEntity().setBookingDate(statusBookingDate.getText());
         coreBookingEntity.getCoreBookingStatusEntity().setUserId(statusUserId.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setPaymentCommitted(statusPaymentCommitted.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setQcStatus(statusQcStatus.getText());
+        coreBookingEntity.getCoreBookingStatusEntity().setPaymentCommitted(statusPaymentCommitted.getValue());
+        coreBookingEntity.getCoreBookingStatusEntity().setQcStatus(statusQcStatus.getValue());
         coreBookingEntity.getCoreBookingStatusEntity().setQcDoneBy(statusQcDoneBy.getText());
         coreBookingEntity.getCoreBookingStatusEntity().setQcDate(statusQcDate.getText());
         coreBookingEntity.getCoreBookingStatusEntity().setQueryDate(statusQcDate.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setMoveToDispatch(statusMoveToDispatch.getText());
+        coreBookingEntity.getCoreBookingStatusEntity().setMoveToDispatch(statusMoveToDispatch.getValue());
     }
 
 
@@ -253,5 +258,27 @@ public class MainBooking implements Initializable {
         double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 5 - 20;
         bookingTabs.setTabMinWidth(paneWidth);
         bookingTabs.setTabMaxWidth(paneWidth);
+    }
+    private void initialiseAllCheckBoxDefalutValues(){
+        channelCode.getItems().addAll(LeadsConstants.channelCode);
+        channelCode.setValue(LeadsConstants.channelCode[0]);
+
+        querySource.getItems().addAll(LeadsConstants.querySource);
+        querySource.setValue(LeadsConstants.querySource[0]);
+
+        supplierName.getItems().addAll(LeadsConstants.supplierNames);
+        supplierName.setValue(LeadsConstants.supplierNames[0]);
+
+        currencyCode.getItems().addAll(LeadsConstants.currencyCodes);
+        currencyCode.setValue(LeadsConstants.currencyCodes[0]);
+
+        statusPaymentCommitted.getItems().addAll(LeadsConstants.committed);
+        statusPaymentCommitted.setValue(LeadsConstants.committed[0]);
+
+        statusQcStatus.getItems().addAll(LeadsConstants.qcStatus);
+        statusQcStatus.setValue(LeadsConstants.qcStatus[0]);
+
+        statusMoveToDispatch.getItems().addAll(LeadsConstants.committed);
+        statusMoveToDispatch.setValue(LeadsConstants.committed[0]);
     }
 }

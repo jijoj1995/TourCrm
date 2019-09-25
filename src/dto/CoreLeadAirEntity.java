@@ -12,23 +12,23 @@ public class CoreLeadAirEntity implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "core_lead_air_id")
     private Integer coreLeadAirId;
-    private String destination;
-    private String checkInDate;
-    private String checkoutDate;
+    private String fromDestination;
+    private String toDestination;
+    private String departureDate;
+    private String returnDate;
+    private String airlinesOffered;
     private String currencyCode;
-    private String hotelCategory;
-    private String numberOfNights;
     private String numberOfAdult;
     private String numberOfChild;
-    private String numberOfInfants;
+    private String numberOfInfant;
     private String totalPax;
-    private String RoomTariff;
-    private String ExtraBed;
+    private String adultFare;
+    private String childFare;
+    private String infantFare;
     private String totalPrice;
-    private String hotelPlan;
+    private String typeOfTravel;
+    private String classOfTravel;
     private String status;
-
-
 
     public Integer getCoreLeadAirId() {
         return coreLeadAirId;
@@ -38,28 +38,44 @@ public class CoreLeadAirEntity implements Serializable {
         this.coreLeadAirId = coreLeadAirId;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getFromDestination() {
+        return fromDestination;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setFromDestination(String fromDestination) {
+        this.fromDestination = fromDestination;
     }
 
-    public String getCheckInDate() {
-        return checkInDate;
+    public String getToDestination() {
+        return toDestination;
     }
 
-    public void setCheckInDate(String checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setToDestination(String toDestination) {
+        this.toDestination = toDestination;
     }
 
-    public String getCheckoutDate() {
-        return checkoutDate;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setCheckoutDate(String checkoutDate) {
-        this.checkoutDate = checkoutDate;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public String getAirlinesOffered() {
+        return airlinesOffered;
+    }
+
+    public void setAirlinesOffered(String airlinesOffered) {
+        this.airlinesOffered = airlinesOffered;
     }
 
     public String getCurrencyCode() {
@@ -68,22 +84,6 @@ public class CoreLeadAirEntity implements Serializable {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
-    }
-
-    public String getHotelCategory() {
-        return hotelCategory;
-    }
-
-    public void setHotelCategory(String hotelCategory) {
-        this.hotelCategory = hotelCategory;
-    }
-
-    public String getNumberOfNights() {
-        return numberOfNights;
-    }
-
-    public void setNumberOfNights(String numberOfNights) {
-        this.numberOfNights = numberOfNights;
     }
 
     public String getNumberOfAdult() {
@@ -102,12 +102,12 @@ public class CoreLeadAirEntity implements Serializable {
         this.numberOfChild = numberOfChild;
     }
 
-    public String getNumberOfInfants() {
-        return numberOfInfants;
+    public String getNumberOfInfant() {
+        return numberOfInfant;
     }
 
-    public void setNumberOfInfants(String numberOfInfants) {
-        this.numberOfInfants = numberOfInfants;
+    public void setNumberOfInfant(String numberOfInfant) {
+        this.numberOfInfant = numberOfInfant;
     }
 
     public String getTotalPax() {
@@ -118,20 +118,28 @@ public class CoreLeadAirEntity implements Serializable {
         this.totalPax = totalPax;
     }
 
-    public String getRoomTariff() {
-        return RoomTariff;
+    public String getAdultFare() {
+        return adultFare;
     }
 
-    public void setRoomTariff(String roomTariff) {
-        RoomTariff = roomTariff;
+    public void setAdultFare(String adultFare) {
+        this.adultFare = adultFare;
     }
 
-    public String getExtraBed() {
-        return ExtraBed;
+    public String getChildFare() {
+        return childFare;
     }
 
-    public void setExtraBed(String extraBed) {
-        ExtraBed = extraBed;
+    public void setChildFare(String childFare) {
+        this.childFare = childFare;
+    }
+
+    public String getInfantFare() {
+        return infantFare;
+    }
+
+    public void setInfantFare(String infantFare) {
+        this.infantFare = infantFare;
     }
 
     public String getTotalPrice() {
@@ -142,12 +150,20 @@ public class CoreLeadAirEntity implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public String getHotelPlan() {
-        return hotelPlan;
+    public String getTypeOfTravel() {
+        return typeOfTravel;
     }
 
-    public void setHotelPlan(String hotelPlan) {
-        this.hotelPlan = hotelPlan;
+    public void setTypeOfTravel(String typeOfTravel) {
+        this.typeOfTravel = typeOfTravel;
+    }
+
+    public String getClassOfTravel() {
+        return classOfTravel;
+    }
+
+    public void setClassOfTravel(String classOfTravel) {
+        this.classOfTravel = classOfTravel;
     }
 
     public String getStatus() {

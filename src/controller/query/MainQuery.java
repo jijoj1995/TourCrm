@@ -2,6 +2,7 @@ package controller.query;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import constants.LeadsConstants;
 import db.QueryService;
 import dto.*;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ public class MainQuery implements Initializable {
     @FXML
     private JFXTextField firstName,middleName,lastName,userId,branchCode,country,paxEmail,usaMobile,landLine,usaWork;
     @FXML
-    private JFXComboBox channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
+    private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
 
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
@@ -36,21 +37,7 @@ public class MainQuery implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
                                         //set window based on screen size
         initializeDefaultLayout();
-        channelCode.getItems().addAll("Phone","Chat","Email");
-        channelCode.setValue("Phone");
-        querySource.getItems().addAll("Google","Reference","Info","Sulekha","Just Dial");
-        querySource.setValue("Google");
-        reasonOfCall.getItems().addAll("Fresh Call","Fresh Chat","Repeat Call","Post Sales Call","Post Sales Chat","Call Drop","Chat Drop","Promotions","" +
-                "Airlines Info","Others","Suppliers Call","Supervisor Call");
-        reasonOfCall.setValue("Fresh Call");
-        currencyCode.getItems().addAll("USD","INR","CAD");
-        currencyCode.setValue("INR");
-        lobCode.getItems().addAll("US","IN");
-        lobCode.setValue("IN");
-        shift.getItems().addAll("Morning","Evening");
-        shift.setValue("Morning");
-
-
+        initialiseAllCheckBoxDefalutValues();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
@@ -58,7 +45,7 @@ public class MainQuery implements Initializable {
         initializeAllInputTextsFromDto(coreLeadDto);
     }
 
-    public void initializeAllInputTextsFromDto(CoreLead coreLeadDto){
+    private void initializeAllInputTextsFromDto(CoreLead coreLeadDto){
         logger.info("initialising all text fields from dto object");
         if (coreLeadDto ==null){
             logger.warn("coreLeadDto is null. returning");
@@ -80,12 +67,10 @@ public class MainQuery implements Initializable {
             logger.warn("coreLeadCommunication object is null of coreLead. returning");
             return;
         }
-        else {
             paxEmail.setText(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
             usaMobile.setText(coreLeadDto.getCoreLeadCommunication().getUsaMobile());
             landLine.setText(coreLeadDto.getCoreLeadCommunication().getLandline());
             usaWork.setText(coreLeadDto.getCoreLeadCommunication().getUsaWorkNumber());
-        }
     }
 
 
@@ -112,21 +97,21 @@ public class MainQuery implements Initializable {
         if (coreLeadDto ==null){
             coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
-            coreLeadDto.setCoreLeadAir(new CoreLeadAir());
-            coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
-            coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
-            coreLeadDto.setCoreLeadRail(new CoreLeadRail());
+           // coreLeadDto.setCoreLeadAir(new CoreLeadAir());
+          //  coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
+           // coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
+           // coreLeadDto.setCoreLeadRail(new CoreLeadRail());
         }
         coreLeadDto.setFirstName(firstName.getText());
         coreLeadDto.setMiddleName(middleName.getText());
         coreLeadDto.setLastName(lastName.getText());
-        coreLeadDto.setChannelCode((String)channelCode.getValue());
+        coreLeadDto.setChannelCode(channelCode.getValue());
         coreLeadDto.setCountry(country.getText());
-        coreLeadDto.setQuerySource((String)querySource.getValue());
-        coreLeadDto.setCurrencyCode((String)currencyCode.getValue());
-        coreLeadDto.setShift((String)shift.getValue());
-        coreLeadDto.setCallReason((String)reasonOfCall.getValue());
-        coreLeadDto.setLobCode((String)lobCode.getValue());
+        coreLeadDto.setQuerySource(querySource.getValue());
+        coreLeadDto.setCurrencyCode(currencyCode.getValue());
+        coreLeadDto.setShift(shift.getValue());
+        coreLeadDto.setCallReason(reasonOfCall.getValue());
+        coreLeadDto.setLobCode(lobCode.getValue());
         coreLeadDto.setBranchCode(branchCode.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(usaWork.getText());
         coreLeadDto.getCoreLeadCommunication().setPaxEmail(paxEmail.getText());
@@ -166,11 +151,30 @@ public class MainQuery implements Initializable {
         mainPane.getChildren().setAll(root);
     }
 
+    private void initialiseAllCheckBoxDefalutValues(){
+        currencyCode.getItems().addAll(LeadsConstants.currencyCodes);
+        currencyCode.setValue(LeadsConstants.currencyCodes[0]);
+
+        channelCode.getItems().addAll(LeadsConstants.channelCode);
+        channelCode.setValue(LeadsConstants.channelCode[0]);
+
+        querySource.getItems().addAll(LeadsConstants.querySource);
+        querySource.setValue(LeadsConstants.querySource[0]);
+
+        reasonOfCall.getItems().addAll(LeadsConstants.reasonOfCall);
+        reasonOfCall.setValue(LeadsConstants.reasonOfCall[0]);
+
+        lobCode.getItems().addAll(LeadsConstants.lobCode);
+        lobCode.setValue(LeadsConstants.lobCode[0]);
+
+        shift.getItems().addAll(LeadsConstants.shift);
+        shift.setValue(LeadsConstants.shift[0]);
+    }
     private void initializeDefaultLayout() {
         //setting window size based on screen size
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 2 - 20;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
 

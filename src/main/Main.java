@@ -124,7 +124,7 @@ public class Main extends Application {
         }
         else {
             root = FXMLLoader.load(getClass().getResource("/view/login/loginPage.fxml"));
-            primaryStage.setTitle("Inventory Management");
+            primaryStage.setTitle("CRM");
         }
 
 

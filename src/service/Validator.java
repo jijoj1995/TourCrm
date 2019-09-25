@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -90,35 +91,8 @@ public class Validator {
      * @param s pass in the string to be validated
      * @return boolean
      */
-    public static boolean isIntegerGreaterThanZero(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                Integer i = new Integer(s);
-                if (i.intValue() > 0) {
-                    return true;
-                }
-                else return false;
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
 
-    public static boolean isNotNullGreaterThanZero(Integer it) {
-        if ((it != null) && (it.intValue() > 0)) {
-            return true;
-        }
-        return false;
-    }
 
-    public static boolean isNotNullGreaterThanZero(Long value) {
-        if ((value != null) && (value.longValue() > 0)) {
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Validate if a string is a long value
@@ -193,18 +167,6 @@ public class Validator {
 
     }
 
-    /**
-     * Validate if the string is a short US Zip code
-     * @param s
-     * @return
-     */
-    public static boolean isShortUSZip(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            return (isIntegerBetween(s.trim(),0,99999) && s.trim().length() == 5);
-        } else {
-            return false;
-        }
-    }
 
     public static boolean isNotNullOrEmpty(String s) {
         return !isNullOrEmpty(s);
@@ -233,4 +195,10 @@ public class Validator {
             e.consume();
         }
     }
+
+   /* public static LocalDate getLocalDateFromString(String s) {
+
+        return true;
+
+    }*/
 }
