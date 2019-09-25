@@ -1,5 +1,6 @@
 package controller.query;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import db.QueryService;
 import dto.*;
@@ -25,7 +26,9 @@ public class MainQuery implements Initializable {
     @FXML
     private TabPane queryTabs;
     @FXML
-    private JFXTextField firstName,middleName,lastName,userId,branchCode,channelCode,country,querySource,currencyCode,shift,reasonOfCall,lobCode,paxEmail,usaMobile,landLine,usaWork;
+    private JFXTextField firstName,middleName,lastName,userId,branchCode,country,paxEmail,usaMobile,landLine,usaWork;
+    @FXML
+    private JFXComboBox channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
 
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
@@ -33,6 +36,21 @@ public class MainQuery implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
                                         //set window based on screen size
         initializeDefaultLayout();
+        channelCode.getItems().addAll("Phone","Chat","Email");
+        channelCode.setValue("Phone");
+        querySource.getItems().addAll("Google","Reference","Info","Sulekha","Just Dial");
+        querySource.setValue("Google");
+        reasonOfCall.getItems().addAll("Fresh Call","Fresh Chat","Repeat Call","Post Sales Call","Post Sales Chat","Call Drop","Chat Drop","Promotions","" +
+                "Airlines Info","Others","Suppliers Call","Supervisor Call");
+        reasonOfCall.setValue("Fresh Call");
+        currencyCode.getItems().addAll("USD","INR","CAD");
+        currencyCode.setValue("INR");
+        lobCode.getItems().addAll("US","IN");
+        lobCode.setValue("IN");
+        shift.getItems().addAll("Morning","Evening");
+        shift.setValue("Morning");
+
+
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
@@ -51,13 +69,13 @@ public class MainQuery implements Initializable {
         middleName.setText(coreLeadDto.getMiddleName());
         lastName.setText(coreLeadDto.getLastName());
         branchCode.setText(coreLeadDto.getBranchCode());
-        channelCode.setText(coreLeadDto.getChannelCode());
+        channelCode.setValue(coreLeadDto.getChannelCode());
         country.setText(coreLeadDto.getCountry());
-        querySource.setText(coreLeadDto.getQuerySource());
-        currencyCode.setText(coreLeadDto.getCurrencyCode());
-        shift.setText(coreLeadDto.getShift());
-        reasonOfCall.setText(coreLeadDto.getCallReason());
-        lobCode.setText(coreLeadDto.getLobCode());
+        querySource.setValue(coreLeadDto.getQuerySource());
+        currencyCode.setValue(coreLeadDto.getCurrencyCode());
+        shift.setValue(coreLeadDto.getShift());
+        reasonOfCall.setValue(coreLeadDto.getCallReason());
+        lobCode.setValue(coreLeadDto.getLobCode());
         if(coreLeadDto.getCoreLeadCommunication()==null){
             logger.warn("coreLeadCommunication object is null of coreLead. returning");
             return;
@@ -102,13 +120,13 @@ public class MainQuery implements Initializable {
         coreLeadDto.setFirstName(firstName.getText());
         coreLeadDto.setMiddleName(middleName.getText());
         coreLeadDto.setLastName(lastName.getText());
-        coreLeadDto.setChannelCode(channelCode.getText());
+        coreLeadDto.setChannelCode((String)channelCode.getValue());
         coreLeadDto.setCountry(country.getText());
-        coreLeadDto.setQuerySource(querySource.getText());
-        coreLeadDto.setCurrencyCode(currencyCode.getText());
-        coreLeadDto.setShift(shift.getText());
-        coreLeadDto.setCallReason(reasonOfCall.getText());
-        coreLeadDto.setLobCode(lobCode.getText());
+        coreLeadDto.setQuerySource((String)querySource.getValue());
+        coreLeadDto.setCurrencyCode((String)currencyCode.getValue());
+        coreLeadDto.setShift((String)shift.getValue());
+        coreLeadDto.setCallReason((String)reasonOfCall.getValue());
+        coreLeadDto.setLobCode((String)lobCode.getValue());
         coreLeadDto.setBranchCode(branchCode.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(usaWork.getText());
         coreLeadDto.getCoreLeadCommunication().setPaxEmail(paxEmail.getText());
