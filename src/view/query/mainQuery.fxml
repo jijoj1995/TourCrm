@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -328,7 +328,7 @@
                                                       <Cursor fx:constant="HAND" />
                                                   </cursor>
                                               </FontAwesomeIconView>
-                        <FontAwesomeIconView fx:id="admin1" fill="#022f02" glyphName="DATABASE" layoutX="50.0" layoutY="50.0" onMouseClicked="#showNotesTab" size="35" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                        <FontAwesomeIconView fx:id="admin1" fill="#022f02" glyphName="DATABASE" layoutX="50.0" layoutY="50.0" onMouseClicked="#showNotesTab" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

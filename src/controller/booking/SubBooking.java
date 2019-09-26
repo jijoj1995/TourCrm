@@ -1,7 +1,9 @@
 package controller.booking;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTimePicker;
 import constants.LeadsConstants;
 import dto.*;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.Validator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,11 +26,11 @@ public class SubBooking implements Initializable {
     private TabPane bookingTabs;
     @FXML
     private JFXTextField passengerSegmentNumber,passengerGdsPnrNumber,passengerFirstName,passengerMiddleName,passengerLastName,
-            passengerDateOfBirth,passengerPassportNumber,passengerNationality,passengerTypeOfVisa,
+            passengerPassportNumber,passengerNationality,passengerTypeOfVisa,
             pricingSellingPrice,pricingTotalGpm,pricingTotalCost,pricingDiscount,pricingServiceCharge,pricingTotalReceivable,pricingCommision,pricingCouponAmount,
             pricingLossAmount,pricingCurrencyCode,pricingTotalCommitted,pricingAmountDue,pricingTotalReceived,pricingSurcharges,
             itinerarySegmentnumber,itineraryAirlinePnr,itineraryPnrNumber,itineraryOfferedAirline,itineraryFlightnumber,itineraryClass,itineraryTravelType,
-            itineraryDepartureTime,itineraryArrivalDate,itineraryArrivalTime,itineraryBookingStatus,itineraryDepartureDate,itineraryFrom,itineraryTo,
+            itineraryBookingStatus,itineraryFrom,itineraryTo,
             ticketingSegmentNumber,ticketingGdPnrNumber,ticketingFirstName,ticketingMiddleName,ticketingLastName,
             ticketingAirlines,ticketingTicketNumber,ticketingSupplier,
             fareSegmentNumber,fareGdsPnrNumber,farePassengerType,fareNumberOfPassenger,fareFromDestination,fareToDestination,fareAirlines,fareCurrencyCode,fareRoe,fareSupplier,fareBaseFare,
@@ -37,6 +40,10 @@ public class SubBooking implements Initializable {
             promotionDiscountAmount,promotionCurrencyCode;
     @FXML
     JFXComboBox<String> passengerType,passengerGender,ticketingPassengerType,ticketingGender,ticketingStatus,promotionTypeOfPassenger;
+    @FXML
+    private JFXDatePicker passengerDateOfBirth,itineraryArrivalDate,itineraryDepartureDate;
+    @FXML
+    private JFXTimePicker itineraryDepartureTime,itineraryArrivalTime;
     private CoreBookingEntity coreBookingEntity;
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(SubBooking.class);
@@ -76,7 +83,7 @@ public class SubBooking implements Initializable {
         passengerType.setValue(coreBookingEntity.getCoreBookingPassengerEntity().getPassengerType());
         passengerTypeOfVisa.setText(coreBookingEntity.getCoreBookingPassengerEntity().getTypeOfVisa());
         passengerGender.setValue(coreBookingEntity.getCoreBookingPassengerEntity().getGender());
-        passengerDateOfBirth.setText(coreBookingEntity.getCoreBookingPassengerEntity().getDateOfBirth());
+        passengerDateOfBirth.setValue(Validator.getLocalDateFromString(coreBookingEntity.getCoreBookingPassengerEntity().getDateOfBirth()));
         passengerPassportNumber.setText(coreBookingEntity.getCoreBookingPassengerEntity().getPassportNumber());
         passengerNationality.setText(coreBookingEntity.getCoreBookingPassengerEntity().getNationality());
 
@@ -100,18 +107,18 @@ public class SubBooking implements Initializable {
     private void initialiseItineraryDetailsFromDto(){
         itinerarySegmentnumber.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
         itineraryAirlinePnr.setText(coreBookingEntity.getCoreBookingItineraryEntity().getAirlinePnr());
-        itineraryPnrNumber.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryOfferedAirline.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryFlightnumber.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryClass.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryTravelType.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryTo.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryDepartureTime.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryArrivalDate.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryArrivalTime.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryBookingStatus.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
-        itineraryDepartureDate.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
+        itineraryPnrNumber.setText(coreBookingEntity.getCoreBookingItineraryEntity().getPnrNumber());
+        itineraryOfferedAirline.setText(coreBookingEntity.getCoreBookingItineraryEntity().getOfferedAirline());
+        itineraryFlightnumber.setText(coreBookingEntity.getCoreBookingItineraryEntity().getFlightNumber());
+        itineraryClass.setText(coreBookingEntity.getCoreBookingItineraryEntity().getClassType());
+        itineraryTravelType.setText(coreBookingEntity.getCoreBookingItineraryEntity().getTravelType());
+        itineraryTo.setText(coreBookingEntity.getCoreBookingItineraryEntity().getToDestination());
+        itineraryBookingStatus.setText(coreBookingEntity.getCoreBookingItineraryEntity().getBookingStatus());
         itineraryFrom.setText(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber());
+        itineraryDepartureTime.setValue(Validator.getNotNullLocalTimeFromString(coreBookingEntity.getCoreBookingItineraryEntity().getDepartureTime()));
+        itineraryArrivalTime.setValue(Validator.getNotNullLocalTimeFromString(coreBookingEntity.getCoreBookingItineraryEntity().getArrivalTime()));
+        itineraryDepartureDate.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getCoreBookingItineraryEntity().getSegmentNumber()));
+        itineraryArrivalDate.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getCoreBookingItineraryEntity().getArrivalDate()));
     }
     private void initialiseTicketingDetailsFromDto(){
         ticketingSegmentNumber.setText(coreBookingEntity.getCoreBookingTicketingEntity().getSegmentNumber());
@@ -199,7 +206,7 @@ public class SubBooking implements Initializable {
         coreBookingEntity.getCoreBookingPassengerEntity().setPassengerType(passengerType.getValue());
         coreBookingEntity.getCoreBookingPassengerEntity().setTypeOfVisa(passengerTypeOfVisa.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setGender(passengerGender.getValue());
-        coreBookingEntity.getCoreBookingPassengerEntity().setDateOfBirth(passengerDateOfBirth.getText());
+        coreBookingEntity.getCoreBookingPassengerEntity().setDateOfBirth(Validator.getStringDateValue(passengerDateOfBirth.getValue()));
         coreBookingEntity.getCoreBookingPassengerEntity().setPassportNumber(passengerPassportNumber.getText());
         coreBookingEntity.getCoreBookingPassengerEntity().setNationality(passengerNationality.getText());
 
@@ -231,13 +238,13 @@ public class SubBooking implements Initializable {
         coreBookingEntity.getCoreBookingItineraryEntity().setOfferedAirline(itineraryOfferedAirline.getText());
         coreBookingEntity.getCoreBookingItineraryEntity().setFlightNumber(itineraryFlightnumber.getText());
         coreBookingEntity.getCoreBookingItineraryEntity().setClassType(itineraryClass.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setTravelType(itineraryTravelType.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setDepartureTime(itineraryDepartureTime.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setArrivalDate(itineraryArrivalDate.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setArrivalTime(itineraryArrivalTime.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setBookingStatus(itineraryBookingStatus.getText());
-        coreBookingEntity.getCoreBookingItineraryEntity().setDepartureDate(itineraryDepartureDate.getText());
         coreBookingEntity.getCoreBookingItineraryEntity().setFromDestination(itineraryFrom.getText());
+        coreBookingEntity.getCoreBookingItineraryEntity().setTravelType(itineraryTravelType.getText());
+        coreBookingEntity.getCoreBookingItineraryEntity().setBookingStatus(itineraryBookingStatus.getText());
+        coreBookingEntity.getCoreBookingItineraryEntity().setDepartureDate(Validator.getStringDateValue(itineraryDepartureDate.getValue()));
+        coreBookingEntity.getCoreBookingItineraryEntity().setDepartureTime(Validator.getStringTimeValue(itineraryDepartureTime.getValue()));
+        coreBookingEntity.getCoreBookingItineraryEntity().setArrivalDate(Validator.getStringDateValue(itineraryArrivalDate.getValue()));
+        coreBookingEntity.getCoreBookingItineraryEntity().setArrivalTime(Validator.getStringTimeValue(itineraryArrivalTime.getValue()));
 
     }
     private void setTicketingDataToDto(){

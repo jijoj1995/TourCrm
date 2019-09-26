@@ -1,7 +1,9 @@
 package controller.booking;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTimePicker;
 import constants.LeadsConstants;
 import db.QueryService;
 import dto.*;
@@ -16,6 +18,7 @@ import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
 import service.Toast;
+import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,10 +34,15 @@ public class MainBooking implements Initializable {
     pnrNumber,dueDate,holdBooking,lobCode,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
     billingAddressCity,billingAddressZipCode,shippingAddressName,shippingAddress1,shippingAddress2,shippingAddressState,shippingAddressCountry,
     shippingAddressCity,shippingAddressZipCode,communicationPaxEmail,communicationUsaMobile,communicationUsaWork,communicationLandline,
-    statusQueryDate,statusBookingDate,statusUserId,statusQcDoneBy,statusQcDate;
+    statusUserId,statusQcDoneBy;
 
     @FXML
     JFXComboBox<String>channelCode,currencyCode,querySource,supplierName,statusPaymentCommitted,statusQcStatus,statusMoveToDispatch;
+    @FXML
+    JFXTimePicker statusQcTimePicker,statusQueryTimePicker;
+    @FXML
+    JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate;
+
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
     private Logger logger =Logger.getLogger(MainBooking.class);
@@ -112,14 +120,18 @@ public class MainBooking implements Initializable {
         communicationLandline.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getLandline());
     }
     private void initializeStatusInputTextsFromDto(){
-        statusQueryDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate());
-        statusBookingDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getBookingDate());
+        statusQueryDate.setValue(Validator.getLocalDateFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate()));
+        statusBookingDate.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getCoreBookingStatusEntity().getBookingDate()));
         statusUserId.setText(coreBookingEntity.getCoreBookingStatusEntity().getUserId());
         statusPaymentCommitted.setValue(coreBookingEntity.getCoreBookingStatusEntity().getPaymentCommitted());
         statusQcStatus.setValue(coreBookingEntity.getCoreBookingStatusEntity().getQcStatus());
         statusQcDoneBy.setText(coreBookingEntity.getCoreBookingStatusEntity().getQcDoneBy());
-        statusQcDate.setText(coreBookingEntity.getCoreBookingStatusEntity().getQcDate());
+        statusQcDate.setValue(Validator.getLocalDateFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQcDate()));
         statusMoveToDispatch.setValue(coreBookingEntity.getCoreBookingStatusEntity().getMoveToDispatch());
+
+        //extra time picker initialise
+        statusQcTimePicker.setValue(Validator.getLocalTimeFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQcDate()));
+        statusQueryTimePicker.setValue(Validator.getLocalTimeFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate()));
     }
 
 
@@ -207,14 +219,13 @@ public class MainBooking implements Initializable {
     }
 
     private void    setStatusTextFieldDataToDto(){
-        coreBookingEntity.getCoreBookingStatusEntity().setQueryDate(statusQueryDate.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setBookingDate(statusBookingDate.getText());
+        coreBookingEntity.getCoreBookingStatusEntity().setQueryDate(Validator.getStringValueFromDateTime(statusQueryDate.getValue(),statusQueryTimePicker.getValue()));
+        coreBookingEntity.getCoreBookingStatusEntity().setBookingDate(Validator.getStringDateValue(statusBookingDate.getValue()));
         coreBookingEntity.getCoreBookingStatusEntity().setUserId(statusUserId.getText());
         coreBookingEntity.getCoreBookingStatusEntity().setPaymentCommitted(statusPaymentCommitted.getValue());
         coreBookingEntity.getCoreBookingStatusEntity().setQcStatus(statusQcStatus.getValue());
         coreBookingEntity.getCoreBookingStatusEntity().setQcDoneBy(statusQcDoneBy.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setQcDate(statusQcDate.getText());
-        coreBookingEntity.getCoreBookingStatusEntity().setQueryDate(statusQcDate.getText());
+        coreBookingEntity.getCoreBookingStatusEntity().setQcDate(Validator.getStringValueFromDateTime(statusQcDate.getValue(),statusQcTimePicker.getValue()));
         coreBookingEntity.getCoreBookingStatusEntity().setMoveToDispatch(statusMoveToDispatch.getValue());
     }
 

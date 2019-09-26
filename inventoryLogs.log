@@ -1882,3 +1882,161 @@
 2019-09-25 17:26:27 INFO  MainBooking:54 - initialising all text fields from dto object
 2019-09-25 17:26:41 INFO  ListQueries:183 - showing Main booking page for query id= 1
 2019-09-25 17:26:41 INFO  MainBooking:54 - initialising all text fields from dto object
+2019-09-25 23:57:55 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-25 23:58:13 INFO  UserService:59 - in authenticating user method
+2019-09-25 23:58:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-25 23:58:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-25 23:58:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-25 23:58:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-25 23:58:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-25 23:58:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-25 23:58:14 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-25 23:58:15 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-25 23:58:23 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-25 23:58:23 INFO  SubQuery:64 -  in setAllTextFieldsFromDto method in sub query
+2019-09-25 23:58:43 INFO  SubQuery:162 - saving sub-query all tabs data to dto
+2019-09-25 23:59:17 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-25 23:59:27 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-25 23:59:27 INFO  SubQuery:64 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 00:16:53 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 00:17:00 INFO  UserService:59 - in authenticating user method
+2019-09-26 00:17:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:17:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:17:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:17:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:17:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:17:01 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 00:17:01 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 00:17:01 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 00:17:07 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 00:17:07 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 00:19:13 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 00:19:26 INFO  UserService:59 - in authenticating user method
+2019-09-26 00:19:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:19:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:19:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:19:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:19:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 00:19:27 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 00:19:27 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 00:19:28 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 00:19:35 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 00:19:35 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:11:59 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 07:12:32 INFO  UserService:59 - in authenticating user method
+2019-09-26 07:12:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:12:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:12:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:12:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:12:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:12:33 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 07:12:33 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 07:12:33 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 07:13:24 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:13:24 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:15:08 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 07:15:14 INFO  UserService:59 - in authenticating user method
+2019-09-26 07:15:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:15:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:15:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:15:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:15:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:15:15 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 07:15:15 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 07:15:15 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 07:15:25 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:15:26 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:19:51 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 07:19:57 INFO  UserService:59 - in authenticating user method
+2019-09-26 07:19:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:19:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:19:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:19:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:19:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 07:19:58 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 07:19:58 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 07:19:58 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 07:20:08 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:20:09 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:20:21 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:20:47 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:20:47 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:21:51 INFO  SubQuery:163 - saving sub-query all tabs data to dto
+2019-09-26 07:22:02 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:22:10 INFO  QueryService:17 - in save queryData to db method
+2019-09-26 07:22:10 INFO  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-26 07:22:14 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:22:35 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:22:35 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:23:04 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:23:06 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:23:06 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 07:23:13 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:23:26 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 07:23:26 INFO  MainBooking:54 - initialising all text fields from dto object
+2019-09-26 07:23:26 WARN  MainBooking:56 - coreLeadDto is null. returning
+2019-09-26 07:40:48 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 07:40:52 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 07:40:52 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 08:41:46 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 08:42:08 INFO  UserService:59 - in authenticating user method
+2019-09-26 08:42:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:42:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:42:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:42:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:42:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:42:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 08:42:09 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 08:42:09 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 08:42:16 INFO  MainQuery:80 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-26 08:42:16 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-26 08:42:19 INFO  MainQuery:49 - initialising all text fields from dto object
+2019-09-26 08:42:23 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 08:42:23 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 08:42:23 WARN  MainBooking:64 - coreLeadDto is null. returning
+2019-09-26 08:44:45 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 08:44:50 INFO  UserService:59 - in authenticating user method
+2019-09-26 08:44:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:44:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:44:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:44:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:44:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 08:44:52 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 08:44:52 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 08:44:52 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 08:44:55 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 08:44:56 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 08:44:56 WARN  MainBooking:64 - coreLeadDto is null. returning
+2019-09-26 08:47:16 INFO  QueryService:17 - in save queryData to db method
+2019-09-26 08:47:16 INFO  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-26 08:47:20 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 08:47:20 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 08:48:54 INFO  QueryService:17 - in save queryData to db method
+2019-09-26 08:48:54 INFO  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-26 08:48:58 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 08:48:58 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 08:50:01 INFO  MainBooking:141 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-26 08:50:12 INFO  SubBooking:57 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-26 09:15:05 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-26 09:15:08 INFO  UserService:59 - in authenticating user method
+2019-09-26 09:15:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 09:15:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 09:15:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 09:15:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 09:15:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-26 09:15:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-26 09:15:09 INFO  InventoryTimers:36 - initializing auto database backup timer
+2019-09-26 09:15:09 INFO  InventoryTimers:44 - automatic db backup scheduled to date:Mon Sep 30 21:40:23 IST 2019
+2019-09-26 09:15:18 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 09:15:18 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 09:15:34 INFO  MainBooking:141 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-26 09:15:40 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-26 09:16:30 INFO  SubBooking:176 - saving all sub-booking tabs data to dto
+2019-09-26 09:16:53 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 09:17:05 INFO  QueryService:17 - in save queryData to db method
+2019-09-26 09:17:05 INFO  QueryService:23 - Converting dto object to entity obj to save in db
+2019-09-26 09:17:14 INFO  ListQueries:183 - showing Main booking page for query id= 4
+2019-09-26 09:17:15 INFO  MainBooking:62 - initialising all text fields from dto object
+2019-09-26 09:17:24 INFO  MainBooking:141 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-26 09:17:29 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-26 09:17:29 WARN  Validator:219 - unable to parse date from string value=. because= Text '' could not be parsed at index 0

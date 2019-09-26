@@ -16,6 +16,7 @@ public class HibernateUtil
             if (sessionFactory == null)
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
+                configuration.setProperty("hibernate.connection.password","");
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
                 configuration.addAnnotatedClass(CoreBookingFareEntity.class);

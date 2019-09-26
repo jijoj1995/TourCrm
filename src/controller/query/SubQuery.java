@@ -13,9 +13,11 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SubQuery implements Initializable {
@@ -24,20 +26,20 @@ public class SubQuery implements Initializable {
     @FXML
     private TabPane queryTabs;
     @FXML
-    private JFXTextField airFromDestination,airToDestination,airReturnDate,airAirlinesOffered,airNumberOfAdult,
+    private JFXTextField airFromDestination,airToDestination,airAirlinesOffered,airNumberOfAdult,
             airNumberOfChild,airNumberOfInfant,airTotalPax,airAdultFare,airChildFare,airInfantFare,airTotalPrice,
-            hotelDestination,hotelCheckInDate,hotelCheckOutDate,hotelNumberOfNights,hotelNumberOfAdult,
+            hotelDestination,hotelNumberOfNights,hotelNumberOfAdult,
             hotelNumberOfChild,hotelNumberOfInfant,hotelTotalPax,hotelRoomTariff,hotelExtraBed,hotelTotalPrice,
-            holidaysFrom,holidaysTo,holidaysDepartureDate,holidaysReturnDate,holidaysNumberOfNights,holidaysNumberOfAdult,
+            holidaysFrom,holidaysTo,holidaysNumberOfNights,holidaysNumberOfAdult,
             holidaysNumberOfChild,holidaysTotalInfant,holidaysAdultFare,holidaysChildFare,holidaysInfantFare,holidaysTotalPrice,
-            railDepartureCity,railArrivalCity,railDateOfDeparture,railTrainNumber,railNumberOfAdult,railNumberOfChild,railNumberOfInfant,railTotalPax,railAdultFare,
+            railDepartureCity,railArrivalCity,railTrainNumber,railNumberOfAdult,railNumberOfChild,railNumberOfInfant,railTotalPax,railAdultFare,
             railChildFare,railTotalFare;
     @FXML
     private JFXComboBox<String> airTypeOfTravel,airClassOfTravel,airStatus,airCurrencyCode,hotelCurrencyCode,hotelCategory,hotelPlan,hotelStatus,holidaysCurrencyCode,holidaysHotelCategory,holidaysTravelType,
             holidaysStatus,railClassOfTravel,railStatus;
 
     @FXML
-    private JFXDatePicker airDepartureDate;
+    private JFXDatePicker airDepartureDate,airReturnDate,hotelCheckInDate,hotelCheckOutDate,holidaysDepartureDate,holidaysReturnDate,railDateOfDeparture;
 
     private CoreLead coreLeadDto;
     private static Logger logger=Logger.getLogger(SubQuery.class);
@@ -47,8 +49,8 @@ public class SubQuery implements Initializable {
         initializeDefaultLayout();
                 //initialise all checkbox with default values
         initialiseAllCheckBoxDefalutValues();
-
-
+            //initialise all empty datePickers with today date
+        initialiseAllEmptyDatePickers();
     }
 
     public void initializeCoreLeadObject(CoreLead coreLead){
@@ -85,8 +87,8 @@ public class SubQuery implements Initializable {
     private void setHotelTabTextFieldsFromDto(){
                             //method to set text Fields from dto
         hotelDestination.setText(coreLeadDto.getCoreLeadHotel().getDestination());
-        hotelCheckInDate.setText(coreLeadDto.getCoreLeadHotel().getCheckInDate());
-        hotelCheckOutDate.setText(coreLeadDto.getCoreLeadHotel().getCheckoutDate());
+        hotelCheckInDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHotel().getCheckInDate()));
+        hotelCheckOutDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHotel().getCheckoutDate()));
         hotelCurrencyCode.setValue(coreLeadDto.getCoreLeadHotel().getCurrencyCode());
         hotelCategory.setValue(coreLeadDto.getCoreLeadHotel().getHotelCategory());
         hotelNumberOfNights.setText(coreLeadDto.getCoreLeadHotel().getNumberOfNights());
@@ -103,8 +105,8 @@ public class SubQuery implements Initializable {
     private void setHolidaysTabTextFieldsFromDto(){
         holidaysFrom.setText(coreLeadDto.getCoreLeadHolidays().getFromDestination());
         holidaysTo.setText(coreLeadDto.getCoreLeadHolidays().getToDestination());
-        holidaysDepartureDate.setText(coreLeadDto.getCoreLeadHolidays().getDepartureDate());
-        holidaysReturnDate.setText(coreLeadDto.getCoreLeadHolidays().getReturnDate());
+        holidaysDepartureDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHolidays().getDepartureDate()));
+        holidaysReturnDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHolidays().getReturnDate()));
         holidaysCurrencyCode.setValue(coreLeadDto.getCoreLeadHolidays().getCurrencyCode());
         holidaysHotelCategory.setValue(coreLeadDto.getCoreLeadHolidays().getHotelCategory());
         holidaysNumberOfNights.setText(coreLeadDto.getCoreLeadHolidays().getNumberOfNights());
@@ -121,7 +123,7 @@ public class SubQuery implements Initializable {
     private void setRailTabTextFieldsFromDto(){
         railDepartureCity.setText(coreLeadDto.getCoreLeadRail().getDepartureCity());
         railArrivalCity.setText(coreLeadDto.getCoreLeadRail().getArrivalCity());
-        railDateOfDeparture.setText(coreLeadDto.getCoreLeadRail().getDepartureDate());
+        railDateOfDeparture.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadRail().getDepartureDate()));
         railTrainNumber.setText(coreLeadDto.getCoreLeadRail().getTrainNumber());
         railNumberOfAdult.setText(coreLeadDto.getCoreLeadRail().getNumberOfAdult());
         railNumberOfChild.setText(coreLeadDto.getCoreLeadRail().getNumberOfChild());
@@ -136,8 +138,8 @@ public class SubQuery implements Initializable {
     private void setAirTabTextFieldsFromDto(){
         airFromDestination.setText(coreLeadDto.getCoreLeadAir().getFromDestination());
         airToDestination.setText(coreLeadDto.getCoreLeadAir().getToDestination());
-       // airDepartureDate.setValue(coreLeadDto.getCoreLeadAir().getDepartureDate());
-        airReturnDate.setText(coreLeadDto.getCoreLeadAir().getReturnDate());
+        airDepartureDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadAir().getDepartureDate()));
+        airReturnDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadAir().getReturnDate()));
         airAirlinesOffered.setText(coreLeadDto.getCoreLeadAir().getAirlinesOffered());
         airCurrencyCode.setValue(coreLeadDto.getCoreLeadAir().getCurrencyCode());
         airNumberOfAdult.setText(coreLeadDto.getCoreLeadAir().getNumberOfAdult());
@@ -182,8 +184,8 @@ public class SubQuery implements Initializable {
         }
         coreLeadDto.getCoreLeadAir().setFromDestination(airFromDestination.getText());
         coreLeadDto.getCoreLeadAir().setToDestination(airToDestination.getText());
-        //coreLeadDto.getCoreLeadAir().setDepartureDate(airDepartureDate.getText());
-        coreLeadDto.getCoreLeadAir().setReturnDate(airReturnDate.getText());
+        coreLeadDto.getCoreLeadAir().setDepartureDate(Validator.getStringDateValue(airDepartureDate.getValue()));
+        coreLeadDto.getCoreLeadAir().setReturnDate(Validator.getStringDateValue(airReturnDate.getValue()));
         coreLeadDto.getCoreLeadAir().setAirlinesOffered(airAirlinesOffered.getText());
         coreLeadDto.getCoreLeadAir().setCurrencyCode(airCurrencyCode.getValue());
         coreLeadDto.getCoreLeadAir().setNumberOfAdult(airNumberOfAdult.getText());
@@ -205,8 +207,8 @@ public class SubQuery implements Initializable {
         if(coreLeadDto.getCoreLeadHotel()==null){
             coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
         }
-        coreLeadDto.getCoreLeadHotel().setCheckInDate(hotelCheckInDate.getText());
-        coreLeadDto.getCoreLeadHotel().setCheckoutDate(hotelCheckOutDate.getText());
+        coreLeadDto.getCoreLeadHotel().setCheckInDate(Validator.getStringDateValue(hotelCheckInDate.getValue()));
+        coreLeadDto.getCoreLeadHotel().setCheckoutDate(Validator.getStringDateValue(hotelCheckOutDate.getValue()));
         coreLeadDto.getCoreLeadHotel().setCurrencyCode(hotelCurrencyCode.getValue());
         coreLeadDto.getCoreLeadHotel().setDestination(hotelDestination.getText());
         coreLeadDto.getCoreLeadHotel().setExtraBed(hotelExtraBed.getText());
@@ -230,7 +232,7 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadHolidays().setAdultFare(holidaysAdultFare.getText());
         coreLeadDto.getCoreLeadHolidays().setChildFare(holidaysChildFare.getText());
         coreLeadDto.getCoreLeadHolidays().setCurrencyCode(holidaysCurrencyCode.getValue());
-        coreLeadDto.getCoreLeadHolidays().setDepartureDate(holidaysDepartureDate.getText());
+        coreLeadDto.getCoreLeadHolidays().setDepartureDate(Validator.getStringDateValue(holidaysDepartureDate.getValue()));
         coreLeadDto.getCoreLeadHolidays().setFromDestination(holidaysFrom.getText());
         coreLeadDto.getCoreLeadHolidays().setHotelCategory(holidaysHotelCategory.getValue());
         coreLeadDto.getCoreLeadHolidays().setInfantFare(holidaysInfantFare.getText());
@@ -238,7 +240,7 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadHolidays().setNumberOfChild(holidaysNumberOfChild.getText());
         coreLeadDto.getCoreLeadHolidays().setNumberOfInfant(holidaysTotalInfant.getText());
         coreLeadDto.getCoreLeadHolidays().setNumberOfNights(holidaysNumberOfNights.getText());
-        coreLeadDto.getCoreLeadHolidays().setReturnDate(holidaysReturnDate.getText());
+        coreLeadDto.getCoreLeadHolidays().setReturnDate(Validator.getStringDateValue(holidaysReturnDate.getValue()));
         coreLeadDto.getCoreLeadHolidays().setStatus(holidaysStatus.getValue());
         coreLeadDto.getCoreLeadHolidays().setToDestination(holidaysTo.getText());
         coreLeadDto.getCoreLeadHolidays().setTotalPrice(holidaysTotalPrice.getText());
@@ -254,7 +256,7 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadRail().setChildFare(railChildFare.getText());
         coreLeadDto.getCoreLeadRail().setClassOfTravel(railClassOfTravel.getValue());
         coreLeadDto.getCoreLeadRail().setDepartureCity(railDepartureCity.getText());
-        coreLeadDto.getCoreLeadRail().setDepartureDate(railDateOfDeparture.getText());
+        coreLeadDto.getCoreLeadRail().setDepartureDate(Validator.getStringDateValue(railDateOfDeparture.getValue()));
         coreLeadDto.getCoreLeadRail().setNumberOfAdult(railNumberOfAdult.getText());
         coreLeadDto.getCoreLeadRail().setNumberOfChild(railNumberOfChild.getText());
         coreLeadDto.getCoreLeadRail().setNumberOfInfant(railNumberOfInfant.getText());
@@ -280,6 +282,8 @@ public class SubQuery implements Initializable {
         mainPane.getChildren().setAll(p);
     }
     private void initialiseAllCheckBoxDefalutValues(){
+
+        //setting all checkbox default values
         airCurrencyCode.getItems().addAll(LeadsConstants.currencyCodes);
         airCurrencyCode.setValue(LeadsConstants.currencyCodes[0]);
 
@@ -319,6 +323,16 @@ public class SubQuery implements Initializable {
 
         railStatus.getItems().addAll(LeadsConstants.basicStatus);
         railStatus.setValue(LeadsConstants.basicStatus[0]);
+    }
+    private void initialiseAllEmptyDatePickers(){
+        //setting default date picker values
+        if (airDepartureDate.getValue()==null)airDepartureDate.setValue(LocalDate.now());
+        if (airReturnDate.getValue()==null)airReturnDate.setValue(LocalDate.now());
+        if (hotelCheckInDate.getValue()==null)hotelCheckInDate.setValue(LocalDate.now());
+        if (hotelCheckOutDate.getValue()==null)hotelCheckOutDate.setValue(LocalDate.now());
+        if (railDateOfDeparture.getValue()==null)railDateOfDeparture.setValue(LocalDate.now());
+        if (holidaysDepartureDate.getValue()==null)holidaysDepartureDate.setValue(LocalDate.now());
+        if (holidaysReturnDate.getValue()==null)holidaysReturnDate.setValue(LocalDate.now());
     }
 
     private void initializeDefaultLayout() {

@@ -1,7 +1,9 @@
 package service;
 
+import constants.InventoryConstants;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,8 +11,8 @@ import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -196,9 +198,93 @@ public class Validator {
         }
     }
 
-   /* public static LocalDate getLocalDateFromString(String s) {
+    public static LocalDate getLocalDateFromString(String s) {
+        LocalDate date;
+        try {
+            date = LocalDate.parse(s);
+        }
+        catch (Exception e){
+            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            return null;
+        }
+        return date;
+    }
 
-        return true;
+    public static LocalDate getNotNullLocalDateFromString(String s) {
+        LocalDate date;
+        try {
+            date = LocalDate.parse(s);
+        }
+        catch (Exception e){
+            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            return LocalDate.now();
+        }
+        return date;
+    }
+    public static LocalTime getNotNullLocalTimeFromString(String s) {
+        LocalTime time;
+        try {
+            time = LocalTime.parse(s);
+        }
+        catch (Exception e){
+            log.warn("unable to parse time from string value="+s+". because= "+e.getMessage());
+            return LocalTime.now();
+        }
+        return time;
+    }
+    public static String getStringDateValue(LocalDate s) {
+       String dateValue="";
+       try {
+           dateValue = s.toString();
+       }
+       catch (Exception e){
+           log.warn("unable to get String date from obj="+s+". because= "+e.getMessage());
+       }
+        return dateValue;
+    }
+    public static String getStringTimeValue(LocalTime s) {
+        String dateValue="";
+        try {
+            dateValue = s.toString();
+        }
+        catch (Exception e){
+            log.warn("unable to get String time from obj="+s+". because= "+e.getMessage());
+        }
+        return dateValue;
+    }
+    public static LocalDate getLocalDateFromDateTimeString(String s) {
+        LocalDate date;
+        try {
+            String[] dateTime=s.split(" ");
+            date = LocalDate.parse(dateTime[0]);
+        }
+        catch (Exception e){
+            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            return LocalDate.now();
+        }
+        return date;
+    }
+    public static LocalTime getLocalTimeFromDateTimeString(String s) {
+        LocalTime time=null;
+        try {
+            String[] dateTime=s.split(" ");
+            time = LocalTime.parse(dateTime[1]);
+        }
+        catch (Exception e){
+            log.warn("unable to parse time value from string value="+s+". because= "+e.getMessage());
+        }
+        return time;
+    }
 
-    }*/
+    public static String getStringValueFromDateTime(LocalDate date,LocalTime time) {
+        String value="";
+        try {
+            value=date.toString()+" "+time.toString();
+        }
+        catch (Exception e){
+            log.warn("unable to get String value from date="+date+" and time= "+time+". because= "+e.getMessage());
+        }
+        return value;
+    }
+
 }
