@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
+<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
    <children>
       <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <top>
@@ -100,7 +100,7 @@
                               </AnchorPane>
                           </content>
                       </Tab>
-                      <Tab text="Customer">
+                      <Tab text="Database">
                           <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
@@ -108,23 +108,55 @@
                                           <children>
                                               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
                                                   <children>
-                                                      <Label text="Export Customer Data">
+                                                      <Label text="Database IP Address:">
                                                           <HBox.margin>
                                                               <Insets right="20.0" />
                                                           </HBox.margin>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" onAction="#exportCustomerData" styleClass="buttonPrimary" text="Export">
-                                                          <font>
-                                                              <Font size="14.0" />
-                                                          </font>
-                                                      </Button>
-                                          <JFXCheckBox fx:id="showPendingOnlyCheckbox" mnemonicParsing="false" text="Show Pending Amounts Only">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </JFXCheckBox>
+                                          <JFXTextField fx:id="dbIpAddress" />
                                                   </children>
                                               </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label text="Database Database Name:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbName" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label text="Database Port Number:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbPortNumber" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="140.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label text="Database Username:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbUserName" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="200.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label text="Database Password:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbPassword" />
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" onAction="#testDatabaseConnection" text="Button" />
                                           </children>
                                           <padding>
                                               <Insets top="10.0" />

@@ -23,7 +23,9 @@ import service.HibernateUtil;
 import java.io.*;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main extends Application {
 
@@ -61,9 +63,24 @@ public class Main extends Application {
         System.out.println(Main.STEP() + "MyApplication#init (doing some heavy lifting), thread: " + Thread.currentThread().getName());
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        //HibernateUtil.shutdown();
+
+
+        //loading log4j file
+
+
+        //initialising inventory config object
+        inventoryConfig=InventoryConfig.getInstance();
+
+        try {
+
+
+          // HibernateUtil.shutdown();
+          //  HibernateUtil.closeCompletehibernateDb();
+
+        }
+        catch (Throwable e){
+            System.out.println(e.getMessage());
+        }
       /*  for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
@@ -73,7 +90,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-       /* String hql = "FROM CoreLeadEntity";
+        String log4jConfigFile = "/main/log4j.properties";
+        PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();
         //System.out.println(results.get(0));
@@ -84,38 +107,20 @@ public class Main extends Application {
         emp.setFirstName("jijo");
         emp.setMiddleName("demo");
         emp.setLastName("joseph");
-        CoreLeadCommunicationEntity coreLeadCommunication=new CoreLeadCommunicationEntity();
-        coreLeadCommunication.setLandline("1234556");
-        coreLeadCommunication.setPaxEmail("jijoj1995@gmail.com");
-        coreLeadCommunication.setUsaMobile("1738217381");
-        coreLeadCommunication.setUsaWorkNumber("35557557");
-        CoreLeadAirEntity coreLeadAirEntity=new CoreLeadAirEntity();
-        coreLeadAirEntity.setTotalPrice("adasd");
-        coreLeadAirEntity.setTotalPax("adasd");
-        coreLeadAirEntity.setRoomTariff("adasd");
-        emp.setCoreLeadAirEntity(coreLeadAirEntity);
 
-        CoreLeadRailEntity coreLeadRailEntity=new CoreLeadRailEntity();
-        coreLeadRailEntity.setTrainNumber("asdsad");
-        coreLeadRailEntity.setStatus("asdsad");
-        coreLeadRailEntity.setNumberOfAdult("5");
-        emp.setCoreLeadRailEntity(coreLeadRailEntity);
-
-        CoreLeadHotelEntity coreLeadHotelEntity=new CoreLeadHotelEntity();
-        coreLeadHotelEntity.setCheckInDate("234234");
-        coreLeadHotelEntity.setHotelPlan("sdfs");
-        emp.setCoreLeadHotelEntity(coreLeadHotelEntity);
-
+        Set<CoreLeadsNotesEntity>notesEntitySet=new HashSet<>();
+        for(int i=0;i<1;i++) {
+            CoreLeadsNotesEntity notesEntity = new CoreLeadsNotesEntity();
+            notesEntity.setNotesData("asdasdadasdasdas");
+            notesEntitySet.add(notesEntity);
+        }
         //coreLeadCommunication.setCoreLeadEntity(emp);
-        emp.setCoreLeadCommunicationEntity(coreLeadCommunication);
+        emp.setAccounts(notesEntitySet);
         session.save(emp);
         session.getTransaction().commit();
-        HibernateUtil.shutdown();*/
+        HibernateUtil.shutdown();
 
 
-        //loading log4j file
-        String log4jConfigFile = "/main/log4j.properties";
-        PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
                             //check whether the product is original
         if(/*!Validator.validateProduct()*/false){
@@ -127,9 +132,6 @@ public class Main extends Application {
             primaryStage.setTitle("CRM");
         }
 
-
-                //initialising inventory config object
-        inventoryConfig=InventoryConfig.getInstance();
 
         primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/resource/images/logomain.png")));
 

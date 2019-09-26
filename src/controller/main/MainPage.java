@@ -106,7 +106,7 @@ public class MainPage implements Initializable {
     }
     @FXML
     private void showStockPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/booking/mainBooking.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/settings/settingsList.fxml"));
         innerAnchorPane.getChildren().setAll(root);
     }
     @FXML

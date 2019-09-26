@@ -1,9 +1,6 @@
 package controller.booking;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXTimePicker;
+import com.jfoenix.controls.*;
 import constants.LeadsConstants;
 import db.QueryService;
 import dto.*;
@@ -13,10 +10,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.BookingService;
 import service.Toast;
 import service.Validator;
 
@@ -42,20 +42,35 @@ public class MainBooking implements Initializable {
     JFXTimePicker statusQcTimePicker,statusQueryTimePicker;
     @FXML
     JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate;
+    @FXML
+    private HBox shippingHbox;
+    @FXML
+    private JFXToggleButton showShippingBox;
 
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
+    private BookingService bookingService=new BookingService();
     private Logger logger =Logger.getLogger(MainBooking.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
+
+        showShippingBox.setOnAction((event) -> {
+            ToggleButton but = (ToggleButton) event.getTarget();
+            if (but.isSelected()) {
+                shippingHbox.setVisible(false);
+            } else {
+                shippingHbox.setVisible(true);
+            }
+        });
     }
 
     public void initializeCoreLeadDto(CoreLead coreLead){
         this.coreLeadDto=coreLead;
         this.coreBookingEntity=coreLead.getCoreBookingEntity();
         initializeAllInputTextsFromDto(coreBookingEntity);
+        checkForSameBillingShippingAddress();
     }
 
     private void initializeAllInputTextsFromDto(CoreBookingEntity coreBookingEntity) {
@@ -135,6 +150,28 @@ public class MainBooking implements Initializable {
     }
 
 
+    private void checkForSameBillingShippingAddress(){
+
+                        //this method is used to automatically decide to show/hide shipping details Hbox
+        if(coreBookingEntity!=null &&coreBookingEntity.getCoreBookingBillingAddressEntity()!=null&&coreBookingEntity.getCoreBookingShippingAddressEntity()!=null){
+                //now check whether billing and shipping address are same
+            if (bookingService.isShippingBillingAddressSame(coreBookingEntity.getCoreBookingBillingAddressEntity(),coreBookingEntity.getCoreBookingShippingAddressEntity())){
+                        //address are same
+                showShippingBox.setSelected(true);
+                shippingHbox.setVisible(false);
+            }
+            else {
+                showShippingBox.setSelected(false);
+                shippingHbox.setVisible(true);
+            }
+        }
+        else{
+            //coreBooking dto is null. first start. set shipping  same as billing addres
+            showShippingBox.setSelected(true);
+            shippingHbox.setVisible(false);
+        }
+    }
+
     @FXML
     private void showSubBookingPage() {
 
@@ -201,14 +238,19 @@ public class MainBooking implements Initializable {
         coreBookingEntity.getCoreBookingBillingAddressEntity().setCity(billingAddressCity.getText());
     }
 
-    private void setShippingAddressTextFieldDataToDto(){
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setName(shippingAddressName.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setAddress1( shippingAddress1.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setAddress2( shippingAddress2.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setState( shippingAddressState.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setCountry( shippingAddressCountry.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setZipCode( shippingAddressZipCode.getText());
-        coreBookingEntity.getCoreBookingShippingAddressEntity().setCity(shippingAddressCity.getText());
+    private void setShippingAddressTextFieldDataToDto() {
+        if (showShippingBox.isSelected()) {
+                             //address same as billing address
+            bookingService.getShippingAddressFromBillingAddress(coreBookingEntity.getCoreBookingBillingAddressEntity());
+        } else {
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setName(shippingAddressName.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setAddress1(shippingAddress1.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setAddress2(shippingAddress2.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setState(shippingAddressState.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setCountry(shippingAddressCountry.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setZipCode(shippingAddressZipCode.getText());
+            coreBookingEntity.getCoreBookingShippingAddressEntity().setCity(shippingAddressCity.getText());
+        }
     }
 
     private void setCommunicationTextFieldDataToDto(){

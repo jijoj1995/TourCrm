@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table( name = "core_lead" )
@@ -49,6 +50,10 @@ public class CoreLeadEntity implements Serializable {
     @OneToOne(targetEntity=CoreBookingEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_id")
     private CoreBookingEntity corebookingEntity;
+
+    @OneToMany(targetEntity=CoreLeadsNotesEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_lead_notes_id")
+    private Set<CoreLeadsNotesEntity> accounts;
 
 
     public Integer getCoreLeadId() {
@@ -193,5 +198,13 @@ public class CoreLeadEntity implements Serializable {
 
     public void setCorebookingEntity(CoreBookingEntity corebookingEntity) {
         this.corebookingEntity = corebookingEntity;
+    }
+
+    public Set<CoreLeadsNotesEntity> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Set<CoreLeadsNotesEntity> accounts) {
+        this.accounts = accounts;
     }
 }

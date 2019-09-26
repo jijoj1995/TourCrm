@@ -1,5 +1,7 @@
 package service;
+import constants.InventoryConstants;
 import dto.*;
+import main.InventoryConfig;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -16,7 +18,11 @@ public class HibernateUtil
             if (sessionFactory == null)
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
-                configuration.setProperty("hibernate.connection.password","");
+               // configuration.setProperty("hibernate.connection.password","test"); <property name="connection.url"></property>
+
+                configuration.setProperty("hibernate.connection.url",getDataBaseUrl());
+                configuration.setProperty("hibernate.connection.password","test");
+                configuration.addAnnotatedClass(CoreLeadsNotesEntity.class);
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
                 configuration.addAnnotatedClass(CoreBookingFareEntity.class);
@@ -49,11 +55,26 @@ public class HibernateUtil
 
     public static SessionFactory getSessionFactory()
     {
+        if (sessionFactory==null)sessionFactory=buildSessionFactory();
         return sessionFactory;
     }
 
     public static void shutdown()
     {
         getSessionFactory().close();
+    }
+
+    public static void closeCompletehibernateDb(){
+        shutdown();
+        sessionFactory=null;
+    }
+
+    public static String getDataBaseUrl(){
+        InventoryConfig inventoryConfig=InventoryConfig.getInstance();
+        String databaseUrl="jdbc:mysql://"+ inventoryConfig.getAppProperties().getProperty("databaseIpAddress")
+                +":"+inventoryConfig.getAppProperties().getProperty("databasePortNumber")+"/"
+                +inventoryConfig.getAppProperties().getProperty("databaseName")+"?useSSL=false";
+        return databaseUrl;
+        // <property name="connection.url">jdbc:mysql://localhost:3306/test?useSSL=false</property>
     }
 }

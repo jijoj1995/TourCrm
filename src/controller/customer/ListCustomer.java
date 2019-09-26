@@ -1,7 +1,11 @@
 package controller.customer;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import controller.billing.CustomerBilling;
 import controller.billing.PaymentUpdate;
+import controller.main.ScreenController;
 import db.CustomerService;
 import dto.Customer;
 import dto.CustomerList;
@@ -10,6 +14,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +26,8 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.Mnemonic;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.Main;
 import service.Toast;
@@ -49,9 +57,14 @@ public class ListCustomer {
 
     @FXML
     private TableColumn<CustomerList, CustomerList> deleteColumn;
+    @FXML
+    VBox dialogVbox;
+    @FXML
+    JFXDialog jfxDialog;
 
     private ObservableList<CustomerList> masterData = FXCollections.observableArrayList();
     CustomerService cs=new CustomerService();
+    ScreenController myController;
     public ListCustomer() {
         masterData.addAll(cs.getCustomerList());
     }
@@ -64,6 +77,22 @@ public class ListCustomer {
      */
     @FXML
     private void initialize() {
+        final int numTextFields = 20 ;
+        TextField[] textFields = new TextField[numTextFields];
+        VBox root = new VBox(5);
+        for (int i = 1; i <= numTextFields; i++) {
+            TextField tf = new TextField();
+            String name = "Text field "+i ;
+            tf.setOnAction(e -> {
+                System.out.println("Action on "+name+": text is "+tf.getText());
+            });
+            root.getChildren().add(tf);
+            textFields[i-1] = tf ;
+        }
+
+        jfxDialog.setContent(root);
+        jfxDialog.setVisible(true);
+        /*
         initializeDefaultLayout();
         // 0. Initialize the columns.
         nameColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
@@ -252,6 +281,27 @@ public class ListCustomer {
         customerListOuterPane.setPrefHeight(Main.HEIGHT-30);
     }
 
+    @FXML
+    public void showInfoDialog(){
+        JFXDialogLayout content = new JFXDialogLayout();
+        content.setHeading(new Text("Information"));
+        content.setBody(new Text("We are going to open your default browser window to let \n" +
+                "you choose the gmail account , allow the specified permissions\n" +
+                "and then close the window."));
 
+        JFXDialog dialog = new JFXDialog(myController, content, JFXDialog.DialogTransition.CENTER);
+        JFXButton button = new JFXButton("Okay");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dialog.close();
+               // SplashWaitController.startBackgroundTasks();
+                //myController.setScreen(AmailMain.splashWaitId);
+
+            }
+        });
+        content.setActions(button);
+        dialog.show();
+    }
 
 }

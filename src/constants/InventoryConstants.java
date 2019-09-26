@@ -19,13 +19,17 @@ public class InventoryConstants {
     public static final String dateTimeFormat="dd-MM-yy hh:mm:ss";
     public static final String FileNamedateTimeFormat="dd_MM_yy-HH_mm_ss";
     public static final String databaseDateTimeFormat="yyyy-MM-dd HH:mm:ss";
-    public static final String databaseName="inventory";
+   // public static final String databaseName="inventory";
     public static final String databaseUser="root";
     public static final String databasePassword="";
     public static final Long oneDaysValue=new Long(1000*60*60*24);
     public static final Long sevenDaysValue=new Long(1000*60*60*24*7);
     public static final String appPropertiesFile="/resource/properties/applicationProp.properties";
     public static final String quickTransactionCustomerName="Quick Transaction";
+    public static final String databaseIpAddress="10.10.8.69";
+    public static final String databasePortNumber="3306";
+    public static final String databaseName="test";
+
 
     
     

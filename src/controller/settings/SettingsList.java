@@ -1,6 +1,7 @@
 package controller.settings;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import constants.InventoryConstants;
 import db.CustomerService;
@@ -22,7 +23,9 @@ import javafx.stage.Stage;
 import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 import service.ExcelExporter;
+import service.HibernateUtil;
 import service.Toast;
 import timers.InventoryTimers;
 
@@ -54,12 +57,15 @@ public class SettingsList implements Initializable {
     private JFXComboBox<DayOfWeek> backupDayOptionList;
     @FXML
     private PasswordField oldPasswordField, newPasswordField, confirmPasswordField;
+    @FXML
+    private JFXTextField dbName,dbUserName,dbPassword,dbIpAddress,dbPortNumber;
+
     InventoryConfig inventoryConfig = InventoryConfig.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
-
+        initialiseDatabaseProperties();
                                           //fetch backup property enabled from properties file
         Boolean isAutomaticBackupEnabled = false;
         try {
@@ -102,6 +108,27 @@ public class SettingsList implements Initializable {
                 inventoryConfig.getAppProperties().setProperty("automaticBackup", "false");
             }
         });
+    }
+
+
+    private void initialiseDatabaseProperties(){
+        dbName.setText(inventoryConfig.getAppProperties().getProperty("databaseName"));
+        dbIpAddress.setText(inventoryConfig.getAppProperties().getProperty("databaseIpAddress"));
+        dbPassword.setText(inventoryConfig.getAppProperties().getProperty("databasePassword"));
+        dbPortNumber.setText(inventoryConfig.getAppProperties().getProperty("databasePortNumber"));
+        dbUserName.setText(inventoryConfig.getAppProperties().getProperty("databaseUserName"));
+    }
+    @FXML
+    private void testDatabaseConnection(){
+        //Session session = HibernateUtil.getSessionFactory().openSession();
+        //session.beginTransaction();
+        //session.flush();
+        //session.close();
+//        HibernateUtil.shutdown();
+        HibernateUtil.closeCompletehibernateDb();
+        inventoryConfig.getAppProperties().setProperty("databaseName","test");
+        Session session1 = HibernateUtil.getSessionFactory().openSession();
+        session1.beginTransaction();
     }
 
     @FXML

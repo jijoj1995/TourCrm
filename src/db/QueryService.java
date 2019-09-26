@@ -30,7 +30,7 @@ public class QueryService {
            // HibernateUtil.shutdown();
             return true;
         }
-        catch (Exception e){
+        catch (Throwable e){
             logger.warn("unable to save queryPage data::: "+e.getMessage());
             e.printStackTrace();
             return false;
