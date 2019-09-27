@@ -1,6 +1,8 @@
 package controller.query;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.controls.JFXTextField;
 import constants.LeadsConstants;
 import db.QueryService;
@@ -10,8 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
@@ -30,14 +35,21 @@ public class MainQuery implements Initializable {
     private JFXTextField firstName,middleName,lastName,userId,branchCode,country,paxEmail,usaMobile,landLine,usaWork;
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
-
+    @FXML
+    private JFXDialog notesDialogBox;
+    @FXML
+    private JFXScrollPane jfxDialogScrollPane;
+    @FXML
+    private VBox dialogVbox;
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+                                   notesDialogBox.setPrefWidth(0);
                                         //set window based on screen size
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
+        initialiseNotesTab();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
@@ -121,12 +133,15 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void showNotesTab() throws IOException {
-       //show notes tab upfront
-        Stage stage=new Stage();
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/notesPopup.fxml"));
-        stage.setScene(new Scene(root, 450, 450));
-        stage.show();
-
+       if (notesDialogBox.isVisible()){
+           notesDialogBox.setVisible(false);
+           notesDialogBox.setMaxWidth(0);
+       }
+       else {
+           notesDialogBox.setVisible(true);
+           notesDialogBox.setMaxWidth(500);
+           notesDialogBox.setPrefWidth(500);
+       }
     }
 
     @FXML
@@ -178,5 +193,20 @@ public class MainQuery implements Initializable {
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
 
+    }
+    private void initialiseNotesTab(){
+        notesDialogBox.setPrefWidth(500);
+        notesDialogBox.setPrefHeight(700);
+        //show notes tab upfront
+        //vbox.fillWidthProperty().set(true);
+        for (int i=0;i<20;i++){
+            Button button=new Button("dsfsdfs");
+            Label label=new Label("dfgdfg");
+            dialogVbox.getChildren().add(button);
+            dialogVbox.getChildren().add(label);
+        }
+      //  jfxDialogScrollPane.getChildren().add(vbox);
+
+        notesDialogBox.setVisible(true);
     }
 }

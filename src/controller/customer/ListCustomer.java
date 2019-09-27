@@ -77,11 +77,13 @@ public class ListCustomer {
      */
     @FXML
     private void initialize() {
-        final int numTextFields = 20 ;
+        final int numTextFields = 4 ;
         TextField[] textFields = new TextField[numTextFields];
         VBox root = new VBox(5);
         for (int i = 1; i <= numTextFields; i++) {
             TextField tf = new TextField();
+            Button button=new Button("sdfsdf");
+            root.getChildren().add(button);
             String name = "Text field "+i ;
             tf.setOnAction(e -> {
                 System.out.println("Action on "+name+": text is "+tf.getText());
@@ -91,7 +93,7 @@ public class ListCustomer {
         }
 
         jfxDialog.setContent(root);
-        jfxDialog.setVisible(true);
+        jfxDialog.setVisible(false);
         /*
         initializeDefaultLayout();
         // 0. Initialize the columns.
@@ -283,6 +285,7 @@ public class ListCustomer {
 
     @FXML
     public void showInfoDialog(){
+        jfxDialog.setVisible(!jfxDialog.isVisible());
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("Information"));
         content.setBody(new Text("We are going to open your default browser window to let \n" +

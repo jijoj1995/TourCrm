@@ -1,7 +1,5 @@
 package dto;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -52,8 +50,8 @@ public class CoreLeadEntity implements Serializable {
     private CoreBookingEntity corebookingEntity;
 
     @OneToMany(targetEntity=CoreLeadsNotesEntity.class,cascade=CascadeType.ALL)
-    @JoinColumn(name="core_lead_notes_id")
-    private Set<CoreLeadsNotesEntity> accounts;
+    @JoinColumn(name="core_lead_id")
+    private Set<CoreLeadsNotesEntity> coreLeadsNotesEntities;
 
 
     public Integer getCoreLeadId() {
@@ -200,11 +198,11 @@ public class CoreLeadEntity implements Serializable {
         this.corebookingEntity = corebookingEntity;
     }
 
-    public Set<CoreLeadsNotesEntity> getAccounts() {
-        return accounts;
+    public Set<CoreLeadsNotesEntity> getCoreLeadsNotesEntities() {
+        return coreLeadsNotesEntities;
     }
 
-    public void setAccounts(Set<CoreLeadsNotesEntity> accounts) {
-        this.accounts = accounts;
+    public void setCoreLeadsNotesEntities(Set<CoreLeadsNotesEntity> coreLeadsNotesEntities) {
+        this.coreLeadsNotesEntities = coreLeadsNotesEntities;
     }
 }

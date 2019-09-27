@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXScrollPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
@@ -341,6 +343,16 @@
                                   </children>
                               </HBox>
          </bottom>
+         <right>
+            <JFXDialog fx:id="notesDialogBox" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXScrollPane fx:id="jfxDialogScrollPane" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="dialogVbox" prefHeight="200.0" prefWidth="100.0" />
+                     </children>
+                  </JFXScrollPane>
+               </children></JFXDialog>
+         </right>
         </BorderPane>
     </children>
 </AnchorPane>

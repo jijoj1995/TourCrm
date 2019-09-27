@@ -71,8 +71,8 @@ public class Main extends Application {
         //initialising inventory config object
         inventoryConfig=InventoryConfig.getInstance();
 
+       // Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-
 
           // HibernateUtil.shutdown();
           //  HibernateUtil.closeCompletehibernateDb();
@@ -94,12 +94,12 @@ public class Main extends Application {
         PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        /*session.beginTransaction();
 
         String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();
-        //System.out.println(results.get(0));
+        System.out.println(results.get(0));
 
         // Add new Employee object
         CoreLeadEntity emp = new CoreLeadEntity();
@@ -109,16 +109,17 @@ public class Main extends Application {
         emp.setLastName("joseph");
 
         Set<CoreLeadsNotesEntity>notesEntitySet=new HashSet<>();
-        for(int i=0;i<1;i++) {
+        for(int i=0;i<2;i++) {
             CoreLeadsNotesEntity notesEntity = new CoreLeadsNotesEntity();
             notesEntity.setNotesData("asdasdadasdasdas");
             notesEntitySet.add(notesEntity);
+
         }
         //coreLeadCommunication.setCoreLeadEntity(emp);
-        emp.setAccounts(notesEntitySet);
+        emp.setCoreLeadsNotesEntities(notesEntitySet);
         session.save(emp);
         session.getTransaction().commit();
-        HibernateUtil.shutdown();
+        HibernateUtil.shutdown();*/
 
 
 
