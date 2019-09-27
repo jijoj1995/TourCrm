@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import service.HibernateUtil;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class QueryService {
@@ -36,6 +37,8 @@ public class QueryService {
             return false;
         }
     }
+
+
 
     public CoreLeadEntity setValuesFromCoreLeadDto(CoreLead coreLeadDto){
 
@@ -155,6 +158,8 @@ public class QueryService {
             coreLeadEntity.getCoreLeadRailEntity().setTotalPax(coreLeadDto.getCoreLeadRail().getTotalPax());
             coreLeadEntity.getCoreLeadRailEntity().setTrainNumber(coreLeadDto.getCoreLeadRail().getTrainNumber());
         }
+        //notes Details
+        coreLeadEntity.setCoreLeadsNotesEntities(coreLeadDto.getCoreLeadsNotesEntitySet());
 
         //bookingDetails
         coreLeadEntity.setCorebookingEntity(coreLeadDto.getCoreBookingEntity());
@@ -171,6 +176,7 @@ public class QueryService {
         coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
         coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
         coreLeadDto.setCoreLeadRail(new CoreLeadRail());
+        coreLeadDto.setCoreLeadsNotesEntitySet(new HashSet<>());
 
         //general Details
         coreLeadDto.setCoreLeadId(coreLeadEntity.getCoreLeadId());
@@ -277,6 +283,9 @@ public class QueryService {
             coreLeadDto.getCoreLeadRail().setTotalPax(coreLeadEntity.getCoreLeadRailEntity().getTotalPax());
             coreLeadDto.getCoreLeadRail().setTrainNumber(coreLeadEntity.getCoreLeadRailEntity().getTrainNumber());
         }
+        //notes details
+        coreLeadDto.setCoreLeadsNotesEntitySet(coreLeadEntity.getCoreLeadsNotesEntities());
+
         //booking details
         coreLeadDto.setCoreBookingEntity(coreLeadEntity.getCorebookingEntity());
         return coreLeadDto;

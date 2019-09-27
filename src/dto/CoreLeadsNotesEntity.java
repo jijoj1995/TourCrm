@@ -3,9 +3,9 @@ package dto;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
-@Entity
-@Table( name = "core_lead_notes" )
+@Entity(name = "ForeignKeyAssoAccountEntity")
+@Table(name = "core_lead_notes", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "core_lead_notes_id")})
 public class CoreLeadsNotesEntity implements Serializable {
 
     @Id

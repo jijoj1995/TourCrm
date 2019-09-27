@@ -60,7 +60,7 @@ public class LoginPage  implements Initializable {
                 @Override
                 public void run() {
                     new InventoryTimers().initializeTimers();
-                    InventoryConfig.getInstance();
+                    InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
                 }
             });
 

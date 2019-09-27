@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import java.io.Serializable;
+import java.util.Set;
 
 public class CoreLead implements Serializable {
     private IntegerProperty coreLeadId=new SimpleIntegerProperty();
@@ -26,6 +27,7 @@ public class CoreLead implements Serializable {
     private CoreLeadHotel coreLeadHotel;
     private CoreLeadRail coreLeadRail;
     private CoreBookingEntity coreBookingEntity;
+    private Set<CoreLeadsNotesEntity>coreLeadsNotesEntitySet;
 
     public int getCoreLeadId() {
         return coreLeadId.get();
@@ -217,5 +219,13 @@ public class CoreLead implements Serializable {
 
     public void setCoreBookingEntity(CoreBookingEntity coreBookingEntity) {
         this.coreBookingEntity = coreBookingEntity;
+    }
+
+    public Set<CoreLeadsNotesEntity> getCoreLeadsNotesEntitySet() {
+        return coreLeadsNotesEntitySet;
+    }
+
+    public void setCoreLeadsNotesEntitySet(Set<CoreLeadsNotesEntity> coreLeadsNotesEntitySet) {
+        this.coreLeadsNotesEntitySet = coreLeadsNotesEntitySet;
     }
 }

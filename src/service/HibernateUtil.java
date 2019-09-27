@@ -24,6 +24,7 @@ public class HibernateUtil
                  //<property name="connection.url">jdbc:mysql://185.224.138.133/u315173730_tourcrm?useSSL=false</property>
                 //configuration.setProperty("hibernate.connection.password","tourcrmpassword");
                 //<property name="connection.username">u315173730_abcd</property>
+                configuration.addAnnotatedClass(CoreUserEntity.class);
                 configuration.addAnnotatedClass(CoreLeadsNotesEntity.class);
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);

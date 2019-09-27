@@ -69,8 +69,20 @@ public class MainBooking implements Initializable {
     public void initializeCoreLeadDto(CoreLead coreLead){
         this.coreLeadDto=coreLead;
         this.coreBookingEntity=coreLead.getCoreBookingEntity();
+                                            //booking communication detials should be initially fetched fro coreLeadCommunication
+        initialiseDefaultCoreBookingCommunicationFromDto();
         initializeAllInputTextsFromDto(coreBookingEntity);
         checkForSameBillingShippingAddress();
+    }
+
+    private void initialiseDefaultCoreBookingCommunicationFromDto(){
+        if (coreLeadDto!=null && coreLeadDto.getCoreLeadCommunication()!=null && coreBookingEntity!=null &&coreBookingEntity.getCoreBookingCommunicationEntity()==null){
+            CoreLeadCommunication coreLeadCommunication=coreLeadDto.getCoreLeadCommunication();
+            communicationPaxEmail.setText(coreLeadCommunication.getPaxEmail());
+            communicationUsaMobile.setText(coreLeadCommunication.getUsaMobile());
+            communicationUsaWork.setText(coreLeadCommunication.getUsaWorkNumber());
+            communicationLandline.setText(coreLeadCommunication.getLandline());
+        }
     }
 
     private void initializeAllInputTextsFromDto(CoreBookingEntity coreBookingEntity) {

@@ -74,7 +74,7 @@ public class MainPage implements Initializable {
 
 
         CategoryAxis xAxis    = new CategoryAxis();
-        xAxis.setLabel("Devices");
+        xAxis.setLabel("Transport");
 
         NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Visits");
@@ -83,9 +83,9 @@ public class MainPage implements Initializable {
 
         XYChart.Series dataSeries1 = new XYChart.Series();
         dataSeries1.setName("2014");
-        dataSeries1.getData().add(new XYChart.Data("Desktop", 567));
-        dataSeries1.getData().add(new XYChart.Data("Phone"  , 65));
-        dataSeries1.getData().add(new XYChart.Data("Tablet"  , 23));
+        dataSeries1.getData().add(new XYChart.Data("Train", 567));
+        dataSeries1.getData().add(new XYChart.Data("Flight"  , 65));
+        dataSeries1.getData().add(new XYChart.Data("Bus"  , 23));
 
         barChart.getData().add(dataSeries1);
 
@@ -95,7 +95,7 @@ public class MainPage implements Initializable {
     public AnchorPane innerAnchorPane,mainOuterPane;
     @FXML
     private void showCustomerPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/customer/listCustomer.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/users/listUsers.fxml"));
         innerAnchorPane.getChildren().setAll(root);
     }
 

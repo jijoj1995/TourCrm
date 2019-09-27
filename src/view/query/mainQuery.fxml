@@ -2,12 +2,12 @@
 
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDialog?>
-<?import com.jfoenix.controls.JFXScrollPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -330,7 +330,7 @@
                                                       <Cursor fx:constant="HAND" />
                                                   </cursor>
                                               </FontAwesomeIconView>
-                        <FontAwesomeIconView fx:id="admin1" fill="#022f02" glyphName="DATABASE" layoutX="50.0" layoutY="50.0" onMouseClicked="#showNotesTab" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <FontAwesomeIconView fx:id="admin1" fill="#022f02" glyphName="DATABASE" layoutX="50.0" layoutY="50.0" onMouseClicked="#toggleNotesTab" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -346,11 +346,19 @@
          <right>
             <JFXDialog fx:id="notesDialogBox" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXScrollPane fx:id="jfxDialogScrollPane" prefHeight="150.0" prefWidth="200.0">
-                     <children>
-                        <VBox fx:id="dialogVbox" prefHeight="200.0" prefWidth="100.0" />
-                     </children>
-                  </JFXScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
+                     <content>
+                        <VBox fx:id="notesdialogVbox" alignment="TOP_CENTER" spacing="20.0">
+                           <children>
+                              <Label text="NOTES SECTION" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
                </children></JFXDialog>
          </right>
         </BorderPane>

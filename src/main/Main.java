@@ -3,6 +3,7 @@ package main;
 import com.sun.javafx.application.LauncherImpl;
 import constants.InventoryConstants;
 import db.BaseConnection;
+import db.UserService;
 import dto.*;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -63,24 +64,21 @@ public class Main extends Application {
         System.out.println(Main.STEP() + "MyApplication#init (doing some heavy lifting), thread: " + Thread.currentThread().getName());
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
-
-
-        //loading log4j file
-
-
-        //initialising inventory config object
-        inventoryConfig=InventoryConfig.getInstance();
-
-       // Session session = HibernateUtil.getSessionFactory().openSession();
         try {
+            //check whether first startup and add admin login access
+            new UserService().insertAdminLoginData();
+            String log4jConfigFile = "/main/log4j.properties";
 
-          // HibernateUtil.shutdown();
-          //  HibernateUtil.closeCompletehibernateDb();
+            //loading log4j file
+            PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
+            //initialising inventory config object
+            inventoryConfig=InventoryConfig.getInstance();
         }
         catch (Throwable e){
             System.out.println(e.getMessage());
         }
+
       /*  for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
@@ -90,10 +88,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        String log4jConfigFile = "/main/log4j.properties";
-        PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        //Session session = HibernateUtil.getSessionFactory().openSession();
         /*session.beginTransaction();
 
         String hql = "FROM CoreLeadEntity";
