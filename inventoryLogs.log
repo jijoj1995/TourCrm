@@ -6621,3 +6621,927 @@ line 1:45: expecting IDENT, found '?'
 2019-09-30 08:50:16 INFO  QueryService:20 - in save queryData to db method
 2019-09-30 08:50:16 INFO  QueryService:26 - Converting dto object to entity obj to save in db
 2019-09-30 08:50:27 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 10:26:42 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:26:42 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:26:42 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:26:42 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:26:43 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:26:44 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 10:27:21 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 10:27:21 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 10:27:27 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 10:35:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:35:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:35:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:35:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:35:29 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:35:29 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:35:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:35:30 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:36:45 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:36:45 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:46 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 10:36:46 INFO  UserService:67 - in authenticating user method
+2019-09-30 10:36:46 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 10:36:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 10:36:48 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:31:34 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:31:34 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:31:34 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:31:34 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:31:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:31:36 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:31:41 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:31:41 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:31:41 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:31:45 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:31:45 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:31:45 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:31:45 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:31:45 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:31:45 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:34:34 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:34:34 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:34:34 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:34:34 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:34:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:34:36 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:34:37 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:34:38 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:34:38 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:34:40 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:34:40 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:34:40 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:34:40 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:34:40 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:34:40 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:36:18 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:36:18 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:36:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:36:19 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:36:19 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:36:19 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:19 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:36:20 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:36:22 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:36:22 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:36:22 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:36:23 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:36:23 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:36:23 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:36:23 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:36:23 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:36:24 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:36:45 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:36:45 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:36:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:36:45 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:36:47 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:36:49 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:36:49 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:36:49 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:36:50 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:36:50 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:36:50 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:36:50 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:36:50 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:36:50 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:37:07 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:37:07 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:37:08 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:37:08 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:08 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:37:09 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:37:10 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:37:11 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:37:11 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:37:12 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:37:12 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:37:12 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:37:12 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:37:12 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:37:12 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:37:38 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:37:38 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:37:39 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:37:39 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:37:39 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:37:45 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:37:46 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:37:46 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:37:46 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:37:48 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:37:48 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:37:48 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:37:48 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:37:48 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:37:48 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:38:47 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:38:47 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:38:47 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:38:47 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:38:47 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:38:49 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:38:50 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:38:50 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:38:50 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:38:52 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:38:52 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:38:52 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:38:52 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:38:52 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:38:52 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:39:50 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:39:50 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:39:50 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:39:50 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:39:50 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:39:54 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:39:55 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:39:55 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:39:55 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:39:57 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:39:57 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:39:57 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:39:57 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:39:57 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:39:57 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:40:16 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:40:16 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:40:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:40:17 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:40:17 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:40:17 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:40:18 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:40:21 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:40:21 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:40:21 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:40:22 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:40:22 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:40:22 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:40:22 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:40:22 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:40:23 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:41:22 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:41:22 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:41:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:22 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:41:22 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:41:22 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:41:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:41:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:41:25 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:41:26 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:41:27 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:41:27 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:41:28 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:41:28 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:41:28 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:41:28 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:41:28 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:41:28 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:42:13 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:42:13 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:42:14 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:42:14 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:42:15 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:42:17 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:42:17 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:42:17 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:42:19 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:42:19 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:42:19 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:42:19 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:42:19 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:42:19 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:42:35 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:42:35 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:42:35 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:42:35 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:42:35 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:42:37 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:42:38 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:42:38 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:42:38 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:42:40 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:42:40 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:42:40 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:42:40 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:42:40 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:42:40 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:44:43 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:44:43 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:44:44 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:44:44 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:44:44 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:44:46 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:44:53 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:44:53 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:44:53 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:44:55 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:44:55 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:44:55 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:44:55 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:44:55 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:44:55 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 11:45:23 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:45:23 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:45:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:45:23 INFO  UserService:67 - in authenticating user method
+2019-09-30 11:45:23 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 11:45:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 11:45:24 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 11:45:25 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 11:45:27 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 11:45:27 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 11:45:27 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 11:45:29 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 11:45:29 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 11:45:29 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:45:29 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 11:45:29 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 11:45:29 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:30:27 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:30:27 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:30:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:30:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:30:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:30:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:30:27 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:30:27 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:30:29 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:30:31 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:30:31 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:30:31 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:30:33 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:30:33 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:30:33 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:30:33 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:30:33 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:30:33 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:34:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:34:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:10 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:34:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:34:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:34:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:34:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:34:12 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:34:14 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:34:14 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:34:14 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:34:15 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:34:15 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:34:15 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:34:15 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:34:15 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:34:15 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:40:31 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:40:31 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:40:32 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:40:32 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:40:32 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:40:34 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:40:37 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:40:37 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:40:37 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:40:39 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:40:39 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:40:39 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:40:39 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:40:39 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:40:39 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:41:33 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:41:33 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:41:33 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:41:33 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:41:33 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 12:41:33 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 12:41:34 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:41:34 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 12:41:34 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 12:41:34 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:47:20 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:47:20 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:47:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:47:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:47:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:47:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:47:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:47:21 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:47:22 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:47:25 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:47:25 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:47:25 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:47:28 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:47:28 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:47:28 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:47:28 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:47:28 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:47:29 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:49:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:49:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:49:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:49:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:49:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:49:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:49:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:49:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:49:12 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:49:15 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:49:15 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:49:15 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:49:17 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:49:17 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:49:17 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:49:17 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:49:17 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:49:17 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:50:29 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:50:29 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:50:29 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:50:29 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 12:50:29 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 12:50:29 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 12:50:30 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:50:34 INFO  MainQuery:68 - initialising all text fields from dto object
+2019-09-30 12:50:54 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:51:14 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:51:14 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:51:14 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:51:17 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:52:49 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:52:51 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:52:51 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:52:51 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:52:52 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:52:52 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:52:52 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:52:52 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:52:52 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:52:53 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:56:08 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:56:08 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:56:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:56:09 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:56:09 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:56:09 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:56:10 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:56:11 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:56:12 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:56:12 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:56:14 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:56:14 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:56:14 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:56:14 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:56:14 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:56:14 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 12:57:13 INFO  UserService:67 - in authenticating user method
+2019-09-30 12:57:13 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 12:57:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:57:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:57:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:57:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:57:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 12:57:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 12:57:15 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 12:57:17 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 12:57:17 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 12:57:17 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 12:57:19 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 12:57:19 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-30 12:57:19 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:57:19 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 12:57:19 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 12:57:19 INFO  SubBooking:72 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 14:20:02 INFO  UserService:67 - in authenticating user method
+2019-09-30 14:20:02 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 14:20:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:02 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 14:20:03 INFO  UserService:67 - in authenticating user method
+2019-09-30 14:20:03 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 14:20:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 14:20:03 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 14:20:07 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 14:21:04 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 14:21:08 INFO  MainQuery:101 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-30 14:21:11 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-30 15:02:41 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 15:04:06 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 15:05:40 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 15:07:06 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 15:07:41 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 15:29:46 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 16:27:19 INFO  pooling:408 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost/test?useSSL=false]
+2019-09-30 16:27:44 INFO  UserService:67 - in authenticating user method
+2019-09-30 16:27:44 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 16:27:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 16:27:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 16:27:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 16:27:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 16:27:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 16:27:44 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 16:27:46 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 16:28:21 INFO  MainQuery:101 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-30 16:28:31 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-30 16:29:03 INFO  SubQuery:163 - saving sub-query all tabs data to dto
+2019-09-30 16:29:03 INFO  MainQuery:68 - initialising all text fields from dto object
+2019-09-30 16:29:06 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 16:29:06 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 16:29:11 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 16:29:30 INFO  MainQuery:68 - initialising all text fields from dto object
+2019-09-30 16:30:52 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 16:30:52 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 16:30:58 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 16:33:13 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 16:33:13 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 16:33:13 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 16:34:21 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 16:34:21 INFO  BookingService:16 - in getShippingAddressFromBillingAddress
+2019-09-30 16:34:21 WARN  Validator:286 - unable to get String value from date=2019-09-12 and time= null. because= null
+2019-09-30 16:34:21 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 16:34:21 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 16:34:22 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 16:35:35 INFO  SubBooking:241 - saving all sub-booking tabs data to dto
+2019-09-30 16:35:41 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 16:35:41 WARN  Validator:252 - unable to get String time from obj=null. because= null
+2019-09-30 16:35:41 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 16:35:41 WARN  Validator:252 - unable to get String time from obj=null. because= null
+2019-09-30 16:35:41 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 16:35:41 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 16:35:41 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 16:35:41 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 16:35:41 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 16:35:41 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:13:15 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:13:15 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:13:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:13:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:13:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:13:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:13:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:13:16 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:13:18 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:13:37 INFO  MainQuery:102 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-30 18:13:37 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-30 18:13:43 INFO  SubQuery:163 - saving sub-query all tabs data to dto
+2019-09-30 18:13:43 INFO  MainQuery:69 - initialising all text fields from dto object
+2019-09-30 18:13:45 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 18:13:45 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 18:13:45 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:14:15 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:14:15 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:14:15 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 18:14:25 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:14:25 INFO  BookingService:16 - in getShippingAddressFromBillingAddress
+2019-09-30 18:14:25 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:14:25 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 18:14:25 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:14:26 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:23:56 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:23:56 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:23:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:23:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:23:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:23:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:23:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:23:56 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:24:01 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:24:25 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 18:24:25 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 18:24:25 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:24:39 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:24:39 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:24:39 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 18:24:44 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:24:44 INFO  BookingService:16 - in getShippingAddressFromBillingAddress
+2019-09-30 18:24:44 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:24:44 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 18:24:44 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:25:31 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:27:59 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:27:59 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:27:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:27:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:27:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:27:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:27:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:28:00 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:28:01 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:28:22 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 18:28:22 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 18:28:27 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:28:47 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:28:47 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:28:47 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-30 18:28:49 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:28:49 INFO  BookingService:16 - in getShippingAddressFromBillingAddress
+2019-09-30 18:28:49 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:28:49 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 18:28:49 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-30 18:28:56 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:29:39 INFO  SubBooking:242 - saving all sub-booking tabs data to dto
+2019-09-30 18:30:34 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 18:30:34 WARN  Validator:252 - unable to get String time from obj=null. because= null
+2019-09-30 18:30:34 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-30 18:30:34 WARN  Validator:252 - unable to get String time from obj=null. because= null
+2019-09-30 18:30:40 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:30:40 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:30:40 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:30:40 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:30:40 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:30:40 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:31:23 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:31:23 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:31:41 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 18:31:42 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 18:31:53 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:31:56 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:31:56 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:31:56 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:31:56 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:31:56 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:31:56 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:31:58 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:31:58 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:31:58 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:32:19 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:32:56 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:32:56 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:32:57 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 18:32:57 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 18:32:57 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:33:03 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:33:03 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:33:03 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:33:03 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:33:03 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:33:03 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:33:06 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:33:06 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:33:06 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:33:08 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:34:34 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:34:34 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:34:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:34:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:34:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:34:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:34:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:34:35 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:34:36 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:34:37 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:34:38 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:34:38 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:34:38 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:34:38 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:34:38 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:34:44 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:34:44 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:34:44 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:34:54 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:37:37 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:37:37 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:37:37 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:37:37 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:37:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:37:39 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:37:41 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:37:41 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:37:41 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:37:41 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:37:41 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:37:41 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:37:43 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:37:43 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:37:43 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:37:45 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:37:59 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:37:59 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:37:59 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:37:59 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:11 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:39:11 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:39:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:39:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:39:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:39:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:39:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:39:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:39:13 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:39:14 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:39:14 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:39:14 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:14 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:14 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:39:14 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:39:16 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:39:16 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:39:16 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:39:19 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:39:19 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:19 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:19 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:39:19 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:40:44 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:40:44 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:40:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:40:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:40:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:40:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:40:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:40:45 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:40:47 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:40:49 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:40:49 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:40:49 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:40:49 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:40:49 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:40:49 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:40:50 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:40:50 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:40:50 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:40:55 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:41:01 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:41:01 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:41:01 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:41:01 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:49 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:43:49 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:43:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:43:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:43:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:43:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:43:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:43:49 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:43:51 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:43:55 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:43:55 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:43:55 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:55 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:55 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:43:55 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:43:58 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:43:58 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:43:58 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:43:58 INFO  SubBooking:73 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:43:58 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:58 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:58 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:43:58 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:51:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:51:10 INFO  UserService:67 - in authenticating user method
+2019-09-30 18:51:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 18:51:10 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 18:51:12 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 18:51:13 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-30 18:51:13 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-30 18:51:13 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:13 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:13 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:51:13 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-30 18:51:14 INFO  MainBooking:189 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-30 18:51:14 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:51:14 WARN  Validator:286 - unable to get String value from date=2019-09-30 and time= null. because= null
+2019-09-30 18:51:15 INFO  SubBooking:74 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-30 18:51:15 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:15 WARN  Validator:231 - unable to parse time from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:15 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-30 18:51:15 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0

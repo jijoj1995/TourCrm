@@ -58,7 +58,7 @@ public class SubQuery implements Initializable {
         this.coreLeadDto = coreLead;
         setAllTextFieldsFromDto();
 
-    }
+        }
     private void setAllTextFieldsFromDto(){
 
                                    //set data from coreLead Dto to all textfields

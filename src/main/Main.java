@@ -24,6 +24,7 @@ import service.HibernateUtil;
 import java.io.*;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -87,33 +88,36 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Session session = HibernateUtil.getSessionFactory().openSession();
-        /*session.beginTransaction();
-
+      /*  Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+*//*
         String hql = "FROM CoreLeadEntity";
         Query query = session.createQuery(hql);
         List results = query.list();
-        System.out.println(results.get(0));
+        System.out.println(results.get(0));*//*
 
         // Add new Employee object
-        CoreLeadEntity emp = new CoreLeadEntity();
-        emp.setCoreLeadId(1);
-        emp.setFirstName("jijo");
+        CoreBookingEntity emp = new CoreBookingEntity();
+        //emp.setCoreLeadId(1);
+        emp.setFirstName("ssss");
         emp.setMiddleName("demo");
         emp.setLastName("joseph");
 
-        Set<CoreLeadsNotesEntity>notesEntitySet=new HashSet<>();
-        for(int i=0;i<2;i++) {
-            CoreLeadsNotesEntity notesEntity = new CoreLeadsNotesEntity();
-            notesEntity.setNotesData("asdasdadasdasdas");
-            notesEntitySet.add(notesEntity);
+        ArrayList<CoreBookingPassengerEntity> notesEntitySet=new ArrayList<>();
+
+
+        for(int i=0;i<3;i++) {
+            CoreBookingPassengerEntity passengerEntity = new CoreBookingPassengerEntity();
+            passengerEntity.setFirstName("bbbbbbbbb");
+            notesEntitySet.add(passengerEntity);
 
         }
         //coreLeadCommunication.setCoreLeadEntity(emp);
-        emp.setCoreLeadsNotesEntities(notesEntitySet);
+        emp.setCoreBookingPassengerEntities(notesEntitySet);
         session.save(emp);
         session.getTransaction().commit();
-        HibernateUtil.shutdown();*/
+        HibernateUtil.shutdown();
+*/
 
 
 

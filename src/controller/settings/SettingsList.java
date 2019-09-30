@@ -141,10 +141,12 @@ public class SettingsList implements Initializable {
             ToggleButton but = (ToggleButton) event.getTarget();
             if (but.isSelected()) {
                 emailVbox.setVisible(true);
+                inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery","true");
                 //emailVbox.setMaxHeight(50);
                 //emailVbox.setPrefHeight(50);
             } else {
                 emailVbox.setVisible(false);
+                inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery","false");
                 //emailVbox.setPrefHeight(0);
                 //emailVbox.setMaxHeight(0);
             }

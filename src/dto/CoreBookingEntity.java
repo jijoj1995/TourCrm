@@ -2,6 +2,9 @@ package dto;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table( name = "core_booking" )
@@ -28,7 +31,6 @@ public class CoreBookingEntity implements Serializable {
     private String supplierName;
     private String lobCode;
 
-
     @OneToOne(targetEntity=CoreBookingBillingAddressEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_billing_address_id")
     private CoreBookingBillingAddressEntity coreBookingBillingAddressEntity;
@@ -45,9 +47,6 @@ public class CoreBookingEntity implements Serializable {
     @JoinColumn(name="core_booking_status_id")
     private CoreBookingStatusEntity coreBookingStatusEntity;
 
-    @OneToOne(targetEntity=CoreBookingPassengerEntity.class,cascade=CascadeType.ALL)
-    @JoinColumn(name="core_booking_passenger_id")
-    private CoreBookingPassengerEntity coreBookingPassengerEntity;
 
     @OneToOne(targetEntity=CoreBookingPricingEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_pricing_id")
@@ -68,6 +67,10 @@ public class CoreBookingEntity implements Serializable {
     @OneToOne(targetEntity=CoreBookingPromotionEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_promotion_id")
     private CoreBookingPromotionEntity coreBookingPromotionEntity;
+
+    @OneToMany(fetch = FetchType.EAGER,targetEntity=CoreBookingPassengerEntity.class,cascade=CascadeType.ALL)
+    @JoinColumn(name="core_booking_id")
+    private List<CoreBookingPassengerEntity> coreBookingPassengerEntities;
 
 
 
@@ -239,14 +242,6 @@ public class CoreBookingEntity implements Serializable {
         this.coreBookingStatusEntity = coreBookingStatusEntity;
     }
 
-    public CoreBookingPassengerEntity getCoreBookingPassengerEntity() {
-        return coreBookingPassengerEntity;
-    }
-
-    public void setCoreBookingPassengerEntity(CoreBookingPassengerEntity coreBookingPassengerEntity) {
-        this.coreBookingPassengerEntity = coreBookingPassengerEntity;
-    }
-
     public CoreBookingPricingEntity getCoreBookingPricingEntity() {
         return coreBookingPricingEntity;
     }
@@ -285,5 +280,13 @@ public class CoreBookingEntity implements Serializable {
 
     public void setCoreBookingPromotionEntity(CoreBookingPromotionEntity coreBookingPromotionEntity) {
         this.coreBookingPromotionEntity = coreBookingPromotionEntity;
+    }
+
+    public List<CoreBookingPassengerEntity> getCoreBookingPassengerEntities() {
+        return coreBookingPassengerEntities;
+    }
+
+    public void setCoreBookingPassengerEntities(List<CoreBookingPassengerEntity> coreBookingPassengerEntities) {
+        this.coreBookingPassengerEntities = coreBookingPassengerEntities;
     }
 }

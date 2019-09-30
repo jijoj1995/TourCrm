@@ -177,8 +177,6 @@ public class SupplierBilling implements Initializable {
         });
 
 
-
-
         payAndPrintButton.setOnAction(event -> {
             Stage stage = (Stage) supplierBillingOuterPane.getScene().getWindow();
 

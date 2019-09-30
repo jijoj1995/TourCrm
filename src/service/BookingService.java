@@ -1,8 +1,13 @@
 package service;
 
 import dto.CoreBookingBillingAddressEntity;
+import dto.CoreBookingPassengerEntity;
 import dto.CoreBookingShippingAddressEntity;
+import dto.PassengerTableList;
+import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
 
 public class BookingService {
     private Logger logger=Logger.getLogger(BookingService.class);
@@ -39,5 +44,27 @@ public class BookingService {
         else{
             return false;
         }
+    }
+
+    public ArrayList<CoreBookingPassengerEntity> getPassesngerListFromTableData(ObservableList<PassengerTableList> passengerTableLists){
+        ArrayList<CoreBookingPassengerEntity> passengerList=new ArrayList<>();
+        for (PassengerTableList tableDto:passengerTableLists){
+            CoreBookingPassengerEntity entity=new CoreBookingPassengerEntity();
+            entity.setFirstName(tableDto.getFirstName());
+            entity.setNationality(tableDto.getNationality());
+            entity.setPassportNumber(tableDto.getPassportNumber());
+            entity.setDateOfBirth(tableDto.getDateOfBirth());
+            entity.setGender(tableDto.getGender());
+            entity.setTypeOfVisa(tableDto.getTypeOfVisa());
+            entity.setPassengerType(tableDto.getPassengerType());
+            entity.setLastName(tableDto.getLastName());
+            entity.setMiddleName(tableDto.getMiddleName());
+            entity.setGdsPnrNumber(tableDto.getGdsPnrNumber());
+            entity.setSegmentNumber(tableDto.getSegmentNumber());
+            passengerList.add(entity);
+        }
+
+
+        return passengerList;
     }
 }

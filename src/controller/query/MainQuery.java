@@ -6,6 +6,7 @@ import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -170,11 +171,13 @@ public class MainQuery implements Initializable {
             //saving successfull
             boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
             if (senEmailNotification){
-               boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
-               if (emailSendSuccessful){
-                   Toast.makeText(stage,"Email sent Successfully",1000,500,500 );
-               }
-               else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+                Platform.runLater(()->{
+                    boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+                    if (emailSendSuccessful){
+                        Toast.makeText(stage,"Email sent Successfully",1000,500,500 );
+                    }
+                    else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+                });
             }
             showQuickTransactionPage();
         }

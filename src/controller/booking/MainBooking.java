@@ -161,7 +161,6 @@ public class MainBooking implements Initializable {
         statusQueryTimePicker.setValue(Validator.getLocalTimeFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate()));
     }
 
-
     private void checkForSameBillingShippingAddress(){
 
                         //this method is used to automatically decide to show/hide shipping details Hbox
@@ -283,7 +282,6 @@ public class MainBooking implements Initializable {
         coreBookingEntity.getCoreBookingStatusEntity().setMoveToDispatch(statusMoveToDispatch.getValue());
     }
 
-
     @FXML
     private void saveCompleteBookingInformationToDb() throws IOException{
                                 //before saving set data from all textFields
@@ -315,7 +313,6 @@ public class MainBooking implements Initializable {
         Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
         mainPane.getChildren().setAll(root);
     }
-
 
     private void initializeDefaultLayout() {
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);

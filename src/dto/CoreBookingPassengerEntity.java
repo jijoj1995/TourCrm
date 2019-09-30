@@ -3,11 +3,13 @@ package dto;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table( name = "core_booking_passenger" )
+@Entity(name = "ForeignKeyAssoPassengerEntity")
+@Table(name = "core_booking_passenger", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "core_booking_passenger_id")})
 public class CoreBookingPassengerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn
     @Column(name = "core_booking_passenger_id")
     private Integer coreBookingPassengerId;
     private String segmentNumber;
@@ -21,6 +23,17 @@ public class CoreBookingPassengerEntity implements Serializable {
     private String passportNumber;
     private String nationality;
     private String typeOfVisa;
+    @ManyToOne
+    @JoinColumn(name="core_booking_id")
+    private CoreBookingEntity coreBookingEntity;
+
+    public CoreBookingEntity getCoreBookingEntity() {
+        return coreBookingEntity;
+    }
+
+    public void setCoreBookingEntity(CoreBookingEntity coreBookingEntity) {
+        this.coreBookingEntity = coreBookingEntity;
+    }
 
     public Integer getCoreBookingPassengerId() {
         return coreBookingPassengerId;
