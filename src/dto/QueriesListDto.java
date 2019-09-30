@@ -7,19 +7,20 @@ import javafx.beans.property.StringProperty;
 
 public class QueriesListDto {
     private IntegerProperty queryId = new SimpleIntegerProperty();
-    private StringProperty firstname = new SimpleStringProperty();
+    private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
     private StringProperty email = new SimpleStringProperty();
     private StringProperty branchCode = new SimpleStringProperty();
     private StringProperty callReason = new SimpleStringProperty();
+    private StringProperty employeeName = new SimpleStringProperty();
     private CoreLead coreLeadDto;
 
     public QueriesListDto() {
     }
 
-    public QueriesListDto(IntegerProperty queryId, StringProperty firstname, StringProperty lastName, StringProperty email, StringProperty branchCode, StringProperty callReason) {
+    public QueriesListDto(IntegerProperty queryId, StringProperty firstName, StringProperty lastName, StringProperty email, StringProperty branchCode, StringProperty callReason) {
         this.queryId = queryId;
-        this.firstname = firstname;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.branchCode = branchCode;
@@ -38,16 +39,16 @@ public class QueriesListDto {
         this.queryId.set(queryId);
     }
 
-    public String getFirstname() {
-        return firstname.get();
+    public String getFirstName() {
+        return firstName.get();
     }
 
-    public StringProperty firstnameProperty() {
-        return firstname;
+    public StringProperty firstNameProperty() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname.set(firstname);
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
     }
 
     public String getLastName() {
@@ -104,5 +105,17 @@ public class QueriesListDto {
 
     public void setCoreLeadDto(CoreLead coreLeadDto) {
         this.coreLeadDto = coreLeadDto;
+    }
+
+    public String getEmployeeName() {
+        return employeeName.get();
+    }
+
+    public StringProperty employeeNameProperty() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName.set(employeeName);
     }
 }

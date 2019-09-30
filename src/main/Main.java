@@ -65,6 +65,7 @@ public class Main extends Application {
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
         try {
+            inventoryConfig=InventoryConfig.getInstance();
             //check whether first startup and add admin login access
             new UserService().insertAdminLoginData();
             String log4jConfigFile = "/main/log4j.properties";
@@ -73,7 +74,6 @@ public class Main extends Application {
             PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
 
             //initialising inventory config object
-            inventoryConfig=InventoryConfig.getInstance();
         }
         catch (Throwable e){
             System.out.println(e.getMessage());
@@ -87,9 +87,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-
-
         //Session session = HibernateUtil.getSessionFactory().openSession();
         /*session.beginTransaction();
 

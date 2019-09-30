@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
 import service.Toast;
@@ -43,10 +44,12 @@ public class MainQuery implements Initializable {
     private JFXScrollPane jfxDialogScrollPane;
     @FXML
     private VBox notesdialogVbox;
+    private QueryService queryService=new QueryService();
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
     private int numberOfNotes =2;
     Set<CoreLeadsNotesEntity>coreLeadsNotesEntitySet=new HashSet<>();
+    InventoryConfig inventoryConfig=InventoryConfig.getInstance();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
                                   // notesDialogBox.setPrefWidth(0);
@@ -157,16 +160,26 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void saveCompleteLeadInformation() throws IOException{
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+
         //before saving set data from all textFields
         setTextFieldDataToDto();
 
             //save to db
-        if (new QueryService().saveQueryData(coreLeadDto)){
+        if (queryService.saveQueryData(coreLeadDto)){
             //saving successfull
+            boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
+            if (senEmailNotification){
+               boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+               if (emailSendSuccessful){
+                   Toast.makeText(stage,"Email sent Successfully",1000,500,500 );
+               }
+               else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+            }
             showQuickTransactionPage();
         }
         else{
-            Stage stage = (Stage) mainPane.getScene().getWindow();
+
             Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
         }
     }
@@ -214,6 +227,7 @@ public class MainQuery implements Initializable {
                 "    -fx-background-radius: 20;");
 
         notesDialogBox.setVisible(false);
+        notesDialogBox.setMaxWidth(0);
         FontAwesomeIconView addNotesButton = new FontAwesomeIconView(FontAwesomeIcon.PLUS_CIRCLE);
         addNotesButton.setCursor(Cursor.HAND);
         addNotesButton.setGlyphSize(35);

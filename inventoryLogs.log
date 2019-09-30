@@ -5622,3 +5622,1002 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2019-09-27 19:04:15 INFO  BaseConnection:199 - sql cleanup process completed
 2019-09-27 19:04:15 INFO  BaseConnection:199 - sql cleanup process completed
 2019-09-27 19:04:15 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 21:37:38 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 21:37:52 INFO  UserService:66 - in authenticating user method
+2019-09-27 21:37:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:37:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:37:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:37:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:37:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:37:53 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 21:40:59 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 21:41:05 INFO  UserService:66 - in authenticating user method
+2019-09-27 21:41:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:41:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:41:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:41:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:41:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:41:06 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 21:42:22 INFO  UserService:21 - in save user data to db method
+2019-09-27 21:45:25 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 21:45:31 INFO  UserService:66 - in authenticating user method
+2019-09-27 21:45:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:45:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:45:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:45:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:45:31 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 21:45:31 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:02:44 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:02:48 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:02:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:02:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:02:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:02:48 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:02:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:02:49 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:10:50 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:10:54 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:10:54 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:10:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:10:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:10:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:10:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:10:55 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:12:20 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:12:33 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:12:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:12:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:12:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:12:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:12:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:12:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:13:58 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:14:03 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:14:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:14:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:14:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:14:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:14:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:14:04 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:15:46 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:15:49 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:15:56 INFO  UserService:66 - in authenticating user method
+2019-09-27 22:15:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:15:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:15:57 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:15:57 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:15:57 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:15:57 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:16:30 INFO  UserService:21 - in save user data to db method
+2019-09-27 22:30:33 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:30:37 INFO  UserService:67 - in authenticating user method
+2019-09-27 22:30:37 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:30:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:30:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:30:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:30:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:30:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:50:34 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 22:50:40 INFO  UserService:67 - in authenticating user method
+2019-09-27 22:50:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:50:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:50:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:50:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:50:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 22:50:41 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 22:50:41 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:06:50 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:06:55 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:06:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:06:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:06:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:06:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:06:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:06:56 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:06:56 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:06:58 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:07:46 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:07:55 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:07:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:07:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:07:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:07:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:07:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:07:56 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:07:56 INFO  LoginPage:62 - adding currentUser as= jijoj1995
+2019-09-27 23:08:00 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:08:02 ERROR ErrorTracker:62 - line 1:45: expecting IDENT, found '?'
+2019-09-27 23:08:02 ERROR ErrorTracker:57 - line 1:45: expecting IDENT, found '?'
+line 1:45: expecting IDENT, found '?'
+	at antlr.Parser.match(Parser.java:211)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.parameter(HqlBaseParser.java:4597)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.primaryExpression(HqlBaseParser.java:915)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.atom(HqlBaseParser.java:3549)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.unaryExpression(HqlBaseParser.java:3401)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.multiplyExpression(HqlBaseParser.java:3273)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.additiveExpression(HqlBaseParser.java:2930)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:615)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2697)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2653)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2522)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2438)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2403)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2116)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1894)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:498)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:754)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:319)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:198)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:290)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:155)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:622)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:731)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:113)
+	at db.QueryService.getAllQueriesList(QueryService.java:58)
+	at controller.query.ListQueries.<init>(ListQueries.java:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at java.lang.Class.newInstance(Class.java:442)
+	at sun.reflect.misc.ReflectUtil.newInstance(ReflectUtil.java:51)
+	at javafx.fxml.FXMLLoader$ValueElement.processAttribute(FXMLLoader.java:927)
+	at javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(FXMLLoader.java:971)
+	at javafx.fxml.FXMLLoader$Element.processStartElement(FXMLLoader.java:220)
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(FXMLLoader.java:744)
+	at javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2707)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2527)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at controller.main.MainPage.showQuickTransactionPage(MainPage.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71)
+	at sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1771)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1657)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$ClickGenerator.postProcess(Scene.java:3470)
+	at javafx.scene.Scene$ClickGenerator.access$8100(Scene.java:3398)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3766)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2019-09-27 23:08:40 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:08:50 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:08:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:08:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:08:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:08:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:08:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:08:51 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:08:51 INFO  LoginPage:62 - adding currentUser as= jijoj1995
+2019-09-27 23:08:52 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:10:23 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:10:30 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:10:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:10:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:10:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:10:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:10:30 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:10:31 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:10:31 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:10:33 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:11:15 INFO  UserService:21 - in save user data to db method
+2019-09-27 23:11:31 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:11:42 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:11:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:11:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:11:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:11:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:11:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:11:43 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:11:43 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-27 23:11:47 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:13:26 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:14:37 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:14:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:14:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:14:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:14:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:14:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:14:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:14:38 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-27 23:14:40 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:15:02 INFO  QueryService:19 - in save queryData to db method
+2019-09-27 23:15:02 INFO  QueryService:25 - Converting dto object to entity obj to save in db
+2019-09-27 23:15:02 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:16:00 INFO  UserService:21 - in save user data to db method
+2019-09-27 23:16:19 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:16:31 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:16:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:16:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:16:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:16:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:16:32 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:16:32 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:16:32 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:16:51 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:17:02 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:17:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:17:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:17:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:17:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:17:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:17:03 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:17:03 INFO  LoginPage:62 - adding currentUser as= sijo
+2019-09-27 23:17:06 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:17:25 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-27 23:17:26 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-27 23:17:31 INFO  SubQuery:163 - saving sub-query all tabs data to dto
+2019-09-27 23:17:31 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-27 23:17:33 INFO  QueryService:19 - in save queryData to db method
+2019-09-27 23:17:33 INFO  QueryService:25 - Converting dto object to entity obj to save in db
+2019-09-27 23:17:33 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:17:59 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:18:03 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:18:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:18:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:18:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:18:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:18:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:18:04 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:18:04 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:18:07 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:22:42 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:22:47 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:22:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:22:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:22:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:22:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:22:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:22:47 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:22:47 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:23:00 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:23:16 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:23:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:17 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:23:17 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-27 23:23:46 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:23:49 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:23:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:23:55 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:23:55 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:24:50 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:25:05 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:25:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:25:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:25:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:25:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:25:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:25:08 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:25:08 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-27 23:26:34 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:26:40 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:26:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:26:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:26:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:26:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:26:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:26:47 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:26:47 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-27 23:27:55 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:28:21 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:28:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:28:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:28:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:28:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:28:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:28:21 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:28:21 INFO  LoginPage:62 - adding currentUser as= sijo
+2019-09-27 23:28:50 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-27 23:35:18 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:35:22 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:35:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:35:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:35:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:35:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:35:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:35:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:35:23 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:35:59 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-27 23:36:03 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:36:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:04 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:36:04 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-27 23:36:12 INFO  UserService:67 - in authenticating user method
+2019-09-27 23:36:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-27 23:36:12 INFO  InventoryTimers:26 - initializing all timers
+2019-09-27 23:36:12 INFO  LoginPage:62 - adding currentUser as= jijo
+2019-09-28 07:33:38 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-28 07:33:44 INFO  UserService:67 - in authenticating user method
+2019-09-28 07:33:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 07:33:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 07:33:44 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 07:33:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 07:33:45 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 07:33:45 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 07:33:45 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 07:33:46 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 07:33:50 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 09:25:41 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-28 09:25:52 INFO  UserService:67 - in authenticating user method
+2019-09-28 09:25:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:25:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:25:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:25:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:25:53 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:25:53 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 09:25:53 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 09:30:28 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-28 09:30:33 INFO  UserService:67 - in authenticating user method
+2019-09-28 09:30:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:30:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:30:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:30:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:30:33 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:30:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 09:30:34 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 09:43:10 INFO  InventoryConfig:38 - Successfully opened the input stream for properties :: /resource/properties/applicationProp.properties
+2019-09-28 09:43:14 INFO  UserService:67 - in authenticating user method
+2019-09-28 09:43:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:43:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:43:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:43:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:43:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 09:43:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 09:43:14 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 10:53:49 INFO  UserService:67 - in authenticating user method
+2019-09-28 10:53:49 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:53:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:53:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:53:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:53:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:53:50 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 10:53:50 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 10:57:29 INFO  UserService:67 - in authenticating user method
+2019-09-28 10:57:29 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:57:29 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:57:29 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:57:29 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:57:29 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 10:57:30 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 10:57:30 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 11:02:33 INFO  UserService:67 - in authenticating user method
+2019-09-28 11:02:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:02:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:02:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:02:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:02:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:02:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 11:02:34 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 11:05:10 INFO  UserService:67 - in authenticating user method
+2019-09-28 11:05:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:05:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:05:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:05:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:05:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:05:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 11:05:11 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 11:06:36 INFO  UserService:67 - in authenticating user method
+2019-09-28 11:06:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:06:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:06:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:06:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:06:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:06:36 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 11:06:36 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 11:08:13 INFO  UserService:67 - in authenticating user method
+2019-09-28 11:08:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:08:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:08:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:08:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:08:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:08:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 11:08:14 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 11:10:35 INFO  UserService:67 - in authenticating user method
+2019-09-28 11:10:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:10:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:10:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:10:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:10:36 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 11:10:36 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 11:10:36 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 12:10:12 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:10:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:10:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:10:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:10:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:10:12 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:10:13 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:10:13 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 12:14:41 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:14:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:14:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:14:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:14:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:14:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:14:41 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:14:41 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 12:29:05 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:29:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:29:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:29:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:29:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:29:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:29:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:29:05 INFO  LoginPage:62 - adding currentUser as= admin
+2019-09-28 12:50:09 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:50:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:50:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:50:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:50:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:50:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:50:10 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:50:10 INFO  LoginPage:69 - adding currentUser as= admin
+2019-09-28 12:51:21 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 12:51:26 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:51:26 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:51:26 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:51:26 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:51:26 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:51:28 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:52:55 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:52:55 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:52:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:52:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:52:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:52:56 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:52:56 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:52:56 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 12:53:17 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 12:53:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:53:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:53:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:53:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:53:17 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:55:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:55:01 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:55:01 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 12:55:04 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 12:58:11 INFO  UserService:67 - in authenticating user method
+2019-09-28 12:58:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:12 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 12:58:12 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 12:58:46 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 12:58:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 12:58:47 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:20 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:02:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:21 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:02:21 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:02:41 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 13:02:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:02:42 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:04:22 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 13:04:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:04:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:04:22 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:04:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:04:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:12:08 INFO  LoginPage:54 - adding currentUser as= test
+2019-09-28 13:12:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:12:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:12:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:12:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:12:09 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:46 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:15:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:15:47 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:15:47 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:16:18 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:16:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:16:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:16:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:16:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:16:18 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:16:18 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:16:18 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:17:10 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:17:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:10 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:17:11 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:17:50 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:17:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:50 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:17:51 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:17:51 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:19:37 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:19:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:19:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:19:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:19:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:19:38 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:19:38 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:19:38 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:20:15 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:20:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:20:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:20:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:20:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:20:15 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:20:15 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:20:15 INFO  LoginPage:70 - adding currentUser as= jijo
+2019-09-28 13:39:27 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:39:27 INFO  MainPage:57 - current user is not admin. Restricting
+2019-09-28 13:39:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:39:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:39:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:39:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:39:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:39:28 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:39:28 INFO  LoginPage:70 - adding currentUser as= admin
+2019-09-28 13:41:49 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 13:43:12 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:44:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:44:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:44:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:44:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:44:16 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:44:18 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:44:18 INFO  LoginPage:70 - adding currentUser as= jijo
+2019-09-28 13:45:42 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:45:52 INFO  MainPage:57 - current user is not admin. Restricting
+2019-09-28 13:45:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:45:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:45:58 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:45:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:45:59 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:45:59 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:45:59 INFO  LoginPage:71 - adding currentUser as= jijo
+2019-09-28 13:46:20 INFO  SettingsList:138 - current user is not admin. Restricting Tabs in settings page
+2019-09-28 13:46:47 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:47:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:47:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:47:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:47:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:47:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:47:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 13:47:05 INFO  LoginPage:71 - adding currentUser as= admin
+2019-09-28 13:47:09 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 13:48:31 INFO  UserService:67 - in authenticating user method
+2019-09-28 13:48:31 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 13:48:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:48:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:48:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:48:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:48:34 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 13:48:34 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 14:37:07 INFO  UserService:67 - in authenticating user method
+2019-09-28 14:37:07 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 14:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:37:07 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:37:08 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:37:08 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 14:37:12 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 14:37:15 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 14:39:46 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 14:43:03 INFO  UserService:67 - in authenticating user method
+2019-09-28 14:43:03 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 14:43:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:43:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:43:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:43:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:43:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 14:43:03 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 14:43:06 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:46:13 INFO  UserService:67 - in authenticating user method
+2019-09-28 15:46:13 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 15:46:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:13 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:14 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:14 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 15:46:16 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:46:35 INFO  UserService:67 - in authenticating user method
+2019-09-28 15:46:35 INFO  LoginPage:63 - adding currentUser as= jijo
+2019-09-28 15:46:35 INFO  MainPage:57 - current user is not admin. Restricting
+2019-09-28 15:46:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:35 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:36 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 15:46:37 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:46:52 INFO  UserService:67 - in authenticating user method
+2019-09-28 15:46:52 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 15:46:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:46:52 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 15:46:54 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:51:20 INFO  UserService:67 - in authenticating user method
+2019-09-28 15:51:20 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 15:51:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:51:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:51:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:51:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:51:20 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:51:20 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 15:58:04 INFO  UserService:67 - in authenticating user method
+2019-09-28 15:58:04 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 15:58:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:58:04 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:58:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:58:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:58:05 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 15:58:05 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 15:58:08 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:59:22 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 15:59:41 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 15:59:43 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:00:57 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:00:58 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:01:07 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:01:12 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:01:12 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:01:14 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:01:32 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:01:32 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:03:41 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:03:44 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:03:44 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:09:29 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:09:32 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:09:34 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-28 16:09:34 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:09:34 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-28 16:24:12 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:24:12 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-28 16:24:12 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:24:12 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-28 16:24:12 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:24:12 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:24:19 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:24:19 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:24:19 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:24:19 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:24:19 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:24:19 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:25:25 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:25:25 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:25:25 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:25:25 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:25:46 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:25:46 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:25:46 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:25:46 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:25:46 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:26:30 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:26:30 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:26:30 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:26:30 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:26:34 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:26:34 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:26:34 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:26:34 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:26:34 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:26:35 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:26:39 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:27:43 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:27:43 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:27:50 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:28:08 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:28:11 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-28 16:28:11 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:28:11 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-28 16:29:17 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:29:17 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-28 16:29:17 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:29:17 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-28 16:29:17 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:29:17 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:29:26 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:29:26 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:29:26 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:29:26 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:29:26 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:29:26 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:29:54 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:29:54 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:29:54 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:29:54 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:30:09 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:30:09 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:30:09 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:30:09 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:30:09 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:30:14 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:30:14 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:30:14 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:30:14 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:40:02 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:40:02 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:40:02 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:40:02 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:40:02 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:40:29 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:40:41 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:40:42 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-28 16:40:42 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:40:42 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-28 16:40:49 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:40:49 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-28 16:40:49 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:40:49 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-28 16:40:49 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:40:49 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:43:51 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:43:51 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:43:51 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:43:51 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:43:51 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:43:51 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:44:03 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:44:03 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:44:03 WARN  Validator:286 - unable to get String value from date=2019-09-28 and time= null. because= null
+2019-09-28 16:44:03 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:44:51 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:45:46 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:46:19 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 16:46:19 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 16:47:19 INFO  MainQuery:65 - initialising all text fields from dto object
+2019-09-28 16:47:23 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 16:47:25 INFO  ListQueries:183 - showing Main booking page for query id= 1
+2019-09-28 16:47:25 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:47:25 WARN  MainBooking:91 - coreLeadDto is null. returning
+2019-09-28 16:47:27 INFO  MainBooking:190 - saving entered data to Core Booking dto before going to subBookingPage
+2019-09-28 16:47:27 INFO  BookingService:11 - in getShippingAddressFromBillingAddress
+2019-09-28 16:47:27 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:47:27 WARN  Validator:242 - unable to get String date from obj=null. because= null
+2019-09-28 16:47:27 WARN  Validator:286 - unable to get String value from date=null and time= null. because= null
+2019-09-28 16:47:28 INFO  SubBooking:64 -  in initialiseAllTextFieldsFromDto method in sub query
+2019-09-28 16:55:54 INFO  MainBooking:89 - initialising all text fields from dto object
+2019-09-28 16:55:54 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:55:54 WARN  Validator:220 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:55:54 WARN  Validator:263 - unable to parse date from string value=. because= Text '' could not be parsed at index 0
+2019-09-28 16:55:54 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:55:54 WARN  Validator:275 - unable to parse time value from string value=. because= 1
+2019-09-28 16:55:55 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 17:04:51 INFO  UserService:67 - in authenticating user method
+2019-09-28 17:04:51 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 17:04:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 17:04:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 17:04:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 17:04:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 17:04:52 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 17:04:52 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 17:54:49 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 17:54:56 INFO  MainQuery:98 - saving entered data to Core Lead dto before going to subQueryPage
+2019-09-28 17:54:57 INFO  SubQuery:65 -  in setAllTextFieldsFromDto method in sub query
+2019-09-28 18:11:00 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:11:00 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:11:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:11:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:11:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:11:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:11:00 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:11:00 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:13:23 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:13:23 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:13:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:13:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:13:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:13:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:13:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:13:23 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:15:23 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:15:23 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:15:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:15:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:15:23 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:15:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:15:24 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:15:24 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:17:51 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:17:51 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:17:51 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:17:51 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:17:54 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:17:59 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:18:07 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:18:18 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:19:00 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:19:00 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:19:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:19:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:19:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:19:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:19:01 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:19:01 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:19:08 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:19:17 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:19:29 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-28 18:29:42 INFO  UserService:67 - in authenticating user method
+2019-09-28 18:29:42 INFO  LoginPage:63 - adding currentUser as= admin
+2019-09-28 18:29:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:29:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:29:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:29:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:29:43 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-28 18:29:43 INFO  InventoryTimers:26 - initializing all timers
+2019-09-28 18:29:47 INFO  QueryService:45 - in getAllQueriesList method
+2019-09-29 21:00:41 INFO  UserService:67 - in authenticating user method
+2019-09-29 21:00:45 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-29 21:00:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-29 21:00:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-29 21:00:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-29 21:00:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-29 21:00:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-29 21:00:46 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 07:27:43 INFO  UserService:67 - in authenticating user method
+2019-09-30 07:27:45 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 07:27:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:27:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:27:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:27:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:27:46 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:27:46 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 07:38:18 INFO  UserService:67 - in authenticating user method
+2019-09-30 07:38:20 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 07:38:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:38:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:38:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:38:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:38:21 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:38:21 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 07:41:09 INFO  UserService:67 - in authenticating user method
+2019-09-30 07:41:10 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 07:41:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:41:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:41:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:41:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:41:11 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:41:11 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 07:51:37 INFO  UserService:67 - in authenticating user method
+2019-09-30 07:51:39 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 07:51:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:51:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:51:39 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:51:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:51:40 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:51:40 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 07:54:01 INFO  UserService:67 - in authenticating user method
+2019-09-30 07:54:03 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 07:54:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:54:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:54:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:54:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:54:03 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 07:54:04 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 08:22:27 INFO  UserService:67 - in authenticating user method
+2019-09-30 08:22:27 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 08:22:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:22:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:22:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:22:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:22:28 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:22:28 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 08:44:41 INFO  UserService:67 - in authenticating user method
+2019-09-30 08:44:41 INFO  LoginPage:65 - adding currentUser as= admin
+2019-09-30 08:44:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:44:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:44:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:44:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:44:41 INFO  BaseConnection:199 - sql cleanup process completed
+2019-09-30 08:44:42 INFO  InventoryTimers:26 - initializing all timers
+2019-09-30 08:44:44 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:45:03 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:45:08 INFO  MainQuery:66 - initialising all text fields from dto object
+2019-09-30 08:45:25 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 08:45:25 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 08:45:50 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:46:23 INFO  MainQuery:66 - initialising all text fields from dto object
+2019-09-30 08:46:24 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 08:46:24 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 08:46:42 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:47:50 INFO  MainQuery:66 - initialising all text fields from dto object
+2019-09-30 08:47:56 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 08:47:56 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 08:48:05 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:50:11 INFO  QueryService:46 - in getAllQueriesList method
+2019-09-30 08:50:14 INFO  MainQuery:66 - initialising all text fields from dto object
+2019-09-30 08:50:16 INFO  QueryService:20 - in save queryData to db method
+2019-09-30 08:50:16 INFO  QueryService:26 - Converting dto object to entity obj to save in db
+2019-09-30 08:50:27 INFO  QueryService:46 - in getAllQueriesList method

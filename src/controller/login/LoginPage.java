@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.InventoryConfig;
 import main.Main;
+import org.apache.log4j.Logger;
+import service.EmailService;
 import service.Toast;
 import service.Validator;
 import timers.InventoryTimers;
@@ -39,9 +41,7 @@ public class LoginPage  implements Initializable {
     private TextField userNameInput;
     @FXML
     private PasswordField passwordInput;
-
-    @FXML
-    private Stage stage;
+    private Logger logger=Logger.getLogger(LoginPage.class);
     @FXML
     private void authenticateUser() throws Exception{
         Stage stage=(Stage) mainAnchorPane.getScene().getWindow();
@@ -50,17 +50,27 @@ public class LoginPage  implements Initializable {
                 Toast.makeText(stage," ENTER BOTH USERNAME & PASSWORD",1000,500,500);
                 return;
             }
+                    //check first if test user login
+        if (isTestUserLogin()){
+            logger.info("adding currentUser as= "+userNameInput.getText());
+            InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
+            Parent root = FXMLLoader.load(getClass().getResource("/view/main/mainPage.fxml"));
+            mainAnchorPane.getChildren().setAll(root);
+            return;
+        }
 
         if(new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
                                 // if authenticated
-            Toast.makeText(stage,"LOGIN SUCCESSFUL! WElCOME ADMIN",1000,500,500);
+
+            logger.info("adding currentUser as= "+userNameInput.getText());
+            InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
+           // Toast.makeText(stage,"LOGIN SUCCESSFUL! WElCOME ADMIN",1000,500,500);
             Parent root = FXMLLoader.load(getClass().getResource("/view/main/mainPage.fxml"));
             mainAnchorPane.getChildren().setAll(root);
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     new InventoryTimers().initializeTimers();
-                    InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
                 }
             });
 
@@ -104,5 +114,12 @@ public class LoginPage  implements Initializable {
             }
         });
 
+    }
+    private boolean isTestUserLogin(){
+
+        if (userNameInput.getText()!=null&&passwordInput!=null&&userNameInput.getText().equals("test")&&passwordInput.getText().equals("test")){
+            return true;
+        }
+        return false;
     }
 }

@@ -1,32 +1,25 @@
 package controller.settings;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import constants.InventoryConstants;
-import db.CustomerService;
 import db.DbBackupService;
-import db.StockService;
 import db.UserService;
-import dto.CustomerList;
-import dto.Stock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import service.ExcelExporter;
-import service.HibernateUtil;
 import service.Toast;
+import service.Validator;
 import timers.InventoryTimers;
 
 import java.io.File;
@@ -36,38 +29,46 @@ import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class SettingsList implements Initializable {
     private static Logger log = Logger.getLogger(SettingsList.class.getName());
-    DateFormat fileNameDateFormat = new SimpleDateFormat(InventoryConstants.FileNamedateTimeFormat);
+    private DateFormat fileNameDateFormat = new SimpleDateFormat(InventoryConstants.FileNamedateTimeFormat);
     @FXML
     private AnchorPane settingsAnchorPane;
     @FXML
-    private TabPane backupTab;
+    private TabPane settingsTabPane;
+
     @FXML
-    private CheckBox showPendingOnlyCheckbox;
+    private JFXToggleButton automaticBackupCheckBox,usePortCheck,usePasswordCheck,emableEmailCheck;
     @FXML
-    private JFXToggleButton automaticBackupCheckBox;
+    private HBox backupDetailsBox,portNumberHbox,passwordHbox;
     @FXML
-    private HBox backupDetailsBox;
+    private VBox emailVbox;
     @FXML
     private JFXComboBox<DayOfWeek> backupDayOptionList;
     @FXML
     private PasswordField oldPasswordField, newPasswordField, confirmPasswordField;
     @FXML
-    private JFXTextField dbName,dbUserName,dbPassword,dbIpAddress,dbPortNumber;
+    private JFXTextField dbName,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailPasswordField,emailSubjectField;
+    @FXML
+    private JFXTextArea emailMessageField;
+    @FXML
+    private Tab overallSettingsTab,databaseTab,adminTab;
+    private Logger logger=Logger.getLogger(SettingsList.class);
 
-    InventoryConfig inventoryConfig = InventoryConfig.getInstance();
+    private InventoryConfig inventoryConfig = InventoryConfig.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+                    //check whether to give full access or not
+        enableTabBasedOnUser();
         initialiseDatabaseProperties();
+        initialiseEmailDetails();
                                           //fetch backup property enabled from properties file
-        Boolean isAutomaticBackupEnabled = false;
+        boolean isAutomaticBackupEnabled = false;
         try {
             isAutomaticBackupEnabled = Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("automaticBackup"));
         } catch (Exception e) {
@@ -108,72 +109,137 @@ public class SettingsList implements Initializable {
                 inventoryConfig.getAppProperties().setProperty("automaticBackup", "false");
             }
         });
+
+        //toggle port hbox
+        usePortCheck.setOnAction((event) -> {
+            ToggleButton but = (ToggleButton) event.getTarget();
+            if (but.isSelected()) {
+                portNumberHbox.setVisible(true);
+                portNumberHbox.setMaxHeight(50);
+                portNumberHbox.setPrefHeight(50);
+            } else {
+                portNumberHbox.setVisible(false);
+                portNumberHbox.setPrefHeight(0);
+                portNumberHbox.setMaxHeight(0);
+            }
+        });
+            //toggle for use database password
+        usePasswordCheck.setOnAction((event) -> {
+            ToggleButton but = (ToggleButton) event.getTarget();
+            if (but.isSelected()) {
+                passwordHbox.setVisible(true);
+                passwordHbox.setMaxHeight(50);
+                passwordHbox.setPrefHeight(50);
+            } else {
+                passwordHbox.setVisible(false);
+                passwordHbox.setPrefHeight(0);
+                passwordHbox.setMaxHeight(0);
+            }
+        });
+        //check email hbox toggle
+        emableEmailCheck.setOnAction((event) -> {
+            ToggleButton but = (ToggleButton) event.getTarget();
+            if (but.isSelected()) {
+                emailVbox.setVisible(true);
+                //emailVbox.setMaxHeight(50);
+                //emailVbox.setPrefHeight(50);
+            } else {
+                emailVbox.setVisible(false);
+                //emailVbox.setPrefHeight(0);
+                //emailVbox.setMaxHeight(0);
+            }
+        });
     }
 
-
     private void initialiseDatabaseProperties(){
+        if (!Validator.useSpecificDatabasePort()){
+            portNumberHbox.setVisible(false);
+            portNumberHbox.setMaxHeight(0);
+            portNumberHbox.setPrefHeight(0);
+            usePortCheck.setSelected(false);
+        }
+        else {
+            portNumberHbox.setVisible(true);
+            usePortCheck.setSelected(true);
+        }
+        if (!Validator.useSpecificDatabasePassword()){
+            passwordHbox.setVisible(false);
+            passwordHbox.setMaxHeight(0);
+            passwordHbox.setPrefHeight(0);
+            usePasswordCheck.setSelected(false);
+        }
+        else {
+            passwordHbox.setVisible(true);
+            usePasswordCheck.setSelected(true);
+        }
         dbName.setText(inventoryConfig.getAppProperties().getProperty("databaseName"));
         dbIpAddress.setText(inventoryConfig.getAppProperties().getProperty("databaseIpAddress"));
         dbPassword.setText(inventoryConfig.getAppProperties().getProperty("databasePassword"));
         dbPortNumber.setText(inventoryConfig.getAppProperties().getProperty("databasePortNumber"));
         dbUserName.setText(inventoryConfig.getAppProperties().getProperty("databaseUserName"));
     }
+
+
+    private void initialiseEmailDetails(){
+        boolean sendEmailNotification= Boolean.parseBoolean((inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery")==null)?"false":inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
+        if (sendEmailNotification){
+            emableEmailCheck.setSelected(true);
+            emailVbox.setVisible(true);
+        }
+        else {
+            emableEmailCheck.setSelected(false);
+            emailVbox.setVisible(false);
+        }
+        emailField.setText(inventoryConfig.getAppProperties().getProperty("adminEmailId"));
+        emailPasswordField.setText(inventoryConfig.getAppProperties().getProperty("adminEmailPassword"));
+        emailSubjectField.setText(inventoryConfig.getAppProperties().getProperty("emailSubject"));
+        emailMessageField.setText(inventoryConfig.getAppProperties().getProperty("emailMessage"));
+    }
+
+    private void enableTabBasedOnUser(){
+        if (!Validator.isCurrentUserAdmin()){
+            logger.info("current user is not admin. Restricting Tabs in settings page");
+            //donot show these tabs to other user
+            overallSettingsTab.setDisable(true);
+            adminTab.setDisable(true);
+        }
+    }
+
     @FXML
-    private void testDatabaseConnection(){
+    private void saveEmailSettings(){
+        inventoryConfig.getAppProperties().setProperty("adminEmailId",emailField.getText());
+        inventoryConfig.getAppProperties().setProperty("adminEmailPassword",emailPasswordField.getText());
+        inventoryConfig.getAppProperties().setProperty("emailSubject",emailSubjectField.getText());
+        inventoryConfig.getAppProperties().setProperty("emailMessage",emailMessageField.getText());
+        inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery",String.valueOf(emableEmailCheck.isSelected()));
+        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
+        Toast.makeText(stage, "Updated Successfully", 1000, 500, 500);
+    }
+
+
+    @FXML
+    private void saveDatabaseConnection(){
         //Session session = HibernateUtil.getSessionFactory().openSession();
         //session.beginTransaction();
         //session.flush();
         //session.close();
 //        HibernateUtil.shutdown();
-        HibernateUtil.closeCompletehibernateDb();
-        inventoryConfig.getAppProperties().setProperty("databaseName","test");
-        Session session1 = HibernateUtil.getSessionFactory().openSession();
-        session1.beginTransaction();
-    }
+        //HibernateUtil.closeCompletehibernateDb();
+      //  Session session1 = HibernateUtil.getSessionFactory().openSession();
+       // session1.beginTransaction();
+        inventoryConfig.getAppProperties().setProperty("databaseName",dbName.getText());
+        inventoryConfig.getAppProperties().setProperty("databaseIpAddress",dbIpAddress.getText());
+        inventoryConfig.getAppProperties().setProperty("databasePassword",dbPassword.getText());
+        inventoryConfig.getAppProperties().setProperty("databasePortNumber",dbPortNumber.getText());
+        inventoryConfig.getAppProperties().setProperty("databaseUserName",dbUserName.getText());
+        inventoryConfig.getAppProperties().setProperty("usePortCheck",String.valueOf(usePortCheck.isSelected()));
+        inventoryConfig.getAppProperties().setProperty("useDatabasePassword",String.valueOf(usePasswordCheck.isSelected()));
 
-    @FXML
-    private void exportStocksData() {
 
-        log.info("going to backup stock data");
         Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
-        ArrayList<Stock> stockArrayList = new StockService().getAscendingStockList();
-
-        //checking whether stock data present or not
-        if (stockArrayList.isEmpty()) {
-            Toast.makeText(stage, "No data present in stocks", 1000, 500, 500);
-            return;
-        }
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialFileName("StockList_" + fileNameDateFormat.format(new Date()));
-        //Set extension filter for xlsx files
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Excel files (*.xlsx)", "*.xlsx");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        //Show save file dialog
-        File file = fileChooser.showSaveDialog(stage);
-        if (file == null) {
-            Toast.makeText(stage, "No file Selected", 1000, 500, 500);
-            return;
-        }
-        if (new ExcelExporter().stockDataExporter(file, stockArrayList)) {
-            Toast.makeText(stage, "Stock Data Exported Successfully", 1000, 500, 500);
-            log.info("Writing on XLSX file Successful ...");
-        } else {
-            Toast.makeText(stage, "Could Not Export Stock Data. Please check your File or Database Connection", 1000, 500, 500);
-            log.info("Writing on XLSX file Successful ...");
-        }
+        Toast.makeText(stage, "Updated Successfully", 1000, 500, 500);
     }
 
-    @FXML
-    private void deleteStocksData() {
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
-        if (new StockService().deleteAllStockData()) {
-            Toast.makeText(stage, " All Stock Data deleted Successfully", 1000, 500, 500);
-        } else {
-            Toast.makeText(stage, "Could Not delete Stock Data. Please check your Database Connection", 1000, 500, 500);
-        }
-    }
 
     @FXML
     private void backupEntireDatabase() {
@@ -224,44 +290,7 @@ public class SettingsList implements Initializable {
         }
     }
 
-    @FXML
-    private void exportCustomerData() {
-        //stage for showing messages
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
 
-        //if only customer name and pending amount required to be exported
-        boolean isShowOnlyPendingAmount = showPendingOnlyCheckbox.isSelected();
-
-        ArrayList<CustomerList> customerArrayList = new CustomerService().getCustomerList();
-
-        //checking whether stock data present or not
-        if (customerArrayList.isEmpty()) {
-            Toast.makeText(stage, "No customer data present", 1000, 500, 500);
-            return;
-        }
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialFileName("CustomerData_" + fileNameDateFormat.format(new Date()));
-        //Set extension filter for xlsx files
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Excel files (*.xlsx)", "*.xlsx");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        //Show save file dialog
-        File file = fileChooser.showSaveDialog(stage);
-
-        if (file == null) {
-            Toast.makeText(stage, "No file Selected", 1000, 500, 500);
-            return;
-        }
-        //write data to excel file
-        if (new ExcelExporter().exportCustomerData(file, customerArrayList, isShowOnlyPendingAmount)) {
-            Toast.makeText(stage, "Customer Data Exported Successfully", 1000, 500, 500);
-            log.info("Writing on XLSX file Successful ...");
-        } else {
-            Toast.makeText(stage, "Could Not Export Customer Data. Please check your File or Database Connection", 1000, 500, 500);
-            log.info("Writing on XLSX file Successful ...");
-        }
-    }
 
     @FXML
     private void updatePassword() {
@@ -283,7 +312,7 @@ public class SettingsList implements Initializable {
             return;
         }
         //update Password
-        if (new UserService().changePassword(newPasswordField.getText())) {
+        if (new UserService().changeAdminPassword(newPasswordField.getText())) {
             Toast.makeText(stage, "Password changed successfully.", 1000, 500, 500);
         } else {
             Toast.makeText(stage, "Unable to change password. Please check Database Connection", 1000, 500, 500);
@@ -316,9 +345,49 @@ public class SettingsList implements Initializable {
     private void initializeDefaultLayout() {
         settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        Double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 5 - 20;
-        backupTab.setTabMinWidth(paneWidth);
-        backupTab.setTabMaxWidth(paneWidth);
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 20;
+        settingsTabPane.setTabMinWidth(paneWidth);
+        settingsTabPane.setTabMaxWidth(paneWidth);
     }
 
+
+
+
+
+
+    /*  @FXML
+    private void exportStocksData() {
+
+        log.info("going to backup stock data");
+        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
+        ArrayList<Stock> stockArrayList = new StockService().getAscendingStockList();
+
+        //checking whether stock data present or not
+        if (stockArrayList.isEmpty()) {
+            Toast.makeText(stage, "No data present in stocks", 1000, 500, 500);
+            return;
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialFileName("StockList_" + fileNameDateFormat.format(new Date()));
+        //Set extension filter for xlsx files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Excel files (*.xlsx)", "*.xlsx");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+        File file = fileChooser.showSaveDialog(stage);
+        if (file == null) {
+            Toast.makeText(stage, "No file Selected", 1000, 500, 500);
+            return;
+        }
+        if (new ExcelExporter().stockDataExporter(file, stockArrayList)) {
+            Toast.makeText(stage, "Stock Data Exported Successfully", 1000, 500, 500);
+            log.info("Writing on XLSX file Successful ...");
+        } else {
+            Toast.makeText(stage, "Could Not Export Stock Data. Please check your File or Database Connection", 1000, 500, 500);
+            log.info("Writing on XLSX file Successful ...");
+        }
+    }
+
+   */
 }

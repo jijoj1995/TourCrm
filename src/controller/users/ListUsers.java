@@ -48,7 +48,7 @@ public class ListUsers implements Initializable {
     private TableColumn<CoreUserDto, String> emailColumn;
 
     @FXML
-    private TableColumn<CoreUserDto, CoreUserDto> actionColumn;
+    private TableColumn<CoreUserDto, String> usernameColumn;
 
     private ObservableList<CoreUserDto> masterData = FXCollections.observableArrayList();
     private UserService userService=new UserService();
@@ -104,27 +104,7 @@ public class ListUsers implements Initializable {
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailAddressProperty());
-        actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-
-        actionColumn.setCellFactory(param -> new TableCell<CoreUserDto, CoreUserDto>() {
-            FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.LIST);
-
-            @Override
-            protected void updateItem(CoreUserDto coreUserDto, boolean empty) {
-                super.updateItem(coreUserDto, empty);
-                if (coreUserDto == null) {
-                    setGraphic(null);
-                    return;
-                }
-                listIcon.setCursor(Cursor.HAND);
-                listIcon.setGlyphSize(30);
-                setGraphic(listIcon);
-                listIcon.setOnMouseClicked(event -> {
-
-                    //show booking page
-                    //showMainBookingPage(coreUserDto.getCoreLeadDto());
-                });
-            } });
+        usernameColumn.setCellValueFactory(cellData -> cellData.getValue().userNameProperty());
 
 
 

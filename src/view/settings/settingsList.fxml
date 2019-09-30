@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
+<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
    <children>
       <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <top>
@@ -30,9 +31,95 @@
               </VBox>
           </top>
           <center>
-              <TabPane fx:id="backupTab" prefHeight="200.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <TabPane fx:id="settingsTabPane" prefHeight="200.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                   <tabs>
-                      <Tab text="OverAll Settings">
+                      <Tab fx:id="databaseTab" text="Database">
+                          <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                      <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <children>
+                                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                                  <children>
+                                                      <Label minWidth="160.0" text="Database IP Address:">
+                                                          <HBox.margin>
+                                                              <Insets right="20.0" />
+                                                          </HBox.margin>
+                                                      </Label>
+                                          <JFXTextField fx:id="dbIpAddress" />
+                                                  </children>
+                                              </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label minWidth="160.0" text="Database Database Name:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbName" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" fillHeight="false" maxHeight="20.0" prefHeight="20.0" prefWidth="800.0">
+                                       <children>
+                                          <Label text="Use Port:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXToggleButton fx:id="usePortCheck" alignment="TOP_CENTER" maxHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="74.0" text=" " HBox.hgrow="NEVER" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="portNumberHbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label minWidth="160.0" text="Database Port Number:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbPortNumber" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="140.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label minWidth="160.0" text="Database Username:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbUserName" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="10.0" layoutY="140.0" maxHeight="20.0" prefHeight="20.0" prefWidth="800.0">
+                                       <children>
+                                          <Label text="Use Password:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXToggleButton fx:id="usePasswordCheck" alignment="TOP_CENTER" maxHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="74.0" text=" " HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="passwordHbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="200.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label minWidth="160.0" text="Database Password:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXTextField fx:id="dbPassword" />
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" onAction="#saveDatabaseConnection" styleClass="buttonPrimary" text="Update" />
+                                          </children>
+                                          <padding>
+                                              <Insets top="10.0" />
+                                          </padding>
+                                      </VBox>
+                                  </children>
+                              </AnchorPane>
+                          </content>
+                      </Tab>
+                      <Tab fx:id="overallSettingsTab" text="OverAll Settings">
                           <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
@@ -100,7 +187,7 @@
                               </AnchorPane>
                           </content>
                       </Tab>
-                      <Tab text="Database">
+                      <Tab fx:id="adminTab" text="Admin">
                           <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
@@ -108,102 +195,7 @@
                                           <children>
                                               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
                                                   <children>
-                                                      <Label text="Database IP Address:">
-                                                          <HBox.margin>
-                                                              <Insets right="20.0" />
-                                                          </HBox.margin>
-                                                      </Label>
-                                          <JFXTextField fx:id="dbIpAddress" />
-                                                  </children>
-                                              </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
-                                       <children>
-                                          <Label text="Database Database Name:">
-                                             <HBox.margin>
-                                                <Insets right="20.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <JFXTextField fx:id="dbName" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="50.0" prefWidth="600.0">
-                                       <children>
-                                          <Label text="Database Port Number:">
-                                             <HBox.margin>
-                                                <Insets right="20.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <JFXTextField fx:id="dbPortNumber" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="140.0" prefHeight="50.0" prefWidth="600.0">
-                                       <children>
-                                          <Label text="Database Username:">
-                                             <HBox.margin>
-                                                <Insets right="20.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <JFXTextField fx:id="dbUserName" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="200.0" prefHeight="50.0" prefWidth="600.0">
-                                       <children>
-                                          <Label text="Database Password:">
-                                             <HBox.margin>
-                                                <Insets right="20.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <JFXTextField fx:id="dbPassword" />
-                                       </children>
-                                    </HBox>
-                                    <Button mnemonicParsing="false" onAction="#testDatabaseConnection" text="Button" />
-                                          </children>
-                                          <padding>
-                                              <Insets top="10.0" />
-                                          </padding>
-                                      </VBox>
-                                  </children>
-                              </AnchorPane>
-                          </content>
-                      </Tab>
-                      <Tab text="Suppliers">
-                          <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                  <children>
-                                      <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                          <children>
-                                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
-                                                  <children>
-                                                      <Label text="Export Suppliers Data">
-                                                          <HBox.margin>
-                                                              <Insets right="20.0" />
-                                                          </HBox.margin>
-                                                      </Label>
-                                                      <Button mnemonicParsing="false" styleClass="buttonPrimary" text="Export">
-                                                          <font>
-                                                              <Font size="14.0" />
-                                                          </font>
-                                                      </Button>
-                                                  </children>
-                                              </HBox>
-                                          </children>
-                                          <padding>
-                                              <Insets top="10.0" />
-                                          </padding>
-                                      </VBox>
-                                  </children>
-                              </AnchorPane>
-                          </content>
-                      </Tab>
-                      <Tab text="Users">
-                          <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                  <children>
-                                      <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                          <children>
-                                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
-                                                  <children>
-                                                      <Label text="Old Password">
+                                                      <Label minWidth="150.0" text="Old Password">
                                                           <HBox.margin>
                                                               <Insets right="20.0" />
                                                           </HBox.margin>
@@ -213,7 +205,7 @@
                                               </HBox>
                                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
                                                   <children>
-                                                      <Label text="New Password">
+                                                      <Label minWidth="150.0" text="New Password">
                                                           <HBox.margin>
                                                               <Insets right="20.0" />
                                                           </HBox.margin>
@@ -223,7 +215,7 @@
                                               </HBox>
                                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="50.0" prefWidth="600.0">
                                                   <children>
-                                                      <Label text="Cfm. Password">
+                                                      <Label minWidth="150.0" text="Cfm. Password">
                                                           <HBox.margin>
                                                               <Insets right="20.0" />
                                                           </HBox.margin>
@@ -245,49 +237,83 @@
                               </AnchorPane>
                           </content>
                       </Tab>
-                      <Tab text="Stocks">
-                          <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                  <children>
-                                      <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                          <children>
-                                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
-                                                  <children>
-                                                      <Label text="Export Stocks Data">
-                                                          <HBox.margin>
-                                                              <Insets right="20.0" />
-                                                          </HBox.margin>
-                                                      </Label>
-                                                      <Button mnemonicParsing="false" onAction="#exportStocksData" styleClass="buttonPrimary" text="Export">
-                                                          <font>
-                                                              <Font size="14.0" />
-                                                          </font>
-                                                      </Button>
-                                                  </children>
-                                              </HBox>
-                                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
-                                                  <children>
-                                                      <Label text="Delete Stocks Data">
-                                                          <HBox.margin>
-                                                              <Insets right="20.0" />
-                                                          </HBox.margin>
-                                                      </Label>
-                                                      <Button mnemonicParsing="false" onAction="#deleteStocksData" styleClass="buttonPrimary" text="Delete">
-                                                          <font>
-                                                              <Font size="14.0" />
-                                                          </font>
-                                                      </Button>
-                                                  </children>
-                                              </HBox>
-                                          </children>
-                                          <padding>
-                                              <Insets top="10.0" />
-                                          </padding>
-                                      </VBox>
-                                  </children>
-                              </AnchorPane>
-                          </content>
-                      </Tab>
+                  <Tab fx:id="adminTab1" text="Email">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="800.0">
+                                       <children>
+                                          <Label text="Enable Email Notification:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXToggleButton fx:id="emableEmailCheck" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="74.0" text=" " HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <VBox fx:id="emailVbox">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                             <children>
+                                                <Label minWidth="150.0" text="Email">
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXTextField fx:id="emailField" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                             <children>
+                                                <Label minWidth="150.0" text="Password">
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXTextField fx:id="emailPasswordField" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                             <children>
+                                                <Label minWidth="150.0" text="Email Subject:">
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXTextField fx:id="emailSubjectField" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                             <children>
+                                                <Label minWidth="150.0" text="Email Message:">
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXTextArea fx:id="emailMessageField" prefHeight="400.0" prefWidth="200.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#saveEmailSettings" prefHeight="39.0" prefWidth="228.0" styleClass="buttonPrimary" text="UPDATE" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
                   </tabs>
               </TabPane>
           </center>

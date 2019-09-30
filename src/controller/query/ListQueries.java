@@ -5,8 +5,6 @@ import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.CoreLead;
-import dto.CoreLeadEntity;
-import dto.CustomerList;
 import dto.QueriesListDto;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -46,6 +44,8 @@ public class ListQueries implements Initializable {
     private TableColumn<QueriesListDto, String> branchCodeColumn;
     @FXML
     private TableColumn<QueriesListDto, String> callReasonColumn;
+    @FXML
+    private TableColumn<QueriesListDto, String> employeeColumn;
 
     @FXML
     private TableColumn<QueriesListDto, QueriesListDto> actionColumn;
@@ -103,10 +103,10 @@ public class ListQueries implements Initializable {
                 });
             }
         });
-        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstnameProperty());
+        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        branchCodeColumn.setCellValueFactory(cellData -> cellData.getValue().branchCodeProperty());
+        employeeColumn.setCellValueFactory(cellData -> cellData.getValue().employeeNameProperty());
         callReasonColumn.setCellValueFactory(cellData -> cellData.getValue().callReasonProperty());
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 
@@ -147,7 +147,7 @@ public class ListQueries implements Initializable {
                 if (person.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches first name.
                 }  else
-                if (person.getFirstname().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (person.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches first name.
                 } else // Filter matches mobile.
                     if (person.getLastName().toLowerCase().indexOf(lowerCaseFilter) != -1) {

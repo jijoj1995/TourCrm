@@ -24,6 +24,7 @@ public class CoreLeadEntity implements Serializable {
     private String shift;
     private String callReason;
     private String lobCode;
+    private String employeeName;
 
     @OneToOne(targetEntity=CoreLeadCommunicationEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_lead_communication_id")
@@ -148,6 +149,14 @@ public class CoreLeadEntity implements Serializable {
 
     public void setLobCode(String lobCode) {
         this.lobCode = lobCode;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public CoreLeadCommunicationEntity getCoreLeadCommunicationEntity() {

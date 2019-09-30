@@ -20,6 +20,7 @@ public class CoreLead implements Serializable {
     private StringProperty shift=new SimpleStringProperty();
     private StringProperty callReason=new SimpleStringProperty();
     private StringProperty lobCode=new SimpleStringProperty();
+    private StringProperty employeeName=new SimpleStringProperty();
 
     private CoreLeadCommunication coreLeadCommunication;
     private CoreLeadAir coreLeadAir;
@@ -171,6 +172,18 @@ public class CoreLead implements Serializable {
 
     public void setLobCode(String lobCode) {
         this.lobCode.set(lobCode);
+    }
+
+    public String getEmployeeName() {
+        return employeeName.get();
+    }
+
+    public StringProperty employeeNameProperty() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName.set(employeeName);
     }
 
     public CoreLeadCommunication getCoreLeadCommunication() {

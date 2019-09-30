@@ -3,6 +3,7 @@ package service;
 import constants.InventoryConstants;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import main.InventoryConfig;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -287,4 +288,32 @@ public class Validator {
         return value;
     }
 
+    public static boolean isCurrentUserAdmin(){
+        String user=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
+        if (user!=null&&user.equals("admin")){
+            return true;
+        }
+        else return false;
+    }
+    public static boolean isCurrentUserTest(){
+        String user=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
+        if (user!=null&&user.equals("test")){
+            return true;
+        }
+        else return false;
+    }
+    public static boolean useSpecificDatabasePort(){
+        String portCheck=InventoryConfig.getInstance().getAppProperties().getProperty("useSpecificPort");
+        if (portCheck!=null&&portCheck.equals("true")){
+            return true;
+        }
+        else return false;
+    }
+    public static boolean useSpecificDatabasePassword(){
+        String useDatabasePassword=InventoryConfig.getInstance().getAppProperties().getProperty("useDatabasePassword");
+        if (useDatabasePassword!=null&&useDatabasePassword.equals("true")){
+            return true;
+        }
+        else return false;
+    }
 }

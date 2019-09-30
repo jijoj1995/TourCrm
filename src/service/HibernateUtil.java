@@ -18,13 +18,12 @@ public class HibernateUtil
             if (sessionFactory == null)
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
-               // configuration.setProperty("hibernate.connection.password","test"); <property name="connection.url"></property>
 
-               // configuration.setProperty("hibernate.connection.url",getDataBaseUrl());
-                 //<property name="connection.url">jdbc:mysql://185.224.138.133/u315173730_tourcrm?useSSL=false</property>
-                //configuration.setProperty("hibernate.connection.password","tourcrmpassword");
-                //<property name="connection.username">u315173730_abcd</property>
-                configuration.addAnnotatedClass(CoreUserEntity.class);
+                //<property name="connection.url">jdbc:mysql://185.224.138.133/u315173730_tourcrm?useSSL=false</property>
+                if (Validator.useSpecificDatabasePassword()) configuration.setProperty("hibernate.connection.password",getDatabasePassword());
+                    configuration.setProperty("hibernate.connection.url",getDataBaseUrl());
+               configuration.setProperty("hibernate.connection.username",getDatabaseUserName());
+                    configuration.addAnnotatedClass(CoreUserEntity.class);
                 configuration.addAnnotatedClass(CoreLeadsNotesEntity.class);
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
@@ -74,10 +73,27 @@ public class HibernateUtil
 
     public static String getDataBaseUrl(){
         InventoryConfig inventoryConfig=InventoryConfig.getInstance();
-        String databaseUrl="jdbc:mysql://"+ inventoryConfig.getAppProperties().getProperty("databaseIpAddress")
-                +":"+inventoryConfig.getAppProperties().getProperty("databasePortNumber")+"/"
-                +inventoryConfig.getAppProperties().getProperty("databaseName")+"?useSSL=false";
+        String ipAddress=inventoryConfig.getAppProperties().getProperty("databaseIpAddress");
+        String usePortCheck=inventoryConfig.getAppProperties().getProperty("usePortCheck");
+        String portNumber=inventoryConfig.getAppProperties().getProperty("databasePortNumber");
+        String databaseName=inventoryConfig.getAppProperties().getProperty("databaseName");
+        String databaseUrl="jdbc:mysql://"
+                + ipAddress
+                +((usePortCheck!=null&&usePortCheck.equals("true")) ? ":"+portNumber : "")
+                +"/"
+                +databaseName
+                +"?useSSL=false";
         return databaseUrl;
+        /*databaseName=u315173730_tourcrm
+databaseIpAddress=185.224.138.133
+databasePassword=tourcrmpassword
+databaseUserName=abcd*/
         // <property name="connection.url">jdbc:mysql://localhost:3306/test?useSSL=false</property>
+    }
+    private static String getDatabasePassword(){
+        return InventoryConfig.getInstance().getAppProperties().getProperty("databasePassword");
+    }
+    private static String getDatabaseUserName(){
+        return InventoryConfig.getInstance().getAppProperties().getProperty("databaseUserName");
     }
 }

@@ -2,6 +2,7 @@ package controller.main;
 
 import com.sun.javafx.application.LauncherImpl;
 import db.DashboardService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Application;
 import javafx.application.Preloader;
 import javafx.collections.FXCollections;
@@ -21,7 +22,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.InventoryConfig;
 import main.Main;
+import org.apache.log4j.Logger;
+import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,13 +42,29 @@ public class MainPage implements Initializable {
     @FXML
     private BarChart barChart;
     @FXML
+    private FontAwesomeIconView usersIcon,settingsIcon,queryButton;
+    @FXML
     private Label customerNumber,supplierNumber,totalStocksNumber,categoryNumber,pendingNumber,revenueNumber,receiveAmountNumber;
     private DashboardService dashboardService=new DashboardService();
+    private Logger logger=Logger.getLogger(MainPage.class);
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+        if (!Validator.isCurrentUserAdmin()){
+            logger.info("current user is not admin. Restricting");
+            usersIcon.setDisable(true);
+            //settingsIcon.setDisable(true);
+        }
+        if (Validator.isCurrentUserTest()){
+            logger.info("current user is Test user. Restricting");
+            usersIcon.setDisable(true);
+            queryButton.setDisable(true);
+            //settingsIcon.setDisable(true);
+        }
+
 
         HashMap<String,Integer>paymentTableDetails=dashboardService.getPaymentTableDetails();
         customerNumber.setText(String.valueOf(dashboardService.getTotalCustomers()));

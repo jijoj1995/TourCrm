@@ -53,6 +53,7 @@ public class UserService extends BaseConnection {
             userDto.setFirstName(coreUserEntity.getFirstName());
             userDto.setLastName(coreUserEntity.getLastName());
             userDto.setEmailAddress(coreUserEntity.getEmailAddress());
+            userDto.setUserName(coreUserEntity.getUserName());
             userDto.setCoreUserEntity(coreUserEntity);
             coreUserEntities.add(userDto);
         }
@@ -84,7 +85,7 @@ public class UserService extends BaseConnection {
            }
 
         }
-        catch (Exception ex){
+        catch (Throwable ex){
             logger.info("error while fetching user "+ex.getMessage());
         }
         finally {
@@ -96,16 +97,16 @@ public class UserService extends BaseConnection {
     }
 
 
-    public boolean changePassword(String newPassword){
+    public boolean changeAdminPassword(String newPassword){
         boolean isSuccessful=false;
-        String userName="wadhwa";
+        String userName="admin";
         logger.info("going to change password for user");
         Statement statement=null;
         Connection connection=null;
         try{
             connection=getDBConnection();
             statement=connection.createStatement();
-            statement.execute("update users set password='"+newPassword+"' where userName='"+userName+"'");
+            statement.execute("update core_user set userPassword='"+newPassword+"' where userName='"+userName+"'");
             isSuccessful=true;
         }catch (Exception e){
             logger.warn("Error while updating user password"+e.getMessage());

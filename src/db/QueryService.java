@@ -1,9 +1,11 @@
 package db;
 
 import dto.*;
+import main.InventoryConfig;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import service.EmailService;
 import service.HibernateUtil;
 
 import java.util.ArrayList;
@@ -17,13 +19,14 @@ public class QueryService {
 
         logger.info("in save queryData to db method");
         if (coreLead==null){
-            logger.warn("invalid corelead dto data. Returning.");
+            logger.warn("invalid coreLead dto data. Returning.");
             return false;
         }
         try{
             logger.info("Converting dto object to entity obj to save in db");
             CoreLeadEntity coreLeadEntity= setValuesFromCoreLeadDto(coreLead);
-
+            //add which user going to save query
+            coreLeadEntity.setEmployeeName(InventoryConfig.getInstance().getAppProperties().getProperty("currentUser"));
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.saveOrUpdate(coreLeadEntity);
@@ -36,6 +39,48 @@ public class QueryService {
             e.printStackTrace();
             return false;
         }
+    }
+
+
+    public ArrayList<QueriesListDto>getAllQueriesList(){
+        logger.info("in getAllQueriesList method");
+        boolean isAdmin=true;
+        String employeeName=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
+        ArrayList<QueriesListDto> queriesListDtoArrayList=new ArrayList<>();
+        Session session =null;
+try {
+     session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    StringBuilder hql = new StringBuilder("from CoreLeadEntity");
+    if (!employeeName.equals("admin")) {
+        isAdmin=false;
+        hql.append(" where employeeName=:employeeName");
+    }
+    Query query = session.createQuery(hql.toString());
+    if (!isAdmin)query.setParameter("employeeName",employeeName);
+    List<CoreLeadEntity> results = query.list();
+    for (CoreLeadEntity coreLeadEntity : results) {
+        QueriesListDto limitedQueriesListDto = new QueriesListDto();
+        limitedQueriesListDto.setBranchCode(coreLeadEntity.getBranchCode());
+        limitedQueriesListDto.setCallReason(coreLeadEntity.getCallReason());
+        if (coreLeadEntity.getCoreLeadCommunicationEntity() != null) {
+            limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
+        }
+        limitedQueriesListDto.setFirstName(coreLeadEntity.getFirstName());
+        limitedQueriesListDto.setLastName(coreLeadEntity.getLastName());
+        limitedQueriesListDto.setQueryId(coreLeadEntity.getCoreLeadId());
+        limitedQueriesListDto.setEmployeeName(coreLeadEntity.getEmployeeName());
+        limitedQueriesListDto.setCoreLeadDto(setValuesFromCoreLeadEntity(coreLeadEntity));
+        queriesListDtoArrayList.add(limitedQueriesListDto);
+    }
+}
+catch (Exception e){
+    e.printStackTrace();
+}
+finally {
+    if (session!=null)session.close();
+}
+        return queriesListDtoArrayList;
     }
 
 
@@ -63,6 +108,7 @@ public class QueryService {
         coreLeadEntity.setQuerySource(coreLeadDto.getQuerySource());
         coreLeadEntity.setShift(coreLeadDto.getShift());
         coreLeadEntity.setCountry(coreLeadDto.getCountry());
+        coreLeadEntity.setEmployeeName(coreLeadDto.getEmployeeName());
 
 
         //communication details
@@ -191,6 +237,7 @@ public class QueryService {
         coreLeadDto.setQuerySource(coreLeadEntity.getQuerySource());
         coreLeadDto.setShift(coreLeadEntity.getShift());
         coreLeadDto.setCountry(coreLeadEntity.getCountry());
+        coreLeadDto.setEmployeeName(coreLeadEntity.getEmployeeName());
 
 
         //communication details
@@ -291,29 +338,16 @@ public class QueryService {
         return coreLeadDto;
     }
 
-    public ArrayList<QueriesListDto>getAllQueriesList(){
-        ArrayList<QueriesListDto> queriesListDtoArrayList=new ArrayList<>();
+    public boolean sendEmailNotification(String emailRecipient){
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Query query = session.createQuery("from CoreLeadEntity");
-        List<CoreLeadEntity> results = query.list();
-        for(CoreLeadEntity coreLeadEntity:results){
-            QueriesListDto limitedQueriesListDto=new QueriesListDto();
-            limitedQueriesListDto.setBranchCode(coreLeadEntity.getBranchCode());
-            limitedQueriesListDto.setCallReason(coreLeadEntity.getCallReason());
-            if (coreLeadEntity.getCoreLeadCommunicationEntity()!=null) {
-                limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
-            }
-            limitedQueriesListDto.setFirstname(coreLeadEntity.getFirstName());
-            limitedQueriesListDto.setLastName(coreLeadEntity.getLastName());
-            limitedQueriesListDto.setQueryId(coreLeadEntity.getCoreLeadId());
-            limitedQueriesListDto.setCoreLeadDto(setValuesFromCoreLeadEntity(coreLeadEntity));
-            queriesListDtoArrayList.add(limitedQueriesListDto);
+        try{
+            new EmailService().generateAndSendEmail(emailRecipient);
+            return true;
         }
-
-        return queriesListDtoArrayList;
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
-
 }
 

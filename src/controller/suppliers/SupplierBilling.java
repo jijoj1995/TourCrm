@@ -340,6 +340,7 @@ public class SupplierBilling implements Initializable {
                 });
             }
         });
+
         table.setItems(data);
     }
 
@@ -348,7 +349,6 @@ public class SupplierBilling implements Initializable {
         name.setText(this.mainSupplier.getName());
         phone.setText(this.mainSupplier.getMobileNumber());
         address.setText(this.mainSupplier.getAddress());
-
     }
 
     @FXML

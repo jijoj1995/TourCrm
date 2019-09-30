@@ -45,6 +45,7 @@
                         <TableColumn fx:id="branchCodeColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="BRANCH CODE" />
                         <TableColumn fx:id="emailColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="EMAIL" />
                         <TableColumn fx:id="callReasonColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" text="CALL REASON" />
+                        <TableColumn fx:id="employeeColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" text="EMPLOYEE" />
                         <TableColumn fx:id="actionColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="ACTION" />
                      </columns>
                      <columnResizePolicy>
