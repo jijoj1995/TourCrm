@@ -12,7 +12,7 @@ import java.util.Properties;
 public class InventoryConfig {
 
     private static InventoryConfig inventoryConfig = null;
-    private Logger logger = Logger.getLogger(InventoryConfig.class.getName());
+    private Logger logger = Logger.getLogger(InventoryConfig.class);
     private Properties appProperties = null;
 
 

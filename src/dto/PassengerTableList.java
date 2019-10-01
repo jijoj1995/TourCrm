@@ -36,6 +36,20 @@ public class PassengerTableList {
         this.typeOfVisa = typeOfVisa;
     }
 
+    public PassengerTableList(Integer coreBookingPassengerId, String segmentNumber, String gdsPnrNumber, String firstName, String middleName, String lastName, String passengerType, String gender, String dateOfBirth, String passportNumber, String nationality, String typeOfVisa) {
+        this.coreBookingPassengerId.setValue( coreBookingPassengerId);
+        this.segmentNumber.setValue( segmentNumber);
+        this.gdsPnrNumber.setValue( gdsPnrNumber);
+        this.firstName.setValue( firstName);
+        this.middleName.setValue( middleName);
+        this.lastName.setValue( lastName);
+        this.passengerType.setValue( passengerType);
+        this.gender.setValue( gender);
+        this.dateOfBirth.setValue( dateOfBirth);
+        this.passportNumber.setValue( passportNumber);
+        this.nationality.setValue( nationality);
+        this.typeOfVisa.setValue( typeOfVisa);
+    }
 
     public Integer getIndex() {
         return index;

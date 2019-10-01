@@ -106,6 +106,7 @@ public class ListQueries implements Initializable {
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+        branchCodeColumn.setCellValueFactory(cellData -> cellData.getValue().branchCodeProperty());
         employeeColumn.setCellValueFactory(cellData -> cellData.getValue().employeeNameProperty());
         callReasonColumn.setCellValueFactory(cellData -> cellData.getValue().callReasonProperty());
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));

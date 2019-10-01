@@ -87,25 +87,7 @@ public class SubBooking implements Initializable {
     private void initialisePassengerDetailsFromDto(){
 
         for (CoreBookingPassengerEntity entity:coreBookingEntity.getCoreBookingPassengerEntities())
-        //data.add(new PassengerTableList(entity.getCoreBookingPassengerId(),entity.getSegmentNumber(),entity.getGdsPnrNumber(),entity.getFirstName(),entity.getMiddleName(),entity.getLastName(),entity.getPassengerType(),entity.getGender(),entity.getDateOfBirth(),entity.getPassportNumber(),entity.getNationality(),entity.getTypeOfVisa()));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        data.add(new PassengerTableList(entity.getCoreBookingPassengerId(),entity.getSegmentNumber(),entity.getGdsPnrNumber(),entity.getFirstName(),entity.getMiddleName(),entity.getLastName(),entity.getPassengerType(),entity.getGender(),entity.getDateOfBirth(),entity.getPassportNumber(),entity.getNationality(),entity.getTypeOfVisa()));
         passengerTable.setItems(data);
     }
     private void initialisePricingDetailsFromDto(){
@@ -397,31 +379,8 @@ public class SubBooking implements Initializable {
         mainPane.getChildren().setAll(p);
     }
     @FXML
-    private void addPaasengerToTable(){
-     //   data.add(new PassengerTableList(null,passengerSegmentNumber.getText(),passengerGdsPnrNumber.getText(),passengerFirstName.getText(),passengerMiddleName.getText(),passengerLastName.getText(),passengerType.getValue(),passengerGender.getValue(),passengerDateOfBirth.getValue().toString(),passengerPassportNumber.getText(),passengerNationality.getText(),passengerTypeOfVisa.getText()));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private void addPassengerToTable(){
+        data.add(new PassengerTableList(null,passengerSegmentNumber.getText(),passengerGdsPnrNumber.getText(),passengerFirstName.getText(),passengerMiddleName.getText(),passengerLastName.getText(),passengerType.getValue(),passengerGender.getValue(),passengerDateOfBirth.getValue().toString(),passengerPassportNumber.getText(),passengerNationality.getText(),passengerTypeOfVisa.getText()));
         resetPassengerDataFields();
     }
 

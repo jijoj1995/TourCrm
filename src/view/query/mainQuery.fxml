@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -320,21 +319,9 @@
                                   <children>
                                       <HBox spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup" HBox.hgrow="NEVER">
                                           <children>
-                                              <FontAwesomeIconView fill="#022f02" glyphName="SAVE" onMouseClicked="#saveCompleteLeadInformation" size="35" strokeType="OUTSIDE" strokeWidth="0.0" text="">
-                                                                    <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                  </cursor>
-                                              </FontAwesomeIconView>
-                                              <FontAwesomeIconView fx:id="detailsPageIcon" fill="#022f02" glyphName="TH_LIST" onMouseClicked="#showSubQueryPage" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
-                                                  <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                  </cursor>
-                                              </FontAwesomeIconView>
-                        <FontAwesomeIconView fx:id="admin1" fill="#022f02" glyphName="DATABASE" layoutX="50.0" layoutY="50.0" onMouseClicked="#toggleNotesTab" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </FontAwesomeIconView>
+                        <Button mnemonicParsing="false" onAction="#saveCompleteLeadInformation" styleClass="buttonPrimary" text="Save" />
+                        <Button mnemonicParsing="false" onAction="#showSubQueryPage" styleClass="buttonPrimary" text="Sub Details" />
+                        <Button layoutX="306.0" layoutY="20.0" mnemonicParsing="false" styleClass="buttonPrimary" text="Notes" />
                                           </children>
                                           <padding>
                                               <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
@@ -343,24 +330,6 @@
                                   </children>
                               </HBox>
          </bottom>
-         <right>
-            <JFXDialog fx:id="notesDialogBox" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
-                     <content>
-                        <VBox fx:id="notesdialogVbox" alignment="TOP_CENTER" spacing="20.0">
-                           <children>
-                              <Label text="NOTES SECTION" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-               </children></JFXDialog>
-         </right>
         </BorderPane>
     </children>
 </AnchorPane>

@@ -55,7 +55,7 @@ public class SettingsList implements Initializable {
     @FXML
     private JFXTextArea emailMessageField;
     @FXML
-    private Tab overallSettingsTab,databaseTab,adminTab;
+    private Tab overallSettingsTab,databaseTab,adminTab,emailTab;
     private Logger logger=Logger.getLogger(SettingsList.class);
 
     private InventoryConfig inventoryConfig = InventoryConfig.getInstance();
@@ -179,6 +179,7 @@ public class SettingsList implements Initializable {
         dbPassword.setText(inventoryConfig.getAppProperties().getProperty("databasePassword"));
         dbPortNumber.setText(inventoryConfig.getAppProperties().getProperty("databasePortNumber"));
         dbUserName.setText(inventoryConfig.getAppProperties().getProperty("databaseUserName"));
+        inventoryConfig.updatePropertyFile();
     }
 
 
@@ -204,6 +205,7 @@ public class SettingsList implements Initializable {
             //donot show these tabs to other user
             overallSettingsTab.setDisable(true);
             adminTab.setDisable(true);
+            emailTab.setDisable(true);
         }
     }
 

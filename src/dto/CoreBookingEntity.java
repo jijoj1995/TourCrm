@@ -2,9 +2,7 @@ package dto;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table( name = "core_booking" )
@@ -29,7 +27,8 @@ public class CoreBookingEntity implements Serializable {
     private String dueDate;
     private String holdBooking;
     private String supplierName;
-    private String lobCode;
+    private String shift;
+    private String authorisePartialMissing;
 
     @OneToOne(targetEntity=CoreBookingBillingAddressEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_billing_address_id")
@@ -202,12 +201,20 @@ public class CoreBookingEntity implements Serializable {
         this.supplierName = supplierName;
     }
 
-    public String getLobCode() {
-        return lobCode;
+    public String getShift() {
+        return shift;
     }
 
-    public void setLobCode(String lobCode) {
-        this.lobCode = lobCode;
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public String getAuthorisePartialMissing() {
+        return authorisePartialMissing;
+    }
+
+    public void setAuthorisePartialMissing(String authorisePartialMissing) {
+        this.authorisePartialMissing = authorisePartialMissing;
     }
 
     public CoreBookingBillingAddressEntity getCoreBookingBillingAddressEntity() {

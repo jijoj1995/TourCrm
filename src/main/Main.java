@@ -2,9 +2,7 @@ package main;
 
 import com.sun.javafx.application.LauncherImpl;
 import constants.InventoryConstants;
-import db.BaseConnection;
 import db.UserService;
-import dto.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -16,30 +14,21 @@ import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-import service.HibernateUtil;
-
 import java.io.*;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class Main extends Application {
 
     public static double WIDTH = 800;
     public static double SIDE_BAR_WIDTH = 200;
     public static double HEIGHT = 300;
-
-
     // Just a counter to create some delay while showing preloader.
     private static final int COUNT_LIMIT = 200000;
 
     private static int stepCount = 1;
+    private Logger logger=Logger.getLogger(Main.class);
     Parent root;
     // Used to demonstrate step couns.
     public static String STEP() {
@@ -66,15 +55,13 @@ public class Main extends Application {
 
         // Perform some heavy lifting (i.e. database start, check for application updates, etc. )
         try {
+            //loading log4j file
+            String log4jConfigFile = "/main/log4j.properties";
+            PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
+            //initialising inventory config object
             inventoryConfig=InventoryConfig.getInstance();
             //check whether first startup and add admin login access
             new UserService().insertAdminLoginData();
-            String log4jConfigFile = "/main/log4j.properties";
-
-            //loading log4j file
-            PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
-
-            //initialising inventory config object
         }
         catch (Throwable e){
             System.out.println(e.getMessage());
@@ -131,13 +118,12 @@ public class Main extends Application {
             primaryStage.setTitle("CRM");
         }
 
-
         primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/resource/images/logomain.png")));
 
                                                            //initialising conn object
-        System.out.println("going to fetch connection object");
+        /*System.out.println("going to fetch connection object");
         Connection connection=BaseConnection.getDBConnection();
-        BaseConnection.sqlCleanup(connection,null,null);
+        BaseConnection.sqlCleanup(connection,null,null);*/
 
                                                          //fetching window size
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
@@ -157,6 +143,7 @@ public class Main extends Application {
                     FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/"+ InventoryConstants.appPropertiesFile);
                     inventoryConfig.getAppProperties().store(out, null);
                     out.close();
+                    logger.info("property file updated successfully at shutdown");
                 }
                 catch (Exception e){
                     e.printStackTrace();

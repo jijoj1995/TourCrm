@@ -1,6 +1,5 @@
 package service;
 
-import constants.InventoryConstants;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.InventoryConfig;

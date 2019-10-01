@@ -39,8 +39,7 @@ public class MainQuery implements Initializable {
     private JFXTextField firstName,middleName,lastName,userId,branchCode,country,paxEmail,usaMobile,landLine,usaWork;
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
-    @FXML
-    private JFXDialog notesDialogBox;
+
     @FXML
     private JFXScrollPane jfxDialogScrollPane;
     @FXML
@@ -57,7 +56,7 @@ public class MainQuery implements Initializable {
                                         //set window based on screen size
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
-        initialiseNotesTab();
+     //   initialiseNotesTab();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
@@ -141,7 +140,7 @@ public class MainQuery implements Initializable {
         coreLeadDto.getCoreLeadCommunication().setLandline(landLine.getText());
     }
 
-    @FXML
+   /* @FXML
     private void toggleNotesTab() {
                 //toggle notes tab on button click
        if (notesDialogBox.isVisible()){
@@ -152,12 +151,9 @@ public class MainQuery implements Initializable {
            notesDialogBox.setVisible(true);
            notesDialogBox.setMaxWidth(500);
            notesDialogBox.setPrefWidth(500);
-           /*
-           notesDialogBox.setPrefWidth(500);
-           notesDialogBox.setMinHeight(700);
-           */
+
        }
-    }
+    }*/
 
     @FXML
     private void saveCompleteLeadInformation() throws IOException{
@@ -168,16 +164,20 @@ public class MainQuery implements Initializable {
 
             //save to db
         if (queryService.saveQueryData(coreLeadDto)){
-            //saving successfull
+            //saving successful
             boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
             if (senEmailNotification){
-                Platform.runLater(()->{
-                    boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
-                    if (emailSendSuccessful){
-                        Toast.makeText(stage,"Email sent Successfully",1000,500,500 );
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+                        boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+                        if (emailSendSuccessful){
+                            Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
+                        }
+                        else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
                     }
-                    else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
                 });
+
+
             }
             showQuickTransactionPage();
         }
@@ -216,13 +216,13 @@ public class MainQuery implements Initializable {
         //setting window size based on screen size
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 2 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 2 - 30;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
 
     }
 
-    private void initialiseNotesTab(){
+   /* private void initialiseNotesTab(){
        notesDialogBox.setStyle("-fx-text-fill: #006464;\n" +
                 "    -fx-background-color: white;\n" +
                 "-fx-border-color:black;\n" +
@@ -302,5 +302,5 @@ public class MainQuery implements Initializable {
         logger.info("position of button clicked == "+positionNumber);
         notesdialogVbox.getChildren().remove(positionNumber+2);
         numberOfNotes--;
-    }
+    }*/
 }

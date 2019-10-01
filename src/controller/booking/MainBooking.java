@@ -30,8 +30,8 @@ public class MainBooking implements Initializable {
     @FXML
     private TabPane bookingTabs;
     @FXML
-    private JFXTextField bookingId,bookingTime,queryId,userId,firstName,middleName,lastName,departmentCode,gdsType,
-    pnrNumber,dueDate,holdBooking,lobCode,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
+    private JFXTextField bookingId,queryId,userId,firstName,middleName,lastName,departmentCode,gdsType,
+    pnrNumber,holdBooking,authorisePartialMissing, shift,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
     billingAddressCity,billingAddressZipCode,shippingAddressName,shippingAddress1,shippingAddress2,shippingAddressState,shippingAddressCountry,
     shippingAddressCity,shippingAddressZipCode,communicationPaxEmail,communicationUsaMobile,communicationUsaWork,communicationLandline,
     statusUserId,statusQcDoneBy;
@@ -41,7 +41,7 @@ public class MainBooking implements Initializable {
     @FXML
     JFXTimePicker statusQcTimePicker,statusQueryTimePicker;
     @FXML
-    JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate;
+    JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate,bookingTime,dueDate;
     @FXML
     private HBox shippingHbox;
     @FXML
@@ -102,7 +102,7 @@ public class MainBooking implements Initializable {
         if (coreBookingEntity.getCoreBookingId()!=null) {
             bookingId.setText(String.valueOf(coreBookingEntity.getCoreBookingId()));
         }
-        bookingTime.setText(coreBookingEntity.getBookingTime());
+        bookingTime.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getBookingTime()));
         if (coreBookingEntity.getQueryId()!=null) {
             queryId.setText(String.valueOf(coreBookingEntity.getQueryId()));
         }
@@ -115,11 +115,12 @@ public class MainBooking implements Initializable {
         querySource.setValue(coreBookingEntity.getQuerySource());
         gdsType.setText(coreBookingEntity.getGdsType());
         currencyCode.setValue(coreBookingEntity.getCurrencyCode());
-        dueDate.setText(coreBookingEntity.getDueDate());
+        dueDate.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getDueDate()));
         pnrNumber.setText(coreBookingEntity.getPnrNumber());
         supplierName.setValue(coreBookingEntity.getSupplierName());
-        lobCode.setText(coreBookingEntity.getLobCode());
+        shift.setText(coreBookingEntity.getShift());
         holdBooking.setText(coreBookingEntity.getHoldBooking());
+        authorisePartialMissing.setText(coreBookingEntity.getAuthorisePartialMissing());
     }
     private void initializeBillingAddressInputTextsFromDto(){
 
@@ -223,7 +224,7 @@ public class MainBooking implements Initializable {
     }
 
     private void setGeneralTextFieldDataToDto(){
-        coreBookingEntity.setBookingTime(bookingTime.getText());
+        coreBookingEntity.setBookingTime(Validator.getStringDateValue(bookingTime.getValue()));
         coreBookingEntity.setFirstName(firstName.getText());
         coreBookingEntity.setMiddleName(middleName.getText());
         coreBookingEntity.setLastName(lastName.getText());
@@ -233,10 +234,11 @@ public class MainBooking implements Initializable {
         coreBookingEntity.setGdsType(gdsType.getText());
         coreBookingEntity.setCurrencyCode(currencyCode.getValue());
         coreBookingEntity.setPnrNumber(pnrNumber.getText());
-        coreBookingEntity.setDueDate(dueDate.getText());
+        coreBookingEntity.setDueDate(Validator.getStringDateValue(dueDate.getValue()));
         coreBookingEntity.setHoldBooking(holdBooking.getText());
-        coreBookingEntity.setLobCode(lobCode.getText());
+        coreBookingEntity.setShift(shift.getText());
         coreBookingEntity.setSupplierName(supplierName.getValue());
+        coreBookingEntity.setAuthorisePartialMissing(authorisePartialMissing.getText());
     }
 
     private void setBillingAddressTextFieldDataToDto(){
