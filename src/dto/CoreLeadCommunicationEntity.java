@@ -1,7 +1,5 @@
 package dto;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,8 +12,11 @@ public class CoreLeadCommunicationEntity implements Serializable {
     private Integer coreLeadCommunicationId;
     private String usaMobile;
     private String usaWorkNumber;
-    private String landline;
-    private String paxEmail;
+    private String indiaLandline;
+    private String paxEmailFirst;
+    private String paxEmailSecond;
+    private String indiaMobile;
+    private String usaHome;
 
 
     public Integer getCoreLeadCommunicationId() {
@@ -42,19 +43,43 @@ public class CoreLeadCommunicationEntity implements Serializable {
         this.usaWorkNumber = usaWorkNumber;
     }
 
-    public String getLandline() {
-        return landline;
+    public String getIndiaLandline() {
+        return indiaLandline;
     }
 
-    public void setLandline(String landline) {
-        this.landline = landline;
+    public void setIndiaLandline(String indiaLandline) {
+        this.indiaLandline = indiaLandline;
     }
 
-    public String getPaxEmail() {
-        return paxEmail;
+    public String getPaxEmailFirst() {
+        return paxEmailFirst;
     }
 
-    public void setPaxEmail(String paxEmail) {
-        this.paxEmail = paxEmail;
+    public void setPaxEmailFirst(String paxEmailFirst) {
+        this.paxEmailFirst = paxEmailFirst;
+    }
+
+    public String getPaxEmailSecond() {
+        return paxEmailSecond;
+    }
+
+    public void setPaxEmailSecond(String paxEmailSecond) {
+        this.paxEmailSecond = paxEmailSecond;
+    }
+
+    public String getIndiaMobile() {
+        return indiaMobile;
+    }
+
+    public void setIndiaMobile(String indiaMobile) {
+        this.indiaMobile = indiaMobile;
+    }
+
+    public String getUsaHome() {
+        return usaHome;
+    }
+
+    public void setUsaHome(String usaHome) {
+        this.usaHome = usaHome;
     }
 }

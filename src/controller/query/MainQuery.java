@@ -3,20 +3,14 @@ package controller.query;
 import com.jfoenix.controls.*;
 import constants.LeadsConstants;
 import db.QueryService;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.InventoryConfig;
@@ -26,6 +20,8 @@ import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -36,7 +32,7 @@ public class MainQuery implements Initializable {
     @FXML
     private TabPane queryTabs;
     @FXML
-    private JFXTextField firstName,middleName,lastName,userId,branchCode,country,paxEmail,usaMobile,landLine,usaWork;
+    private JFXTextField firstName,middleName,lastName,userId,queryIdColumn,queryTime,branchCode,country, paxEmailFirst,paxEmailSecond,usaHome,usaMobile,indiaMobile,indiaLandLine,usaWork;
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
 
@@ -56,6 +52,7 @@ public class MainQuery implements Initializable {
                                         //set window based on screen size
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
+        setNumberOnlyInputCheck();
      //   initialiseNotesTab();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
@@ -82,18 +79,26 @@ public class MainQuery implements Initializable {
         shift.setValue(coreLeadDto.getShift());
         reasonOfCall.setValue(coreLeadDto.getCallReason());
         lobCode.setValue(coreLeadDto.getLobCode());
+        queryTime.setText(coreLeadDto.getQuerytime());
+        queryIdColumn.setText(String.valueOf(coreLeadDto.getCoreLeadId()));
         if(coreLeadDto.getCoreLeadCommunication()==null){
             logger.warn("coreLeadCommunication object is null of coreLead. returning");
             return;
         }
-            paxEmail.setText(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+            paxEmailFirst.setText(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
+            paxEmailSecond.setText(coreLeadDto.getCoreLeadCommunication().getPaxEmailSecond());
             usaMobile.setText(coreLeadDto.getCoreLeadCommunication().getUsaMobile());
-            landLine.setText(coreLeadDto.getCoreLeadCommunication().getLandline());
+            indiaLandLine.setText(coreLeadDto.getCoreLeadCommunication().getIndiaLandline());
             usaWork.setText(coreLeadDto.getCoreLeadCommunication().getUsaWorkNumber());
+            usaHome.setText(coreLeadDto.getCoreLeadCommunication().getUsaHome());
+            indiaMobile.setText(coreLeadDto.getCoreLeadCommunication().getIndiaMobile());
 
 
     }
 
+    private void setNumberOnlyInputCheck(){
+
+    }
 
 
     @FXML
@@ -135,9 +140,12 @@ public class MainQuery implements Initializable {
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
         }
         coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(usaWork.getText());
-        coreLeadDto.getCoreLeadCommunication().setPaxEmail(paxEmail.getText());
+        coreLeadDto.getCoreLeadCommunication().setPaxEmailFirst(paxEmailFirst.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaMobile(usaMobile.getText());
-        coreLeadDto.getCoreLeadCommunication().setLandline(landLine.getText());
+        coreLeadDto.getCoreLeadCommunication().setIndiaLandline(indiaLandLine.getText());
+        coreLeadDto.getCoreLeadCommunication().setIndiaMobile(indiaMobile.getText());
+        coreLeadDto.getCoreLeadCommunication().setPaxEmailSecond(paxEmailSecond.getText());
+        coreLeadDto.getCoreLeadCommunication().setUsaHome(usaHome.getText());
     }
 
    /* @FXML
@@ -161,6 +169,8 @@ public class MainQuery implements Initializable {
 
         //before saving set data from all textFields
         setTextFieldDataToDto();
+        //set querytime as current time
+        coreLeadDto.setQuerytime(new Date().toString());
 
             //save to db
         if (queryService.saveQueryData(coreLeadDto)){
@@ -169,7 +179,7 @@ public class MainQuery implements Initializable {
             if (senEmailNotification){
                 Platform.runLater(new Runnable() {
                     @Override public void run() {
-                        boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+                        boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
                         if (emailSendSuccessful){
                             Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
                         }

@@ -21,6 +21,7 @@ public class CoreLead implements Serializable {
     private StringProperty callReason=new SimpleStringProperty();
     private StringProperty lobCode=new SimpleStringProperty();
     private StringProperty employeeName=new SimpleStringProperty();
+    private StringProperty querytime=new SimpleStringProperty();
 
     private CoreLeadCommunication coreLeadCommunication;
     private CoreLeadAir coreLeadAir;
@@ -172,6 +173,18 @@ public class CoreLead implements Serializable {
 
     public void setLobCode(String lobCode) {
         this.lobCode.set(lobCode);
+    }
+
+    public String getQuerytime() {
+        return querytime.get();
+    }
+
+    public StringProperty querytimeProperty() {
+        return querytime;
+    }
+
+    public void setQuerytime(String querytime) {
+        this.querytime.set(querytime);
     }
 
     public String getEmployeeName() {

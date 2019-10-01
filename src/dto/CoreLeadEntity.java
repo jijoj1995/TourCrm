@@ -25,6 +25,7 @@ public class CoreLeadEntity implements Serializable {
     private String callReason;
     private String lobCode;
     private String employeeName;
+    private String queryTime;
 
     @OneToOne(targetEntity=CoreLeadCommunicationEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_lead_communication_id")
@@ -54,6 +55,14 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_lead_id")
     private Set<CoreLeadsNotesEntity> coreLeadsNotesEntities;
 
+
+    public String getQueryTime() {
+        return queryTime;
+    }
+
+    public void setQueryTime(String queryTime) {
+        this.queryTime = queryTime;
+    }
 
     public Integer getCoreLeadId() {
         return coreLeadId;

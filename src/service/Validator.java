@@ -1,13 +1,13 @@
 package service;
 
+import constants.InventoryConstants;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.InventoryConfig;
 import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 public class Validator {
 
     private static final String customerRegisteredMac="68-5D-43-51-47-45 E0-DB-55-E2-E5-86 F0-76-1C-CA-DA-8A 1C-65-9D-58-A4-97 06-1F-3A-35-93-CC 6C-F0-49-D2-C2-66";
-    private static final Logger log=Logger.getLogger(Validator.class.getName());
+    private static final Logger logger =Logger.getLogger(Validator.class.getName());
 
     public static boolean validateProduct() throws IOException {
         boolean isProductGenuine=false;
@@ -38,13 +38,13 @@ public class Validator {
 
             Matcher mm = pattern.matcher(line);
             if (mm.matches()) {
-                log.info("mac found: "+mm.group(1));
+                logger.info("mac found: "+mm.group(1));
                 fetchedMacAddress=mm.group(1);
                 break;
             }
         }
         if(customerRegisteredMac.contains(fetchedMacAddress)){
-            log.info("product has been verified");
+            logger.info("product has been verified");
             isProductGenuine=true;
         }
         return isProductGenuine;
@@ -204,7 +204,7 @@ public class Validator {
             date = LocalDate.parse(s);
         }
         catch (Exception e){
-            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
             return null;
         }
         return date;
@@ -216,7 +216,7 @@ public class Validator {
             date = LocalDate.parse(s);
         }
         catch (Exception e){
-            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
             return LocalDate.now();
         }
         return date;
@@ -227,7 +227,7 @@ public class Validator {
             time = LocalTime.parse(s);
         }
         catch (Exception e){
-            log.warn("unable to parse time from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse time from string value="+s+". because= "+e.getMessage());
             return LocalTime.now();
         }
         return time;
@@ -238,7 +238,7 @@ public class Validator {
            dateValue = s.toString();
        }
        catch (Exception e){
-           log.warn("unable to get String date from obj="+s+". because= "+e.getMessage());
+           logger.warn("unable to get String date from obj="+s+". because= "+e.getMessage());
        }
         return dateValue;
     }
@@ -248,7 +248,7 @@ public class Validator {
             dateValue = s.toString();
         }
         catch (Exception e){
-            log.warn("unable to get String time from obj="+s+". because= "+e.getMessage());
+            logger.warn("unable to get String time from obj="+s+". because= "+e.getMessage());
         }
         return dateValue;
     }
@@ -259,7 +259,7 @@ public class Validator {
             date = LocalDate.parse(dateTime[0]);
         }
         catch (Exception e){
-            log.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
             return LocalDate.now();
         }
         return date;
@@ -271,7 +271,7 @@ public class Validator {
             time = LocalTime.parse(dateTime[1]);
         }
         catch (Exception e){
-            log.warn("unable to parse time value from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse time value from string value="+s+". because= "+e.getMessage());
         }
         return time;
     }
@@ -282,7 +282,7 @@ public class Validator {
             value=date.toString()+" "+time.toString();
         }
         catch (Exception e){
-            log.warn("unable to get String value from date="+date+" and time= "+time+". because= "+e.getMessage());
+            logger.warn("unable to get String value from date="+date+" and time= "+time+". because= "+e.getMessage());
         }
         return value;
     }
@@ -302,7 +302,7 @@ public class Validator {
         else return false;
     }
     public static boolean useSpecificDatabasePort(){
-        String portCheck=InventoryConfig.getInstance().getAppProperties().getProperty("useSpecificPort");
+        String portCheck=InventoryConfig.getInstance().getAppProperties().getProperty("usePortCheck");
         if (portCheck!=null&&portCheck.equals("true")){
             return true;
         }
@@ -315,4 +315,14 @@ public class Validator {
         }
         else return false;
     }
+
+    public static boolean isproductionPropertyFileExists(){
+        logger.info("checking if property file exists");
+       // File file =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+InventoryConstants.productionPropertiesFilename);
+        File propertyFile =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+ InventoryConstants.productionPropertiesFileLocation);
+        if (propertyFile!=null&&propertyFile.exists()) return true;
+        else return false;
+    }
+
+
 }

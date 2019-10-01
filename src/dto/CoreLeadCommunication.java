@@ -7,13 +7,17 @@ import javafx.beans.property.StringProperty;
 import java.io.Serializable;
 
 
-public class CoreLeadCommunication implements Serializable {
+public class
+CoreLeadCommunication implements Serializable {
 
     private IntegerProperty coreLeadCommunicationId=new SimpleIntegerProperty();
     private StringProperty usaMobile=new SimpleStringProperty();
     private StringProperty usaWorkNumber=new SimpleStringProperty();
-    private StringProperty landline=new SimpleStringProperty();
-    private StringProperty paxEmail=new SimpleStringProperty();
+    private StringProperty indiaLandline =new SimpleStringProperty();
+    private StringProperty paxEmailFirst =new SimpleStringProperty();
+    private StringProperty paxEmailSecond =new SimpleStringProperty();
+    private StringProperty indiaMobile =new SimpleStringProperty();
+    private StringProperty usaHome =new SimpleStringProperty();
 
     public int getCoreLeadCommunicationId() {
         return coreLeadCommunicationId.get();
@@ -51,27 +55,63 @@ public class CoreLeadCommunication implements Serializable {
         this.usaWorkNumber.set(usaWorkNumber);
     }
 
-    public String getLandline() {
-        return landline.get();
+    public String getIndiaLandline() {
+        return indiaLandline.get();
     }
 
-    public StringProperty landlineProperty() {
-        return landline;
+    public StringProperty indiaLandlineProperty() {
+        return indiaLandline;
     }
 
-    public void setLandline(String landline) {
-        this.landline.set(landline);
+    public void setIndiaLandline(String indiaLandline) {
+        this.indiaLandline.set(indiaLandline);
     }
 
-    public String getPaxEmail() {
-        return paxEmail.get();
+    public String getPaxEmailFirst() {
+        return paxEmailFirst.get();
     }
 
-    public StringProperty paxEmailProperty() {
-        return paxEmail;
+    public StringProperty paxEmailFirstProperty() {
+        return paxEmailFirst;
     }
 
-    public void setPaxEmail(String paxEmail) {
-        this.paxEmail.set(paxEmail);
+    public void setPaxEmailFirst(String paxEmailFirst) {
+        this.paxEmailFirst.set(paxEmailFirst);
+    }
+
+    public String getPaxEmailSecond() {
+        return paxEmailSecond.get();
+    }
+
+    public StringProperty paxEmailSecondProperty() {
+        return paxEmailSecond;
+    }
+
+    public void setPaxEmailSecond(String paxEmailSecond) {
+        this.paxEmailSecond.set(paxEmailSecond);
+    }
+
+    public String getIndiaMobile() {
+        return indiaMobile.get();
+    }
+
+    public StringProperty indiaMobileProperty() {
+        return indiaMobile;
+    }
+
+    public void setIndiaMobile(String indiaMobile) {
+        this.indiaMobile.set(indiaMobile);
+    }
+
+    public String getUsaHome() {
+        return usaHome.get();
+    }
+
+    public StringProperty usaHomeProperty() {
+        return usaHome;
+    }
+
+    public void setUsaHome(String usaHome) {
+        this.usaHome.set(usaHome);
     }
 }

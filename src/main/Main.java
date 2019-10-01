@@ -75,6 +75,19 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+       // inventoryConfig=InventoryConfig.getInstance();
+       /* File propertyFolder =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder);
+        File file =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+InventoryConstants.productionPropertiesFilename);
+        if (!propertyFolder.isDirectory()) {
+            propertyFolder.mkdir();
+        }
+        if (!file.exists()) {
+            file.createNewFile();
+            FileOutputStream out = new FileOutputStream(file);
+            inventoryConfig.getAppProperties().store(out, null);
+        }*/
+
+        //FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/"+ InventoryConstants.appPropertiesFile);
       /*  Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 *//*
@@ -110,6 +123,7 @@ public class Main extends Application {
 
                             //check whether the product is original
         if(/*!Validator.validateProduct()*/false){
+
             root = FXMLLoader.load(getClass().getResource("/view/main/UnauthorizedPage.fxml"));
             primaryStage.setTitle("Product Validation Failed");
         }
@@ -140,9 +154,10 @@ public class Main extends Application {
             public void handle(WindowEvent t) {
                                               //save updated application Properties before exit
                 try {
-                    FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/"+ InventoryConstants.appPropertiesFile);
-                    inventoryConfig.getAppProperties().store(out, null);
-                    out.close();
+                        FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+InventoryConstants.productionPropertiesFileLocation);
+        //                      change location in settings page and test
+                        inventoryConfig.getAppProperties().store(out, null);
+                        out.close();
                     logger.info("property file updated successfully at shutdown");
                 }
                 catch (Exception e){

@@ -78,10 +78,10 @@ public class MainBooking implements Initializable {
     private void initialiseDefaultCoreBookingCommunicationFromDto(){
         if (coreLeadDto!=null && coreLeadDto.getCoreLeadCommunication()!=null && coreBookingEntity!=null &&coreBookingEntity.getCoreBookingCommunicationEntity()==null){
             CoreLeadCommunication coreLeadCommunication=coreLeadDto.getCoreLeadCommunication();
-            communicationPaxEmail.setText(coreLeadCommunication.getPaxEmail());
+            communicationPaxEmail.setText(coreLeadCommunication.getPaxEmailFirst());
             communicationUsaMobile.setText(coreLeadCommunication.getUsaMobile());
             communicationUsaWork.setText(coreLeadCommunication.getUsaWorkNumber());
-            communicationLandline.setText(coreLeadCommunication.getLandline());
+            communicationLandline.setText(coreLeadCommunication.getIndiaLandline());
         }
     }
 
@@ -254,7 +254,7 @@ public class MainBooking implements Initializable {
     private void setShippingAddressTextFieldDataToDto() {
         if (showShippingBox.isSelected()) {
                              //address same as billing address
-            bookingService.getShippingAddressFromBillingAddress(coreBookingEntity.getCoreBookingBillingAddressEntity());
+           coreBookingEntity.setCoreBookingShippingAddressEntity(bookingService.getShippingAddressFromBillingAddress(coreBookingEntity.getCoreBookingBillingAddressEntity()));
         } else {
             coreBookingEntity.getCoreBookingShippingAddressEntity().setName(shippingAddressName.getText());
             coreBookingEntity.getCoreBookingShippingAddressEntity().setAddress1(shippingAddress1.getText());

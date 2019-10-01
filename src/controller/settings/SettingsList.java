@@ -110,6 +110,7 @@ public class SettingsList implements Initializable {
             }
         });
 
+        //usePortCheck.setSelected(Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("usePortCheck")));
         //toggle port hbox
         usePortCheck.setOnAction((event) -> {
             ToggleButton but = (ToggleButton) event.getTarget();
@@ -142,13 +143,9 @@ public class SettingsList implements Initializable {
             if (but.isSelected()) {
                 emailVbox.setVisible(true);
                 inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery","true");
-                //emailVbox.setMaxHeight(50);
-                //emailVbox.setPrefHeight(50);
             } else {
                 emailVbox.setVisible(false);
                 inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery","false");
-                //emailVbox.setPrefHeight(0);
-                //emailVbox.setMaxHeight(0);
             }
         });
     }
@@ -179,7 +176,6 @@ public class SettingsList implements Initializable {
         dbPassword.setText(inventoryConfig.getAppProperties().getProperty("databasePassword"));
         dbPortNumber.setText(inventoryConfig.getAppProperties().getProperty("databasePortNumber"));
         dbUserName.setText(inventoryConfig.getAppProperties().getProperty("databaseUserName"));
-        inventoryConfig.updatePropertyFile();
     }
 
 
@@ -223,14 +219,7 @@ public class SettingsList implements Initializable {
 
     @FXML
     private void saveDatabaseConnection(){
-        //Session session = HibernateUtil.getSessionFactory().openSession();
-        //session.beginTransaction();
-        //session.flush();
-        //session.close();
-//        HibernateUtil.shutdown();
-        //HibernateUtil.closeCompletehibernateDb();
-      //  Session session1 = HibernateUtil.getSessionFactory().openSession();
-       // session1.beginTransaction();
+
         inventoryConfig.getAppProperties().setProperty("databaseName",dbName.getText());
         inventoryConfig.getAppProperties().setProperty("databaseIpAddress",dbIpAddress.getText());
         inventoryConfig.getAppProperties().setProperty("databasePassword",dbPassword.getText());

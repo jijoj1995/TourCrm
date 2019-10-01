@@ -64,7 +64,7 @@ try {
         limitedQueriesListDto.setBranchCode(coreLeadEntity.getBranchCode());
         limitedQueriesListDto.setCallReason(coreLeadEntity.getCallReason());
         if (coreLeadEntity.getCoreLeadCommunicationEntity() != null) {
-            limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
+            limitedQueriesListDto.setEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmailFirst());
         }
         limitedQueriesListDto.setFirstName(coreLeadEntity.getFirstName());
         limitedQueriesListDto.setLastName(coreLeadEntity.getLastName());
@@ -109,15 +109,19 @@ finally {
         coreLeadEntity.setShift(coreLeadDto.getShift());
         coreLeadEntity.setCountry(coreLeadDto.getCountry());
         coreLeadEntity.setEmployeeName(coreLeadDto.getEmployeeName());
+        coreLeadEntity.setQueryTime(coreLeadDto.getQuerytime());
 
 
         //communication details
         if(coreLeadDto.getCoreLeadCommunication()!=null) {
             coreLeadEntity.getCoreLeadCommunicationEntity().setCoreLeadCommunicationId(coreLeadDto.getCoreLeadCommunication().getCoreLeadCommunicationId()==0? null:coreLeadDto.getCoreLeadCommunication().getCoreLeadCommunicationId());
-            coreLeadEntity.getCoreLeadCommunicationEntity().setLandline(coreLeadDto.getCoreLeadCommunication().getLandline());
-            coreLeadEntity.getCoreLeadCommunicationEntity().setPaxEmail(coreLeadDto.getCoreLeadCommunication().getPaxEmail());
+            coreLeadEntity.getCoreLeadCommunicationEntity().setIndiaLandline(coreLeadDto.getCoreLeadCommunication().getIndiaLandline());
+            coreLeadEntity.getCoreLeadCommunicationEntity().setPaxEmailFirst(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
             coreLeadEntity.getCoreLeadCommunicationEntity().setUsaMobile(coreLeadDto.getCoreLeadCommunication().getUsaMobile());
             coreLeadEntity.getCoreLeadCommunicationEntity().setUsaWorkNumber(coreLeadDto.getCoreLeadCommunication().getUsaWorkNumber());
+            coreLeadEntity.getCoreLeadCommunicationEntity().setUsaHome(coreLeadDto.getCoreLeadCommunication().getUsaHome());
+            coreLeadEntity.getCoreLeadCommunicationEntity().setIndiaMobile(coreLeadDto.getCoreLeadCommunication().getIndiaMobile());
+            coreLeadEntity.getCoreLeadCommunicationEntity().setPaxEmailSecond(coreLeadDto.getCoreLeadCommunication().getPaxEmailSecond());
         }
 
         //airdetails
@@ -238,15 +242,19 @@ finally {
         coreLeadDto.setShift(coreLeadEntity.getShift());
         coreLeadDto.setCountry(coreLeadEntity.getCountry());
         coreLeadDto.setEmployeeName(coreLeadEntity.getEmployeeName());
+        coreLeadDto.setQuerytime(coreLeadEntity.getQueryTime());
 
 
         //communication details
         if(coreLeadEntity.getCoreLeadCommunicationEntity()!=null) {
             coreLeadDto.getCoreLeadCommunication().setCoreLeadCommunicationId(coreLeadEntity.getCoreLeadCommunicationEntity().getCoreLeadCommunicationId());
-            coreLeadDto.getCoreLeadCommunication().setLandline(coreLeadEntity.getCoreLeadCommunicationEntity().getLandline());
-            coreLeadDto.getCoreLeadCommunication().setPaxEmail(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmail());
+            coreLeadDto.getCoreLeadCommunication().setIndiaLandline(coreLeadEntity.getCoreLeadCommunicationEntity().getIndiaLandline());
+            coreLeadDto.getCoreLeadCommunication().setPaxEmailFirst(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmailFirst());
             coreLeadDto.getCoreLeadCommunication().setUsaMobile(coreLeadEntity.getCoreLeadCommunicationEntity().getUsaMobile());
             coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(coreLeadEntity.getCoreLeadCommunicationEntity().getUsaWorkNumber());
+            coreLeadDto.getCoreLeadCommunication().setUsaHome(coreLeadEntity.getCoreLeadCommunicationEntity().getUsaHome());
+            coreLeadDto.getCoreLeadCommunication().setIndiaMobile(coreLeadEntity.getCoreLeadCommunicationEntity().getIndiaMobile());
+            coreLeadDto.getCoreLeadCommunication().setPaxEmailSecond(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmailSecond());
         }
 
         //airdetails

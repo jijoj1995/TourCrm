@@ -51,6 +51,8 @@ public class SubQuery implements Initializable {
         initialiseAllCheckBoxDefalutValues();
             //initialise all empty datePickers with today date
         initialiseAllEmptyDatePickers();
+            //set specific number only with validations
+        setNumberOnlyInputCheck();
     }
 
     public void initializeCoreLeadObject(CoreLead coreLead){
@@ -154,6 +156,12 @@ public class SubQuery implements Initializable {
         airClassOfTravel.setValue(coreLeadDto.getCoreLeadAir().getClassOfTravel());
         airStatus.setValue(coreLeadDto.getCoreLeadAir().getStatus());
 
+    }
+
+    private void setNumberOnlyInputCheck(){
+        airNumberOfAdult.setOnKeyTyped(event ->{Validator.checkNumberEntered(event);});
+        airNumberOfChild.setOnKeyTyped(event ->{Validator.checkNumberEntered(event);});
+        airNumberOfInfant.setOnKeyTyped(event ->{Validator.checkNumberEntered(event);});
     }
 
     @FXML
