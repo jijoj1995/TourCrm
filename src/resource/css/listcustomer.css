@@ -1,3 +1,4 @@
+
 .buttonPrimary{
 	-fx-min-width:150px;
 	-fx-background-color:lightgreen;
@@ -19,7 +20,7 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom, #8190e4,#81bbf4 );
+    -fx-background-color: lightblue;
     -fx-border-color: red transparent red transparent;
     -fx-border-width: 1;
     -fx-background-insets: 0;
@@ -35,25 +36,24 @@
 
 
 .table-view .column-header .label {
-    -fx-font-size: 13px;
-    -fx-font-weight:bold;
-    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
+   -fx-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+   -fx-font-size:15px;
     -fx-text-fill: #1b5e20;
-    -fx-alignment: center-left;
+    -fx-alignment: center;
     -fx-opacity: 1;
 }
 
 
 .table-cell {
     -fx-font-size: 14px;
-    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
-    -fx-text-fill: #1b5e20;
-    -fx-alignment: center-left;
+    -fx-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+
+    -fx-alignment: center;
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: #c8e6c9;
--fx-text-fill: #b9f6ca;
+-fx-text-fill: black;
 }
 
 /* scroll bar starts here */

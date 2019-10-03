@@ -1,3 +1,10 @@
+
+.labelBold {
+-fx-font-family: 'Roboto';
+-fx-font-size:20px;
+-fx-font-weight: bold;
+}
+
 .infoPane{
 -fx-background-color:linear-gradient(to bottom, #0091ea,#81bbf4 ); 
 -fx-background-size: 1200 900;
@@ -5,6 +12,7 @@
     -fx-border-radius: 40 10 10 40;
 }
 .infoPane Label{
+-fx-font-family: 'Roboto';
 	-fx-text-fill: white;
 }
 .infoPane Button{
@@ -18,6 +26,7 @@
     -fx-border-radius: 10 40 40 10;
 }
 .siginInButton{
+-fx-font-family: 'Roboto';
 	-fx-background-color: #0091ea;
 	-fx-background-size: 1200 900;
 	-fx-background-radius: 40;
@@ -51,6 +60,7 @@
 }
 
 .buttonPrimary{
+-fx-font-family: 'Roboto';
 	-fx-min-width:150px;
 	-fx-background-color:lightgreen;
         -fx-background-radius: 40;

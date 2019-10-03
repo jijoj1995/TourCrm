@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -64,6 +65,8 @@ public class LoginPage  implements Initializable {
 
             logger.info("adding currentUser as= "+userNameInput.getText());
             InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
+            //fetching current ip address as well
+            InventoryConfig.getInstance().getAppProperties().setProperty("currentIpAddress",Validator.getCurrentIpAddress());
            // Toast.makeText(stage,"LOGIN SUCCESSFUL! WElCOME ADMIN",1000,500,500);
             Parent root = FXMLLoader.load(getClass().getResource("/view/main/mainPage.fxml"));
             mainAnchorPane.getChildren().setAll(root);
@@ -81,16 +84,16 @@ public class LoginPage  implements Initializable {
         }
     }
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainAnchorPane.setPrefWidth(Main.WIDTH);
         mainAnchorPane.setPrefHeight(Main.HEIGHT);
+
         Text text = new Text(" Here at PROTOTYPE TECHNOLOGIES we provide complete solutions for your need. \n We try our best to match your requirements and build a new level" +
                 "software which is completely unique and at the same time as per your need");
 
-        text.setFont(Font.font("Monotype Corsiva", 18));
+        text.setFont(Font.font("Open Sans", 16));
+        //text.setFont(Font.font("Monotype Corsiva", 18));
         text.fillProperty().setValue(Paint.valueOf("white"));
         infoTextFlow.getChildren().addAll(text);
         text.setWrappingWidth(500);

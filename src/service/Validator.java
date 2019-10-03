@@ -7,12 +7,16 @@ import main.InventoryConfig;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -252,5 +256,27 @@ public class Validator {
     }
 
 
+    public static String getCurrentIpAddress(){
+        try {
+            logger.info("fetching current ip address of the system");
+            Enumeration<NetworkInterface> ifaces = NetworkInterface.getNetworkInterfaces();
+            while (ifaces.hasMoreElements()) {
+                NetworkInterface iface = ifaces.nextElement();
+                Enumeration<InetAddress> addresses = iface.getInetAddresses();
 
+                while (addresses.hasMoreElements()) {
+                    InetAddress addr = addresses.nextElement();
+                    if (addr instanceof Inet4Address && !addr.isLoopbackAddress()) {
+                        logger.info("fetched ip address==="+addr.getHostAddress());
+                        return addr.getHostAddress();
+                    }
+                }
+            }
+        }
+        catch (Exception e){
+            logger.warn("unable to fetch ip addres of the system"+e.getMessage());
+            e.printStackTrace();
+        }
+        return "";
+    }
 }

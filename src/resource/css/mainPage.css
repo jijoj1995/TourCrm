@@ -1,3 +1,10 @@
+@font-face {
+src: url(“/resource/fonts/open-sans/OpenSans-Semibold.ttf”);
+}
+.label {
+-fx-font-family: 'Open Sans Semibold';
+-fx-font-size:15px;
+}
 .amountVbox{
 -fx-background-color:lightgreen;
 }

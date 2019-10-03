@@ -16,15 +16,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
+<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
    <children>
       <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <top>
               <VBox alignment="CENTER" prefHeight="54.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                   <children>
-                      <Label text="SETTINGS PAGE">
+                      <Label text="Settings Page">
                           <font>
-                              <Font name="Aharoni Bold" size="25.0" />
+                              <Font name="System Bold" size="21.0" />
                           </font>
                       </Label>
                   </children>
@@ -39,12 +39,28 @@
                                   <children>
                                       <VBox layoutX="122.0" layoutY="24.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                           <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
+                                       <children>
+                                          <Label minWidth="160.0" text="System IP Address:">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="systemIpAddress" editable="false" opacity="0.38" />
+                                       </children>
+                                    </HBox>
                                               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
                                                   <children>
                                                       <Label minWidth="160.0" text="Database IP Address:">
                                                           <HBox.margin>
                                                               <Insets right="20.0" />
                                                           </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                                       </Label>
                                           <JFXTextField fx:id="dbIpAddress" />
                                                   </children>
@@ -55,6 +71,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXTextField fx:id="dbName" />
                                        </children>
@@ -65,6 +84,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXToggleButton fx:id="usePortCheck" alignment="TOP_CENTER" maxHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="74.0" text=" " HBox.hgrow="NEVER" />
                                        </children>
@@ -75,6 +97,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXTextField fx:id="dbPortNumber" />
                                        </children>
@@ -85,6 +110,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXTextField fx:id="dbUserName" />
                                        </children>
@@ -95,6 +123,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXToggleButton fx:id="usePasswordCheck" alignment="TOP_CENTER" maxHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="74.0" text=" " HBox.hgrow="ALWAYS" />
                                        </children>
@@ -105,6 +136,9 @@
                                              <HBox.margin>
                                                 <Insets right="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font name="Open Sans Semibold" size="14.0" />
+                                             </font>
                                           </Label>
                                           <JFXTextField fx:id="dbPassword" />
                                        </children>

@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.SettingsListDao;
 import service.Toast;
 import service.Validator;
 import timers.InventoryTimers;
@@ -51,7 +52,7 @@ public class SettingsList implements Initializable {
     @FXML
     private PasswordField oldPasswordField, newPasswordField, confirmPasswordField;
     @FXML
-    private JFXTextField dbName,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailPasswordField,emailSubjectField;
+    private JFXTextField dbName,systemIpAddress,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailPasswordField,emailSubjectField;
     @FXML
     private JFXTextArea emailMessageField;
     @FXML
@@ -59,6 +60,7 @@ public class SettingsList implements Initializable {
     private Logger logger=Logger.getLogger(SettingsList.class);
 
     private InventoryConfig inventoryConfig = InventoryConfig.getInstance();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -151,6 +153,7 @@ public class SettingsList implements Initializable {
     }
 
     private void initialiseDatabaseProperties(){
+        systemIpAddress.setText(inventoryConfig.getAppProperties().getProperty("currentIpAddress"));
         if (!Validator.useSpecificDatabasePort()){
             portNumberHbox.setVisible(false);
             portNumberHbox.setMaxHeight(0);

@@ -1,13 +1,22 @@
+@font-face {
+src: url(“/resource/fonts/roboto/Roboto-Regular.ttf”);
+}
+.label {
+-fx-font-family: 'Roboto';
+}
+
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-background-color:  #6622CC; 
 }
 .table-view .column-header .label{
+-fx-font-family: 'Roboto';
    -fx-text-fill: white;
    -fx-font-weight: bold; 
    -fx-alignment: CENTER_LEFT;
 }
 .table-view .cell{
+-fx-font-family: 'Roboto';
    -fx-cell-size: 35;
   -fx-alignment: center-left;
   -fx-background-color: #29292D;
@@ -17,6 +26,7 @@
    
 }
 .table-row-cell:selected {
+-fx-font-family: 'Roboto';
    -fx-background-color: whitesmoke; 
    -fx-text-background-color:  #6622CC;
    

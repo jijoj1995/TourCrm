@@ -17,78 +17,90 @@
    <children>
       <AnchorPane style="-fx-background-color: #e3f2fd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <SplitPane fx:id="splitPane" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" style="-fx-border-radius: 80px;" styleClass="split-pane-divider" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="195.0" AnchorPane.topAnchor="100.0">
-              <items>
-                <AnchorPane fx:id="infoPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="infoPane">
-                     <children>
-                        <VBox fx:id="infoVbox" alignment="TOP_CENTER" layoutX="48.0" layoutY="139.0" prefHeight="287.0" prefWidth="300.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+            <VBox alignment="TOP_CENTER" layoutX="195.0" layoutY="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="195.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <SplitPane fx:id="splitPane" dividerPositions="0.5" style="-fx-border-radius: 80px;" styleClass="split-pane-divider" VBox.vgrow="ALWAYS">
+                    <items>
+                      <AnchorPane fx:id="infoPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="infoPane">
                            <children>
-                              <Label style="-fx-text-fill: white;" text="Welcome Admin" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Monospaced Bold" size="30.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TextFlow fx:id="infoTextFlow" lineSpacing="5.0" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                              <Button fx:id="knowMoreButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="knowMoreButton" text="Know More">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                              <VBox fx:id="infoVbox" alignment="TOP_CENTER" layoutX="48.0" layoutY="139.0" prefHeight="287.0" prefWidth="300.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: white;" text="Welcome Admin" VBox.vgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Monospaced Bold" size="30.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextFlow fx:id="infoTextFlow" lineSpacing="5.0" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    <Button fx:id="knowMoreButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="knowMoreButton" text="Know More">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="siginInPane">
-                     <children>
-                        <VBox fx:id="loginBox" alignment="TOP_CENTER" prefHeight="287.0" prefWidth="300.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="100.0">
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="siginInPane">
                            <children>
-                              <Label text="Sign In" underline="true" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Monospaced Bold" size="30.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="40.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <JFXTextField fx:id="userNameInput" promptText="Enter UserName ...">
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXTextField>
-                              <JFXPasswordField fx:id="passwordInput" layoutX="10.0" layoutY="84.0" promptText="Enter Password ...">
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></JFXPasswordField>
-                              <JFXButton fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#authenticateUser" prefHeight="35.0" prefWidth="251.0" styleClass="siginInButton" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="Monospaced Bold" size="18.0" />
-                                 </font>
-                              </JFXButton>
+                              <VBox fx:id="loginBox" alignment="TOP_CENTER" prefHeight="287.0" prefWidth="300.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="100.0">
+                                 <children>
+                                    <Label text="Sign In" underline="true" VBox.vgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Open Sans Bold" size="30.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="40.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXTextField fx:id="userNameInput" promptText="Enter UserName ...">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXPasswordField fx:id="passwordInput" layoutX="10.0" layoutY="84.0" promptText="Enter Password ...">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXPasswordField>
+                                    <JFXButton fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#authenticateUser" prefHeight="35.0" prefWidth="251.0" styleClass="siginInButton" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="Monospaced Bold" size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                     </children></AnchorPane>
-              </items>
-            </SplitPane>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <Label text="Version no. 1.0" underline="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Abyssinica SIL" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>
