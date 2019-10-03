@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -186,7 +186,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Price:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="airTotalPrice" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXTextField fx:id="airTotalPrice" editable="false" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -411,7 +411,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Price:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="hotelTotalPrice" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXTextField fx:id="hotelTotalPrice" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />
@@ -638,7 +638,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Price:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="holidaysTotalPrice" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXTextField fx:id="holidaysTotalPrice" editable="false" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Price..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
@@ -825,7 +825,7 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Fare:" HBox.hgrow="ALWAYS" />
-                                                                  <JFXTextField fx:id="railTotalFare" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Fare..." HBox.hgrow="ALWAYS" />
+                                                                  <JFXTextField fx:id="railTotalFare" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Fare..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />

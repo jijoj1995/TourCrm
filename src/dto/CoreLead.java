@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 public class CoreLead implements Serializable {
     private IntegerProperty coreLeadId=new SimpleIntegerProperty();
@@ -29,7 +29,7 @@ public class CoreLead implements Serializable {
     private CoreLeadHotel coreLeadHotel;
     private CoreLeadRail coreLeadRail;
     private CoreBookingEntity coreBookingEntity;
-    private Set<CoreLeadsNotesEntity>coreLeadsNotesEntitySet;
+    private List<CoreLeadNotesEntity> coreLeadNotesEntitySet;
 
     public int getCoreLeadId() {
         return coreLeadId.get();
@@ -247,11 +247,11 @@ public class CoreLead implements Serializable {
         this.coreBookingEntity = coreBookingEntity;
     }
 
-    public Set<CoreLeadsNotesEntity> getCoreLeadsNotesEntitySet() {
-        return coreLeadsNotesEntitySet;
+    public List<CoreLeadNotesEntity> getCoreLeadNotesEntitySet() {
+        return coreLeadNotesEntitySet;
     }
 
-    public void setCoreLeadsNotesEntitySet(Set<CoreLeadsNotesEntity> coreLeadsNotesEntitySet) {
-        this.coreLeadsNotesEntitySet = coreLeadsNotesEntitySet;
+    public void setCoreLeadNotesEntitySet(List<CoreLeadNotesEntity> coreLeadNotesEntitySet) {
+        this.coreLeadNotesEntitySet = coreLeadNotesEntitySet;
     }
 }

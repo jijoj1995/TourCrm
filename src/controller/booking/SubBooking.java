@@ -264,7 +264,6 @@ public class SubBooking implements Initializable {
 
     private void setPassengerDataToDto(){
         if(coreBookingEntity.getCoreBookingPassengerEntities()==null)coreBookingEntity.setCoreBookingPassengerEntities(new ArrayList<>());
-
         if (data.isEmpty()){
             logger.warn("no passenger details to be saved. returning");
             return;

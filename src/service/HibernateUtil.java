@@ -1,5 +1,4 @@
 package service;
-import constants.InventoryConstants;
 import dto.*;
 import main.InventoryConfig;
 import org.hibernate.SessionFactory;
@@ -24,7 +23,7 @@ public class HibernateUtil
                     configuration.setProperty("hibernate.connection.url",getDataBaseUrl());
                configuration.setProperty("hibernate.connection.username",getDatabaseUserName());
                     configuration.addAnnotatedClass(CoreUserEntity.class);
-                configuration.addAnnotatedClass(CoreLeadsNotesEntity.class);
+                configuration.addAnnotatedClass(CoreLeadNotesEntity.class);
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
                 configuration.addAnnotatedClass(CoreBookingFareEntity.class);

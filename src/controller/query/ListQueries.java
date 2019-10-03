@@ -6,6 +6,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.CoreLead;
 import dto.QueriesListDto;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,8 +19,11 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
@@ -113,6 +117,8 @@ public class ListQueries implements Initializable {
 
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
             FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.LIST);
+            FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.INBOX);
+
 
             @Override
             protected void updateItem(QueriesListDto queriesListDto, boolean empty) {
@@ -121,18 +127,35 @@ public class ListQueries implements Initializable {
                     setGraphic(null);
                     return;
                 }
+                HBox hbox =new HBox();
                 listIcon.setCursor(Cursor.HAND);
                 listIcon.setGlyphSize(30);
-                setGraphic(listIcon);
-                listIcon.setOnMouseClicked(event -> {
+                hbox.getChildren().add(listIcon);
+                hbox.getChildren().add(emailIcon);
+                hbox.setSpacing(20);
+               // setGraphic(listIcon);
+                emailIcon.setCursor(Cursor.HAND);
+                emailIcon.setGlyphSize(30);
+                setGraphic(hbox);
 
+                emailIcon.setOnMouseClicked(event -> {
+                    //send email for specific query user
+                    Platform.runLater(new Runnable() {
+                        @Override public void run() {
+                            Stage stage = (Stage) emailIcon.getScene().getWindow();
+                            boolean emailSendSuccessful= queryService.sendEmailNotification(queriesListDto.getCoreLeadDto().getCoreLeadCommunication().getPaxEmailFirst());
+                            if (emailSendSuccessful){
+                                Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
+                            }
+                            else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+                        }
+                    });
+                });
+                listIcon.setOnMouseClicked(event -> {
                     //show booking page
                     showMainBookingPage(queriesListDto.getCoreLeadDto());
                 });
             } });
-
-
-
         FilteredList<QueriesListDto> filteredData = new FilteredList<>(masterData, p -> true);
 
         // 2. Set the filter Predicate whenever the filter changes.

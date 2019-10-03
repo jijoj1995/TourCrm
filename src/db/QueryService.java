@@ -1,6 +1,7 @@
 package db;
 
 import dto.*;
+import javafx.collections.ObservableList;
 import main.InventoryConfig;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -9,7 +10,6 @@ import service.EmailService;
 import service.HibernateUtil;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class QueryService {
@@ -83,6 +83,17 @@ finally {
         return queriesListDtoArrayList;
     }
 
+    public ArrayList<CoreLeadNotesEntity> getNotesListFromTable(ObservableList<CoreLeadNotesDto> data){
+        ArrayList<CoreLeadNotesEntity>notesDtos=new ArrayList<>();
+
+        for (CoreLeadNotesDto dto:data){
+           CoreLeadNotesEntity entity=new CoreLeadNotesEntity();
+           if (dto.getCoreLeadNotesId()!=0) entity.setCoreLeadNotesId(dto.getCoreLeadNotesId());
+           entity.setNotesData(dto.getNotesData());
+           notesDtos.add(entity);
+        }
+        return notesDtos;
+    }
 
 
     public CoreLeadEntity setValuesFromCoreLeadDto(CoreLead coreLeadDto){
@@ -209,7 +220,7 @@ finally {
             coreLeadEntity.getCoreLeadRailEntity().setTrainNumber(coreLeadDto.getCoreLeadRail().getTrainNumber());
         }
         //notes Details
-        coreLeadEntity.setCoreLeadsNotesEntities(coreLeadDto.getCoreLeadsNotesEntitySet());
+        coreLeadEntity.setCoreLeadsNotesEntities(coreLeadDto.getCoreLeadNotesEntitySet());
 
         //bookingDetails
         coreLeadEntity.setCorebookingEntity(coreLeadDto.getCoreBookingEntity());
@@ -226,7 +237,7 @@ finally {
         coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
         coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
         coreLeadDto.setCoreLeadRail(new CoreLeadRail());
-        coreLeadDto.setCoreLeadsNotesEntitySet(new HashSet<>());
+        coreLeadDto.setCoreLeadNotesEntitySet(new ArrayList<>());
 
         //general Details
         coreLeadDto.setCoreLeadId(coreLeadEntity.getCoreLeadId());
@@ -339,7 +350,7 @@ finally {
             coreLeadDto.getCoreLeadRail().setTrainNumber(coreLeadEntity.getCoreLeadRailEntity().getTrainNumber());
         }
         //notes details
-        coreLeadDto.setCoreLeadsNotesEntitySet(coreLeadEntity.getCoreLeadsNotesEntities());
+        coreLeadDto.setCoreLeadNotesEntitySet(coreLeadEntity.getCoreLeadsNotesEntities());
 
         //booking details
         coreLeadDto.setCoreBookingEntity(coreLeadEntity.getCorebookingEntity());

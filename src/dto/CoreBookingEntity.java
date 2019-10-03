@@ -1,5 +1,8 @@
 package dto;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -68,6 +71,7 @@ public class CoreBookingEntity implements Serializable {
     private CoreBookingPromotionEntity coreBookingPromotionEntity;
 
     @OneToMany(fetch = FetchType.EAGER,targetEntity=CoreBookingPassengerEntity.class,cascade=CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
     @JoinColumn(name="core_booking_id")
     private List<CoreBookingPassengerEntity> coreBookingPassengerEntities;
 

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -60,26 +61,14 @@
                                             <children>
                                                 <VBox VBox.vgrow="ALWAYS">
                                                     <VBox.margin>
-                                                        <Insets bottom="20.0" top="10.0" />
+                                                        <Insets bottom="20.0" top="20.0" />
                                                     </VBox.margin>
                                                     <children>
-                                                        <HBox maxHeight="10.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="billingSectionHeading" VBox.vgrow="NEVER">
-                                                            <children>
-                                                                <Label styleClass="detailsVboxLabel" text="Customer Details" textFill="#f8f1f1" HBox.hgrow="ALWAYS" />
-                                                                <FontAwesomeIconView fill="#e7f8e0" glyphName="ANGLE_DOUBLE_DOWN" glyphSize="24" size="20" HBox.hgrow="ALWAYS" />
-                                                            </children>
-                                                            <padding>
-                                                                <Insets left="70.0" />
-                                                            </padding>
-                                                            <VBox.margin>
-                                                                <Insets bottom="5.0" />
-                                                            </VBox.margin>
-                                                        </HBox>
                                                         <HBox VBox.vgrow="ALWAYS">
                                                             <children>
                                                                 <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
                                                                     <children>
-                                                                        <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                                                        <HBox fx:id="queryIdHbox" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                                                             <children>
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
@@ -106,8 +95,10 @@
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
                                                                   <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="First Name:" HBox.hgrow="ALWAYS" />
+                                                                  <RequiredFieldValidator fx:id="requiredFirstName" message="Required Field" src="firstName" />
                                                                   <JFXTextField fx:id="firstName" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter First Name..." HBox.hgrow="ALWAYS" />
                                                                </children>
+
                                                                <opaqueInsets>
                                                                   <Insets right="10.0" />
                                                                </opaqueInsets>
@@ -233,6 +224,14 @@
                                                                                 </HBox>
                                                                             </children>
                                                                         </HBox>
+                                                      <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" spacing="70.0">
+                                                         <children>
+                                                            <FontAwesomeIconView glyphName="ARROW_RIGHT" onMouseClicked="#changeTabPane" size="40" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor></FontAwesomeIconView>
+                                                         </children>
+                                                      </HBox>
                                                                     </children>
                                                                     <HBox.margin>
                                                                         <Insets />
@@ -258,18 +257,6 @@
                                     <children>
                                         <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                <HBox maxHeight="10.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="billingSectionHeading" VBox.vgrow="NEVER">
-                                                    <children>
-                                                        <Label styleClass="detailsVboxLabel" text="Customer Details" textFill="#f8f1f1" HBox.hgrow="ALWAYS" />
-                                                        <FontAwesomeIconView fill="#e7f8e0" glyphName="ANGLE_DOUBLE_DOWN" glyphSize="24" size="20" HBox.hgrow="ALWAYS" />
-                                                    </children>
-                                                    <padding>
-                                                        <Insets left="70.0" />
-                                                    </padding>
-                                                    <VBox.margin>
-                                                        <Insets bottom="5.0" />
-                                                    </VBox.margin>
-                                                </HBox>
                                                 <HBox VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
@@ -279,7 +266,7 @@
                                                                         <HBox HBox.hgrow="ALWAYS">
                                                                             <children>
                                                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Pax Email 1:" HBox.hgrow="ALWAYS" />
-                                                                                <JFXTextField fx:id="paxEmailFirst" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                                <JFXTextField fx:id="paxEmailFirst" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Pax Email 1..." HBox.hgrow="ALWAYS" />
                                                                             </children>
                                                                             <opaqueInsets>
                                                                                 <Insets right="10.0" />
@@ -291,7 +278,7 @@
                                                                         <HBox HBox.hgrow="ALWAYS">
                                                                             <children>
                                                                                 <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="USA Mobile:" HBox.hgrow="ALWAYS" />
-                                                                                <JFXTextField fx:id="usaMobile" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                                <JFXTextField fx:id="usaMobile" prefHeight="25.0" prefWidth="150.0" promptText="Enter Usa Mobile..." HBox.hgrow="ALWAYS" />
                                                                             </children>
                                                                         </HBox>
                                                                     </children>
@@ -301,7 +288,7 @@
                                                       <HBox HBox.hgrow="ALWAYS">
                                                          <children>
                                                             <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Pax Email 2:" HBox.hgrow="ALWAYS" />
-                                                            <JFXTextField fx:id="paxEmailSecond" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                            <JFXTextField fx:id="paxEmailSecond" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Pax Email 2..." HBox.hgrow="ALWAYS" />
                                                          </children>
                                                          <opaqueInsets>
                                                             <Insets right="10.0" />
@@ -313,7 +300,7 @@
                                                       <HBox HBox.hgrow="ALWAYS">
                                                          <children>
                                                             <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="USA Home:" HBox.hgrow="ALWAYS" />
-                                                            <JFXTextField fx:id="usaHome" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                            <JFXTextField fx:id="usaHome" prefHeight="25.0" prefWidth="150.0" promptText="EnterUsa Home..." HBox.hgrow="ALWAYS" />
                                                          </children>
                                                       </HBox>
                                                    </children>
@@ -323,7 +310,7 @@
                                                                         <HBox HBox.hgrow="ALWAYS">
                                                                             <children>
                                                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="IndiaLandline:" HBox.hgrow="ALWAYS" />
-                                                                                <JFXTextField fx:id="indiaLandLine" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                                                <JFXTextField fx:id="indiaLandLine" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter India Landline..." HBox.hgrow="ALWAYS" />
                                                                             </children>
                                                                             <opaqueInsets>
                                                                                 <Insets right="10.0" />
@@ -335,7 +322,7 @@
                                                                         <HBox HBox.hgrow="ALWAYS">
                                                                             <children>
                                                                                 <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="USA Work:" HBox.hgrow="ALWAYS" />
-                                                                                <JFXTextField fx:id="usaWork" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                                                                <JFXTextField fx:id="usaWork" prefHeight="25.0" prefWidth="150.0" promptText="Enter Usa Work..." HBox.hgrow="ALWAYS" />
                                                                             </children>
                                                                         </HBox>
                                                                     </children>
@@ -345,7 +332,7 @@
                                                       <HBox HBox.hgrow="ALWAYS">
                                                          <children>
                                                             <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="India Mobile:" HBox.hgrow="ALWAYS" />
-                                                            <JFXTextField fx:id="indiaMobile" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                                            <JFXTextField fx:id="indiaMobile" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter India Mobile..." HBox.hgrow="ALWAYS" />
                                                          </children>
                                                          <opaqueInsets>
                                                             <Insets right="10.0" />
@@ -361,11 +348,30 @@
                                                                 <Insets />
                                                             </HBox.margin>
                                                             <padding>
-                                                                <Insets left="50.0" right="50.0" />
+                                                                <Insets left="50.0" right="50.0" top="20.0" />
                                                             </padding>
                                                         </VBox>
                                                     </children>
                                                 </HBox>
+                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#saveCompleteLeadInformation" styleClass="buttonPrimary" text="Save">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></Button>
+                                          <Button mnemonicParsing="false" onAction="#showSubQueryPage" styleClass="buttonPrimary" text="Sub Details">
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor></Button>
+                                          <Button fx:id="notesButton" layoutX="306.0" layoutY="20.0" mnemonicParsing="false" onAction="#showNotesTab" styleClass="buttonPrimary" text="Notes">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></Button>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
                                             </children>
                                         </VBox>
                                     </children></AnchorPane>
@@ -375,20 +381,7 @@
                 </TabPane>
             </center>
          <bottom>
-                              <HBox fx:id="saveCustomerHbox" alignment="CENTER" spacing="20.0" style="-fx-background-color: ;" BorderPane.alignment="CENTER">
-                                  <children>
-                                      <HBox spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup" HBox.hgrow="NEVER">
-                                          <children>
-                        <Button mnemonicParsing="false" onAction="#saveCompleteLeadInformation" styleClass="buttonPrimary" text="Save" />
-                        <Button mnemonicParsing="false" onAction="#showSubQueryPage" styleClass="buttonPrimary" text="Sub Details" />
-                        <Button layoutX="306.0" layoutY="20.0" mnemonicParsing="false" styleClass="buttonPrimary" text="Notes" />
-                                          </children>
-                                          <padding>
-                                              <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-                                          </padding>
-                                      </HBox>
-                                  </children>
-                              </HBox>
+                              <HBox fx:id="saveCustomerHbox" alignment="CENTER" spacing="20.0" style="-fx-background-color: ;" BorderPane.alignment="CENTER" />
          </bottom>
         </BorderPane>
     </children>

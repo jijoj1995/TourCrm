@@ -88,87 +88,14 @@ public class Validator {
         }
     }
 
-    /**
-     * Validate an String value for range, mostly used for data captured from forms
-     * @param s pass in the string to be validated
-     * @return boolean
-     */
-
-
-
-    /**
-     * Validate if a string is a long value
-     * @param s
-     * @return
-     */
-    public static boolean isLong(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                Long i = new Long(s);
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else {
-            return false;
+   public static int getIntValue(String value){
+        try {
+            return Integer.parseInt(value);
         }
-        return true;
-    }
-
-    /**
-     * Validate if a string is double value
-     * @param s
-     * @return
-     */
-    public static boolean isDouble(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                double d = Double.parseDouble(s);
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else {
-            return false;
+        catch (Exception e){
+            return 0;
         }
-        return true;
-    }
-
-
-    public static boolean isFloat(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                float d = Float.parseFloat(s);
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-        return true;
-    }
-    /**
-     * Validate is a string is a date value
-     * @param s
-     * @return
-     */
-    public static boolean isDate(String s) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                DateFormat f = DateFormat.getDateInstance(DateFormat.SHORT);
-                Date d = f.parse(s);
-                if (d == null) {
-                    return false;
-                }
-
-            } catch (ParseException e) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-        return true;
-
-    }
-
+   }
 
     public static boolean isNotNullOrEmpty(String s) {
         return !isNullOrEmpty(s);
@@ -323,6 +250,7 @@ public class Validator {
         if (propertyFile!=null&&propertyFile.exists()) return true;
         else return false;
     }
+
 
 
 }

@@ -19,7 +19,7 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: lightgreen;
+    -fx-background-color: linear-gradient(to bottom, #8190e4,#81bbf4 );
     -fx-border-color: red transparent red transparent;
     -fx-border-width: 1;
     -fx-background-insets: 0;

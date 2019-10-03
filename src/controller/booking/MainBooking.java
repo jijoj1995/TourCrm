@@ -3,17 +3,30 @@ package controller.booking;
 import com.jfoenix.controls.*;
 import constants.LeadsConstants;
 import db.QueryService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import main.Main;
 import org.apache.log4j.Logger;
 import service.BookingService;
@@ -22,6 +35,7 @@ import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainBooking implements Initializable {
@@ -33,9 +47,8 @@ public class MainBooking implements Initializable {
     private JFXTextField bookingId,queryId,userId,firstName,middleName,lastName,departmentCode,gdsType,
     pnrNumber,holdBooking,authorisePartialMissing, shift,billingAddressName,billingAddress1,billingAddress2,billingAddressState,billingAddressCountry,
     billingAddressCity,billingAddressZipCode,shippingAddressName,shippingAddress1,shippingAddress2,shippingAddressState,shippingAddressCountry,
-    shippingAddressCity,shippingAddressZipCode,communicationPaxEmail,communicationUsaMobile,communicationUsaWork,communicationLandline,
+    shippingAddressCity,shippingAddressZipCode, communicationPaxEmailFirst,communicationPaxEmailSecond,communicationUsaMobile,communicationUsaWork, communicationIndiaLandLine,communicationUsaHome,communicationIndiaMobile,
     statusUserId,statusQcDoneBy;
-
     @FXML
     JFXComboBox<String>channelCode,currencyCode,querySource,supplierName,statusPaymentCommitted,statusQcStatus,statusMoveToDispatch;
     @FXML
@@ -43,19 +56,26 @@ public class MainBooking implements Initializable {
     @FXML
     JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate,bookingTime,dueDate;
     @FXML
-    private HBox shippingHbox;
+    private Button notesButton;
+    @FXML
+    private HBox shippingHbox,bookingIdHbox;
     @FXML
     private JFXToggleButton showShippingBox;
-
+    Stage notesDialog=null;
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
+    ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
     private BookingService bookingService=new BookingService();
+    private QueryService queryService=new QueryService();
     private Logger logger =Logger.getLogger(MainBooking.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
 
+        //
+        bookingIdHbox.setVisible(false);
+        bookingIdHbox.setMaxHeight(0);
         showShippingBox.setOnAction((event) -> {
             ToggleButton but = (ToggleButton) event.getTarget();
             if (but.isSelected()) {
@@ -70,37 +90,53 @@ public class MainBooking implements Initializable {
         this.coreLeadDto=coreLead;
         this.coreBookingEntity=coreLead.getCoreBookingEntity();
                                             //booking communication detials should be initially fetched fro coreLeadCommunication
+        initialiseNotesTabData();
         initialiseDefaultCoreBookingCommunicationFromDto();
         initializeAllInputTextsFromDto(coreBookingEntity);
         checkForSameBillingShippingAddress();
+    }
+    private void initialiseNotesTabData(){
+        //set notes data to table
+        if (coreLeadDto.getCoreLeadNotesEntitySet()!=null)
+        for (CoreLeadNotesEntity entity:coreLeadDto.getCoreLeadNotesEntitySet()) data.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(),entity.getNotesData()));
     }
 
     private void initialiseDefaultCoreBookingCommunicationFromDto(){
         if (coreLeadDto!=null && coreLeadDto.getCoreLeadCommunication()!=null && coreBookingEntity!=null &&coreBookingEntity.getCoreBookingCommunicationEntity()==null){
             CoreLeadCommunication coreLeadCommunication=coreLeadDto.getCoreLeadCommunication();
-            communicationPaxEmail.setText(coreLeadCommunication.getPaxEmailFirst());
+            communicationPaxEmailFirst.setText(coreLeadCommunication.getPaxEmailFirst());
             communicationUsaMobile.setText(coreLeadCommunication.getUsaMobile());
             communicationUsaWork.setText(coreLeadCommunication.getUsaWorkNumber());
-            communicationLandline.setText(coreLeadCommunication.getIndiaLandline());
+            communicationIndiaLandLine.setText(coreLeadCommunication.getIndiaLandline());
+            communicationPaxEmailSecond.setText(coreLeadCommunication.getPaxEmailSecond());
+            communicationUsaHome.setText(coreLeadCommunication.getUsaHome());
+            communicationIndiaMobile.setText(coreLeadCommunication.getIndiaMobile());
+
         }
     }
 
     private void initializeAllInputTextsFromDto(CoreBookingEntity coreBookingEntity) {
         logger.info("initialising all text fields from dto object");
         if (coreBookingEntity == null) {
+            queryId.setText(String.valueOf(coreLeadDto.getCoreLeadId()));
             logger.warn("coreLeadDto is null. returning");
             return;
         }
+
         initializeGeneralInputTextsFromDto();
         if (coreBookingEntity.getCoreBookingBillingAddressEntity()!=null) initializeBillingAddressInputTextsFromDto();
         if (coreBookingEntity.getCoreBookingShippingAddressEntity()!=null) initializeShippingAddressInputTextsFromDto();
         if (coreBookingEntity.getCoreBookingCommunicationEntity()!=null) initializeCommunicationInputTextsFromDto();
         if (coreBookingEntity.getCoreBookingStatusEntity()!=null) initializeStatusInputTextsFromDto();
+
     }
 
     private void initializeGeneralInputTextsFromDto(){
         if (coreBookingEntity.getCoreBookingId()!=null) {
             bookingId.setText(String.valueOf(coreBookingEntity.getCoreBookingId()));
+            bookingIdHbox.setVisible(true);
+            bookingIdHbox.setPrefHeight(25);
+            bookingIdHbox.setMaxHeight(25);
         }
         bookingTime.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getBookingTime()));
         if (coreBookingEntity.getQueryId()!=null) {
@@ -109,6 +145,7 @@ public class MainBooking implements Initializable {
         userId.setText(coreBookingEntity.getUserId());
         firstName.setText(coreBookingEntity.getFirstName());
         middleName.setText(coreBookingEntity.getMiddleName());
+
         lastName.setText(coreBookingEntity.getLastName());
         departmentCode.setText(coreBookingEntity.getDepartmentCode());
         channelCode.setValue(coreBookingEntity.getChannelCode());
@@ -142,10 +179,13 @@ public class MainBooking implements Initializable {
         shippingAddressZipCode.setText(coreBookingEntity.getCoreBookingShippingAddressEntity().getZipCode());
     }
     private void initializeCommunicationInputTextsFromDto(){
-        communicationPaxEmail.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getPaxEmail());
+        communicationPaxEmailFirst.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getPaxEmailFirst());
         communicationUsaMobile.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getUsaMobile());
         communicationUsaWork.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getUsaWorkNumber());
-        communicationLandline.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getLandline());
+        communicationIndiaLandLine.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getIndiaLandline());
+        communicationPaxEmailSecond.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getPaxEmailSecond());
+        communicationUsaHome.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getUsaHome());
+        communicationIndiaMobile.setText(coreBookingEntity.getCoreBookingCommunicationEntity().getIndiaMobile());
     }
     private void initializeStatusInputTextsFromDto(){
         statusQueryDate.setValue(Validator.getLocalDateFromDateTimeString(coreBookingEntity.getCoreBookingStatusEntity().getQueryDate()));
@@ -184,6 +224,16 @@ public class MainBooking implements Initializable {
         }
     }
 
+    private void setNotesDataToDto(){
+        if (data.isEmpty()){
+            logger.warn("no notes details to be saved. returning");
+            return;
+        }
+        ArrayList<CoreLeadNotesEntity> coreBookingPassengerEntities= queryService.getNotesListFromTable(data);
+        coreLeadDto.setCoreLeadNotesEntitySet(coreBookingPassengerEntities);
+
+    }
+
     @FXML
     private void showSubBookingPage() {
 
@@ -205,6 +255,84 @@ public class MainBooking implements Initializable {
     }
 
     @FXML
+    private void showNotesTab(){
+        if (notesDialog==null) {
+            notesDialog = new Stage();
+            notesDialog.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+                if (KeyCode.ESCAPE == event.getCode()) {
+                    notesDialog.close();
+                }
+            });
+            notesDialog.setX(notesButton.getLayoutX() + 400);
+            notesDialog.setY(notesButton.getLayoutY() + 300);
+            notesDialog.setWidth(400);
+            notesDialog.setHeight(350);
+            notesDialog.initOwner(mainPane.getScene().getWindow());
+            notesDialog.initModality(Modality.APPLICATION_MODAL);
+            VBox vBox = new VBox();
+            vBox.setSpacing(15);
+            Label label = new Label("Notes Section");
+            label.setFont(Font.font("", FontWeight.BOLD, 16));
+            Button button = new Button("add");
+            button.getStyleClass().add("buttonPrimary");
+            JFXTextArea jfxTextArea = new JFXTextArea();
+
+            button.setOnAction(event -> {
+                if (!jfxTextArea.getText().equals(""))
+                    data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
+                jfxTextArea.setText("");
+            });
+            TableView tableView = new TableView();
+            TableColumn notesColumn = new TableColumn("Notes");
+            TableColumn<CoreLeadNotesDto, CoreLeadNotesDto> deleteColumn = new TableColumn<>("Action");
+            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            tableView.getColumns().addAll(notesColumn,deleteColumn);
+            tableView.setEditable(true);
+
+            notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
+
+            deleteColumn.setCellValueFactory(
+                    new PropertyValueFactory<CoreLeadNotesDto, CoreLeadNotesDto>("Action")
+            );
+            deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+            deleteColumn.setCellFactory(param -> new TableCell<CoreLeadNotesDto, CoreLeadNotesDto>() {
+                FontAwesomeIconView deleteButton = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
+
+                @Override
+                protected void updateItem(CoreLeadNotesDto item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null) {
+                        setGraphic(null);
+                        return;
+                    }
+                    deleteButton.setCursor(Cursor.HAND);
+                    deleteButton.setGlyphSize(30);
+                    setGraphic(deleteButton);
+                    deleteButton.setOnMouseClicked(event -> {
+                        data.remove(item);
+                    });
+                }
+            });
+            tableView.setItems(data);
+            vBox.getChildren().add(label);
+            vBox.getChildren().add(jfxTextArea);
+            vBox.getChildren().add(button);
+            vBox.getChildren().add(tableView);
+            Scene scene = new Scene(vBox);
+            scene.getStylesheets().add("/resource/css/notesPopup.css");
+            notesDialog.setScene(scene);
+            notesDialog.initStyle(StageStyle.UNDECORATED);
+            notesDialog.show();
+        }
+        else if (notesDialog.isShowing()){
+            notesDialog.close();
+        }
+        else
+            notesDialog.show();
+    }
+
+
+    @FXML
     private void setAllTextFieldDataToDto(){
 
         if (coreBookingEntity ==null){
@@ -219,6 +347,8 @@ public class MainBooking implements Initializable {
         setShippingAddressTextFieldDataToDto();
         setCommunicationTextFieldDataToDto();
         setStatusTextFieldDataToDto();
+        //set notes data to dto
+        setNotesDataToDto();
             //set all booking Details to coreLeadDto
         coreLeadDto.setCoreBookingEntity(coreBookingEntity);
     }
@@ -267,10 +397,13 @@ public class MainBooking implements Initializable {
     }
 
     private void setCommunicationTextFieldDataToDto(){
-        coreBookingEntity.getCoreBookingCommunicationEntity().setPaxEmail(communicationPaxEmail.getText());
+        coreBookingEntity.getCoreBookingCommunicationEntity().setPaxEmailFirst(communicationPaxEmailFirst.getText());
+        coreBookingEntity.getCoreBookingCommunicationEntity().setPaxEmailSecond(communicationPaxEmailSecond.getText());
         coreBookingEntity.getCoreBookingCommunicationEntity().setUsaMobile(communicationUsaMobile.getText());
         coreBookingEntity.getCoreBookingCommunicationEntity().setUsaWorkNumber(communicationUsaWork.getText());
-        coreBookingEntity.getCoreBookingCommunicationEntity().setLandline(communicationLandline.getText());
+        coreBookingEntity.getCoreBookingCommunicationEntity().setUsaHome(communicationUsaHome.getText());
+        coreBookingEntity.getCoreBookingCommunicationEntity().setIndiaLandline(communicationIndiaLandLine.getText());
+        coreBookingEntity.getCoreBookingCommunicationEntity().setIndiaMobile(communicationIndiaMobile.getText());
     }
 
     private void    setStatusTextFieldDataToDto(){
@@ -302,13 +435,46 @@ public class MainBooking implements Initializable {
         }
     }
 
+/*
+
     @FXML
-    private void showNotesTab() throws IOException {
-        Stage stage=new Stage();
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/notesPopup.fxml"));
-        stage.setScene(new Scene(root, 450, 450));
-        stage.show();
+    private void showNotesTab(){
+        Stage dialog = new Stage();
+
+        dialog.setWidth(600);
+        dialog.setHeight(600);
+        dialog.initOwner(mainPane.getScene().getWindow());
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        VBox vBox=new VBox();
+        Label label=new Label("Notes Section");
+        Button button=new Button("add");
+        JFXTextArea jfxTextArea=new JFXTextArea();
+
+        button.setOnAction(event -> {
+            data.add(new CoreLeadNotesDto(null,jfxTextArea.getText()));
+            jfxTextArea.setText("");
+        });
+        TableView tableView=new TableView();
+        TableColumn notesColumn = new TableColumn("Notes");
+
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.getColumns().addAll(notesColumn);
+        tableView.setEditable(true);
+
+        notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
+
+        tableView.setItems(data);
+        vBox.getChildren().add(label);
+        vBox.getChildren().add(jfxTextArea);
+        vBox.getChildren().add(button);
+        vBox.getChildren().add(tableView);
+        Scene scene=new Scene(vBox);
+        dialog.setScene(scene);
+        dialog.initStyle(StageStyle.UNIFIED);
+        dialog.show();
+
     }
+*/
 
     @FXML
     private void showQuickTransactionPage() throws IOException {

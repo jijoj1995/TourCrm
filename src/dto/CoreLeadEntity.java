@@ -1,8 +1,11 @@
 package dto;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table( name = "core_lead" )
@@ -51,9 +54,10 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_booking_id")
     private CoreBookingEntity corebookingEntity;
 
-    @OneToMany(targetEntity=CoreLeadsNotesEntity.class,cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,targetEntity= CoreLeadNotesEntity.class,cascade=CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
     @JoinColumn(name="core_lead_id")
-    private Set<CoreLeadsNotesEntity> coreLeadsNotesEntities;
+    private List<CoreLeadNotesEntity> coreLeadsNotesEntities;
 
 
     public String getQueryTime() {
@@ -216,11 +220,11 @@ public class CoreLeadEntity implements Serializable {
         this.corebookingEntity = corebookingEntity;
     }
 
-    public Set<CoreLeadsNotesEntity> getCoreLeadsNotesEntities() {
+    public List<CoreLeadNotesEntity> getCoreLeadsNotesEntities() {
         return coreLeadsNotesEntities;
     }
 
-    public void setCoreLeadsNotesEntities(Set<CoreLeadsNotesEntity> coreLeadsNotesEntities) {
+    public void setCoreLeadsNotesEntities(List<CoreLeadNotesEntity> coreLeadsNotesEntities) {
         this.coreLeadsNotesEntities = coreLeadsNotesEntities;
     }
 }

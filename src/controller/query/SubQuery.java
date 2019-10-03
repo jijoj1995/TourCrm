@@ -53,6 +53,31 @@ public class SubQuery implements Initializable {
         initialiseAllEmptyDatePickers();
             //set specific number only with validations
         setNumberOnlyInputCheck();
+        //initialiseTotalFareCalculationEvent
+
+        airNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+        airNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> {
+            setTotalAirPrice();
+        });
+        airNumberOfInfant.textProperty().addListener((observable, oldValue, newValue) -> {
+            setTotalAirPrice();
+        });
+        airAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {
+            setTotalAirPrice();
+        });
+        airChildFare.textProperty().addListener((observable, oldValue, newValue) -> {
+            setTotalAirPrice();
+        });
+        airInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {
+            setTotalAirPrice();
+        });
+        holidaysNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+        holidaysNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+        holidaysTotalInfant.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+        holidaysInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+        holidaysChildFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+        holidaysAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+
     }
 
     public void initializeCoreLeadObject(CoreLead coreLead){
@@ -351,4 +376,19 @@ public class SubQuery implements Initializable {
         queryTabs.setTabMaxWidth(paneWidth);
     }
 
+    private void setTotalAirPrice(){
+       airTotalPrice.setText( String.valueOf(Validator.getIntValue(airAdultFare.getText())*Validator.getIntValue(airNumberOfAdult.getText())+
+                Validator.getIntValue(airChildFare.getText())*Validator.getIntValue(airNumberOfChild.getText())+
+                Validator.getIntValue(airInfantFare.getText())*Validator.getIntValue(airNumberOfInfant.getText())));
+    }
+    /*private void setTotalHotelPrice(){
+        hotelTotalPrice.setText( String.valueOf(Validator.getIntValue(ho.getText())*Validator.getIntValue(airNumberOfAdult.getText())+
+                Validator.getIntValue(airChildFare.getText())*Validator.getIntValue(airNumberOfChild.getText())+
+                Validator.getIntValue(airInfantFare.getText())*Validator.getIntValue(airNumberOfInfant.getText())));
+    }*/
+    private void setTotalHolidaysPrice(){
+        holidaysTotalPrice.setText( String.valueOf(Validator.getIntValue(holidaysAdultFare.getText())*Validator.getIntValue(holidaysNumberOfAdult.getText())+
+                Validator.getIntValue(holidaysChildFare.getText())*Validator.getIntValue(holidaysNumberOfChild.getText())+
+                Validator.getIntValue(holidaysInfantFare.getText())*Validator.getIntValue(holidaysTotalInfant.getText())));
+    }
 }

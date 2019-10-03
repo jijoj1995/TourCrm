@@ -1,18 +1,35 @@
 package controller.query;
 
 import com.jfoenix.controls.*;
+import com.jfoenix.validation.RequiredFieldValidator;
 import constants.LeadsConstants;
 import db.QueryService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.control.TabPane;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
@@ -20,11 +37,7 @@ import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 public class MainQuery implements Initializable {
     @FXML
@@ -35,17 +48,24 @@ public class MainQuery implements Initializable {
     private JFXTextField firstName,middleName,lastName,userId,queryIdColumn,queryTime,branchCode,country, paxEmailFirst,paxEmailSecond,usaHome,usaMobile,indiaMobile,indiaLandLine,usaWork;
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
-
+    @FXML
+    private Button notesButton;
     @FXML
     private JFXScrollPane jfxDialogScrollPane;
     @FXML
     private VBox notesdialogVbox;
+    @FXML
+    private HBox queryIdHbox;
+    @FXML
+    private RequiredFieldValidator requiredFirstName;
     private QueryService queryService=new QueryService();
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
     private int numberOfNotes =2;
-    Set<CoreLeadsNotesEntity>coreLeadsNotesEntitySet=new HashSet<>();
+    Set<CoreLeadNotesEntity> coreLeadNotesEntitySet =new HashSet<>();
     InventoryConfig inventoryConfig=InventoryConfig.getInstance();
+    ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
+    Stage notesDialog=null;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
                                   // notesDialogBox.setPrefWidth(0);
@@ -53,6 +73,10 @@ public class MainQuery implements Initializable {
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
         setNumberOnlyInputCheck();
+        //hide query id checkbox if first time
+        queryIdHbox.setVisible(false);
+        queryIdHbox.setMaxHeight(0);
+        queryIdHbox.setPrefHeight(0);
      //   initialiseNotesTab();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
@@ -67,6 +91,9 @@ public class MainQuery implements Initializable {
             logger.warn("coreLeadDto is null. returning");
             return;
         }
+        queryIdHbox.setVisible(true);
+        queryIdHbox.setPrefHeight(25);
+        queryIdHbox.setMaxHeight(25);
         //userId.setText(coreLeadDto.getCoreLeadId());
         firstName.setText(coreLeadDto.getFirstName());
         middleName.setText(coreLeadDto.getMiddleName());
@@ -93,6 +120,11 @@ public class MainQuery implements Initializable {
             usaHome.setText(coreLeadDto.getCoreLeadCommunication().getUsaHome());
             indiaMobile.setText(coreLeadDto.getCoreLeadCommunication().getIndiaMobile());
 
+            //set notes data to table
+        if (coreLeadDto.getCoreLeadNotesEntitySet()!=null) {
+            for (CoreLeadNotesEntity entity : coreLeadDto.getCoreLeadNotesEntitySet())
+                data.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(), entity.getNotesData()));
+        }
 
     }
 
@@ -146,27 +178,30 @@ public class MainQuery implements Initializable {
         coreLeadDto.getCoreLeadCommunication().setIndiaMobile(indiaMobile.getText());
         coreLeadDto.getCoreLeadCommunication().setPaxEmailSecond(paxEmailSecond.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaHome(usaHome.getText());
+
+        //set notes data
+        setNotesDataToDto();
     }
 
-   /* @FXML
-    private void toggleNotesTab() {
-                //toggle notes tab on button click
-       if (notesDialogBox.isVisible()){
-           notesDialogBox.setVisible(false);
-           notesDialogBox.setMaxWidth(0);
-       }
-       else {
-           notesDialogBox.setVisible(true);
-           notesDialogBox.setMaxWidth(500);
-           notesDialogBox.setPrefWidth(500);
+    private void setNotesDataToDto(){
+        if (data.isEmpty()){
+            logger.warn("no notes details to be saved. returning");
+            return;
+        }
+        ArrayList<CoreLeadNotesEntity>coreBookingPassengerEntities= queryService.getNotesListFromTable(data);
+        coreLeadDto.setCoreLeadNotesEntitySet(coreBookingPassengerEntities);
 
-       }
-    }*/
+    }
+
 
     @FXML
     private void saveCompleteLeadInformation() throws IOException{
+       if (!isRequiredFieldEntered()){
+           Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
+        //showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
+        return;
+    }
         Stage stage = (Stage) mainPane.getScene().getWindow();
-
         //before saving set data from all textFields
         setTextFieldDataToDto();
         //set querytime as current time
@@ -176,7 +211,7 @@ public class MainQuery implements Initializable {
         if (queryService.saveQueryData(coreLeadDto)){
             //saving successful
             boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
-            if (senEmailNotification){
+            if (senEmailNotification&&coreLeadDto.getCoreLeadId()==0){//send email first time only
                 Platform.runLater(new Runnable() {
                     @Override public void run() {
                         boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
@@ -231,86 +266,98 @@ public class MainQuery implements Initializable {
         queryTabs.setTabMaxWidth(paneWidth);
 
     }
-
-   /* private void initialiseNotesTab(){
-       notesDialogBox.setStyle("-fx-text-fill: #006464;\n" +
-                "    -fx-background-color: white;\n" +
-                "-fx-border-color:black;\n" +
-                "    -fx-border-radius: 20;\n" +
-                "    -fx-background-radius: 20;");
-
-        notesDialogBox.setVisible(false);
-        notesDialogBox.setMaxWidth(0);
-        FontAwesomeIconView addNotesButton = new FontAwesomeIconView(FontAwesomeIcon.PLUS_CIRCLE);
-        addNotesButton.setCursor(Cursor.HAND);
-        addNotesButton.setGlyphSize(35);
-        notesdialogVbox.getChildren().add(addNotesButton);
-
-        if (coreLeadDto!=null&&coreLeadDto.getCoreLeadsNotesEntitySet()!=null){
-            coreLeadsNotesEntitySet=coreLeadDto.getCoreLeadsNotesEntitySet();
-
-        }
-        numberOfNotes =coreLeadsNotesEntitySet.size();
-        for (int i = 0; i< numberOfNotes; i++){
-            HBox hBox=new HBox();
-            JFXTextArea jfxTextArea=new JFXTextArea();
-
-            jfxTextArea.setText("position==="+i);
-          //  jfxTextArea.setMinWidth(400);
-            jfxTextArea.setMinHeight(100);
-
-            FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.SAVE);
-            listIcon.setCursor(Cursor.HAND);
-            listIcon.setGlyphSize(35);
-            final int value=i;
-            listIcon.setOnMouseClicked(event -> {
-                deleteSpecificNoteTab(value);
-            });
-            hBox.getChildren().add(jfxTextArea);
-            hBox.getChildren().add(listIcon);
-            hBox.setAlignment(Pos.CENTER);
-            hBox.setPadding(new Insets(0,30,0,30));
-            notesdialogVbox.getChildren().add(hBox);
-        }
-
-        addNotesButton.setOnMouseClicked(event -> {
-
-            reInitialiseNotesTab();
-        });
+    @FXML
+    private void changeTabPane(){
+        queryTabs.getSelectionModel().selectNext();
     }
-    private void reInitialiseNotesTab(){
-            final int hboxPosition= numberOfNotes;
-            HBox hBox=new HBox();
-            JFXTextArea jfxTextArea=new JFXTextArea();
-            jfxTextArea.setText("postion===="+ numberOfNotes);
-            jfxTextArea.setMinHeight(100);
 
-            FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.SAVE);
-            listIcon.setCursor(Cursor.HAND);
-            listIcon.setGlyphSize(35);
-            listIcon.setOnMouseClicked(event -> {
-                //deleteSpecificNoteTab(hboxPosition);
-                if (hboxPosition>=coreLeadsNotesEntitySet.size()) {
-                    CoreLeadsNotesEntity notesEntity = new CoreLeadsNotesEntity();
-                    notesEntity.setNotesData(jfxTextArea.getText());
-                    if (coreLeadDto==null){
-                        coreLeadDto=new CoreLead();
-                        coreLeadDto.setCoreLeadsNotesEntitySet(coreLeadsNotesEntitySet);
-                    }
-                    coreLeadDto.getCoreLeadsNotesEntitySet().add(notesEntity);
+    @FXML
+    private void showNotesTab(){
+        if (notesDialog==null) {
+            notesDialog = new Stage();
+            notesDialog.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+                if (KeyCode.ESCAPE == event.getCode()) {
+                    notesDialog.close();
                 }
             });
-            hBox.getChildren().add(jfxTextArea);
-            hBox.getChildren().add(listIcon);
-            hBox.setAlignment(Pos.CENTER);
-            hBox.setPadding(new Insets(0,30,0,30));
-            notesdialogVbox.getChildren().add(hBox);
-            numberOfNotes++;
+            notesDialog.setX(notesButton.getLayoutX() + 200);
+            notesDialog.setY(notesButton.getLayoutY() + 350);
+            notesDialog.setWidth(400);
+            notesDialog.setHeight(350);
+            notesDialog.initOwner(mainPane.getScene().getWindow());
+            notesDialog.initModality(Modality.APPLICATION_MODAL);
+            VBox vBox = new VBox();
+            vBox.setSpacing(15);
+            Label label = new Label("Notes Section");
+            label.setFont(Font.font("", FontWeight.BOLD, 16));
+            Button button = new Button("add");
+            button.getStyleClass().add("buttonPrimary");
+            JFXTextArea jfxTextArea = new JFXTextArea();
 
+            button.setOnAction(event -> {
+                if (!jfxTextArea.getText().equals(""))
+                    data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
+                jfxTextArea.setText("");
+            });
+            TableView tableView = new TableView();
+            TableColumn notesColumn = new TableColumn("Notes");
+            TableColumn<CoreLeadNotesDto, CoreLeadNotesDto> deleteColumn = new TableColumn<>("Action");
+            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            tableView.getColumns().addAll(notesColumn,deleteColumn);
+            tableView.setEditable(true);
+
+            notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
+
+            deleteColumn.setCellValueFactory(
+                    new PropertyValueFactory<CoreLeadNotesDto, CoreLeadNotesDto>("Action")
+            );
+            deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+            deleteColumn.setCellFactory(param -> new TableCell<CoreLeadNotesDto, CoreLeadNotesDto>() {
+                FontAwesomeIconView deleteButton = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
+
+                @Override
+                protected void updateItem(CoreLeadNotesDto item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null) {
+                        setGraphic(null);
+                        return;
+                    }
+                    deleteButton.setCursor(Cursor.HAND);
+                    deleteButton.setGlyphSize(30);
+                    setGraphic(deleteButton);
+                    deleteButton.setOnMouseClicked(event -> {
+                        data.remove(item);
+                    });
+                }
+            });
+            tableView.setItems(data);
+            vBox.getChildren().add(label);
+            vBox.getChildren().add(jfxTextArea);
+            vBox.getChildren().add(button);
+            vBox.getChildren().add(tableView);
+            Scene scene = new Scene(vBox);
+            scene.getStylesheets().add("/resource/css/notesPopup.css");
+            notesDialog.setScene(scene);
+            notesDialog.initStyle(StageStyle.UNDECORATED);
+            notesDialog.show();
+        }
+        else if (notesDialog.isShowing()){
+            notesDialog.close();
+        }
+        else
+            notesDialog.show();
     }
-    private void deleteSpecificNoteTab(int positionNumber){
-        logger.info("position of button clicked == "+positionNumber);
-        notesdialogVbox.getChildren().remove(positionNumber+2);
-        numberOfNotes--;
-    }*/
+
+    private boolean isRequiredFieldEntered(){
+        if (firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) return false;
+        return true;
+    }
+    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
 }
