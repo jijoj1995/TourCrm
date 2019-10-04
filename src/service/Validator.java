@@ -135,7 +135,7 @@ public class Validator {
             date = LocalDate.parse(s);
         }
         catch (Exception e){
-            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
+            logger.warn("unable to parse date from string value="+s+". because= "+e+"-----"+ e.getMessage());
             return null;
         }
         return date;
@@ -147,7 +147,6 @@ public class Validator {
             date = LocalDate.parse(s);
         }
         catch (Exception e){
-            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
             return LocalDate.now();
         }
         return date;
@@ -158,7 +157,6 @@ public class Validator {
             time = LocalTime.parse(s);
         }
         catch (Exception e){
-            logger.warn("unable to parse time from string value="+s+". because= "+e.getMessage());
             return LocalTime.now();
         }
         return time;
@@ -190,7 +188,6 @@ public class Validator {
             date = LocalDate.parse(dateTime[0]);
         }
         catch (Exception e){
-            logger.warn("unable to parse date from string value="+s+". because= "+e.getMessage());
             return LocalDate.now();
         }
         return date;

@@ -11,7 +11,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+
 public final class Toast {
+    public static boolean isLoaderShowing=false;
+    static Stage toastStage = new Stage();
+
     public static void makeText(Stage ownerStage, String toastMsg, int toastDelay, int fadeInDelay, int fadeOutDelay) {
         Stage toastStage = new Stage();
         toastStage.initOwner(ownerStage);
@@ -52,5 +56,33 @@ public final class Toast {
             }).start();
         });
         fadeInTimeline.play();
+    }
+
+    public static void showLoader(Stage ownerStage, String toastMsg) {
+
+        toastStage.initOwner(ownerStage);
+        toastStage.setResizable(false);
+        toastStage.initStyle(StageStyle.TRANSPARENT);
+
+
+        Text text = new Text(toastMsg);
+        text.setFont(Font.font("Verdana", 20));
+        text.setFill(Color.BLACK);
+
+        StackPane root = new StackPane(text);
+        root.setStyle("-fx-background-radius: 20; -fx-background-color: grey; -fx-padding: 30px;");
+        root.setOpacity(0);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        toastStage.setScene(scene);
+        toastStage.show();
+
+    }
+
+    public static void closeLoader(){
+        if (toastStage.isShowing()){
+            toastStage.close();
+        }
     }
 }

@@ -15,7 +15,7 @@ public class LeadsConstants {
     public static String[] classOfTravel={"Sleeper","CC","AC-2Tier","AC-3Tier"};
     public static String[] airTypeOfTravel={"Ex-US","Ex-IN","AC-2Tier","AC-3Tier"};
     public static String[] airClassOfTravel={"Economy","Business","First"};
-    public static String[] supplierNames={"Suuplier 1","Suuplier 2","Suuplier 3"};
+    public static String[] supplierNames={"Supplier 1","Supplier 2","Supplier 3"};
     public static String[] committed={"YES","NO"};
     public static String[] qcStatus={"PENDING","DONE","REJECTED"};
     public static String[] gender={"MALE","FEMALE","OTHERS"};

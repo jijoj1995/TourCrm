@@ -178,7 +178,6 @@ public class UserService extends BaseConnection {
     }
     public void createDatabaseIfNotPresent(){
         logger.info("creating datbase if not present");
-
         //  Database credentials
         String ipAddress=InventoryConfig.getInstance().getAppProperties().getProperty("databaseIpAddress");
         String databaseName=InventoryConfig.getInstance().getAppProperties().getProperty("databaseName");
@@ -192,16 +191,13 @@ public class UserService extends BaseConnection {
                 //STEP 2: Register JDBC driver
                 Class.forName("com.mysql.jdbc.Driver");
                 //STEP 3: Open a connection
-                System.out.println("Connecting to database...");
                 conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
                 //STEP 4: Execute a query
-                System.out.println("Creating database...");
                 stmt = conn.createStatement();
 
                 String sql = "CREATE DATABASE IF NOT EXISTS "+databaseName;
                 stmt.executeUpdate(sql);
-                System.out.println("Database created successfully...");
             }catch(Exception se){
                 //Handle errors for JDBC
                 se.printStackTrace();

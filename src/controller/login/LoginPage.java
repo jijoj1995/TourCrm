@@ -80,7 +80,6 @@ public class LoginPage  implements Initializable {
         }
         else{
             Toast.makeText(stage,"Invalid UserName or Password",1000,500,500);
-            return;
         }
     }
 
@@ -108,7 +107,7 @@ public class LoginPage  implements Initializable {
         passwordInput.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.ENTER){
                 try {
-                    authenticateUser();
+                  //  authenticateUser();
                 }
                 catch (Exception ex){
                     Stage stage=(Stage) mainAnchorPane.getScene().getWindow();

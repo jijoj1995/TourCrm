@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -301,7 +301,7 @@
                                                               </HBox>
                                                               <HBox HBox.hgrow="ALWAYS">
                                                                   <children>
-                                                <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+                                                <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
                                                                             <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Check-In Date:" />
                                                                             <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" />
@@ -614,7 +614,7 @@
                                                                                 <HBox HBox.hgrow="ALWAYS">
                                                                                     <children>
                                                                                         <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Date of Departure:" HBox.hgrow="ALWAYS" />
-                                                                                        <JFXDatePicker fx:id="railDateOfDeparture" maxWidth="1.7976931348623157E308" prefWidth="140.0" HBox.hgrow="ALWAYS" />
+                                                                                        <JFXDatePicker fx:id="railDateOfDeparture" HBox.hgrow="ALWAYS" />
                                                                                     </children>
                                                                                     <opaqueInsets>
                                                                                         <Insets right="10.0" />
@@ -792,7 +792,10 @@
                     <children>
                         <HBox spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup" HBox.hgrow="NEVER">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#saveSubQueryData" styleClass="buttonPrimary" text="Save" />
+                                <Button mnemonicParsing="false" onAction="#saveSubQueryData" styleClass="buttonPrimary" text="Save">
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor></Button>
                             </children>
                             <padding>
                                 <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />

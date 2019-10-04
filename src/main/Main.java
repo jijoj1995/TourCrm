@@ -5,6 +5,7 @@ import constants.InventoryConstants;
 import db.UserService;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.application.Preloader;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -68,7 +69,7 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
 
-      /*  for (int i = 0; i < COUNT_LIMIT; i++) {
+        /*for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
         }*/
@@ -91,17 +92,12 @@ public class Main extends Application {
 
         primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/resource/images/logomain.png")));
 
-                                                           //initialising conn object
-        /*System.out.println("going to fetch connection object");
-        Connection connection=BaseConnection.getDBConnection();
-        BaseConnection.sqlCleanup(connection,null,null);*/
 
                                                          //fetching window size
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         HEIGHT=screenBounds.getHeight();
         WIDTH=screenBounds.getWidth();
         Scene scene=new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-40);
-      //  scene.getStylesheets().add("/resource/css/bootstraptest.css");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
       //  primaryStage.setResizable(false);
