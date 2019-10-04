@@ -371,7 +371,7 @@ public class SubQuery implements Initializable {
     private void initializeDefaultLayout() {
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 30;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
     }

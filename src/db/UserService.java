@@ -1,6 +1,7 @@
 package db;
 
 import dto.*;
+import main.InventoryConfig;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -149,7 +150,7 @@ public class UserService extends BaseConnection {
         Session session=null;
         String queryValue= "from CoreUserEntity where userName=:adminuser";
         try{
-
+            createDatabaseIfNotPresent();
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query query = session.createQuery(queryValue);
@@ -174,6 +175,38 @@ public class UserService extends BaseConnection {
         finally {
             if (session!=null)session.close();
         }
+    }
+    public void createDatabaseIfNotPresent(){
+        logger.info("creating datbase if not present");
+
+        //  Database credentials
+        String ipAddress=InventoryConfig.getInstance().getAppProperties().getProperty("databaseIpAddress");
+        String databaseName=InventoryConfig.getInstance().getAppProperties().getProperty("databaseName");
+        String USER = InventoryConfig.getInstance().getAppProperties().getProperty("databaseUserName");
+        String PASS = InventoryConfig.getInstance().getAppProperties().getProperty("databasePassword");
+        String DB_URL = "jdbc:mysql://"+ipAddress+"/";
+
+            Connection conn = null;
+            Statement stmt = null;
+            try{
+                //STEP 2: Register JDBC driver
+                Class.forName("com.mysql.jdbc.Driver");
+                //STEP 3: Open a connection
+                System.out.println("Connecting to database...");
+                conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+                //STEP 4: Execute a query
+                System.out.println("Creating database...");
+                stmt = conn.createStatement();
+
+                String sql = "CREATE DATABASE IF NOT EXISTS "+databaseName;
+                stmt.executeUpdate(sql);
+                System.out.println("Database created successfully...");
+            }catch(Exception se){
+                //Handle errors for JDBC
+                se.printStackTrace();
+            }
+
     }
 
 }

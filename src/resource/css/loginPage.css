@@ -6,7 +6,8 @@
 }
 
 .infoPane{
--fx-background-color:linear-gradient(to bottom, #0091ea,#81bbf4 ); 
+-fx-background-color:#383650;
+/*-fx-background-color:linear-gradient(to bottom, #0091ea,#81bbf4 );*/
 -fx-background-size: 1200 900;
     -fx-background-radius: 40 10 10 40;
     -fx-border-radius: 40 10 10 40;
@@ -26,11 +27,11 @@
     -fx-border-radius: 10 40 40 10;
 }
 .siginInButton{
--fx-font-family: 'Roboto';
-	-fx-background-color: #0091ea;
+-fx-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	-fx-background-color: #4d4b6e;
 	-fx-background-size: 1200 900;
 	-fx-background-radius: 40;
-	-fx-text-size:18px;
+	-fx-text-size:14px;
 	-fx-min-width:250px;
 	-fx-border-color:#0091ea;
 	-fx-border-radius: 40px;

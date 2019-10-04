@@ -102,7 +102,7 @@ public class MainBooking implements Initializable {
     }
 
     private void initialiseDefaultCoreBookingCommunicationFromDto(){
-        if (coreLeadDto!=null && coreLeadDto.getCoreLeadCommunication()!=null && coreBookingEntity!=null &&coreBookingEntity.getCoreBookingCommunicationEntity()==null){
+        if (coreLeadDto!=null && coreLeadDto.getCoreLeadCommunication()!=null && (coreBookingEntity==null ||coreBookingEntity.getCoreBookingCommunicationEntity()==null)){
             CoreLeadCommunication coreLeadCommunication=coreLeadDto.getCoreLeadCommunication();
             communicationPaxEmailFirst.setText(coreLeadCommunication.getPaxEmailFirst());
             communicationUsaMobile.setText(coreLeadCommunication.getUsaMobile());

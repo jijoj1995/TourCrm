@@ -73,11 +73,12 @@ public class ListUsers implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                payButton.setStyle("-fx-text-fill: #006464;\n" +
+                payButton.getStyleClass().add("buttonLink");
+                /*payButton.setStyle("-fx-text-fill: #006464;\n" +
                         "    -fx-background-color: #b8ffb0;\n" +
                         "    -fx-border-radius: 20;\n" +
                         "    -fx-background-radius: 20;\n" +
-                        "    -fx-padding: 5;-fx-min-width:100");
+                        "    -fx-padding: 5;-fx-min-width:100");*/
                 payButton.setText(String.valueOf(usersList.getCoreUserId()));
                 setGraphic(payButton);
                 payButton.setOnAction(event -> {

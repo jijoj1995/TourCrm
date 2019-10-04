@@ -50,9 +50,9 @@ public class SettingsList implements Initializable {
     @FXML
     private JFXComboBox<DayOfWeek> backupDayOptionList;
     @FXML
-    private PasswordField oldPasswordField, newPasswordField, confirmPasswordField;
+    private PasswordField oldPasswordField, newPasswordField, confirmPasswordField,emailPasswordField;
     @FXML
-    private JFXTextField dbName,systemIpAddress,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailPasswordField,emailSubjectField;
+    private JFXTextField dbName,systemIpAddress,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailSubjectField;
     @FXML
     private JFXTextArea emailMessageField;
     @FXML
@@ -341,7 +341,7 @@ public class SettingsList implements Initializable {
     private void initializeDefaultLayout() {
         settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 30;
         settingsTabPane.setTabMinWidth(paneWidth);
         settingsTabPane.setTabMaxWidth(paneWidth);
     }

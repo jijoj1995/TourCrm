@@ -53,7 +53,7 @@
             <center>
                 <TabPane fx:id="queryTabs" prefHeight="200.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
-                        <Tab text="General">
+                        <Tab style="-fx-text-fill: white;" text="General">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0">
                                     <children>

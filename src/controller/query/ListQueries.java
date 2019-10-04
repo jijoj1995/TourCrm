@@ -79,11 +79,12 @@ public class ListQueries implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                payButton.setStyle("-fx-text-fill: #006464;\n" +
-                        "    -fx-background-color: #b8ffb0;\n" +
+                payButton.getStyleClass().add("buttonLink");
+                /*payButton.setStyle("-fx-text-fill: white;\n" +
+                        "    -fx-background-color:#383650 ;\n" +
                         "    -fx-border-radius: 20;\n" +
                         "    -fx-background-radius: 20;\n" +
-                        "    -fx-padding: 5;-fx-min-width:100");
+                        "    -fx-padding: 5;-fx-min-width:100");*/
                 payButton.setText(String.valueOf(queriesList.getQueryId()));
                 setGraphic(payButton);
                 payButton.setOnAction(event -> {

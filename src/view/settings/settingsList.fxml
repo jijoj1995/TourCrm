@@ -16,13 +16,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
+<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
    <children>
       <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <top>
               <VBox alignment="CENTER" prefHeight="54.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                   <children>
-                      <Label text="Settings Page">
+                      <Label text="Settings Page" underline="true">
                           <font>
                               <Font name="System Bold" size="21.0" />
                           </font>
@@ -46,7 +46,7 @@
                                                 <Insets right="20.0" />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="15.0" />
+                                                <Font size="14.0" />
                                              </font>
                                           </Label>
                                           <JFXTextField fx:id="systemIpAddress" editable="false" opacity="0.38" />
@@ -62,7 +62,7 @@
                                                 <Font name="Open Sans Semibold" size="14.0" />
                                              </font>
                                                       </Label>
-                                          <JFXTextField fx:id="dbIpAddress" />
+                                          <JFXTextField fx:id="dbIpAddress" prefWidth="150.0" />
                                                   </children>
                                               </HBox>
                                     <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" prefHeight="50.0" prefWidth="600.0">
@@ -75,7 +75,7 @@
                                                 <Font name="Open Sans Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="dbName" />
+                                          <JFXTextField fx:id="dbName" prefWidth="150.0" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" fillHeight="false" maxHeight="20.0" prefHeight="20.0" prefWidth="800.0">
@@ -101,7 +101,7 @@
                                                 <Font name="Open Sans Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="dbPortNumber" />
+                                          <JFXTextField fx:id="dbPortNumber" prefWidth="150.0" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="140.0" prefHeight="50.0" prefWidth="600.0">
@@ -114,7 +114,7 @@
                                                 <Font name="Open Sans Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="dbUserName" />
+                                          <JFXTextField fx:id="dbUserName" prefWidth="150.0" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="10.0" layoutY="140.0" maxHeight="20.0" prefHeight="20.0" prefWidth="800.0">
@@ -296,7 +296,7 @@
                                                       <Insets right="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXTextField fx:id="emailField" />
+                                                <JFXTextField fx:id="emailField" prefWidth="200.0" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
@@ -306,7 +306,7 @@
                                                       <Insets right="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXTextField fx:id="emailPasswordField" />
+                                                <JFXPasswordField fx:id="emailPasswordField" prefWidth="200.0" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
@@ -316,17 +316,17 @@
                                                       <Insets right="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXTextField fx:id="emailSubjectField" />
+                                                <JFXTextField fx:id="emailSubjectField" prefWidth="200.0" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="600.0">
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0">
                                              <children>
                                                 <Label minWidth="150.0" text="Email Message:">
                                                    <HBox.margin>
                                                       <Insets right="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXTextArea fx:id="emailMessageField" prefHeight="400.0" prefWidth="200.0" />
+                                                <JFXTextArea fx:id="emailMessageField" prefHeight="100.0" prefWidth="200.0" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="10.0" />
