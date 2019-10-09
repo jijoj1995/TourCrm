@@ -58,7 +58,7 @@ public class MainBooking implements Initializable {
     @FXML
     private Button notesButton;
     @FXML
-    private HBox shippingHbox,bookingIdHbox;
+    private HBox shippingHbox;
     @FXML
     private JFXToggleButton showShippingBox;
     Stage notesDialog=null;
@@ -73,9 +73,9 @@ public class MainBooking implements Initializable {
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
 
-        //
-        bookingIdHbox.setVisible(false);
-        bookingIdHbox.setMaxHeight(0);
+        //hide booking id and time details
+        hideBookingIdAndTimeDetails();
+
         showShippingBox.setOnAction((event) -> {
             ToggleButton but = (ToggleButton) event.getTarget();
             if (but.isSelected()) {
@@ -84,6 +84,15 @@ public class MainBooking implements Initializable {
                 shippingHbox.setVisible(true);
             }
         });
+    }
+    private void hideBookingIdAndTimeDetails(){
+        bookingId.setVisible(false);
+        bookingTime.setVisible(false);
+    }
+
+    private void showBookingIdAndTimeDetails(){
+        bookingId.setVisible(true);
+        bookingTime.setVisible(true);
     }
 
     public void initializeCoreLeadDto(CoreLead coreLead){
@@ -134,9 +143,8 @@ public class MainBooking implements Initializable {
     private void initializeGeneralInputTextsFromDto(){
         if (coreBookingEntity.getCoreBookingId()!=null) {
             bookingId.setText(String.valueOf(coreBookingEntity.getCoreBookingId()));
-            bookingIdHbox.setVisible(true);
-            bookingIdHbox.setPrefHeight(25);
-            bookingIdHbox.setMaxHeight(25);
+
+            showBookingIdAndTimeDetails();
         }
         bookingTime.setValue(Validator.getNotNullLocalDateFromString(coreBookingEntity.getBookingTime()));
         if (coreBookingEntity.getQueryId()!=null) {
@@ -263,8 +271,8 @@ public class MainBooking implements Initializable {
                     notesDialog.close();
                 }
             });
-            notesDialog.setX(notesButton.getLayoutX() + 400);
-            notesDialog.setY(notesButton.getLayoutY() + 300);
+            notesDialog.setX(notesButton.getLayoutX() + 200);
+            notesDialog.setY(notesButton.getLayoutY() + 350);
             notesDialog.setWidth(400);
             notesDialog.setHeight(350);
             notesDialog.initOwner(mainPane.getScene().getWindow());
@@ -273,14 +281,23 @@ public class MainBooking implements Initializable {
             vBox.setSpacing(15);
             Label label = new Label("Notes Section");
             label.setFont(Font.font("", FontWeight.BOLD, 16));
-            Button button = new Button("add");
-            button.getStyleClass().add("buttonPrimary");
             JFXTextArea jfxTextArea = new JFXTextArea();
+            Button addButton = new Button("Add");
+            addButton.getStyleClass().add("buttonPrimary");
+            addButton.setCursor(Cursor.HAND);
+            Button closeButton = new Button("Close");
+            closeButton.getStyleClass().add("buttonPrimary");
+            addButton.setCursor(Cursor.HAND);
+            closeButton.setOnAction(event -> {
+                notesDialog.close();
+            });
 
-            button.setOnAction(event -> {
+            addButton.setOnAction(event -> {
                 if (!jfxTextArea.getText().equals(""))
                     data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
                 jfxTextArea.setText("");
+                jfxTextArea.requestFocus();
+
             });
             TableView tableView = new TableView();
             TableColumn notesColumn = new TableColumn("Notes");
@@ -313,10 +330,13 @@ public class MainBooking implements Initializable {
                     });
                 }
             });
+            HBox buttonHbox=new HBox();
+            buttonHbox.getChildren().add(addButton);
+            buttonHbox.getChildren().add(closeButton);
             tableView.setItems(data);
             vBox.getChildren().add(label);
             vBox.getChildren().add(jfxTextArea);
-            vBox.getChildren().add(button);
+            vBox.getChildren().add(buttonHbox);
             vBox.getChildren().add(tableView);
             Scene scene = new Scene(vBox);
             scene.getStylesheets().add("/resource/css/notesPopup.css");
@@ -435,46 +455,6 @@ public class MainBooking implements Initializable {
         }
     }
 
-/*
-
-    @FXML
-    private void showNotesTab(){
-        Stage dialog = new Stage();
-
-        dialog.setWidth(600);
-        dialog.setHeight(600);
-        dialog.initOwner(mainPane.getScene().getWindow());
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        VBox vBox=new VBox();
-        Label label=new Label("Notes Section");
-        Button button=new Button("add");
-        JFXTextArea jfxTextArea=new JFXTextArea();
-
-        button.setOnAction(event -> {
-            data.add(new CoreLeadNotesDto(null,jfxTextArea.getText()));
-            jfxTextArea.setText("");
-        });
-        TableView tableView=new TableView();
-        TableColumn notesColumn = new TableColumn("Notes");
-
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tableView.getColumns().addAll(notesColumn);
-        tableView.setEditable(true);
-
-        notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
-
-        tableView.setItems(data);
-        vBox.getChildren().add(label);
-        vBox.getChildren().add(jfxTextArea);
-        vBox.getChildren().add(button);
-        vBox.getChildren().add(tableView);
-        Scene scene=new Scene(vBox);
-        dialog.setScene(scene);
-        dialog.initStyle(StageStyle.UNIFIED);
-        dialog.show();
-
-    }
-*/
 
     @FXML
     private void showQuickTransactionPage() throws IOException {

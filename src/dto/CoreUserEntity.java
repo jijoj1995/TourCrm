@@ -12,6 +12,7 @@ public class CoreUserEntity implements Serializable {
     @PrimaryKeyJoinColumn
     @Column(name = "core_user_id")
     private Integer coreUserId;
+    @Column(unique = true)
     private String userName;
     private String userPassword;
     private String firstName;

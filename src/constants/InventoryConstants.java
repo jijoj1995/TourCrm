@@ -25,6 +25,10 @@ public class InventoryConstants {
     public static final String productionPropertiesFilename="applicationProp.properties";
     public static final String productionPropertiesFileLocation="/applicationProp.properties";
     public static final String productionPropertiesFolder="/resource/";
+    public static final String landlineRegex="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
+    public static final int userInsertionSuccess=1;
+    public static final int userInsertionFailed=0;
+    public static final int userInsertionConstraintViolation=2;
 
 
     

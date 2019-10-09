@@ -2,6 +2,7 @@ package controller.users;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import constants.InventoryConstants;
 import db.UserService;
 import dto.CoreLead;
 import dto.CoreUserEntity;
@@ -56,20 +57,31 @@ public class EditUser implements Initializable {
     }
     @FXML
     private void saveUserData(){
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        if (!isRequiredFieldsEntered()){
+            Toast.makeText(stage,"Enter Required Fields",1000,500,500 );
+            return;
+        }
         if (coreUserEntity==null)coreUserEntity=new CoreUserEntity();
         coreUserEntity.setFirstName(firstName.getText());
         coreUserEntity.setLastName(lastName.getText());
         coreUserEntity.setEmailAddress(email.getText());
         coreUserEntity.setUserName(userId.getText());
         coreUserEntity.setUserPassword(passwordField.getText());
-        if (userService.saveUserData(coreUserEntity)){
+        int userInsertionResult=userService.saveUserData(coreUserEntity);
+        if (userInsertionResult== InventoryConstants.userInsertionSuccess){
             showUserListPage();
         }
-        else{
-            Stage stage = (Stage) mainPane.getScene().getWindow();
+        else if (userInsertionResult== InventoryConstants.userInsertionConstraintViolation){
+            Toast.makeText(stage,"UserName Already assigned",1000,500,500 );
+        }
+        else {
             Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
         }
 
+    }
+    private boolean isRequiredFieldsEntered(){
+        return  !(firstName.getText().isEmpty()||lastName.getText().isEmpty()||passwordField.getText().isEmpty()||email.getText().isEmpty()||userId.getText().isEmpty());
     }
 
     @FXML

@@ -42,8 +42,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        LauncherImpl.launchApplication(Main.class, MyPreloader.class, args);
-        /*LauncherImpl.launchApplication(Main.class, args);*/
+       /* LauncherImpl.launchApplication(Main.class, MyPreloader.class, args);*/
+        LauncherImpl.launchApplication(Main.class, args);
     }
 
     public Main() {

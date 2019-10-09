@@ -217,14 +217,14 @@ public class Validator {
 
     public static boolean isCurrentUserAdmin(){
         String user=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
-        if (user!=null&&user.equals("admin")){
+        if (user!=null&&user.equalsIgnoreCase("admin")){
             return true;
         }
         else return false;
     }
     public static boolean isCurrentUserTest(){
         String user=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
-        if (user!=null&&user.equals("test")){
+        if (user!=null&&user.equalsIgnoreCase("test")){
             return true;
         }
         else return false;

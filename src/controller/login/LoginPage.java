@@ -4,6 +4,7 @@ import db.DbBackupService;
 import db.UserService;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +43,8 @@ public class LoginPage  implements Initializable {
     private TextField userNameInput;
     @FXML
     private PasswordField passwordInput;
+    @FXML
+    ProgressBar progressBar;
     private Logger logger=Logger.getLogger(LoginPage.class);
     @FXML
     private void authenticateUser() throws Exception{
@@ -62,6 +65,21 @@ public class LoginPage  implements Initializable {
 
         if(new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
                                 // if authenticated
+
+/*
+            Task task = new Task<Void>() {
+                @Override public Void call() {
+                     final int max = 1000000;
+                    for (int i = 1; i <= max; i++) {
+                        updateProgress(i, max);
+                    }
+                    return null;
+                }
+            };
+
+           // ProgressBar bar = new ProgressBar();
+            progressBar.progressProperty().bind(task.progressProperty());
+            new Thread(task).start();*/
 
             logger.info("adding currentUser as= "+userNameInput.getText());
             InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());

@@ -8,7 +8,9 @@ import constants.InventoryConstants;
 import db.DbBackupService;
 import db.UserService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -24,6 +26,7 @@ import service.Validator;
 import timers.InventoryTimers;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -56,7 +59,7 @@ public class SettingsList implements Initializable {
     @FXML
     private JFXTextArea emailMessageField;
     @FXML
-    private Tab overallSettingsTab,databaseTab,adminTab,emailTab;
+    private Tab overallSettingsTab,databaseTab,emailTab;
     private Logger logger=Logger.getLogger(SettingsList.class);
 
     private InventoryConfig inventoryConfig = InventoryConfig.getInstance();
@@ -203,7 +206,6 @@ public class SettingsList implements Initializable {
             logger.info("current user is not admin. Restricting Tabs in settings page");
             //donot show these tabs to other user
             overallSettingsTab.setDisable(true);
-            adminTab.setDisable(true);
             emailTab.setDisable(true);
         }
     }
@@ -287,34 +289,6 @@ public class SettingsList implements Initializable {
     }
 
 
-
-    @FXML
-    private void updatePassword() {
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
-
-        //check for any empty values
-        if (oldPasswordField.getText().isEmpty() || newPasswordField.getText().isEmpty() || confirmPasswordField.getText().isEmpty()) {
-            Toast.makeText(stage, "Fields cannot be empty", 1000, 500, 500);
-            return;
-        }
-        //check for same new &cnf password
-        if (!newPasswordField.getText().equals(confirmPasswordField.getText())) {
-            Toast.makeText(stage, "Password does not match.", 1000, 500, 500);
-            return;
-        }
-        //check for valid old Password
-        if (!new UserService().validateOldPassword(oldPasswordField.getText())) {
-            Toast.makeText(stage, "Old Password is incorrect", 1000, 500, 500);
-            return;
-        }
-        //update Password
-        if (new UserService().changeAdminPassword(newPasswordField.getText())) {
-            Toast.makeText(stage, "Password changed successfully.", 1000, 500, 500);
-        } else {
-            Toast.makeText(stage, "Unable to change password. Please check Database Connection", 1000, 500, 500);
-        }
-    }
-
     @FXML
     private void updateDbBackupDate() {
 
@@ -338,10 +312,17 @@ public class SettingsList implements Initializable {
         InventoryTimers.getInstance().reinitializeDbBackupTimers();
     }
 
+    @FXML
+    private void showDashboardPage() throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
+        settingsAnchorPane.getChildren().setAll(root);
+    }
+
+
     private void initializeDefaultLayout() {
         settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 30;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 30;
         settingsTabPane.setTabMinWidth(paneWidth);
         settingsTabPane.setTabMaxWidth(paneWidth);
     }

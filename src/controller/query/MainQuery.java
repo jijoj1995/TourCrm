@@ -91,9 +91,11 @@ public class MainQuery implements Initializable {
             logger.warn("coreLeadDto is null. returning");
             return;
         }
-        queryIdHbox.setVisible(true);
-        queryIdHbox.setPrefHeight(25);
-        queryIdHbox.setMaxHeight(25);
+        if (coreLeadDto.getCoreLeadId()!=0) {
+            queryIdHbox.setVisible(true);
+            queryIdHbox.setPrefHeight(25);
+            queryIdHbox.setMaxHeight(25);
+        }
         //userId.setText(coreLeadDto.getCoreLeadId());
         firstName.setText(coreLeadDto.getFirstName());
         middleName.setText(coreLeadDto.getMiddleName());
@@ -201,15 +203,22 @@ public class MainQuery implements Initializable {
         //showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
         return;
     }
+    //check if notes added
+        if (!isNotesAdded()){
+            Toast.makeText((Stage)mainPane.getScene().getWindow(),"No notes added",1000,500,500);
+            //showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
+            return;
+        }
+
         Stage stage = (Stage) mainPane.getScene().getWindow();
-        //before saving set data from all textFields
+                       //before saving set data from all textFields
         setTextFieldDataToDto();
-        //set querytime as current time
+                       //set querytime as current time
         coreLeadDto.setQuerytime(new Date().toString());
 
             //save to db
         if (queryService.saveQueryData(coreLeadDto)){
-            //saving successful
+                        //saving successful
             boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
             if (senEmailNotification&&coreLeadDto.getCoreLeadId()==0){//send email first time only
                 Platform.runLater(new Runnable() {
@@ -221,8 +230,6 @@ public class MainQuery implements Initializable {
                         else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
                     }
                 });
-
-
             }
             showQuickTransactionPage();
         }
@@ -290,14 +297,23 @@ public class MainQuery implements Initializable {
             vBox.setSpacing(15);
             Label label = new Label("Notes Section");
             label.setFont(Font.font("", FontWeight.BOLD, 16));
-            Button button = new Button("add");
-            button.getStyleClass().add("buttonPrimary");
             JFXTextArea jfxTextArea = new JFXTextArea();
+            Button addButton = new Button("Add");
+            addButton.getStyleClass().add("buttonPrimary");
+            addButton.setCursor(Cursor.HAND);
+            Button closeButton = new Button("Close");
+            closeButton.getStyleClass().add("buttonPrimary");
+            addButton.setCursor(Cursor.HAND);
+            closeButton.setOnAction(event -> {
+                notesDialog.close();
+            });
 
-            button.setOnAction(event -> {
+            addButton.setOnAction(event -> {
                 if (!jfxTextArea.getText().equals(""))
                     data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
                 jfxTextArea.setText("");
+                jfxTextArea.requestFocus();
+
             });
             TableView tableView = new TableView();
             TableColumn notesColumn = new TableColumn("Notes");
@@ -330,10 +346,13 @@ public class MainQuery implements Initializable {
                     });
                 }
             });
+            HBox buttonHbox=new HBox();
+            buttonHbox.getChildren().add(addButton);
+            buttonHbox.getChildren().add(closeButton);
             tableView.setItems(data);
             vBox.getChildren().add(label);
             vBox.getChildren().add(jfxTextArea);
-            vBox.getChildren().add(button);
+            vBox.getChildren().add(buttonHbox);
             vBox.getChildren().add(tableView);
             Scene scene = new Scene(vBox);
             scene.getStylesheets().add("/resource/css/notesPopup.css");
@@ -352,7 +371,10 @@ public class MainQuery implements Initializable {
         if (firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) return false;
         return true;
     }
-
+    private boolean isNotesAdded(){
+        if (data.isEmpty()) return false;
+        return true;
+    }
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);

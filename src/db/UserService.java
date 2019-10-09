@@ -1,5 +1,6 @@
 package db;
 
+import constants.InventoryConstants;
 import dto.*;
 import main.InventoryConfig;
 import org.apache.log4j.Logger;
@@ -17,27 +18,58 @@ public class UserService extends BaseConnection {
 
 
 
-    public boolean saveUserData(CoreUserEntity coreUserEntity){
+    public int saveUserData(CoreUserEntity coreUserEntity){
 
         logger.info("in save user data to db method");
         if (coreUserEntity==null){
             logger.warn("invalid corelead dto data. Returning.");
-            return false;
+            return InventoryConstants.userInsertionFailed;
         }
+        Session session=null;
         try{
 
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.saveOrUpdate(coreUserEntity);
             session.getTransaction().commit();
             session.close();
             // HibernateUtil.shutdown();
-            return true;
+            return InventoryConstants.userInsertionSuccess;
         }
         catch (Throwable e){
             logger.warn("unable to save user data::: "+e.getMessage());
+            if (e.toString().contains("ConstraintViolationException"))return InventoryConstants.userInsertionConstraintViolation;
             e.printStackTrace();
+            return InventoryConstants.userInsertionFailed;
+        }
+        finally {
+            if (session!=null) session.close();
+        }
+    }
+
+    public boolean deleteUser(CoreUserEntity coreUserEntity){
+
+        logger.info("in delete user data from db method");
+        if (coreUserEntity==null){
+            logger.warn("invalid corelead dto data. Returning.");
             return false;
+        }
+        Session session=null;
+        try{
+
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(coreUserEntity);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        }
+        catch (Throwable e){
+            logger.warn("unable to delete user::: "+e.getMessage());
+            return false;
+        }
+        finally {
+            if (session!=null) session.close();
         }
     }
 

@@ -1,16 +1,11 @@
 package controller.users;
 
-import controller.booking.MainBooking;
 import controller.query.ListQueries;
-import controller.query.MainQuery;
-import db.QueryService;
 import db.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import dto.CoreLead;
 import dto.CoreUserDto;
 import dto.CoreUserEntity;
-import dto.QueriesListDto;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +18,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import main.Main;
 import org.apache.log4j.Logger;
 
@@ -49,6 +45,8 @@ public class ListUsers implements Initializable {
 
     @FXML
     private TableColumn<CoreUserDto, String> usernameColumn;
+    @FXML
+    private TableColumn<CoreUserDto, CoreUserDto> actionColumn;
 
     private ObservableList<CoreUserDto> masterData = FXCollections.observableArrayList();
     private UserService userService=new UserService();
@@ -106,7 +104,31 @@ public class ListUsers implements Initializable {
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailAddressProperty());
         usernameColumn.setCellValueFactory(cellData -> cellData.getValue().userNameProperty());
+        actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        actionColumn.setCellFactory(param -> new TableCell<CoreUserDto, CoreUserDto>() {
+            FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
 
+            @Override
+            protected void updateItem(CoreUserDto usersListDto, boolean empty) {
+                super.updateItem(usersListDto, empty);
+                if (usersListDto == null) {
+                    setGraphic(null);
+                    return;
+                }
+                HBox hbox =new HBox();
+                deleteIcon.setCursor(Cursor.HAND);
+                deleteIcon.setGlyphSize(30);
+                hbox.getChildren().add(deleteIcon);
+                hbox.setSpacing(20);
+                // setGraphic(deleteIcon);
+                setGraphic(hbox);
+                deleteIcon.setOnMouseClicked(event -> {
+                   //delete user
+                    logger.info("going to delete user== "+usersListDto.getUserName());
+                    if (userService.deleteUser(usersListDto.getCoreUserEntity())) masterData.remove(usersListDto);
+
+                });
+            } });
 
 
         FilteredList<CoreUserDto> filteredData = new FilteredList<>(masterData, p -> true);
@@ -146,6 +168,11 @@ public class ListUsers implements Initializable {
     @FXML
     private void showEditUserPage() throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource("/view/users/editUser.fxml"));
+        mainPane.getChildren().setAll(root);
+    }
+    @FXML
+    private void showDashboardPage() throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
         mainPane.getChildren().setAll(root);
     }
 

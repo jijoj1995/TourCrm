@@ -70,7 +70,7 @@ public class ListQueries implements Initializable {
 
         idColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         idColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
-            private final Button payButton = new Button();
+            private final Button editUserButton = new Button();
 
             @Override
             protected void updateItem(QueriesListDto queriesList, boolean empty) {
@@ -79,15 +79,11 @@ public class ListQueries implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                payButton.getStyleClass().add("buttonLink");
-                /*payButton.setStyle("-fx-text-fill: white;\n" +
-                        "    -fx-background-color:#383650 ;\n" +
-                        "    -fx-border-radius: 20;\n" +
-                        "    -fx-background-radius: 20;\n" +
-                        "    -fx-padding: 5;-fx-min-width:100");*/
-                payButton.setText(String.valueOf(queriesList.getQueryId()));
-                setGraphic(payButton);
-                payButton.setOnAction(event -> {
+                editUserButton.getStyleClass().add("buttonLink");
+
+                editUserButton.setText(String.valueOf(queriesList.getQueryId()));
+                setGraphic(editUserButton);
+                editUserButton.setOnAction(event -> {
 
                     FXMLLoader Loader = new FXMLLoader();
                     Loader.setLocation(getClass().getResource("/view/query/mainQuery.fxml"));
@@ -169,19 +165,19 @@ public class ListQueries implements Initializable {
 
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
-                if (person.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (person.getEmail().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
                 }  else
-                if (person.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (person.getFirstName().toLowerCase().contains(lowerCaseFilter) ) {
                     return true; // Filter matches first name.
                 } else // Filter matches mobile.
-                    if (person.getLastName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    if (person.getLastName().toLowerCase().contains(lowerCaseFilter)) {
                         return true; // Filter matches address.
                     } else // Filter matches mobile.
-                        if (person.getBranchCode().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                        if (person.getBranchCode().toLowerCase().contains(lowerCaseFilter) ) {
                             return true; // Filter matches address.
                         } else // Filter matches mobile.
-                            return person.getCallReason().toLowerCase().indexOf(lowerCaseFilter) != -1;
+                            return person.getCallReason().toLowerCase().contains(lowerCaseFilter);
             });
         });
 
@@ -218,6 +214,12 @@ public class ListQueries implements Initializable {
         mainBookingPage.initializeCoreLeadDto(coreLeadDto);
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
+    }
+
+    @FXML
+    private void showDashboardPage() throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
+        mainPane.getChildren().setAll(root);
     }
 
 

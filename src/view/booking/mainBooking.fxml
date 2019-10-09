@@ -61,31 +61,14 @@
                            <children>
                               <VBox spacing="20.0" styleClass="detailsVbox" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <HBox fx:id="bookingIdHbox" prefWidth="200.0" spacing="70.0">
-                                       <children>
-                                          <HBox opacity="0.55" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking ID:" />
-                                                <JFXTextField fx:id="bookingId" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="190.0" promptText="Enter Booking ID..." />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <HBox>
-                                                   <children>
-                                                      <Label opacity="0.55" prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking Date:" />
-                                                      <JFXDatePicker fx:id="bookingTime" disable="true" editable="false" maxWidth="1.7976931348623157E308" />
-                                                   </children>
-                                                </HBox>
-                                             </children>
-                                          </HBox>
-                                       </children></HBox>
+
                                     <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0" VBox.vgrow="NEVER">
                                        <children>
                                           <HBox HBox.hgrow="ALWAYS">
                                              <children>
                                                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
+                                                      <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking ID:" />
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Query ID:" />
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="First Name:" />
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Middle Name:" />
@@ -98,6 +81,7 @@
                                                 </VBox>
                                                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
+                                                      <JFXTextField fx:id="bookingId" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="190.0" promptText="Enter Booking ID..." />
                                                       <JFXTextField fx:id="queryId" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Query ID..." />
                                                       <JFXTextField fx:id="firstName" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter First Name..." />
                                                       <JFXTextField fx:id="middleName" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Middle Name..." />
@@ -120,6 +104,7 @@
                                              <children>
                                                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
+                                                      <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking Date:" />
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="User ID:" />
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Department Code:" />
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Channel Code:" />
@@ -132,6 +117,7 @@
                                                 </VBox>
                                                 <VBox spacing="18.0" HBox.hgrow="ALWAYS">
                                                    <children>
+                                                      <JFXDatePicker fx:id="bookingTime" disable="true" editable="false" maxWidth="1.7976931348623157E308" />
                                                       <JFXTextField fx:id="userId" prefHeight="25.0" prefWidth="150.0" promptText="Enter User Id..." />
                                                       <JFXTextField fx:id="departmentCode" prefHeight="25.0" prefWidth="150.0" promptText="Enter Department Code..." />
                                                       <JFXComboBox fx:id="channelCode" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
