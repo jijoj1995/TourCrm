@@ -352,6 +352,8 @@ public class MainQuery implements Initializable {
         if (firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) return false;
         return true;
     }
+
+
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

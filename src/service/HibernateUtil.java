@@ -83,12 +83,8 @@ public class HibernateUtil
                 +databaseName
                 +"?useSSL=false";
         return databaseUrl;
-        /*databaseName=u315173730_tourcrm
-databaseIpAddress=185.224.138.133
-databasePassword=tourcrmpassword
-databaseUserName=abcd*/
-        // <property name="connection.url">jdbc:mysql://localhost:3306/test?useSSL=false</property>
     }
+
     private static String getDatabasePassword(){
         return InventoryConfig.getInstance().getAppProperties().getProperty("databasePassword");
     }

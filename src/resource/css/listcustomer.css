@@ -60,12 +60,11 @@
 .table-cell {
     -fx-font-size: 14px;
     -fx-font-family: 'Roboto', Helvetica, Arial, sans-serif;
-
     -fx-alignment: center;
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: #c8e6c9;
+ -fx-background-color: #4d4b6e;
 -fx-text-fill: black;
 }
 
