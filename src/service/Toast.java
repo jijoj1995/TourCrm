@@ -21,21 +21,16 @@ public final class Toast {
         toastStage.initOwner(ownerStage);
         toastStage.setResizable(false);
         toastStage.initStyle(StageStyle.TRANSPARENT);
-
-
         Text text = new Text(toastMsg);
         text.setFont(Font.font("Verdana", 20));
         text.setFill(Color.BLACK);
-
         StackPane root = new StackPane(text);
         root.setStyle("-fx-background-radius: 20; -fx-background-color: grey; -fx-padding: 30px;");
         root.setOpacity(0);
-
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         toastStage.setScene(scene);
         toastStage.show();
-
         Timeline fadeInTimeline = new Timeline();
         KeyFrame fadeInKey1 = new KeyFrame(Duration.millis(fadeInDelay), new KeyValue(toastStage.getScene().getRoot().opacityProperty(), 1));
         fadeInTimeline.getKeyFrames().add(fadeInKey1);

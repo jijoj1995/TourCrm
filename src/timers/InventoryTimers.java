@@ -24,7 +24,6 @@ public static InventoryTimers getInstance(){
 
     public void initializeTimers(){
         logger.info("initializing all timers");
-
         if (Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("automaticBackup","false"))) {
             initializeDatabaseBackupTimer();
         }

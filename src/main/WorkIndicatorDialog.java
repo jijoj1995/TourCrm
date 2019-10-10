@@ -85,6 +85,7 @@ public class WorkIndicatorDialog<P> {
         vbox.getChildren().addAll(label,progressIndicator);
         mainPane.setTop(vbox);
         dialog.setScene(scene);
+        dialog.initStyle(StageStyle.TRANSPARENT);
 
         dialog.setOnHiding(event -> { /* Gets notified when task ended, but BEFORE
                      result value is attributed. Using the observable list above is

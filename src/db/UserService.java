@@ -211,11 +211,7 @@ public class UserService extends BaseConnection {
     public void createDatabaseIfNotPresent(){
         logger.info("creating datbase if not present");
         //  Database credentials
-        String ipAddress=InventoryConfig.getInstance().getAppProperties().getProperty("databaseIpAddress");
         String databaseName=InventoryConfig.getInstance().getAppProperties().getProperty("databaseName");
-        String USER = InventoryConfig.getInstance().getAppProperties().getProperty("databaseUserName");
-        String PASS = InventoryConfig.getInstance().getAppProperties().getProperty("databasePassword");
-        String DB_URL = "jdbc:mysql://"+ipAddress+"/";
 
             Connection conn = null;
             Statement stmt = null;

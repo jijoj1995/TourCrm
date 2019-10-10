@@ -1,5 +1,6 @@
 package controller.query;
 
+import constants.InventoryConstants;
 import controller.booking.MainBooking;
 import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -15,6 +16,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -22,11 +24,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import main.Main;
+import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ListQueries implements Initializable {
@@ -57,13 +61,26 @@ public class ListQueries implements Initializable {
     private ObservableList<QueriesListDto> masterData = FXCollections.observableArrayList();
     private QueryService queryService=new QueryService();
     private Logger logger=Logger.getLogger(ListQueries.class);
+    private WorkIndicatorDialog wd=null;
 
     public ListQueries() {
-        masterData.addAll(queryService.getAllQueriesList());
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Stage stage=new Stage();
+        wd = new WorkIndicatorDialog(stage, "Loading...");
+        wd.exec("123", inputParam -> {
+            masterData.addAll(queryService.getAllQueriesList());
+            return 1;
+        });
+
+
+        wd.addTaskEndNotification(result -> {
+           logger.info(result);
+
+        });
         initializeDefaultLayout();
 
 
@@ -130,6 +147,7 @@ public class ListQueries implements Initializable {
                 hbox.getChildren().add(listIcon);
                 hbox.getChildren().add(emailIcon);
                 hbox.setSpacing(20);
+                hbox.setAlignment(Pos.CENTER);
                // setGraphic(listIcon);
                 emailIcon.setCursor(Cursor.HAND);
                 emailIcon.setGlyphSize(30);

@@ -21,13 +21,13 @@
                <children>
                   <HBox id="HBox" alignment="CENTER" spacing="10.0">
                      <children>
-                        <Label text="Filter Table:" HBox.hgrow="ALWAYS">
+                        <Label text="Search:" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
                         <JFXTextField fx:id="filterField" prefHeight="25.0" prefWidth="300.0" />
-                        <FontAwesomeIconView fill="#022f02" glyphName="PLUS_CIRCLE" onMouseClicked="#showMainQueryPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <FontAwesomeIconView fill="#022f02" glyphName="PLUS_CIRCLE" onMouseClicked="#showMainQueryPage" size="40" strokeType="OUTSIDE" strokeWidth="0.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -80,11 +80,20 @@
                      <children>
                         <VBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
                            <children>
-                              <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showDashboardPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </FontAwesomeIconView>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label text="Prev">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showDashboardPage" size="32" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </children>
+                              </HBox>
                            </children>
                            <VBox.margin>
                               <Insets right="15.0" />

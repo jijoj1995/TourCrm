@@ -9,6 +9,31 @@ import java.util.List;
 
 @Entity
 @Table( name = "core_lead" )
+@NamedQueries({
+        @NamedQuery(name = "CoreLeadEntity.findAll", query = "SELECT f FROM CoreLeadEntity f")
+})
+
+
+
+
+
+
+
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "graph.Order.items",
+                attributeNodes = @NamedAttributeNode("coreLeadCommunicationEntity")),
+        @NamedEntityGraph(
+                name = "graph.Order.air",
+                attributeNodes = @NamedAttributeNode("coreLeadAirEntity")),
+        @NamedEntityGraph(
+                name = "graph.Order.holidays",
+                attributeNodes = @NamedAttributeNode("coreLeadHolidaysEntity")),
+})
+
+
+
+
 
 public class CoreLeadEntity implements Serializable {
     @Id

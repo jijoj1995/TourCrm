@@ -9,8 +9,11 @@ import org.hibernate.query.Query;
 import service.EmailService;
 import service.HibernateUtil;
 
+import javax.persistence.EntityGraph;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QueryService {
     private Logger logger=Logger.getLogger(QueryService.class);
@@ -25,13 +28,12 @@ public class QueryService {
         try{
             logger.info("Converting dto object to entity obj to save in db");
             CoreLeadEntity coreLeadEntity= setValuesFromCoreLeadDto(coreLead);
-            //add which user going to save query
+                                     //add which user going to save query
             coreLeadEntity.setEmployeeName(InventoryConfig.getInstance().getAppProperties().getProperty("currentUser"));
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.saveOrUpdate(coreLeadEntity);
             session.getTransaction().commit();
-           // HibernateUtil.shutdown();
             return true;
         }
         catch (Throwable e){
@@ -51,6 +53,22 @@ public class QueryService {
 try {
      session = HibernateUtil.getSessionFactory().openSession();
     session.beginTransaction();
+
+
+    EntityGraph graph = session.getEntityGraph("graph.Order.items");
+
+    Map hints = new HashMap();
+    hints.put("javax.persistence.fetchgraph", graph);
+
+   List list1= session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph",graph).getResultList();
+
+
+
+
+
+
+
+
     StringBuilder hql = new StringBuilder("from CoreLeadEntity");
     if (!employeeName.equals("admin")) {
         isAdmin=false;

@@ -36,7 +36,7 @@ import java.util.ResourceBundle;
 public class MainPage implements Initializable {
 
     @FXML
-    private VBox sideBarVbox,pieChartVbox;
+    private VBox sideBarVbox;
     @FXML
     private FontAwesomeIconView usersIcon,settingsIcon,queryButton;
     private Logger logger=Logger.getLogger(MainPage.class);
@@ -48,13 +48,11 @@ public class MainPage implements Initializable {
         if (!Validator.isCurrentUserAdmin()){
             logger.info("current user is not admin. Restricting");
             usersIcon.setDisable(true);
-            //settingsIcon.setDisable(true);
         }
         if (Validator.isCurrentUserTest()){
             logger.info("current user is Test user. Restricting");
             usersIcon.setDisable(true);
             queryButton.setDisable(true);
-            //settingsIcon.setDisable(true);
         }
 
         //show dashboard page

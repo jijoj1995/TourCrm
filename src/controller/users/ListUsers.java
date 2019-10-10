@@ -19,7 +19,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import main.Main;
+import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -51,15 +53,25 @@ public class ListUsers implements Initializable {
     private ObservableList<CoreUserDto> masterData = FXCollections.observableArrayList();
     private UserService userService=new UserService();
     private Logger logger=Logger.getLogger(ListQueries.class);
+    private WorkIndicatorDialog wd=null;
 
     public ListUsers() {
-        masterData.addAll(userService.getAllUsersList());
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
+        Stage stage=new Stage();
+        wd = new WorkIndicatorDialog(stage, "Loading...");
+        wd.exec("123", inputParam -> {
+            masterData.addAll(userService.getAllUsersList());
+            return 1;
+        });
+        wd.addTaskEndNotification(result -> {
+            logger.info(result);
 
+        });
         idColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         idColumn.setCellFactory(param -> new TableCell<CoreUserDto, CoreUserDto>() {
             private final Button payButton = new Button();

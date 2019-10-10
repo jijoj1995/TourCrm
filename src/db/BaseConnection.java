@@ -3,7 +3,6 @@ package db;
 
 import main.InventoryConfig;
 import org.apache.log4j.Logger;
-import service.HibernateUtil;
 
 import java.sql.*;
 
@@ -18,11 +17,8 @@ public class BaseConnection {
     public static Connection getDBConnection(){
 
         if(connection==null) {
-            String ipAddress= InventoryConfig.getInstance().getAppProperties().getProperty("databaseIpAddress");
-            String databaseName=InventoryConfig.getInstance().getAppProperties().getProperty("databaseName");
             String USER = InventoryConfig.getInstance().getAppProperties().getProperty("databaseUserName");
             String PASS = InventoryConfig.getInstance().getAppProperties().getProperty("databasePassword");
-            //String DB_URL = "jdbc:mysql://"+ipAddress+"/";
             String DB_URL = getDataBaseUrl();
 
             try{

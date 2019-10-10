@@ -2,8 +2,10 @@ package controller.query;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.RequiredFieldValidator;
+import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
+import db.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
@@ -32,12 +34,14 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import main.InventoryConfig;
 import main.Main;
+import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 import service.Toast;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MainQuery implements Initializable {
     @FXML
@@ -51,33 +55,25 @@ public class MainQuery implements Initializable {
     @FXML
     private Button notesButton;
     @FXML
-    private JFXScrollPane jfxDialogScrollPane;
-    @FXML
-    private VBox notesdialogVbox;
-    @FXML
     private HBox queryIdHbox;
     @FXML
-    private RequiredFieldValidator requiredFirstName;
     private QueryService queryService=new QueryService();
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
-    private int numberOfNotes =2;
-    Set<CoreLeadNotesEntity> coreLeadNotesEntitySet =new HashSet<>();
-    InventoryConfig inventoryConfig=InventoryConfig.getInstance();
-    ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
-    Stage notesDialog=null;
+    private InventoryConfig inventoryConfig=InventoryConfig.getInstance();
+    private ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
+    private Stage notesDialog=null;
+    private WorkIndicatorDialog wd=null;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-                                  // notesDialogBox.setPrefWidth(0);
                                         //set window based on screen size
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
         setNumberOnlyInputCheck();
-        //hide query id checkbox if first time
+                   //hide query id checkbox if first time
         queryIdHbox.setVisible(false);
         queryIdHbox.setMaxHeight(0);
         queryIdHbox.setPrefHeight(0);
-     //   initialiseNotesTab();
     }
     public void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
@@ -195,46 +191,62 @@ public class MainQuery implements Initializable {
 
 
     @FXML
-    private void saveCompleteLeadInformation() throws IOException{
+    private void saveCompleteLeadInformation(){
+        Stage stage = (Stage) mainPane.getScene().getWindow();
        if (!isRequiredFieldEntered()){
            Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
-        //showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
+                                            //   showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
         return;
     }
-    //check if notes added
+                                                                    //check if notes added
         if (!isNotesAdded()){
             Toast.makeText((Stage)mainPane.getScene().getWindow(),"No notes added",1000,500,500);
-            //showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
             return;
         }
 
-        Stage stage = (Stage) mainPane.getScene().getWindow();
-                       //before saving set data from all textFields
-        setTextFieldDataToDto();
-                       //set querytime as current time
-        coreLeadDto.setQuerytime(new Date().toString());
-
-            //save to db
-        if (queryService.saveQueryData(coreLeadDto)){
-                        //saving successful
-            boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
-            if (senEmailNotification&&coreLeadDto.getCoreLeadId()==0){//send email first time only
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-
-                        boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
-                        if (emailSendSuccessful){
-                            Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
-                        }
-                        else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
-                    }
-                });
+        final AtomicReference<Integer> reference = new AtomicReference<>();
+        wd = new WorkIndicatorDialog(mainPane.getScene().getWindow(), "Loading...");
+        wd.exec("123", inputParam -> {
+                                                                      // NO ACCESS TO UI ELEMENTS!
+                 setTextFieldDataToDto();
+                                                                   //set querytime as current time
+            coreLeadDto.setQuerytime(new Date().toString());
+            if(queryService.saveQueryData(coreLeadDto)){
+                boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
+                if (senEmailNotification&&coreLeadDto.getCoreLeadId()==0) {
+                                                                     //send email first time only
+                    boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
+                    if (emailSendSuccessful) return InventoryConstants.queryInsertionSuccess;
+                    else return InventoryConstants.queryInsertionEmailFailed;
+                }
+                return InventoryConstants.queryInsertionSuccess;
             }
-            showQuickTransactionPage();
-        }
-        else{
-            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
-        }
+            else return InventoryConstants.queryInsertionFailed;
+
+        });
+
+
+        wd.addTaskEndNotification(result -> {
+            try {
+                reference.set((Integer) result);
+                Integer a=(Integer)result;
+                switch (reference.get()) {
+                    case InventoryConstants.queryInsertionSuccess:
+                        showQuickTransactionPage();
+                        return;
+                    case InventoryConstants.queryInsertionEmailFailed:
+                        Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+                        showQuickTransactionPage();
+                        return;
+                    case InventoryConstants.queryInsertionFailed:
+                        Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+                }
+            }
+            catch (Exception e){
+                logger.warn("exception found while saving query data== "+e.getMessage());
+            }
+        });
+
     }
 
     @FXML
@@ -366,12 +378,10 @@ public class MainQuery implements Initializable {
     }
 
     private boolean isRequiredFieldEntered(){
-        if (firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) return false;
-        return true;
+        return !(firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) ;
     }
     private boolean isNotesAdded(){
-        if (data.isEmpty()) return false;
-        return true;
+        return  !(data.isEmpty());
     }
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -380,6 +390,7 @@ public class MainQuery implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.initOwner(owner);
+        alert.initModality(Modality.APPLICATION_MODAL);
         alert.show();
     }
 }

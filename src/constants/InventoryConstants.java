@@ -29,6 +29,11 @@ public class InventoryConstants {
     public static final int userInsertionSuccess=1;
     public static final int userInsertionFailed=0;
     public static final int userInsertionConstraintViolation=2;
+    public static final int queryInsertionSuccess=1;
+    public static final int queryInsertionFailed=0;
+    public static final int queryInsertionEmailFailed=2;
+    public static final int loginSuccess=1;
+    public static final int loginFailed=0;
 
 
     

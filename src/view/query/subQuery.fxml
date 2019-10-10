@@ -282,7 +282,7 @@
                                                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
                                                                             <JFXTextField fx:id="hotelDestination" prefColumnCount="0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Destination..." />
-                                                                            <JFXDatePicker fx:id="hotelCheckOutDate" maxWidth="1.7976931348623157E308" prefWidth="170.0" />
+                                                                            <JFXDatePicker fx:id="hotelCheckOutDate" prefWidth="200.0" />
                                                                             <JFXComboBox fx:id="hotelCategory" maxWidth="1.7976931348623157E308" prefWidth="170.0" />
                                                                             <JFXTextField fx:id="hotelNumberOfAdult" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Adults..." />
                                                                             <JFXTextField fx:id="hotelNumberOfInfant" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Infants..." />
@@ -317,7 +317,7 @@
                                                 </VBox>
                                                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                                            <JFXDatePicker fx:id="hotelCheckInDate" maxWidth="1.7976931348623157E308" />
+                                                                            <JFXDatePicker fx:id="hotelCheckInDate" prefWidth="200.0" />
                                                                             <JFXComboBox fx:id="hotelCurrencyCode" maxWidth="1.7976931348623157E308" prefWidth="200.0" />
                                                                             <JFXTextField fx:id="hotelNumberOfNights" prefHeight="25.0" prefWidth="170.0" promptText="Enter No. of Nights..." />
                                                                             <JFXTextField fx:id="hotelNumberOfChild" prefHeight="25.0" prefWidth="150.0" promptText="Enter No. of Child..." />

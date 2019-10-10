@@ -61,10 +61,10 @@ public class MainBooking implements Initializable {
     private HBox shippingHbox;
     @FXML
     private JFXToggleButton showShippingBox;
-    Stage notesDialog=null;
+    private  Stage notesDialog=null;
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
-    ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
+    private ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
     private BookingService bookingService=new BookingService();
     private QueryService queryService=new QueryService();
     private Logger logger =Logger.getLogger(MainBooking.class);

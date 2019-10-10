@@ -13,16 +13,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.Dashboard">
    <children>
       <VBox alignment="TOP_CENTER" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Welcome To Trip Aries" textAlignment="CENTER" underline="true">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
+            <VBox alignment="TOP_CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Welcome To Trip Aries" textAlignment="CENTER" underline="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </VBox>
             <HBox alignment="TOP_CENTER">
                <children>
                   <VBox styleClass="amountVbox" HBox.hgrow="ALWAYS">
