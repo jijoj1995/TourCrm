@@ -4,7 +4,6 @@ import db.DbBackupService;
 import db.UserService;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.InventoryConfig;
 import main.Main;
+import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 import service.EmailService;
 import service.Toast;
@@ -32,6 +32,7 @@ import timers.InventoryTimers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class LoginPage  implements Initializable {
 
@@ -43,18 +44,18 @@ public class LoginPage  implements Initializable {
     private TextField userNameInput;
     @FXML
     private PasswordField passwordInput;
-    @FXML
-    ProgressBar progressBar;
+    private WorkIndicatorDialog wd=null;
+
     private Logger logger=Logger.getLogger(LoginPage.class);
     @FXML
     private void authenticateUser() throws Exception{
         Stage stage=(Stage) mainAnchorPane.getScene().getWindow();
-            //first check for non empty
-            if(userNameInput.getText().isEmpty()|| passwordInput.getText().isEmpty()){
-                Toast.makeText(stage," ENTER BOTH USERNAME & PASSWORD",1000,500,500);
-                return;
-            }
-                    //check first if test user login
+        //first check for non empty
+        if(userNameInput.getText().isEmpty()|| passwordInput.getText().isEmpty()){
+            Toast.makeText(stage," ENTER BOTH USERNAME & PASSWORD",1000,500,500);
+            return;
+        }
+        //check first if test user login
         if (isTestUserLogin()){
             logger.info("adding currentUser as= "+userNameInput.getText());
             InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
@@ -63,42 +64,50 @@ public class LoginPage  implements Initializable {
             return;
         }
 
-        if(new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
-                                // if authenticated
+        final AtomicReference<Integer> reference = new AtomicReference<>();
+        wd = new WorkIndicatorDialog(mainAnchorPane.getScene().getWindow(), "Loading...");
+        wd.exec("123", inputParam -> {
+            // Thinks to do...
+            // NO ACCESS TO UI ELEMENTS!
+            for (int i=0;i<100000;i++)logger.info("reading values"+1);
+            if (new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
+                return 1;
+            }
+            return 0;
+        });
 
-/*
-            Task task = new Task<Void>() {
-                @Override public Void call() {
-                     final int max = 1000000;
-                    for (int i = 1; i <= max; i++) {
-                        updateProgress(i, max);
+        wd.addTaskEndNotification(result -> {
+            System.out.println("result================================"+result);
+            reference.set((Integer) result);
+
+            if(reference.get()==1){
+                // if authenticated
+                logger.info("adding currentUser as= "+userNameInput.getText());
+                InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
+                //fetching current ip address as well
+                InventoryConfig.getInstance().getAppProperties().setProperty("currentIpAddress",Validator.getCurrentIpAddress());
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("/view/main/mainPage.fxml"));
+                    mainAnchorPane.getChildren().setAll(root);
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                // Toast.makeText(stage,"LOGIN SUCCESSFUL! WElCOME ADMIN",1000,500,500);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new InventoryTimers().initializeTimers();
                     }
-                    return null;
-                }
-            };
+                });
+            }
+            else{
+                Toast.makeText(stage,"Invalid UserName or Password",1000,500,500);
+            }
+            wd=null; // don't keep the object, cleanup
+        });
 
-           // ProgressBar bar = new ProgressBar();
-            progressBar.progressProperty().bind(task.progressProperty());
-            new Thread(task).start();*/
 
-            logger.info("adding currentUser as= "+userNameInput.getText());
-            InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",userNameInput.getText());
-            //fetching current ip address as well
-            InventoryConfig.getInstance().getAppProperties().setProperty("currentIpAddress",Validator.getCurrentIpAddress());
-           // Toast.makeText(stage,"LOGIN SUCCESSFUL! WElCOME ADMIN",1000,500,500);
-            Parent root = FXMLLoader.load(getClass().getResource("/view/main/mainPage.fxml"));
-            mainAnchorPane.getChildren().setAll(root);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    new InventoryTimers().initializeTimers();
-                }
-            });
-
-        }
-        else{
-            Toast.makeText(stage,"Invalid UserName or Password",1000,500,500);
-        }
     }
 
     @Override
@@ -125,7 +134,7 @@ public class LoginPage  implements Initializable {
         passwordInput.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.ENTER){
                 try {
-                  //  authenticateUser();
+                    //  authenticateUser();
                 }
                 catch (Exception ex){
                     Stage stage=(Stage) mainAnchorPane.getScene().getWindow();

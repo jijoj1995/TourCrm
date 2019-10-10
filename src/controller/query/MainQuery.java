@@ -127,13 +127,11 @@ public class MainQuery implements Initializable {
             for (CoreLeadNotesEntity entity : coreLeadDto.getCoreLeadNotesEntitySet())
                 data.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(), entity.getNotesData()));
         }
-
     }
 
     private void setNumberOnlyInputCheck(){
 
     }
-
 
     @FXML
     private void showSubQueryPage(){
@@ -223,6 +221,7 @@ public class MainQuery implements Initializable {
             if (senEmailNotification&&coreLeadDto.getCoreLeadId()==0){//send email first time only
                 Platform.runLater(new Runnable() {
                     @Override public void run() {
+
                         boolean emailSendSuccessful= queryService.sendEmailNotification(coreLeadDto.getCoreLeadCommunication().getPaxEmailFirst());
                         if (emailSendSuccessful){
                             Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
@@ -234,7 +233,6 @@ public class MainQuery implements Initializable {
             showQuickTransactionPage();
         }
         else{
-
             Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
         }
     }

@@ -69,15 +69,14 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
 
-        for (int i = 0; i < COUNT_LIMIT; i++) {
+      /*  for (int i = 0; i < COUNT_LIMIT; i++) {
             double progress = (100 * i) / COUNT_LIMIT;
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
-        }
+        }*/
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
 
                             //check whether the product is original
         if(/*!Validator.validateProduct()*/false){
