@@ -25,7 +25,7 @@
                            <children>
                               <VBox fx:id="infoVbox" alignment="TOP_CENTER" layoutX="48.0" layoutY="139.0" prefHeight="287.0" prefWidth="300.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
                                  <children>
-                                    <Label style="-fx-text-fill: white;" text="Welcome Admin" VBox.vgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: white;" text="Welcome" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>

@@ -322,7 +322,7 @@ public class SettingsList implements Initializable {
     private void initializeDefaultLayout() {
         settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 30;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
         settingsTabPane.setTabMinWidth(paneWidth);
         settingsTabPane.setTabMaxWidth(paneWidth);
     }

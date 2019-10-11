@@ -1,4 +1,5 @@
 package service;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -22,10 +23,10 @@ public final class Toast {
         toastStage.setResizable(false);
         toastStage.initStyle(StageStyle.TRANSPARENT);
         Text text = new Text(toastMsg);
-        text.setFont(Font.font("Verdana", 20));
+        text.setFont(Font.font("Open sans", 18));
         text.setFill(Color.BLACK);
         StackPane root = new StackPane(text);
-        root.setStyle("-fx-background-radius: 20; -fx-background-color: grey; -fx-padding: 30px;");
+        root.setStyle("-fx-background-radius: 20; -fx-background-color: lightgreen; -fx-padding: 30px 50px 30px 50px;");
         root.setOpacity(0);
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

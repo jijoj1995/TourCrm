@@ -15,33 +15,45 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.EditUser">
+<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.EditUser">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <HBox>
                <children>
-                  <VBox alignment="CENTER">
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label alignment="TOP_CENTER" prefHeight="31.0" text="User Details" underline="true" VBox.vgrow="ALWAYS">
+                        <Label alignment="TOP_CENTER" prefHeight="31.0" text="Edit User" underline="true" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_RIGHT" prefWidth="450.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="TOP_RIGHT" HBox.hgrow="NEVER">
                      <children>
                         <VBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
                            <children>
-                              <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showUserListPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </FontAwesomeIconView>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label text="Prev">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showUserListPage" size="32" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </children>
+                              </HBox>
                            </children>
                            <VBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="15.0" />
                            </VBox.margin>
                         </VBox>
                      </children>
@@ -117,7 +129,7 @@
                                                             </HBox>
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
-                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Email:" HBox.hgrow="ALWAYS" />
+                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Email ID:" HBox.hgrow="ALWAYS" />
                                                                   <JFXTextField fx:id="email" prefHeight="25.0" prefWidth="150.0" promptText="Enter Email..." HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
@@ -127,7 +139,7 @@
                                                          <children>
                                                             <HBox HBox.hgrow="ALWAYS">
                                                                <children>
-                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="password:" HBox.hgrow="ALWAYS" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Password:" HBox.hgrow="ALWAYS" />
                                                                   <JFXPasswordField fx:id="passwordField" promptText="Enter Password..." />
                                                                </children>
                                                                <opaqueInsets>

@@ -14,6 +14,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -131,6 +132,7 @@ public class ListUsers implements Initializable {
                 deleteIcon.setCursor(Cursor.HAND);
                 deleteIcon.setGlyphSize(30);
                 hbox.getChildren().add(deleteIcon);
+                hbox.setAlignment(Pos.CENTER);
                 hbox.setSpacing(20);
                 // setGraphic(deleteIcon);
                 setGraphic(hbox);

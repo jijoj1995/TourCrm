@@ -48,7 +48,7 @@ public class Dashboard implements Initializable {
                         new PieChart.Data("Receivable", 13),
                         new PieChart.Data("Received", 87));
 
-        salesChart.setTitle("Sales Chart");
+
         salesChart.setData(pieChartData);
         salesChart.setLabelLineLength(10);
        /*//

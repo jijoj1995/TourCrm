@@ -10,30 +10,39 @@ import java.util.List;
 @Entity
 @Table( name = "core_lead" )
 @NamedQueries({
-        @NamedQuery(name = "CoreLeadEntity.findAll", query = "SELECT f FROM CoreLeadEntity f")
+        @NamedQuery(name = "CoreLeadEntity.findAll", query = "SELECT f FROM CoreLeadEntity f"),
+        @NamedQuery(name = "CoreLeadEntity.findBasedOnUser", query = "SELECT f FROM CoreLeadEntity f where employeeName=:employeeName")
 })
+@NamedEntityGraph(
+        name = "post-entity-graph",
+        attributeNodes = {
+                @NamedAttributeNode("coreLeadCommunicationEntity"),
+                @NamedAttributeNode("coreLeadAirEntity"),
+                @NamedAttributeNode("coreLeadHolidaysEntity"),
+                @NamedAttributeNode("coreLeadHotelEntity"),
+                @NamedAttributeNode("coreLeadRailEntity"),
+                @NamedAttributeNode(value = "corebookingEntity",subgraph = "coreBookingEntitySubgraph"),
+                @NamedAttributeNode("coreLeadsNotesEntities"),
+        },
+        subgraphs = {
+                @NamedSubgraph(
+                        name = "coreBookingEntitySubgraph",
+                        attributeNodes = {
+                                @NamedAttributeNode("coreBookingBillingAddressEntity"),
+                                @NamedAttributeNode("coreBookingShippingAddressEntity"),
+                                @NamedAttributeNode("coreBookingCommunicationEntity"),
+                                @NamedAttributeNode("coreBookingStatusEntity"),
+                                @NamedAttributeNode("coreBookingPricingEntity"),
+                                @NamedAttributeNode("coreBookingItineraryEntity"),
+                                @NamedAttributeNode("coreBookingTicketingEntity"),
+                                @NamedAttributeNode("coreBookingFareEntity"),
+                                @NamedAttributeNode("coreBookingPromotionEntity"),
 
+                        }
+                )
 
-
-
-
-
-
-@NamedEntityGraphs({
-        @NamedEntityGraph(
-                name = "graph.Order.items",
-                attributeNodes = @NamedAttributeNode("coreLeadCommunicationEntity")),
-        @NamedEntityGraph(
-                name = "graph.Order.air",
-                attributeNodes = @NamedAttributeNode("coreLeadAirEntity")),
-        @NamedEntityGraph(
-                name = "graph.Order.holidays",
-                attributeNodes = @NamedAttributeNode("coreLeadHolidaysEntity")),
-})
-
-
-
-
+        }
+)
 
 public class CoreLeadEntity implements Serializable {
     @Id

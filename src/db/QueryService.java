@@ -53,30 +53,18 @@ public class QueryService {
 try {
      session = HibernateUtil.getSessionFactory().openSession();
     session.beginTransaction();
+    List<CoreLeadEntity> results=null;
+    EntityGraph graph = session.getEntityGraph("post-entity-graph");
 
-
-    EntityGraph graph = session.getEntityGraph("graph.Order.items");
-
-    Map hints = new HashMap();
-    hints.put("javax.persistence.fetchgraph", graph);
-
-   List list1= session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph",graph).getResultList();
-
-
-
-
-
-
-
-
-    StringBuilder hql = new StringBuilder("from CoreLeadEntity");
-    if (!employeeName.equals("admin")) {
-        isAdmin=false;
-        hql.append(" where employeeName=:employeeName");
+    if (employeeName.equals("admin")) {
+        results = session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph", graph).getResultList();
     }
-    Query query = session.createQuery(hql.toString());
-    if (!isAdmin)query.setParameter("employeeName",employeeName);
-    List<CoreLeadEntity> results = query.list();
+    else {
+       results = session.createNamedQuery("CoreLeadEntity.findBasedOnUser", CoreLeadEntity.class)
+               .setParameter("employeeName", employeeName)
+               .setHint("javax.persistence.fetchgraph", graph).getResultList();
+    }
+
     for (CoreLeadEntity coreLeadEntity : results) {
         QueriesListDto limitedQueriesListDto = new QueriesListDto();
         limitedQueriesListDto.setBranchCode(coreLeadEntity.getBranchCode());

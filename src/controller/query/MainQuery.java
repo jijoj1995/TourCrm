@@ -285,7 +285,8 @@ public class MainQuery implements Initializable {
     }
     @FXML
     private void changeTabPane(){
-        queryTabs.getSelectionModel().selectNext();
+        if (isGeneralRequiredFieldEntered()) queryTabs.getSelectionModel().selectNext();
+        else Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
     }
 
     @FXML
@@ -379,6 +380,9 @@ public class MainQuery implements Initializable {
 
     private boolean isRequiredFieldEntered(){
         return !(firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) ;
+    }
+    private boolean isGeneralRequiredFieldEntered(){
+        return !(firstName.getText().isEmpty()||lastName.getText().isEmpty()) ;
     }
     private boolean isNotesAdded(){
         return  !(data.isEmpty());
