@@ -11,7 +11,6 @@ import java.io.Serializable;
 
 public class CoreLeadHolidays implements Serializable {
 
-   
     private IntegerProperty coreLeadHolidaysId=new SimpleIntegerProperty();
     private StringProperty fromDestination=new SimpleStringProperty();
     private StringProperty toDestination=new SimpleStringProperty();
@@ -29,6 +28,7 @@ public class CoreLeadHolidays implements Serializable {
     private StringProperty totalPrice=new SimpleStringProperty();
     private StringProperty travelType=new SimpleStringProperty();
     private StringProperty status=new SimpleStringProperty();
+    private StringProperty totalPax=new SimpleStringProperty();
 
     public int getCoreLeadHolidaysId() {
         return coreLeadHolidaysId.get();
@@ -232,5 +232,17 @@ public class CoreLeadHolidays implements Serializable {
 
     public void setStatus(String status) {
         this.status.set(status);
+    }
+
+    public String getTotalPax() {
+        return totalPax.get();
+    }
+
+    public StringProperty totalPaxProperty() {
+        return totalPax;
+    }
+
+    public void setTotalPax(String totalPax) {
+        this.totalPax.set(totalPax);
     }
 }

@@ -233,15 +233,13 @@ public class SettingsList implements Initializable {
         inventoryConfig.getAppProperties().setProperty("usePortCheck",String.valueOf(usePortCheck.isSelected()));
         inventoryConfig.getAppProperties().setProperty("useDatabasePassword",String.valueOf(usePasswordCheck.isSelected()));
 
-
         Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
         Toast.makeText(stage, "Updated Successfully", 1000, 500, 500);
     }
 
-
     @FXML
     private void backupEntireDatabase() {
-        //stage for showing messages
+            //stage for showing messages
         Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
 
         //choose file for saving
@@ -322,15 +320,10 @@ public class SettingsList implements Initializable {
     private void initializeDefaultLayout() {
         settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 20;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 21;
         settingsTabPane.setTabMinWidth(paneWidth);
         settingsTabPane.setTabMaxWidth(paneWidth);
     }
-
-
-
-
-
 
     /*  @FXML
     private void exportStocksData() {

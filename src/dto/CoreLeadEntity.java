@@ -37,7 +37,6 @@ import java.util.List;
                                 @NamedAttributeNode("coreBookingTicketingEntity"),
                                 @NamedAttributeNode("coreBookingFareEntity"),
                                 @NamedAttributeNode("coreBookingPromotionEntity"),
-
                         }
                 )
 
@@ -53,6 +52,7 @@ public class CoreLeadEntity implements Serializable {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String userId;
     private String branchCode;
     private String channelCode;
     private String country;
@@ -93,6 +93,14 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_lead_id")
     private List<CoreLeadNotesEntity> coreLeadsNotesEntities;
 
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getQueryTime() {
         return queryTime;

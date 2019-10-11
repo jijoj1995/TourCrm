@@ -31,7 +31,7 @@ public class SubQuery implements Initializable {
             hotelDestination,hotelNumberOfNights,hotelNumberOfAdult,
             hotelNumberOfChild,hotelNumberOfInfant,hotelTotalPax,hotelRoomTariff,hotelExtraBed,hotelTotalPrice,
             holidaysFrom,holidaysTo,holidaysNumberOfNights,holidaysNumberOfAdult,
-            holidaysNumberOfChild,holidaysTotalInfant,holidaysAdultFare,holidaysChildFare,holidaysInfantFare,holidaysTotalPrice,
+            holidaysNumberOfChild,holidaysTotalInfant,holidaysAdultFare,holidaysChildFare,holidaysInfantFare,holidaysTotalPax,holidaysTotalPrice,
             railDepartureCity,railArrivalCity,railTrainNumber,railNumberOfAdult,railNumberOfChild,railNumberOfInfant,railTotalPax,railAdultFare,
             railChildFare,railTotalFare;
     @FXML
@@ -45,42 +45,73 @@ public class SubQuery implements Initializable {
     private static Logger logger=Logger.getLogger(SubQuery.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-                //set window size based on screens size
+                    //set window size based on screens size
         initializeDefaultLayout();
-                //initialise all checkbox with default values
+                    //initialise all checkbox with default values
         initialiseAllCheckBoxDefalutValues();
-            //initialise all empty datePickers with today date
+                    //initialise all empty datePickers with today date
         initialiseAllEmptyDatePickers();
-            //set specific number only with validations
+                    //set specific number only with validations
         setNumberOnlyInputCheck();
-        //initialiseTotalFareCalculationEvent
 
-        airNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
-        airNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> {
-            setTotalAirPrice();
-        });
-        airNumberOfInfant.textProperty().addListener((observable, oldValue, newValue) -> {
-            setTotalAirPrice();
-        });
-        airAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {
-            setTotalAirPrice();
-        });
-        airChildFare.textProperty().addListener((observable, oldValue, newValue) -> {
-            setTotalAirPrice();
-        });
-        airInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {
-            setTotalAirPrice();
-        });
+        //initialiseTotalFareCalculationEvent
+        setListenersToHolidaysFields();
+       setListenersToAirFields();
+       setListenersToRailFields();
+    }
+
+    private void setListenersToHolidaysFields(){
+        holidaysNumberOfAdult.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysNumberOfNights.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysNumberOfChild.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysTotalInfant.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysTotalPax.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysAdultFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysChildFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        holidaysInfantFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+
         holidaysNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysTotalInfant.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysChildFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
-
     }
 
-    public void initializeCoreLeadObject(CoreLead coreLead){
+    private void setListenersToAirFields(){
+        airNumberOfAdult.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airNumberOfChild.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airNumberOfInfant.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airNumberOfInfant.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airAdultFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airChildFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        airInfantFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+
+        airNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+        airNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> { setTotalAirPrice();});
+        airNumberOfInfant.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+        airAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+        airChildFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+        airInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalAirPrice();});
+    }
+
+    private void setListenersToRailFields(){
+        railNumberOfAdult.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        railNumberOfChild.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        railNumberOfInfant.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        railTotalPax.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        railAdultFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        railChildFare.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+
+        railNumberOfAdult.textProperty().addListener((observable, oldValue, newValue) -> {setTotalRailPrice();});
+        railNumberOfChild.textProperty().addListener((observable, oldValue, newValue) -> { setTotalRailPrice();});
+        railNumberOfInfant.textProperty().addListener((observable, oldValue, newValue) -> {setTotalRailPrice();});
+        railAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalRailPrice();});
+        railChildFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalRailPrice();});
+    }
+
+
+    void initializeCoreLeadObject(CoreLead coreLead){
                                //initialise main core lead dto for setting all textFields
         this.coreLeadDto = coreLead;
         setAllTextFieldsFromDto();
@@ -143,6 +174,7 @@ public class SubQuery implements Initializable {
         holidaysTotalInfant.setText(coreLeadDto.getCoreLeadHolidays().getNumberOfInfant());
         holidaysAdultFare.setText(coreLeadDto.getCoreLeadHolidays().getAdultFare());
         holidaysChildFare.setText(coreLeadDto.getCoreLeadHolidays().getChildFare());
+        holidaysTotalPax.setText(coreLeadDto.getCoreLeadHolidays().getTotalPax());
         holidaysInfantFare.setText(coreLeadDto.getCoreLeadHolidays().getInfantFare());
         holidaysStatus.setValue(coreLeadDto.getCoreLeadHolidays().getStatus());
         holidaysTravelType.setValue(coreLeadDto.getCoreLeadHolidays().getTravelType());
@@ -278,6 +310,7 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadHolidays().setToDestination(holidaysTo.getText());
         coreLeadDto.getCoreLeadHolidays().setTotalPrice(holidaysTotalPrice.getText());
         coreLeadDto.getCoreLeadHolidays().setTravelType(holidaysTravelType.getValue());
+        coreLeadDto.getCoreLeadHolidays().setTotalPax(holidaysTotalPax.getText());
     }
 
     private void setRailDetailsToCoreLead(){
@@ -371,7 +404,7 @@ public class SubQuery implements Initializable {
     private void initializeDefaultLayout() {
         mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
         mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 30;
+        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 4 - 23;
         queryTabs.setTabMinWidth(paneWidth);
         queryTabs.setTabMaxWidth(paneWidth);
     }
@@ -380,6 +413,12 @@ public class SubQuery implements Initializable {
        airTotalPrice.setText( String.valueOf(Validator.getIntValue(airAdultFare.getText())*Validator.getIntValue(airNumberOfAdult.getText())+
                 Validator.getIntValue(airChildFare.getText())*Validator.getIntValue(airNumberOfChild.getText())+
                 Validator.getIntValue(airInfantFare.getText())*Validator.getIntValue(airNumberOfInfant.getText())));
+    }
+
+    private void setTotalRailPrice(){
+        railTotalFare.setText( String.valueOf(Validator.getIntValue(railAdultFare.getText())*Validator.getIntValue(railNumberOfAdult.getText())+
+                Validator.getIntValue(railChildFare.getText())*Validator.getIntValue(railNumberOfChild.getText())+
+                Validator.getIntValue("0"/*railInfantFare.getText()*/)*Validator.getIntValue(railNumberOfInfant.getText())));
     }
     /*private void setTotalHotelPrice(){
         hotelTotalPrice.setText( String.valueOf(Validator.getIntValue(ho.getText())*Validator.getIntValue(airNumberOfAdult.getText())+

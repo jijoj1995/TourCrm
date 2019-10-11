@@ -14,6 +14,7 @@ public class CoreLead implements Serializable {
     private StringProperty lastName=new SimpleStringProperty();
     private StringProperty branchCode=new SimpleStringProperty();
     private StringProperty channelCode=new SimpleStringProperty();
+    private StringProperty userId=new SimpleStringProperty();
     private StringProperty country=new SimpleStringProperty();
     private StringProperty querySource=new SimpleStringProperty();
     private StringProperty currencyCode=new SimpleStringProperty();
@@ -30,6 +31,18 @@ public class CoreLead implements Serializable {
     private CoreLeadRail coreLeadRail;
     private CoreBookingEntity coreBookingEntity;
     private List<CoreLeadNotesEntity> coreLeadNotesEntitySet;
+
+    public String getUserId() {
+        return userId.get();
+    }
+
+    public StringProperty userIdProperty() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId.set(userId);
+    }
 
     public int getCoreLeadId() {
         return coreLeadId.get();

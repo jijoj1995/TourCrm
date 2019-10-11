@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" stylesheets="/resource/css/listcustomer.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.ListUsers">
+<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" stylesheets="/resource/css/listcustomer.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.ListUsers">
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -37,7 +37,7 @@
                         <Insets />
                      </VBox.margin>
                      <padding>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </padding>
                   </HBox>
                   <TableView fx:id="usersTable" style="-fx-border-radius: 100;" tableMenuButtonVisible="false" VBox.vgrow="ALWAYS">
@@ -81,7 +81,7 @@
                      <children>
                         <VBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
                            <children>
-                              <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showDashboardPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                              <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showDashboardPage" size="40" strokeType="OUTSIDE" strokeWidth="0.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

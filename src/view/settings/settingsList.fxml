@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
+<AnchorPane fx:id="settingsAnchorPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.settings.SettingsList">
    <children>
       <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <top>
@@ -53,6 +53,12 @@
                      </children>
                   </VBox>
                </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="38.0" />
+               </padding>
             </HBox>
           </top>
           <center>
@@ -174,7 +180,7 @@
                                        </cursor></Button>
                                           </children>
                                           <padding>
-                                              <Insets top="10.0" />
+                                              <Insets left="50.0" top="10.0" />
                                           </padding>
                                       </VBox>
                                   </children>
@@ -254,7 +260,7 @@
                                     </HBox>
                                           </children>
                                           <padding>
-                                              <Insets top="10.0" />
+                                              <Insets left="50.0" top="10.0" />
                                           </padding>
                                       </VBox>
                                   </children>
@@ -349,7 +355,7 @@
                                     </VBox>
                                  </children>
                                  <padding>
-                                    <Insets top="10.0" />
+                                    <Insets left="50.0" top="10.0" />
                                  </padding>
                               </VBox>
                            </children>

@@ -6,6 +6,7 @@ import main.InventoryConfig;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.jetbrains.annotations.NotNull;
 import service.EmailService;
 import service.HibernateUtil;
 
@@ -18,19 +19,22 @@ import java.util.Map;
 public class QueryService {
     private Logger logger=Logger.getLogger(QueryService.class);
 
+    /*
+    method to save/update query as well as booking data
+     */
     public boolean saveQueryData(CoreLead coreLead){
-
         logger.info("in save queryData to db method");
         if (coreLead==null){
             logger.warn("invalid coreLead dto data. Returning.");
             return false;
         }
+        Session session=null;
         try{
             logger.info("Converting dto object to entity obj to save in db");
             CoreLeadEntity coreLeadEntity= setValuesFromCoreLeadDto(coreLead);
                                      //add which user going to save query
             coreLeadEntity.setEmployeeName(InventoryConfig.getInstance().getAppProperties().getProperty("currentUser"));
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.saveOrUpdate(coreLeadEntity);
             session.getTransaction().commit();
@@ -41,20 +45,27 @@ public class QueryService {
             e.printStackTrace();
             return false;
         }
+        finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
-
+    /*
+    method to fetch all queries as well as booking
+    details from db. entity graph is used to load sub entities efficiently
+     */
     public ArrayList<QueriesListDto>getAllQueriesList(){
         logger.info("in getAllQueriesList method");
-        boolean isAdmin=true;
         String employeeName=InventoryConfig.getInstance().getAppProperties().getProperty("currentUser");
         ArrayList<QueriesListDto> queriesListDtoArrayList=new ArrayList<>();
         Session session =null;
 try {
      session = HibernateUtil.getSessionFactory().openSession();
-    session.beginTransaction();
-    List<CoreLeadEntity> results=null;
-    EntityGraph graph = session.getEntityGraph("post-entity-graph");
+     session.beginTransaction();
+     List<CoreLeadEntity> results=null;
+     EntityGraph graph = session.getEntityGraph("post-entity-graph");
 
     if (employeeName.equals("admin")) {
         results = session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph", graph).getResultList();
@@ -102,7 +113,7 @@ finally {
     }
 
 
-    public CoreLeadEntity setValuesFromCoreLeadDto(CoreLead coreLeadDto){
+    private CoreLeadEntity setValuesFromCoreLeadDto(@NotNull CoreLead coreLeadDto){
 
         //initialising new core lead entity object
         CoreLeadEntity coreLeadEntity=new CoreLeadEntity();
@@ -127,6 +138,7 @@ finally {
         coreLeadEntity.setCountry(coreLeadDto.getCountry());
         coreLeadEntity.setEmployeeName(coreLeadDto.getEmployeeName());
         coreLeadEntity.setQueryTime(coreLeadDto.getQuerytime());
+        coreLeadEntity.setUserId(coreLeadDto.getUserId());
 
 
         //communication details
@@ -206,6 +218,7 @@ finally {
             coreLeadEntity.getCoreLeadHolidaysEntity().setToDestination(coreLeadDto.getCoreLeadHolidays().getToDestination());
             coreLeadEntity.getCoreLeadHolidaysEntity().setTotalPrice(coreLeadDto.getCoreLeadHolidays().getTotalPrice());
             coreLeadEntity.getCoreLeadHolidaysEntity().setTravelType(coreLeadDto.getCoreLeadHolidays().getTravelType());
+            coreLeadEntity.getCoreLeadHolidaysEntity().setTotalPax(coreLeadDto.getCoreLeadHolidays().getTotalPax());
         }
 
         //rail Details
@@ -234,9 +247,9 @@ finally {
     }
 
 
-    public CoreLead setValuesFromCoreLeadEntity(CoreLeadEntity coreLeadEntity){
+    private CoreLead setValuesFromCoreLeadEntity(@NotNull CoreLeadEntity coreLeadEntity){
 
-        //initialising new core lead entity object
+                           //initialising new core lead entity object
         CoreLead coreLeadDto=new CoreLead();
         coreLeadDto.setCoreLeadAir(new CoreLeadAir());
         coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
@@ -245,7 +258,7 @@ finally {
         coreLeadDto.setCoreLeadRail(new CoreLeadRail());
         coreLeadDto.setCoreLeadNotesEntitySet(new ArrayList<>());
 
-        //general Details
+                                  //general Details
         coreLeadDto.setCoreLeadId(coreLeadEntity.getCoreLeadId());
         coreLeadDto.setFirstName(coreLeadEntity.getFirstName());
         coreLeadDto.setBranchCode(coreLeadEntity.getBranchCode());
@@ -260,9 +273,10 @@ finally {
         coreLeadDto.setCountry(coreLeadEntity.getCountry());
         coreLeadDto.setEmployeeName(coreLeadEntity.getEmployeeName());
         coreLeadDto.setQuerytime(coreLeadEntity.getQueryTime());
+        coreLeadDto.setUserId(coreLeadEntity.getUserId());
 
 
-        //communication details
+                              //communication details
         if(coreLeadEntity.getCoreLeadCommunicationEntity()!=null) {
             coreLeadDto.getCoreLeadCommunication().setCoreLeadCommunicationId(coreLeadEntity.getCoreLeadCommunicationEntity().getCoreLeadCommunicationId());
             coreLeadDto.getCoreLeadCommunication().setIndiaLandline(coreLeadEntity.getCoreLeadCommunicationEntity().getIndiaLandline());
@@ -274,7 +288,7 @@ finally {
             coreLeadDto.getCoreLeadCommunication().setPaxEmailSecond(coreLeadEntity.getCoreLeadCommunicationEntity().getPaxEmailSecond());
         }
 
-        //airdetails
+                                  //airdetails
         if (coreLeadEntity.getCoreLeadAirEntity()!=null){
             coreLeadDto.getCoreLeadAir().setCoreLeadAirId(coreLeadEntity.getCoreLeadAirEntity().getCoreLeadAirId());
             coreLeadDto.getCoreLeadAir().setFromDestination(coreLeadEntity.getCoreLeadAirEntity().getFromDestination());
@@ -336,6 +350,7 @@ finally {
             coreLeadDto.getCoreLeadHolidays().setToDestination(coreLeadEntity.getCoreLeadHolidaysEntity().getToDestination());
             coreLeadDto.getCoreLeadHolidays().setTotalPrice(coreLeadEntity.getCoreLeadHolidaysEntity().getTotalPrice());
             coreLeadDto.getCoreLeadHolidays().setTravelType(coreLeadEntity.getCoreLeadHolidaysEntity().getTravelType());
+            coreLeadDto.getCoreLeadHolidays().setTotalPax(coreLeadEntity.getCoreLeadHolidaysEntity().getTotalPax());
         }
 
         //rail Details

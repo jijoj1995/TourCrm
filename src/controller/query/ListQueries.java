@@ -1,6 +1,5 @@
 package controller.query;
 
-import constants.InventoryConstants;
 import controller.booking.MainBooking;
 import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -27,10 +26,8 @@ import main.Main;
 import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 import service.Toast;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ListQueries implements Initializable {
@@ -63,10 +60,6 @@ public class ListQueries implements Initializable {
     private Logger logger=Logger.getLogger(ListQueries.class);
     private WorkIndicatorDialog wd=null;
 
-    public ListQueries() {
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Stage stage=new Stage();
@@ -76,13 +69,10 @@ public class ListQueries implements Initializable {
             return 1;
         });
 
-
         wd.addTaskEndNotification(result -> {
            logger.info(result);
-
         });
         initializeDefaultLayout();
-
 
 
         idColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
@@ -106,7 +96,6 @@ public class ListQueries implements Initializable {
                     Loader.setLocation(getClass().getResource("/view/query/mainQuery.fxml"));
                     try {
                         Loader.load();
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -116,7 +105,6 @@ public class ListQueries implements Initializable {
                     controller.initializeCoreLeadDto(coreLeadDto);
                     Parent p = Loader.getRoot();
                     mainPane.getChildren().setAll(p);
-
 
                 });
             }
@@ -128,7 +116,6 @@ public class ListQueries implements Initializable {
         employeeColumn.setCellValueFactory(cellData -> cellData.getValue().employeeNameProperty());
         callReasonColumn.setCellValueFactory(cellData -> cellData.getValue().callReasonProperty());
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
             FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.LIST);
             FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.INBOX);

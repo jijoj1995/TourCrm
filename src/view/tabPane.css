@@ -8,9 +8,9 @@
 }
 .tab-pane {
 -fx-text-fill:white;
-  -fx-tab-min-height:38px;
-  -fx-tab-max-height:38px;
-  -fx-tab-border-radius: 80px;
+  -fx-tab-min-height:41px;
+  -fx-tab-max-height:41px;
+  -fx-tab-border-radius:80px;
 }
 
 .tab {

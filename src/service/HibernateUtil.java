@@ -17,12 +17,11 @@ public class HibernateUtil
             if (sessionFactory == null)
             {
                 Configuration configuration = new Configuration().configure(HibernateUtil.class.getResource("/resource/hibernate.cfg.xml"));
-
                 //<property name="connection.url">jdbc:mysql://185.224.138.133/u315173730_tourcrm?useSSL=false</property>
                 if (Validator.useSpecificDatabasePassword()) configuration.setProperty("hibernate.connection.password",getDatabasePassword());
                     configuration.setProperty("hibernate.connection.url",getDataBaseUrl());
-               configuration.setProperty("hibernate.connection.username",getDatabaseUserName());
-                    configuration.addAnnotatedClass(CoreUserEntity.class);
+                configuration.setProperty("hibernate.connection.username",getDatabaseUserName());
+                configuration.addAnnotatedClass(CoreUserEntity.class);
                 configuration.addAnnotatedClass(CoreLeadNotesEntity.class);
                 configuration.addAnnotatedClass(CoreBookingStatusEntity.class);
                 configuration.addAnnotatedClass(CoreBookingPromotionEntity.class);
@@ -76,13 +75,12 @@ public class HibernateUtil
         String usePortCheck=inventoryConfig.getAppProperties().getProperty("usePortCheck");
         String portNumber=inventoryConfig.getAppProperties().getProperty("databasePortNumber");
         String databaseName=inventoryConfig.getAppProperties().getProperty("databaseName");
-        String databaseUrl="jdbc:mysql://"
+        return "jdbc:mysql://"
                 + ipAddress
                 +((usePortCheck!=null&&usePortCheck.equals("true")) ? ":"+portNumber : "")
                 +"/"
                 +databaseName
                 +"?useSSL=false";
-        return databaseUrl;
     }
 
     private static String getDatabasePassword(){

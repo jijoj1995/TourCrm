@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainOuterPane" nodeOrientation="LEFT_TO_RIGHT" prefWidth="800.0" stylesheets="/resource/css/mainPage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.MainPage">
+<AnchorPane fx:id="mainOuterPane" nodeOrientation="LEFT_TO_RIGHT" prefWidth="800.0" stylesheets="/resource/css/mainPage.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.MainPage">
    <children>
       <VBox fx:id="sideBarVbox" prefWidth="200.0" style="-fx-background-color: #364150;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="/resource/images/triparies.png" />
                </image></ImageView>

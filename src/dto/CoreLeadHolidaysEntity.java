@@ -29,6 +29,7 @@ public class CoreLeadHolidaysEntity implements Serializable {
     private String totalPrice;
     private String travelType;
     private String status;
+    private String totalPax;
 
 
     public Integer getCoreLeadHolidaysId() {
@@ -165,5 +166,13 @@ public class CoreLeadHolidaysEntity implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTotalPax() {
+        return totalPax;
+    }
+
+    public void setTotalPax(String totalPax) {
+        this.totalPax = totalPax;
     }
 }

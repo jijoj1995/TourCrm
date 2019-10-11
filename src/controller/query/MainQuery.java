@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Pattern;
 
 public class MainQuery implements Initializable {
     @FXML
@@ -56,6 +57,8 @@ public class MainQuery implements Initializable {
     private Button notesButton;
     @FXML
     private HBox queryIdHbox;
+    @FXML
+    private Label queryTimeLabel,queryIdLabel;
     @FXML
     private QueryService queryService=new QueryService();
     private CoreLead coreLeadDto;
@@ -73,9 +76,10 @@ public class MainQuery implements Initializable {
                    //hide query id checkbox if first time
         queryIdHbox.setVisible(false);
         queryIdHbox.setMaxHeight(0);
+        queryIdHbox.setMinHeight(0);
         queryIdHbox.setPrefHeight(0);
     }
-    public void initializeCoreLeadDto(CoreLead coreLead){
+     void initializeCoreLeadDto(CoreLead coreLead){
                                  //this method called when already present queryData is clicked
         this.coreLeadDto=coreLead;
         initializeAllInputTextsFromDto(coreLeadDto);
@@ -98,6 +102,7 @@ public class MainQuery implements Initializable {
         lastName.setText(coreLeadDto.getLastName());
         branchCode.setText(coreLeadDto.getBranchCode());
         channelCode.setValue(coreLeadDto.getChannelCode());
+        userId.setText(coreLeadDto.getUserId());
         country.setText(coreLeadDto.getCountry());
         querySource.setValue(coreLeadDto.getQuerySource());
         currencyCode.setValue(coreLeadDto.getCurrencyCode());
@@ -158,6 +163,7 @@ public class MainQuery implements Initializable {
         coreLeadDto.setLastName(lastName.getText());
         coreLeadDto.setChannelCode(channelCode.getValue());
         coreLeadDto.setCountry(country.getText());
+        coreLeadDto.setUserId(userId.getText());
         coreLeadDto.setQuerySource(querySource.getValue());
         coreLeadDto.setCurrencyCode(currencyCode.getValue());
         coreLeadDto.setShift(shift.getValue());
@@ -196,6 +202,10 @@ public class MainQuery implements Initializable {
        if (!isRequiredFieldEntered()){
            Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
                                             //   showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
+        return;
+    }
+    if (!isValidEmailEntered()){
+        Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter valid email",1000,500,500);
         return;
     }
                                                                     //check if notes added
@@ -246,7 +256,6 @@ public class MainQuery implements Initializable {
                 logger.warn("exception found while saving query data== "+e.getMessage());
             }
         });
-
     }
 
     @FXML
@@ -378,6 +387,20 @@ public class MainQuery implements Initializable {
             notesDialog.show();
     }
 
+    @FXML
+    private void onTabSelection(){
+        if(queryTabs.getSelectionModel().isSelected(1)&&!isGeneralRequiredFieldEntered()){
+            Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
+            queryTabs.getSelectionModel().select(0);
+        }
+
+
+    }
+
+    private boolean isValidEmailEntered(){
+        return Pattern.matches(InventoryConstants.emailRegex,paxEmailFirst.getText())&&Pattern.matches(InventoryConstants.emailRegex,paxEmailSecond.getText());
+    }
+
     private boolean isRequiredFieldEntered(){
         return !(firstName.getText().isEmpty()||lastName.getText().isEmpty()||paxEmailFirst.getText().isEmpty()) ;
     }
@@ -388,7 +411,7 @@ public class MainQuery implements Initializable {
         return  !(data.isEmpty());
     }
 
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+    /*private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -396,5 +419,5 @@ public class MainQuery implements Initializable {
         alert.initOwner(owner);
         alert.initModality(Modality.APPLICATION_MODAL);
         alert.show();
-    }
+    }*/
 }
