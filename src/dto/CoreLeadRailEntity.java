@@ -9,7 +9,8 @@ import java.io.Serializable;
 @Table( name = "core_lead_rail" )
 public class CoreLeadRailEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn
     @Column(name = "core_lead_rail_id")
     private Integer coreLeadRailId;
     private String departureCity;
@@ -25,6 +26,37 @@ public class CoreLeadRailEntity implements Serializable {
     private String totalFare;
     private String classOfTravel;
     private String status;
+    @ManyToOne
+    @JoinColumn(name="core_lead_id")
+    private CoreLeadEntity coreLeadEntity;
+
+    public CoreLeadRailEntity() {
+    }
+
+    public CoreLeadRailEntity(Integer coreLeadRailId, String departureCity, String arrivalCity, String departureDate, String trainNumber, String numberOfAdult, String numberOfChild, String numberOfInfant, String totalPax, String adultFare, String childFare, String totalFare, String classOfTravel, String status) {
+        this.coreLeadRailId = coreLeadRailId;
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.departureDate = departureDate;
+        this.trainNumber = trainNumber;
+        this.numberOfAdult = numberOfAdult;
+        this.numberOfChild = numberOfChild;
+        this.numberOfInfant = numberOfInfant;
+        this.totalPax = totalPax;
+        this.adultFare = adultFare;
+        this.childFare = childFare;
+        this.totalFare = totalFare;
+        this.classOfTravel = classOfTravel;
+        this.status = status;
+    }
+
+    public CoreLeadEntity getCoreLeadEntity() {
+        return coreLeadEntity;
+    }
+
+    public void setCoreLeadEntity(CoreLeadEntity coreLeadEntity) {
+        this.coreLeadEntity = coreLeadEntity;
+    }
 
     public Integer getCoreLeadRailId() {
         return coreLeadRailId;

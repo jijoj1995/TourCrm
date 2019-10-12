@@ -9,7 +9,8 @@ import java.io.Serializable;
 @Table( name = "core_lead_air" )
 public class CoreLeadAirEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn
     @Column(name = "core_lead_air_id")
     private Integer coreLeadAirId;
     private String fromDestination;
@@ -29,6 +30,33 @@ public class CoreLeadAirEntity implements Serializable {
     private String typeOfTravel;
     private String classOfTravel;
     private String status;
+    @ManyToOne
+    @JoinColumn(name="core_lead_id")
+    private CoreLeadEntity coreLeadEntity;
+
+    public CoreLeadAirEntity(){
+
+    }
+    public CoreLeadAirEntity(Integer coreLeadAirId, String fromDestination, String toDestination, String departureDate, String returnDate, String airlinesOffered, String currencyCode, String numberOfAdult, String numberOfChild, String numberOfInfant, String totalPax, String adultFare, String childFare, String infantFare, String totalPrice, String typeOfTravel, String classOfTravel, String status) {
+        this.coreLeadAirId = coreLeadAirId;
+        this.fromDestination = fromDestination;
+        this.toDestination = toDestination;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
+        this.airlinesOffered = airlinesOffered;
+        this.currencyCode = currencyCode;
+        this.numberOfAdult = numberOfAdult;
+        this.numberOfChild = numberOfChild;
+        this.numberOfInfant = numberOfInfant;
+        this.totalPax = totalPax;
+        this.adultFare = adultFare;
+        this.childFare = childFare;
+        this.infantFare = infantFare;
+        this.totalPrice = totalPrice;
+        this.typeOfTravel = typeOfTravel;
+        this.classOfTravel = classOfTravel;
+        this.status = status;
+    }
 
     public Integer getCoreLeadAirId() {
         return coreLeadAirId;
@@ -60,6 +88,14 @@ public class CoreLeadAirEntity implements Serializable {
 
     public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
+    }
+
+    public CoreLeadEntity getCoreLeadEntity() {
+        return coreLeadEntity;
+    }
+
+    public void setCoreLeadEntity(CoreLeadEntity coreLeadEntity) {
+        this.coreLeadEntity = coreLeadEntity;
     }
 
     public String getReturnDate() {

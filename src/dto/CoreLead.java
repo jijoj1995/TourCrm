@@ -25,10 +25,10 @@ public class CoreLead implements Serializable {
     private StringProperty querytime=new SimpleStringProperty();
 
     private CoreLeadCommunication coreLeadCommunication;
-    private CoreLeadAir coreLeadAir;
+    private List<CoreLeadAirEntity> coreLeadAirList;
     private CoreLeadHolidays coreLeadHolidays;
-    private CoreLeadHotel coreLeadHotel;
-    private CoreLeadRail coreLeadRail;
+    private List<CoreLeadHotelEntity> coreLeadHotelList;
+    private List<CoreLeadRailEntity> coreLeadRailList;
     private CoreBookingEntity coreBookingEntity;
     private List<CoreLeadNotesEntity> coreLeadNotesEntitySet;
 
@@ -220,14 +220,6 @@ public class CoreLead implements Serializable {
         this.coreLeadCommunication = coreLeadCommunication;
     }
 
-    public CoreLeadAir getCoreLeadAir() {
-        return coreLeadAir;
-    }
-
-    public void setCoreLeadAir(CoreLeadAir coreLeadAir) {
-        this.coreLeadAir = coreLeadAir;
-    }
-
     public CoreLeadHolidays getCoreLeadHolidays() {
         return coreLeadHolidays;
     }
@@ -236,20 +228,20 @@ public class CoreLead implements Serializable {
         this.coreLeadHolidays = coreLeadHolidays;
     }
 
-    public CoreLeadHotel getCoreLeadHotel() {
-        return coreLeadHotel;
+    public List<CoreLeadHotelEntity> getCoreLeadHotelList() {
+        return coreLeadHotelList;
     }
 
-    public void setCoreLeadHotel(CoreLeadHotel coreLeadHotel) {
-        this.coreLeadHotel = coreLeadHotel;
+    public void setCoreLeadHotelList(List<CoreLeadHotelEntity> coreLeadHotelList) {
+        this.coreLeadHotelList = coreLeadHotelList;
     }
 
-    public CoreLeadRail getCoreLeadRail() {
-        return coreLeadRail;
+    public List<CoreLeadRailEntity> getCoreLeadRailList() {
+        return coreLeadRailList;
     }
 
-    public void setCoreLeadRail(CoreLeadRail coreLeadRail) {
-        this.coreLeadRail = coreLeadRail;
+    public void setCoreLeadRailList(List<CoreLeadRailEntity> coreLeadRailList) {
+        this.coreLeadRailList = coreLeadRailList;
     }
 
     public CoreBookingEntity getCoreBookingEntity() {
@@ -264,7 +256,16 @@ public class CoreLead implements Serializable {
         return coreLeadNotesEntitySet;
     }
 
+    public List<CoreLeadAirEntity> getCoreLeadAirList() {
+        return coreLeadAirList;
+    }
+
+    public void setCoreLeadAirList(List<CoreLeadAirEntity> coreLeadAirList) {
+        this.coreLeadAirList = coreLeadAirList;
+    }
+
     public void setCoreLeadNotesEntitySet(List<CoreLeadNotesEntity> coreLeadNotesEntitySet) {
         this.coreLeadNotesEntitySet = coreLeadNotesEntitySet;
+
     }
 }

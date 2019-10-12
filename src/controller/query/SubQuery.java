@@ -4,20 +4,26 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import constants.LeadsConstants;
+import db.QueryService;
 import dto.*;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import main.Main;
 import org.apache.log4j.Logger;
+import service.BookingService;
 import service.Validator;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SubQuery implements Initializable {
@@ -37,27 +43,35 @@ public class SubQuery implements Initializable {
     @FXML
     private JFXComboBox<String> airTypeOfTravel,airClassOfTravel,airStatus,airCurrencyCode,hotelCurrencyCode,hotelCategory,hotelPlan,hotelStatus,holidaysCurrencyCode,holidaysHotelCategory,holidaysTravelType,
             holidaysStatus,railClassOfTravel,railStatus;
-
     @FXML
     private JFXDatePicker airDepartureDate,airReturnDate,hotelCheckInDate,hotelCheckOutDate,holidaysDepartureDate,holidaysReturnDate,railDateOfDeparture;
+    @FXML
+    private TableView hotelTable,airTable,railTable;
 
     private CoreLead coreLeadDto;
+    private ObservableList<CoreLeadHotel> hotelTableData = FXCollections.observableArrayList();
+    private ObservableList<CoreLeadAir> airTableData = FXCollections.observableArrayList();
+    private ObservableList<CoreLeadRail> railTableData = FXCollections.observableArrayList();
+
     private static Logger logger=Logger.getLogger(SubQuery.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
                     //set window size based on screens size
         initializeDefaultLayout();
                     //initialise all checkbox with default values
-        initialiseAllCheckBoxDefalutValues();
+        initialiseAllCheckBoxDefaultValues();
                     //initialise all empty datePickers with today date
         initialiseAllEmptyDatePickers();
                     //set specific number only with validations
         setNumberOnlyInputCheck();
-
+        initialiseHotelTable();
+        initialiseAirTable();
+        initialiseRailTable();
         //initialiseTotalFareCalculationEvent
         setListenersToHolidaysFields();
-       setListenersToAirFields();
-       setListenersToRailFields();
+        setListenersToAirFields();
+        setListenersToRailFields();
+        setListenersToHotelFields();
     }
 
     private void setListenersToHolidaysFields(){
@@ -76,6 +90,19 @@ public class SubQuery implements Initializable {
         holidaysInfantFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysChildFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
         holidaysAdultFare.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHolidaysPrice();});
+    }
+    private void setListenersToHotelFields(){
+        hotelNumberOfAdult.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelNumberOfChild.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelNumberOfInfant.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelNumberOfNights.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelTotalPax.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelRoomTariff.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+        hotelExtraBed.setOnKeyTyped((keyEvent)->{Validator.checkNumberEntered(keyEvent);});
+
+        hotelRoomTariff.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHotelPrice();});
+        hotelNumberOfNights.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHotelPrice();});
+        hotelExtraBed.textProperty().addListener((observable, oldValue, newValue) -> {setTotalHotelPrice();});
     }
 
     private void setListenersToAirFields(){
@@ -115,51 +142,29 @@ public class SubQuery implements Initializable {
                                //initialise main core lead dto for setting all textFields
         this.coreLeadDto = coreLead;
         setAllTextFieldsFromDto();
-
         }
     private void setAllTextFieldsFromDto(){
-
                                    //set data from coreLead Dto to all textfields
         logger.info(" in setAllTextFieldsFromDto method in sub query");
         if(coreLeadDto==null){
            logger.warn("coreLead Dto is null. Returning");
            return;
         }
-        if(coreLeadDto.getCoreLeadAir()!=null){
+        if(coreLeadDto.getCoreLeadAirList()!=null){
             setAirTabTextFieldsFromDto();
         }
-        if(coreLeadDto.getCoreLeadHotel()!=null){
+        if(coreLeadDto.getCoreLeadHotelList()!=null){
             setHotelTabTextFieldsFromDto();
         }
         if(coreLeadDto.getCoreLeadHolidays()!=null){
             setHolidaysTabTextFieldsFromDto();
         }
-        if(coreLeadDto.getCoreLeadRail()!=null){
+        if(coreLeadDto.getCoreLeadRailList()!=null){
             setRailTabTextFieldsFromDto();
         }
-        if(coreLeadDto.getCoreLeadAir()!=null){
-            setAirTabTextFieldsFromDto();
-        }
+
     }
 
-    private void setHotelTabTextFieldsFromDto(){
-                            //method to set text Fields from dto
-        hotelDestination.setText(coreLeadDto.getCoreLeadHotel().getDestination());
-        hotelCheckInDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHotel().getCheckInDate()));
-        hotelCheckOutDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadHotel().getCheckoutDate()));
-        hotelCurrencyCode.setValue(coreLeadDto.getCoreLeadHotel().getCurrencyCode());
-        hotelCategory.setValue(coreLeadDto.getCoreLeadHotel().getHotelCategory());
-        hotelNumberOfNights.setText(coreLeadDto.getCoreLeadHotel().getNumberOfNights());
-        hotelNumberOfAdult.setText(coreLeadDto.getCoreLeadHotel().getNumberOfAdult());
-        hotelNumberOfChild.setText(coreLeadDto.getCoreLeadHotel().getNumberOfChild());
-        hotelNumberOfInfant.setText(coreLeadDto.getCoreLeadHotel().getNumberOfInfants());
-        hotelTotalPax.setText(coreLeadDto.getCoreLeadHotel().getTotalPax());
-        hotelRoomTariff.setText(coreLeadDto.getCoreLeadHotel().getRoomTariff());
-        hotelExtraBed.setText(coreLeadDto.getCoreLeadHotel().getExtraBed());
-        hotelTotalPrice.setText(coreLeadDto.getCoreLeadHotel().getTotalPrice());
-        hotelPlan.setValue(coreLeadDto.getCoreLeadHotel().getHotelPlan());
-        hotelStatus.setValue(coreLeadDto.getCoreLeadHotel().getStatus());
-    }
     private void setHolidaysTabTextFieldsFromDto(){
         holidaysFrom.setText(coreLeadDto.getCoreLeadHolidays().getFromDestination());
         holidaysTo.setText(coreLeadDto.getCoreLeadHolidays().getToDestination());
@@ -179,40 +184,206 @@ public class SubQuery implements Initializable {
         holidaysStatus.setValue(coreLeadDto.getCoreLeadHolidays().getStatus());
         holidaysTravelType.setValue(coreLeadDto.getCoreLeadHolidays().getTravelType());
     }
-    private void setRailTabTextFieldsFromDto(){
-        railDepartureCity.setText(coreLeadDto.getCoreLeadRail().getDepartureCity());
-        railArrivalCity.setText(coreLeadDto.getCoreLeadRail().getArrivalCity());
-        railDateOfDeparture.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadRail().getDepartureDate()));
-        railTrainNumber.setText(coreLeadDto.getCoreLeadRail().getTrainNumber());
-        railNumberOfAdult.setText(coreLeadDto.getCoreLeadRail().getNumberOfAdult());
-        railNumberOfChild.setText(coreLeadDto.getCoreLeadRail().getNumberOfChild());
-        railNumberOfInfant.setText(coreLeadDto.getCoreLeadRail().getNumberOfInfant());
-        railTotalPax.setText(coreLeadDto.getCoreLeadRail().getTotalPax());
-        railAdultFare.setText(coreLeadDto.getCoreLeadRail().getAdultFare());
-        railChildFare.setText(coreLeadDto.getCoreLeadRail().getChildFare());
-        railTotalFare.setText(coreLeadDto.getCoreLeadRail().getTotalFare());
-        railClassOfTravel.setValue(coreLeadDto.getCoreLeadRail().getClassOfTravel());
-        railStatus.setValue(coreLeadDto.getCoreLeadRail().getStatus());
-    }
-    private void setAirTabTextFieldsFromDto(){
-        airFromDestination.setText(coreLeadDto.getCoreLeadAir().getFromDestination());
-        airToDestination.setText(coreLeadDto.getCoreLeadAir().getToDestination());
-        airDepartureDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadAir().getDepartureDate()));
-        airReturnDate.setValue(Validator.getNotNullLocalDateFromString(coreLeadDto.getCoreLeadAir().getReturnDate()));
-        airAirlinesOffered.setText(coreLeadDto.getCoreLeadAir().getAirlinesOffered());
-        airCurrencyCode.setValue(coreLeadDto.getCoreLeadAir().getCurrencyCode());
-        airNumberOfAdult.setText(coreLeadDto.getCoreLeadAir().getNumberOfAdult());
-        airNumberOfChild.setText(coreLeadDto.getCoreLeadAir().getNumberOfChild());
-        airNumberOfInfant.setText(coreLeadDto.getCoreLeadAir().getNumberOfInfant());
-        airTotalPax.setText(coreLeadDto.getCoreLeadAir().getTotalPax());
-        airAdultFare.setText(coreLeadDto.getCoreLeadAir().getAdultFare());
-        airChildFare.setText(coreLeadDto.getCoreLeadAir().getChildFare());
-        airInfantFare.setText(coreLeadDto.getCoreLeadAir().getInfantFare());
-        airTotalPrice.setText(coreLeadDto.getCoreLeadAir().getTotalPrice());
-        airTypeOfTravel.setValue(coreLeadDto.getCoreLeadAir().getTypeOfTravel());
-        airClassOfTravel.setValue(coreLeadDto.getCoreLeadAir().getClassOfTravel());
-        airStatus.setValue(coreLeadDto.getCoreLeadAir().getStatus());
 
+    private void setHotelTabTextFieldsFromDto(){
+        //method to set text Fields from dto
+        for (CoreLeadHotelEntity entity:coreLeadDto.getCoreLeadHotelList())
+            hotelTableData.add(new CoreLeadHotel(entity.getCoreLeadHotelId(),entity.getDestination(),entity.getCheckInDate(),entity.getCheckoutDate(),entity.getCurrencyCode(),entity.getHotelCategory(),entity.getNumberOfNights(),entity.getNumberOfAdult(),entity.getNumberOfChild(),entity.getNumberOfInfants(),entity.getTotalPax(),entity.getRoomTariff(),entity.getExtraBed(),entity.getTotalPrice(),entity.getHotelPlan(),entity.getStatus()));
+        hotelTable.setItems(hotelTableData);
+    }
+
+    private void setRailTabTextFieldsFromDto(){
+        for (CoreLeadRailEntity entity:coreLeadDto.getCoreLeadRailList())
+            railTableData.add(new CoreLeadRail( entity.getCoreLeadRailId(),  entity.getDepartureCity(),  entity.getArrivalCity(),  entity.getDepartureDate(),  entity.getTrainNumber(),  entity.getNumberOfAdult(),  entity.getNumberOfChild(),  entity.getNumberOfInfant(),  entity.getTotalPax(),  entity.getAdultFare(),  entity.getChildFare(),  entity.getTotalFare(),  entity.getClassOfTravel(),  entity.getStatus()));
+        railTable.setItems(railTableData);
+    }
+
+    private void setAirTabTextFieldsFromDto(){
+        for (CoreLeadAirEntity entity:coreLeadDto.getCoreLeadAirList())
+            airTableData.add(new CoreLeadAir(entity.getCoreLeadAirId(),  entity.getFromDestination(),  entity.getToDestination(),  entity.getDepartureDate(),  entity.getReturnDate(),  entity.getAirlinesOffered(),  entity.getCurrencyCode(),  entity.getNumberOfAdult(),  entity.getNumberOfChild(),  entity.getNumberOfInfant(),  entity.getTotalPax(),  entity.getAdultFare(),  entity.getChildFare(),  entity.getInfantFare(),  entity.getTotalPrice(),  entity.getTypeOfTravel(),  entity.getClassOfTravel(),  entity.getStatus()));
+        airTable.setItems(airTableData);
+
+    }
+    private void initialiseHotelTable(){
+
+        TableColumn<CoreLeadHotel, String> destination = new TableColumn<>("destination");
+        TableColumn<CoreLeadHotel, String> checkInDate = new TableColumn<>("checkInDate");
+        TableColumn<CoreLeadHotel, String> checkoutDate = new TableColumn<>("Checkout Date");
+        TableColumn<CoreLeadHotel, String> currencyCode = new TableColumn<>("Currency Code");
+        TableColumn<CoreLeadHotel, String> hotelCategory = new TableColumn<>("Hotel Category");
+        TableColumn<CoreLeadHotel, String> numberOfNights = new TableColumn<>("Number Of Nights");
+        TableColumn<CoreLeadHotel, String> numberOfAdult = new TableColumn<>("Number Of Adult");
+        TableColumn<CoreLeadHotel, String> numberOfChild = new TableColumn<>("Number Of Child");
+        TableColumn<CoreLeadHotel, String> numberOfInfants = new TableColumn<>("Number Of Infants");
+        TableColumn<CoreLeadHotel, String> totalPax = new TableColumn<>("Total Pax");
+        TableColumn<CoreLeadHotel, String> roomTariff = new TableColumn<>("Room Tariff");
+        TableColumn<CoreLeadHotel, String> extraBed = new TableColumn<>("Extra Bed");
+        TableColumn<CoreLeadHotel, String> totalPrice = new TableColumn<>("Total Price");
+        TableColumn<CoreLeadHotel, String> hotelPlan = new TableColumn<>("Hotel Plan");
+        TableColumn<CoreLeadHotel, String> status = new TableColumn<>("Status");
+
+        TableColumn<CoreLeadHotel, CoreLeadHotel> delete = new TableColumn<>("Action");
+        hotelTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        hotelTable.getColumns().addAll(destination, checkInDate,checkoutDate,currencyCode,hotelCategory, numberOfNights,numberOfAdult,numberOfChild,numberOfInfants,totalPax, roomTariff,extraBed,totalPrice,hotelPlan,status);
+        hotelTable.setEditable(true);
+
+        destination.setCellValueFactory(new PropertyValueFactory<>("destination"));
+        checkInDate.setCellValueFactory(new PropertyValueFactory<>("checkInDate"));
+        checkoutDate.setCellValueFactory(new PropertyValueFactory<>("checkoutDate"));
+        currencyCode.setCellValueFactory(new PropertyValueFactory<>("currencyCode"));
+        hotelCategory.setCellValueFactory(new PropertyValueFactory<>("hotelCategory"));
+        numberOfNights.setCellValueFactory(new PropertyValueFactory<>("numberOfNights"));
+        numberOfAdult.setCellValueFactory(new PropertyValueFactory<>("numberOfAdult"));
+        numberOfChild.setCellValueFactory(new PropertyValueFactory<>("numberOfChild"));
+        numberOfInfants.setCellValueFactory(new PropertyValueFactory<>("numberOfInfants"));
+        totalPax.setCellValueFactory(new PropertyValueFactory<>("totalPax"));
+        roomTariff.setCellValueFactory(new PropertyValueFactory<>("roomTariff"));
+        extraBed.setCellValueFactory(new PropertyValueFactory<>("extraBed"));
+        totalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        hotelPlan.setCellValueFactory(new PropertyValueFactory<>("hotelPlan"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        delete.setCellValueFactory(new PropertyValueFactory<>("Action"));
+
+        delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        delete.setCellFactory(param -> new TableCell<CoreLeadHotel, CoreLeadHotel>() {
+            private final Button deleteButton = new Button("Delete");
+
+            @Override
+            protected void updateItem(CoreLeadHotel item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null) {
+                    setGraphic(null);
+                    return;
+                }
+
+                setGraphic(deleteButton);
+                deleteButton.setOnAction(event -> {
+                    hotelTableData.remove(item);
+                });
+            }
+        });
+        hotelTable.setItems(hotelTableData);
+    }
+
+
+    private void initialiseAirTable(){
+
+
+        TableColumn<CoreLeadAir, String> fromDestination=new TableColumn<>("fromDestination");
+        TableColumn<CoreLeadAir, String> toDestination=new TableColumn<>("toDestination");
+        TableColumn<CoreLeadAir, String> departureDate=new TableColumn<>("departureDate");
+        TableColumn<CoreLeadAir, String> returnDate=new TableColumn<>("returnDate");
+        TableColumn<CoreLeadAir, String> airlinesOffered=new TableColumn<>("airlinesOffered");
+        TableColumn<CoreLeadAir, String> currencyCode=new TableColumn<>("currencyCode");
+        TableColumn<CoreLeadAir, String> numberOfAdult=new TableColumn<>("numberOfAdult");
+        TableColumn<CoreLeadAir, String> numberOfChild=new TableColumn<>("numberOfChild");
+        TableColumn<CoreLeadAir, String> numberOfInfant=new TableColumn<>("numberOfInfant");
+        TableColumn<CoreLeadAir, String> totalPax=new TableColumn<>("totalPax");
+        TableColumn<CoreLeadAir, String> adultFare=new TableColumn<>("adultFare");
+        TableColumn<CoreLeadAir, String> childFare=new TableColumn<>("childFare");
+        TableColumn<CoreLeadAir, String> infantFare=new TableColumn<>("infantFare");
+        TableColumn<CoreLeadAir, String> totalPrice=new TableColumn<>("totalPrice");
+        TableColumn<CoreLeadAir, String> typeOfTravel=new TableColumn<>("typeOfTravel");
+        TableColumn<CoreLeadAir, String> classOfTravel=new TableColumn<>("classOfTravel");
+        TableColumn<CoreLeadAir, String> status=new TableColumn<>("status");
+
+        TableColumn<CoreLeadAir, CoreLeadAir> delete = new TableColumn<>("Action");
+        hotelTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        airTable.getColumns().addAll(fromDestination,toDestination,departureDate,returnDate,airlinesOffered,currencyCode,numberOfAdult,numberOfChild,numberOfInfant,totalPax,adultFare,childFare,infantFare,totalPrice,typeOfTravel,classOfTravel,status);
+
+        fromDestination.setCellValueFactory(new PropertyValueFactory<>("fromDestination"));
+        toDestination.setCellValueFactory(new PropertyValueFactory<>("toDestination"));
+        departureDate.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+        returnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        airlinesOffered.setCellValueFactory(new PropertyValueFactory<>("airlinesOffered"));
+        currencyCode.setCellValueFactory(new PropertyValueFactory<>("currencyCode"));
+        numberOfAdult.setCellValueFactory(new PropertyValueFactory<>("numberOfAdult"));
+        numberOfChild.setCellValueFactory(new PropertyValueFactory<>("numberOfChild"));
+        numberOfInfant.setCellValueFactory(new PropertyValueFactory<>("numberOfInfant"));
+        totalPax.setCellValueFactory(new PropertyValueFactory<>("totalPax"));
+        adultFare.setCellValueFactory(new PropertyValueFactory<>("adultFare"));
+        childFare.setCellValueFactory(new PropertyValueFactory<>("childFare"));
+        infantFare.setCellValueFactory(new PropertyValueFactory<>("infantFare"));
+        totalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        typeOfTravel.setCellValueFactory(new PropertyValueFactory<>("typeOfTravel"));
+        classOfTravel.setCellValueFactory(new PropertyValueFactory<>("classOfTravel"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        delete.setCellValueFactory(new PropertyValueFactory<CoreLeadAir, CoreLeadAir>("Action"));
+
+        delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        delete.setCellFactory(param -> new TableCell<CoreLeadAir, CoreLeadAir>() {
+            private final Button deleteButton = new Button("Delete");
+
+            @Override
+            protected void updateItem(CoreLeadAir item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null) {
+                    setGraphic(null);
+                    return;
+                }
+
+                setGraphic(deleteButton);
+                deleteButton.setOnAction(event -> {
+                    hotelTableData.remove(item);
+                });
+            }
+        });
+        airTable.setItems(airTableData);
+    }
+    private void initialiseRailTable(){
+
+        TableColumn<CoreLeadRail, String> departureCity=new TableColumn<>("departureCity");
+        TableColumn<CoreLeadRail, String> arrivalCity=new TableColumn<>("arrivalCity");
+        TableColumn<CoreLeadRail, String> departureDate=new TableColumn<>("departureDate");
+        TableColumn<CoreLeadRail, String> trainNumber=new TableColumn<>("trainNumber");
+        TableColumn<CoreLeadRail, String> numberOfAdult=new TableColumn<>("numberOfAdult");
+        TableColumn<CoreLeadRail, String> numberOfChild=new TableColumn<>("numberOfChild");
+        TableColumn<CoreLeadRail, String> numberOfInfant=new TableColumn<>("numberOfInfant");
+        TableColumn<CoreLeadRail, String> totalPax=new TableColumn<>("totalPax");
+        TableColumn<CoreLeadRail, String> adultFare=new TableColumn<>("adultFare");
+        TableColumn<CoreLeadRail, String> childFare=new TableColumn<>("childFare");
+        TableColumn<CoreLeadRail, String> totalFare=new TableColumn<>("totalFare");
+        TableColumn<CoreLeadRail, String> classOfTravel=new TableColumn<>("classOfTravel");
+        TableColumn<CoreLeadRail, String> status=new TableColumn<>("status");
+
+        TableColumn<CoreLeadRail, CoreLeadRail> delete = new TableColumn<>("Action");
+        railTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        railTable.getColumns().addAll( departureCity,  arrivalCity,  departureDate,  trainNumber,  numberOfAdult,  numberOfChild,  numberOfInfant,  totalPax,  adultFare,  childFare,  totalFare,  classOfTravel,  status);
+
+        departureCity.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
+        arrivalCity.setCellValueFactory(new PropertyValueFactory<>("arrivalCity"));
+        departureDate.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+        trainNumber.setCellValueFactory(new PropertyValueFactory<>("trainNumber"));
+        numberOfAdult.setCellValueFactory(new PropertyValueFactory<>("numberOfAdult"));
+        numberOfChild.setCellValueFactory(new PropertyValueFactory<>("numberOfChild"));
+        numberOfInfant.setCellValueFactory(new PropertyValueFactory<>("numberOfInfant"));
+        totalPax.setCellValueFactory(new PropertyValueFactory<>("totalPax"));
+        adultFare.setCellValueFactory(new PropertyValueFactory<>("adultFare"));
+        childFare.setCellValueFactory(new PropertyValueFactory<>("childFare"));
+        totalFare.setCellValueFactory(new PropertyValueFactory<>("totalFare"));
+        classOfTravel.setCellValueFactory(new PropertyValueFactory<>("classOfTravel"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        delete.setCellValueFactory(new PropertyValueFactory<>("Action"));
+
+        delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        delete.setCellFactory(param -> new TableCell<CoreLeadRail, CoreLeadRail>() {
+            private final Button deleteButton = new Button("Delete");
+
+            @Override
+            protected void updateItem(CoreLeadRail item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null) {
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(deleteButton);
+                deleteButton.setOnAction(event -> {
+                    hotelTableData.remove(item);
+                });
+            }
+        });
+        railTable.setItems(railTableData);
     }
 
     private void setNumberOnlyInputCheck(){
@@ -229,10 +400,10 @@ public class SubQuery implements Initializable {
         if(coreLeadDto ==null){
             coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
-            coreLeadDto.setCoreLeadAir(new CoreLeadAir());
-            coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
+            coreLeadDto.setCoreLeadAirList(new ArrayList<>());
+            coreLeadDto.setCoreLeadHotelList(new ArrayList<>());
             coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
-            coreLeadDto.setCoreLeadRail(new CoreLeadRail());
+            coreLeadDto.setCoreLeadRailList(new ArrayList<>());
         }
         setAirDetailsToCoreLead();
         setHotelDetailsToCoreLead();
@@ -242,52 +413,34 @@ public class SubQuery implements Initializable {
         showMainQueryPage();
     }
 
-
     private void setAirDetailsToCoreLead(){
-        if(coreLeadDto.getCoreLeadAir()==null){
-            coreLeadDto.setCoreLeadAir(new CoreLeadAir());
+        if(coreLeadDto.getCoreLeadAirList()==null) coreLeadDto.setCoreLeadAirList(new ArrayList<>());
+        if (airTableData.isEmpty()){
+            logger.warn("no air details to be saved. returning");
+            return;
         }
-        coreLeadDto.getCoreLeadAir().setFromDestination(airFromDestination.getText());
-        coreLeadDto.getCoreLeadAir().setToDestination(airToDestination.getText());
-        coreLeadDto.getCoreLeadAir().setDepartureDate(Validator.getStringDateValue(airDepartureDate.getValue()));
-        coreLeadDto.getCoreLeadAir().setReturnDate(Validator.getStringDateValue(airReturnDate.getValue()));
-        coreLeadDto.getCoreLeadAir().setAirlinesOffered(airAirlinesOffered.getText());
-        coreLeadDto.getCoreLeadAir().setCurrencyCode(airCurrencyCode.getValue());
-        coreLeadDto.getCoreLeadAir().setNumberOfAdult(airNumberOfAdult.getText());
-        coreLeadDto.getCoreLeadAir().setNumberOfChild(airNumberOfChild.getText());
-        coreLeadDto.getCoreLeadAir().setNumberOfInfant(airNumberOfInfant.getText());
-        coreLeadDto.getCoreLeadAir().setTotalPax(airTotalPax.getText());
-        coreLeadDto.getCoreLeadAir().setAdultFare(airAdultFare.getText());
-        coreLeadDto.getCoreLeadAir().setChildFare(airChildFare.getText());
-        coreLeadDto.getCoreLeadAir().setInfantFare(airInfantFare.getText());
-        coreLeadDto.getCoreLeadAir().setTotalPrice(airTotalPrice.getText());
-        coreLeadDto.getCoreLeadAir().setTypeOfTravel(airTypeOfTravel.getValue());
-        coreLeadDto.getCoreLeadAir().setClassOfTravel(airClassOfTravel.getValue());
-        coreLeadDto.getCoreLeadAir().setStatus(airStatus.getValue());
-
+        ArrayList<CoreLeadAirEntity>coreLeadAirEntities= new QueryService().getAirListFromTableData(airTableData);
+        coreLeadDto.setCoreLeadAirList(coreLeadAirEntities);
     }
 
     private void setHotelDetailsToCoreLead(){
-
-        if(coreLeadDto.getCoreLeadHotel()==null){
-            coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
+        if(coreLeadDto.getCoreLeadHotelList()==null)coreLeadDto.setCoreLeadHotelList(new ArrayList<>());
+        if (hotelTableData.isEmpty()){
+            logger.warn("no hotel details to be saved. returning");
+            return;
         }
-        coreLeadDto.getCoreLeadHotel().setCheckInDate(Validator.getStringDateValue(hotelCheckInDate.getValue()));
-        coreLeadDto.getCoreLeadHotel().setCheckoutDate(Validator.getStringDateValue(hotelCheckOutDate.getValue()));
-        coreLeadDto.getCoreLeadHotel().setCurrencyCode(hotelCurrencyCode.getValue());
-        coreLeadDto.getCoreLeadHotel().setDestination(hotelDestination.getText());
-        coreLeadDto.getCoreLeadHotel().setExtraBed(hotelExtraBed.getText());
-        coreLeadDto.getCoreLeadHotel().setHotelCategory(hotelCategory.getValue());
-        coreLeadDto.getCoreLeadHotel().setHotelPlan(hotelPlan.getValue());
-        coreLeadDto.getCoreLeadHotel().setNumberOfAdult(hotelNumberOfAdult.getText());
-        coreLeadDto.getCoreLeadHotel().setNumberOfChild(hotelNumberOfChild.getText());
-        coreLeadDto.getCoreLeadHotel().setNumberOfInfants(hotelNumberOfInfant.getText());
-        coreLeadDto.getCoreLeadHotel().setNumberOfNights(hotelNumberOfNights.getText());
-        coreLeadDto.getCoreLeadHotel().setRoomTariff(hotelRoomTariff.getText());
-        coreLeadDto.getCoreLeadHotel().setStatus(hotelStatus.getValue());
-        coreLeadDto.getCoreLeadHotel().setTotalPax(hotelTotalPax.getText());
-        coreLeadDto.getCoreLeadHotel().setTotalPrice(hotelTotalPrice.getText());
+        ArrayList<CoreLeadHotelEntity>coreLeadHotelEntityArrayList= new QueryService().getHotelListFromTableData(hotelTableData);
+        coreLeadDto.setCoreLeadHotelList(coreLeadHotelEntityArrayList);
+    }
 
+    private void setRailDetailsToCoreLead(){
+        if(coreLeadDto.getCoreLeadRailList()==null)coreLeadDto.setCoreLeadRailList(new ArrayList<>());
+        if (railTableData.isEmpty()){
+            logger.warn("no rail details to be saved. returning");
+            return;
+        }
+        ArrayList<CoreLeadRailEntity>coreLeadRailEntityArrayList= new QueryService().getRailListFromTableData(railTableData);
+        coreLeadDto.setCoreLeadRailList(coreLeadRailEntityArrayList);
     }
 
     private void setHolidaysDetailsToCoreLead(){
@@ -313,26 +466,21 @@ public class SubQuery implements Initializable {
         coreLeadDto.getCoreLeadHolidays().setTotalPax(holidaysTotalPax.getText());
     }
 
-    private void setRailDetailsToCoreLead(){
-        if(coreLeadDto.getCoreLeadRail()==null){
-            coreLeadDto.setCoreLeadRail(new CoreLeadRail());
-        }
-        coreLeadDto.getCoreLeadRail().setAdultFare(railAdultFare.getText());
-        coreLeadDto.getCoreLeadRail().setArrivalCity(railArrivalCity.getText());
-        coreLeadDto.getCoreLeadRail().setChildFare(railChildFare.getText());
-        coreLeadDto.getCoreLeadRail().setClassOfTravel(railClassOfTravel.getValue());
-        coreLeadDto.getCoreLeadRail().setDepartureCity(railDepartureCity.getText());
-        coreLeadDto.getCoreLeadRail().setDepartureDate(Validator.getStringDateValue(railDateOfDeparture.getValue()));
-        coreLeadDto.getCoreLeadRail().setNumberOfAdult(railNumberOfAdult.getText());
-        coreLeadDto.getCoreLeadRail().setNumberOfChild(railNumberOfChild.getText());
-        coreLeadDto.getCoreLeadRail().setNumberOfInfant(railNumberOfInfant.getText());
-        coreLeadDto.getCoreLeadRail().setStatus(railStatus.getValue());
-        coreLeadDto.getCoreLeadRail().setTotalFare(railTotalFare.getText());
-        coreLeadDto.getCoreLeadRail().setTotalPax(railTotalPax.getText());
-        coreLeadDto.getCoreLeadRail().setTrainNumber(railTrainNumber.getText());
+    @FXML
+    private void addHotelToTable(){
+        hotelTableData.add(new CoreLeadHotel(null, hotelDestination.getText(), hotelCheckInDate.getValue().toString(), hotelCheckOutDate.getValue().toString(), hotelCurrencyCode.getValue(),  hotelCategory.getValue(), hotelNumberOfNights.getText(),  hotelNumberOfAdult.getText(), hotelNumberOfChild.getText(),  hotelNumberOfInfant.getText(), hotelTotalPax.getText(), hotelRoomTariff.getText(), hotelExtraBed.getText(), hotelTotalPrice.getText(), hotelPlan.getValue(), hotelStatus.getValue()));
+       // resetPassengerDataFields();
     }
-
-
+    @FXML
+    private void addAirToTable(){
+        airTableData.add(new CoreLeadAir(null,  airFromDestination.getText(),  airToDestination.getText(),  airDepartureDate.getValue().toString(),  airReturnDate.getValue().toString(),  airAirlinesOffered.getText(),  airCurrencyCode.getValue(),  airNumberOfAdult.getText(),  airNumberOfChild.getText(),  airNumberOfInfant.getText(),  airTotalPax.getText(),  airAdultFare.getText(),  airChildFare.getText(),  airInfantFare.getText(),  airTotalPrice.getText(),  airTypeOfTravel.getValue(),  airClassOfTravel.getValue(),  airStatus.getValue()));
+        // resetPassengerDataFields();
+    }
+    @FXML
+    private void addRailToTable(){
+        railTableData.add(new CoreLeadRail(null,railDepartureCity.getText(),railArrivalCity.getText(),railDateOfDeparture.getValue().toString(),railTrainNumber.getText(),railNumberOfAdult.getText(),railNumberOfChild.getText(),railNumberOfInfant.getText(),railTotalPax.getText(),railAdultFare.getText(),railChildFare.getText(),railTotalFare.getText(),railClassOfTravel.getValue(),railStatus.getValue()));
+        // resetPassengerDataFields();
+    }
     @FXML
     private void showMainQueryPage() {
         FXMLLoader Loader = new FXMLLoader();
@@ -347,7 +495,7 @@ public class SubQuery implements Initializable {
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
     }
-    private void initialiseAllCheckBoxDefalutValues(){
+    private void initialiseAllCheckBoxDefaultValues(){
 
         //setting all checkbox default values
         airCurrencyCode.getItems().addAll(LeadsConstants.currencyCodes);
@@ -420,11 +568,10 @@ public class SubQuery implements Initializable {
                 Validator.getIntValue(railChildFare.getText())*Validator.getIntValue(railNumberOfChild.getText())+
                 Validator.getIntValue("0"/*railInfantFare.getText()*/)*Validator.getIntValue(railNumberOfInfant.getText())));
     }
-    /*private void setTotalHotelPrice(){
-        hotelTotalPrice.setText( String.valueOf(Validator.getIntValue(ho.getText())*Validator.getIntValue(airNumberOfAdult.getText())+
-                Validator.getIntValue(airChildFare.getText())*Validator.getIntValue(airNumberOfChild.getText())+
-                Validator.getIntValue(airInfantFare.getText())*Validator.getIntValue(airNumberOfInfant.getText())));
-    }*/
+    private void setTotalHotelPrice(){
+        hotelTotalPrice.setText( String.valueOf((Validator.getIntValue(hotelRoomTariff.getText())+
+                Validator.getIntValue(hotelExtraBed.getText()))*Validator.getIntValue(hotelNumberOfNights.getText())));
+    }
     private void setTotalHolidaysPrice(){
         holidaysTotalPrice.setText( String.valueOf(Validator.getIntValue(holidaysAdultFare.getText())*Validator.getIntValue(holidaysNumberOfAdult.getText())+
                 Validator.getIntValue(holidaysChildFare.getText())*Validator.getIntValue(holidaysNumberOfChild.getText())+

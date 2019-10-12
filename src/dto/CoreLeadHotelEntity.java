@@ -9,7 +9,8 @@ import java.io.Serializable;
 @Table( name = "core_lead_hotel" )
 public class CoreLeadHotelEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn
     @Column(name = "core_lead_hotel_id")
     private Integer coreLeadHotelId;
     private String destination;
@@ -27,6 +28,10 @@ public class CoreLeadHotelEntity implements Serializable {
     private String totalPrice;
     private String hotelPlan;
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name="core_lead_id")
+    private CoreLeadEntity coreLeadEntity;
 
     public Integer getCoreLeadHotelId() {
         return coreLeadHotelId;
@@ -154,5 +159,13 @@ public class CoreLeadHotelEntity implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public CoreLeadEntity getCoreLeadEntity() {
+        return coreLeadEntity;
+    }
+
+    public void setCoreLeadEntity(CoreLeadEntity coreLeadEntity) {
+        this.coreLeadEntity = coreLeadEntity;
     }
 }

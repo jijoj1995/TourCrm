@@ -29,6 +29,44 @@ public class CoreLeadHotel implements Serializable {
     private StringProperty hotelPlan=new SimpleStringProperty();
     private StringProperty status=new SimpleStringProperty();
 
+    public CoreLeadHotel(){
+
+    }
+    public CoreLeadHotel(Integer coreLeadHotelId, String destination, String checkInDate, String checkoutDate, String currencyCode, String hotelCategory, String numberOfNights, String numberOfAdult, String numberOfChild, String numberOfInfants, String totalPax, String roomTariff, String extraBed, String totalPrice, String hotelPlan, String status) {
+        this.coreLeadHotelId.setValue(coreLeadHotelId);
+        this.destination.setValue(destination);
+        this.checkInDate.setValue(checkInDate);
+        this.checkoutDate.setValue(checkoutDate);
+        this.currencyCode.setValue(currencyCode);
+        this.hotelCategory.setValue(hotelCategory);
+        this.numberOfNights.setValue(numberOfNights);
+        this.numberOfAdult.setValue(numberOfAdult);
+        this.numberOfChild.setValue(numberOfChild);
+        this.numberOfInfants.setValue(numberOfInfants);
+        this.totalPax.setValue(totalPax);
+        RoomTariff.setValue(roomTariff);
+        ExtraBed.setValue(extraBed);
+        this.totalPrice.setValue(totalPrice);
+        this.hotelPlan.setValue(hotelPlan);
+        this.status.setValue(status);
+    }
+    public CoreLeadHotel( String destination, String checkInDate, String checkoutDate, String currencyCode, String hotelCategory, String numberOfNights, String numberOfAdult, String numberOfChild, String numberOfInfants, String totalPax, String roomTariff, String extraBed, String totalPrice, String hotelPlan, String status) {
+        this.destination.setValue(destination);
+        this.checkInDate.setValue(checkInDate);
+        this.checkoutDate.setValue(checkoutDate);
+        this.currencyCode.setValue(currencyCode);
+        this.hotelCategory.setValue(hotelCategory);
+        this.numberOfNights.setValue(numberOfNights);
+        this.numberOfAdult.setValue(numberOfAdult);
+        this.numberOfChild.setValue(numberOfChild);
+        this.numberOfInfants.setValue(numberOfInfants);
+        this.totalPax.setValue(totalPax);
+        RoomTariff.setValue(roomTariff);
+        ExtraBed.setValue(extraBed);
+        this.totalPrice.setValue(totalPrice);
+        this.hotelPlan.setValue(hotelPlan);
+        this.status.setValue(status);
+    }
 
     public int getCoreLeadHotelId() {
         return coreLeadHotelId.get();

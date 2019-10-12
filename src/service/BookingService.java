@@ -50,6 +50,7 @@ public class BookingService {
         ArrayList<CoreBookingPassengerEntity> passengerList=new ArrayList<>();
         for (PassengerTableList tableDto:passengerTableLists){
             CoreBookingPassengerEntity entity=new CoreBookingPassengerEntity();
+            entity.setCoreBookingPassengerId(tableDto.getCoreBookingPassengerId()==0?null:tableDto.getCoreBookingPassengerId());
             entity.setFirstName(tableDto.getFirstName());
             entity.setNationality(tableDto.getNationality());
             entity.setPassportNumber(tableDto.getPassportNumber());

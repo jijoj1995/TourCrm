@@ -87,7 +87,7 @@ public class ListQueries implements Initializable {
                     return;
                 }
                 editUserButton.getStyleClass().add("buttonLink");
-
+                editUserButton.setCursor(Cursor.HAND);
                 editUserButton.setText(String.valueOf(queriesList.getQueryId()));
                 setGraphic(editUserButton);
                 editUserButton.setOnAction(event -> {

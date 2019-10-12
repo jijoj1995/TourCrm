@@ -17,12 +17,12 @@ import java.util.List;
         name = "post-entity-graph",
         attributeNodes = {
                 @NamedAttributeNode("coreLeadCommunicationEntity"),
-                @NamedAttributeNode("coreLeadAirEntity"),
+                /*@NamedAttributeNode("coreLeadAirEntities"),*/
                 @NamedAttributeNode("coreLeadHolidaysEntity"),
-                @NamedAttributeNode("coreLeadHotelEntity"),
-                @NamedAttributeNode("coreLeadRailEntity"),
+                @NamedAttributeNode("coreLeadHotelEntities"),
+                /*@NamedAttributeNode("coreLeadRailEntity"),*/
                 @NamedAttributeNode(value = "corebookingEntity",subgraph = "coreBookingEntitySubgraph"),
-                @NamedAttributeNode("coreLeadsNotesEntities"),
+               /* @NamedAttributeNode("coreLeadsNotesEntities"),*/
         },
         subgraphs = {
                 @NamedSubgraph(
@@ -39,7 +39,6 @@ import java.util.List;
                                 @NamedAttributeNode("coreBookingPromotionEntity"),
                         }
                 )
-
         }
 )
 
@@ -68,21 +67,24 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_lead_communication_id")
     private CoreLeadCommunicationEntity coreLeadCommunicationEntity;
 
-    @OneToOne(targetEntity=CoreLeadAirEntity.class,cascade=CascadeType.ALL)
-    @JoinColumn(name="core_lead_Air_id")
-    private CoreLeadAirEntity coreLeadAirEntity;
+    @OneToMany(fetch = FetchType.EAGER,targetEntity= CoreLeadAirEntity.class,cascade=CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name="core_lead_id")
+    private List<CoreLeadAirEntity> coreLeadAirEntities;
+
+    @OneToMany(fetch = FetchType.EAGER,targetEntity= CoreLeadHotelEntity.class,cascade=CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name="core_lead_id")
+    private List<CoreLeadHotelEntity> coreLeadHotelEntities;
 
     @OneToOne(targetEntity=CoreLeadHolidaysEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_lead_holidays_id")
     private CoreLeadHolidaysEntity coreLeadHolidaysEntity;
 
-    @OneToOne(targetEntity=CoreLeadHotelEntity.class,cascade=CascadeType.ALL)
-    @JoinColumn(name="core_lead_hotel_id")
-    private CoreLeadHotelEntity coreLeadHotelEntity;
-
-    @OneToOne(targetEntity=CoreLeadRailEntity.class,cascade=CascadeType.ALL)
-    @JoinColumn(name="core_lead_rail_id")
-    private CoreLeadRailEntity coreLeadRailEntity;
+    @OneToMany(fetch = FetchType.EAGER,targetEntity= CoreLeadRailEntity.class,cascade=CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name="core_lead_id")
+    private List<CoreLeadRailEntity> coreLeadRailEntities;
 
     @OneToOne(targetEntity=CoreBookingEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_booking_id")
@@ -222,12 +224,12 @@ public class CoreLeadEntity implements Serializable {
         this.coreLeadCommunicationEntity = coreLeadCommunicationEntity;
     }
 
-    public CoreLeadAirEntity getCoreLeadAirEntity() {
-        return coreLeadAirEntity;
+    public List<CoreLeadAirEntity> getCoreLeadAirEntities() {
+        return coreLeadAirEntities;
     }
 
-    public void setCoreLeadAirEntity(CoreLeadAirEntity coreLeadAirEntity) {
-        this.coreLeadAirEntity = coreLeadAirEntity;
+    public void setCoreLeadAirEntities(List<CoreLeadAirEntity> coreLeadAirEntities) {
+        this.coreLeadAirEntities = coreLeadAirEntities;
     }
 
     public CoreLeadHolidaysEntity getCoreLeadHolidaysEntity() {
@@ -238,20 +240,20 @@ public class CoreLeadEntity implements Serializable {
         this.coreLeadHolidaysEntity = coreLeadHolidaysEntity;
     }
 
-    public CoreLeadHotelEntity getCoreLeadHotelEntity() {
-        return coreLeadHotelEntity;
+    public List<CoreLeadHotelEntity> getCoreLeadHotelEntities() {
+        return coreLeadHotelEntities;
     }
 
-    public void setCoreLeadHotelEntity(CoreLeadHotelEntity coreLeadHotelEntity) {
-        this.coreLeadHotelEntity = coreLeadHotelEntity;
+    public void setCoreLeadHotelEntities(List<CoreLeadHotelEntity> coreLeadHotelEntities) {
+        this.coreLeadHotelEntities = coreLeadHotelEntities;
     }
 
-    public CoreLeadRailEntity getCoreLeadRailEntity() {
-        return coreLeadRailEntity;
+    public List<CoreLeadRailEntity> getCoreLeadRailEntities() {
+        return coreLeadRailEntities;
     }
 
-    public void setCoreLeadRailEntity(CoreLeadRailEntity coreLeadRailEntity) {
-        this.coreLeadRailEntity = coreLeadRailEntity;
+    public void setCoreLeadRailEntities(List<CoreLeadRailEntity> coreLeadRailEntities) {
+        this.coreLeadRailEntities = coreLeadRailEntities;
     }
 
     public CoreBookingEntity getCorebookingEntity() {

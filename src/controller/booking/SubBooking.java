@@ -9,7 +9,6 @@ import dto.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -56,7 +55,7 @@ public class SubBooking implements Initializable {
     private CoreBookingEntity coreBookingEntity;
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(SubBooking.class);
-    ObservableList<PassengerTableList> data = FXCollections.observableArrayList();
+    private ObservableList<PassengerTableList> passengerTableData = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
@@ -70,7 +69,7 @@ public class SubBooking implements Initializable {
         initialiseAllTextFieldsFromDto();
     }
     private void initialiseAllTextFieldsFromDto(){
-        //set data from coreBooking Dto to all textfields
+        //set passengerTableData from coreBooking Dto to all textfields
         logger.info(" in initialiseAllTextFieldsFromDto method in sub query");
         if(coreBookingEntity==null){
             logger.warn("coreBookingEntity Dto is null. Returning");
@@ -87,8 +86,8 @@ public class SubBooking implements Initializable {
     private void initialisePassengerDetailsFromDto(){
 
         for (CoreBookingPassengerEntity entity:coreBookingEntity.getCoreBookingPassengerEntities())
-        data.add(new PassengerTableList(entity.getCoreBookingPassengerId(),entity.getSegmentNumber(),entity.getGdsPnrNumber(),entity.getFirstName(),entity.getMiddleName(),entity.getLastName(),entity.getPassengerType(),entity.getGender(),entity.getDateOfBirth(),entity.getPassportNumber(),entity.getNationality(),entity.getTypeOfVisa()));
-        passengerTable.setItems(data);
+        passengerTableData.add(new PassengerTableList(entity.getCoreBookingPassengerId(),entity.getSegmentNumber(),entity.getGdsPnrNumber(),entity.getFirstName(),entity.getMiddleName(),entity.getLastName(),entity.getPassengerType(),entity.getGender(),entity.getDateOfBirth(),entity.getPassportNumber(),entity.getNationality(),entity.getTypeOfVisa()));
+        passengerTable.setItems(passengerTableData);
     }
     private void initialisePricingDetailsFromDto(){
         pricingSellingPrice.setText(coreBookingEntity.getCoreBookingPricingEntity().getSellingPrice());
@@ -173,34 +172,34 @@ public class SubBooking implements Initializable {
 
     private void initialisePassengerTable(){
 
-        TableColumn segmentNumber = new TableColumn("Segment No.");
-        TableColumn gdsPnrNumber = new TableColumn("GdsPnr No.");
-        TableColumn firstName = new TableColumn("First Name");
-        TableColumn middleName = new TableColumn("Middle Name");
-        TableColumn lastName = new TableColumn("Last Name");
-        TableColumn passengerType = new TableColumn("Passenger Type");
-        TableColumn gender = new TableColumn("Gender");
-        TableColumn dateOfBirth = new TableColumn("Date of Birth");
-        TableColumn passportNumber = new TableColumn("Passport Number");
-        TableColumn nationality = new TableColumn("Nationality");
-        TableColumn typeOfVisa = new TableColumn("Type Of Visa");
+        TableColumn<PassengerTableList, String> segmentNumber = new TableColumn<>("Segment No.");
+        TableColumn<PassengerTableList, String> gdsPnrNumber = new TableColumn<>("GdsPnr No.");
+        TableColumn<PassengerTableList, String> firstName = new TableColumn<>("First Name");
+        TableColumn<PassengerTableList, String> middleName = new TableColumn<>("Middle Name");
+        TableColumn<PassengerTableList, String> lastName = new TableColumn<>("Last Name");
+        TableColumn<PassengerTableList, String> passengerType = new TableColumn<>("Passenger Type");
+        TableColumn<PassengerTableList, String> gender = new TableColumn<>("Gender");
+        TableColumn<PassengerTableList, String> dateOfBirth = new TableColumn<>("Date of Birth");
+        TableColumn<PassengerTableList, String> passportNumber = new TableColumn<>("Passport Number");
+        TableColumn<PassengerTableList, String> nationality = new TableColumn<>("Nationality");
+        TableColumn<PassengerTableList, String> typeOfVisa = new TableColumn<>("Type Of Visa");
         TableColumn<PassengerTableList, PassengerTableList> delete = new TableColumn<>("Action");
         passengerTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         passengerTable.getColumns().addAll(segmentNumber, gdsPnrNumber,firstName,middleName,lastName, passengerType,gender,passportNumber,nationality,typeOfVisa, delete);
         passengerTable.setEditable(true);
 
-        segmentNumber.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("segmentNumber"));
+        segmentNumber.setCellValueFactory(new PropertyValueFactory<>("segmentNumber"));
 
-        gdsPnrNumber.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("gdsPnrNumber"));
-        firstName.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("firstName"));
-        middleName.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("middleName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("lastName"));
-        passengerType.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("passengerType"));
-        gender.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("gender"));
-        dateOfBirth.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("dateOfBirth"));
-        passportNumber.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("passportNumber"));
-        nationality.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("nationality"));
-        typeOfVisa.setCellValueFactory(new PropertyValueFactory<PassengerTableList, String>("typeOfVisa"));
+        gdsPnrNumber.setCellValueFactory(new PropertyValueFactory<>("gdsPnrNumber"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        middleName.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        passengerType.setCellValueFactory(new PropertyValueFactory<>("passengerType"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        dateOfBirth.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
+        passportNumber.setCellValueFactory(new PropertyValueFactory<>("passportNumber"));
+        nationality.setCellValueFactory(new PropertyValueFactory<>("nationality"));
+        typeOfVisa.setCellValueFactory(new PropertyValueFactory<>("typeOfVisa"));
         segmentNumber.setEditable(true);
         delete.setCellValueFactory(
                 new PropertyValueFactory<PassengerTableList, PassengerTableList>("Action")
@@ -220,11 +219,11 @@ public class SubBooking implements Initializable {
 
                 setGraphic(deleteButton);
                 deleteButton.setOnAction(event -> {
-                    data.remove(item);
+                    passengerTableData.remove(item);
                 });
             }
         });
-        passengerTable.setItems(data);
+        passengerTable.setItems(passengerTableData);
     }
     private void resetPassengerDataFields(){
         passengerFirstName.setText("");
@@ -238,9 +237,9 @@ public class SubBooking implements Initializable {
     }
     @FXML
     private void saveAllSubBookingDataToDto(){
-        // save all tabs data to coreLeadDto
+        // save all tabs passengerTableData to coreLeadDto
 
-        logger.info("saving all sub-booking tabs data to dto");
+        logger.info("saving all sub-booking tabs passengerTableData to dto");
         if(coreBookingEntity ==null){
             coreBookingEntity =new CoreBookingEntity();
             coreBookingEntity.setCoreBookingPassengerEntities(new ArrayList<>());
@@ -259,16 +258,15 @@ public class SubBooking implements Initializable {
                             //set booking details to main Lead dto
         coreLeadDto.setCoreBookingEntity(coreBookingEntity);
         showMainBookingPage();
-
     }
 
     private void setPassengerDataToDto(){
         if(coreBookingEntity.getCoreBookingPassengerEntities()==null)coreBookingEntity.setCoreBookingPassengerEntities(new ArrayList<>());
-        if (data.isEmpty()){
+        if (passengerTableData.isEmpty()){
             logger.warn("no passenger details to be saved. returning");
             return;
         }
-        ArrayList<CoreBookingPassengerEntity>coreBookingPassengerEntities= new BookingService().getPassesngerListFromTableData(data);
+        ArrayList<CoreBookingPassengerEntity>coreBookingPassengerEntities= new BookingService().getPassesngerListFromTableData(passengerTableData);
         coreBookingEntity.setCoreBookingPassengerEntities(coreBookingPassengerEntities);
     }
     private void setPricingDataToDto(){
@@ -379,7 +377,7 @@ public class SubBooking implements Initializable {
     }
     @FXML
     private void addPassengerToTable(){
-        data.add(new PassengerTableList(null,passengerSegmentNumber.getText(),passengerGdsPnrNumber.getText(),passengerFirstName.getText(),passengerMiddleName.getText(),passengerLastName.getText(),passengerType.getValue(),passengerGender.getValue(),passengerDateOfBirth.getValue().toString(),passengerPassportNumber.getText(),passengerNationality.getText(),passengerTypeOfVisa.getText()));
+        passengerTableData.add(new PassengerTableList(null,passengerSegmentNumber.getText(),passengerGdsPnrNumber.getText(),passengerFirstName.getText(),passengerMiddleName.getText(),passengerLastName.getText(),passengerType.getValue(),passengerGender.getValue(),passengerDateOfBirth.getValue().toString(),passengerPassportNumber.getText(),passengerNationality.getText(),passengerTypeOfVisa.getText()));
         resetPassengerDataFields();
     }
 

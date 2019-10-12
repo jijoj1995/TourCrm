@@ -30,6 +30,26 @@ public class CoreLeadRail implements Serializable {
     private StringProperty classOfTravel=new SimpleStringProperty();
     private StringProperty status=new SimpleStringProperty();
 
+    public CoreLeadRail(){
+
+    }
+    public CoreLeadRail(Integer coreLeadRailId, String departureCity, String arrivalCity, String departureDate, String trainNumber, String numberOfAdult, String numberOfChild, String numberOfInfant, String totalPax, String adultFare, String childFare, String totalFare, String classOfTravel, String status) {
+        this.coreLeadRailId.setValue(coreLeadRailId);
+        this.departureCity.setValue(departureCity);
+        this.arrivalCity.setValue(arrivalCity);
+        this.departureDate.setValue(departureDate);
+        this.trainNumber.setValue(trainNumber);
+        this.numberOfAdult.setValue(numberOfAdult);
+        this.numberOfChild.setValue(numberOfChild);
+        this.numberOfInfant.setValue(numberOfInfant);
+        this.totalPax.setValue(totalPax);
+        this.adultFare.setValue(adultFare);
+        this.childFare.setValue(childFare);
+        this.totalFare.setValue(totalFare);
+        this.classOfTravel.setValue(classOfTravel);
+        this.status.setValue(status);
+    }
+
     public int getCoreLeadRailId() {
         return coreLeadRailId.get();
     }

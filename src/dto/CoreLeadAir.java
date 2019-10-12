@@ -26,6 +26,27 @@ public class CoreLeadAir {
     private StringProperty classOfTravel=new SimpleStringProperty();
     private StringProperty status=new SimpleStringProperty();
 
+    public CoreLeadAir(Integer coreLeadAirId, String fromDestination, String toDestination, String departureDate, String returnDate, String airlinesOffered, String currencyCode, String numberOfAdult, String numberOfChild, String numberOfInfant, String totalPax, String adultFare, String childFare, String infantFare, String totalPrice, String typeOfTravel, String classOfTravel, String status) {
+        this.coreLeadAirId .setValue( coreLeadAirId);
+        this.fromDestination .setValue( fromDestination);
+        this.toDestination .setValue( toDestination);
+        this.departureDate .setValue( departureDate);
+        this.returnDate .setValue( returnDate);
+        this.airlinesOffered .setValue( airlinesOffered);
+        this.currencyCode .setValue( currencyCode);
+        this.numberOfAdult .setValue( numberOfAdult);
+        this.numberOfChild .setValue( numberOfChild);
+        this.numberOfInfant .setValue( numberOfInfant);
+        this.totalPax .setValue( totalPax);
+        this.adultFare .setValue( adultFare);
+        this.childFare .setValue( childFare);
+        this.infantFare .setValue( infantFare);
+        this.totalPrice .setValue( totalPrice);
+        this.typeOfTravel .setValue( typeOfTravel);
+        this.classOfTravel .setValue( classOfTravel);
+        this.status .setValue( status);
+    }
+
     public int getCoreLeadAirId() {
         return coreLeadAirId.get();
     }

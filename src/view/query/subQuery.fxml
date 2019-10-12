@@ -10,13 +10,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
+<AnchorPane fx:id="mainPane" stylesheets="/view/tabPane.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
     <children>
         <BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -318,6 +319,29 @@
                                           </HBox>
                                                           </children>
                                                       </HBox>
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                       <children>
+                                          <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <FontAwesomeIconView glyphName="PLUS_CIRCLE" onMouseClicked="#addHotelToTable" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <cursor>
+                                                      <Cursor fx:constant="OPEN_HAND" />
+                                                   </cursor>
+                                                </FontAwesomeIconView>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <TableView fx:id="hotelTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
                                             </children>
                                  <padding>
                                     <Insets left="50.0" right="50.0" top="20.0" />
@@ -333,7 +357,7 @@
                                     <children>
                                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                    <VBox spacing="20.0" styleClass="detailsVbox">
+                                                    <VBox spacing="10.0" styleClass="detailsVbox">
                                                         <children>
                                                             <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                                                 <children>
@@ -532,6 +556,29 @@
                                                             <Insets left="50.0" right="50.0" top="20.0" />
                                                         </padding>
                                                     </VBox>
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                       <children>
+                                          <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <FontAwesomeIconView glyphName="PLUS_CIRCLE" onMouseClicked="#addAirToTable" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <cursor>
+                                                      <Cursor fx:constant="OPEN_HAND" />
+                                                   </cursor>
+                                                </FontAwesomeIconView>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <TableView fx:id="airTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -699,6 +746,29 @@
                                                             <Insets left="50.0" right="50.0" top="20.0" />
                                                         </padding>
                                                     </VBox>
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                       <children>
+                                          <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <FontAwesomeIconView glyphName="PLUS_CIRCLE" onMouseClicked="#addRailToTable" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <cursor>
+                                                      <Cursor fx:constant="OPEN_HAND" />
+                                                   </cursor>
+                                                </FontAwesomeIconView>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <TableView fx:id="railTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -749,7 +819,7 @@
                             <children>
                                 <Button mnemonicParsing="false" onAction="#saveSubQueryData" styleClass="buttonPrimary" text="Save">
                            <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor></Button>
                             </children>
                             <padding>

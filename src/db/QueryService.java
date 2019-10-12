@@ -5,16 +5,12 @@ import javafx.collections.ObservableList;
 import main.InventoryConfig;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
-import org.jetbrains.annotations.NotNull;
 import service.EmailService;
 import service.HibernateUtil;
 
 import javax.persistence.EntityGraph;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class QueryService {
     private Logger logger=Logger.getLogger(QueryService.class);
@@ -51,7 +47,6 @@ public class QueryService {
             }
         }
     }
-
     /*
     method to fetch all queries as well as booking
     details from db. entity graph is used to load sub entities efficiently
@@ -64,7 +59,7 @@ public class QueryService {
 try {
      session = HibernateUtil.getSessionFactory().openSession();
      session.beginTransaction();
-     List<CoreLeadEntity> results=null;
+     List<CoreLeadEntity> results;
      EntityGraph graph = session.getEntityGraph("post-entity-graph");
 
     if (employeeName.equals("admin")) {
@@ -112,16 +107,56 @@ finally {
         return notesDtos;
     }
 
+    public ArrayList<CoreLeadHotelEntity> getHotelListFromTableData(ObservableList<CoreLeadHotel> hotelObservableList){
+        ArrayList<CoreLeadHotelEntity> hotelList=new ArrayList<>();
+        for (CoreLeadHotel tableDto:hotelObservableList){
+            CoreLeadHotelEntity entity=new CoreLeadHotelEntity();
+            entity.setCheckInDate(tableDto.getCheckInDate());
+            entity.setCheckoutDate(tableDto.getCheckoutDate());
+            entity.setCurrencyCode(tableDto.getCurrencyCode());
+            entity.setDestination(tableDto.getDestination());
+            entity.setExtraBed(tableDto.getExtraBed());
+            entity.setHotelCategory(tableDto.getHotelCategory());
+            entity.setHotelPlan(tableDto.getHotelPlan());
+            entity.setNumberOfAdult(tableDto.getNumberOfAdult());
+            entity.setNumberOfChild(tableDto.getNumberOfChild());
+            entity.setNumberOfInfants(tableDto.getNumberOfInfants());
+            entity.setNumberOfNights(tableDto.getNumberOfNights());
+            entity.setRoomTariff(tableDto.getRoomTariff());
+            entity.setStatus(tableDto.getStatus());
+            entity.setTotalPax(tableDto.getTotalPax());
+            entity.setTotalPrice(tableDto.getTotalPrice());
+            entity.setCoreLeadHotelId((tableDto.getCoreLeadHotelId()==0?null:tableDto.getCoreLeadHotelId()));
+            hotelList.add(entity);
+        }
 
-    private CoreLeadEntity setValuesFromCoreLeadDto(@NotNull CoreLead coreLeadDto){
+        return hotelList;
+    }
+
+    public ArrayList<CoreLeadAirEntity> getAirListFromTableData(ObservableList<CoreLeadAir> airObservableList){
+        ArrayList<CoreLeadAirEntity> airList=new ArrayList<>();
+        for (CoreLeadAir tableDto:airObservableList){
+            airList.add(new CoreLeadAirEntity((tableDto.getCoreLeadAirId()==0?null:tableDto.getCoreLeadAirId()),  tableDto.getFromDestination(),  tableDto.getToDestination(),  tableDto.getDepartureDate(),  tableDto.getReturnDate(),  tableDto.getAirlinesOffered(),  tableDto.getCurrencyCode(),  tableDto.getNumberOfAdult(),  tableDto.getNumberOfChild(),  tableDto.getNumberOfInfant(),  tableDto.getTotalPax(),  tableDto.getAdultFare(),  tableDto.getChildFare(),  tableDto.getInfantFare(),  tableDto.getTotalPrice(),  tableDto.getTypeOfTravel(),  tableDto.getClassOfTravel(),  tableDto.getStatus()));
+        }
+        return airList;
+    }
+    public ArrayList<CoreLeadRailEntity> getRailListFromTableData(ObservableList<CoreLeadRail> railObservableList){
+        ArrayList<CoreLeadRailEntity> railList=new ArrayList<>();
+        for (CoreLeadRail tableDto:railObservableList){
+            railList.add(new CoreLeadRailEntity( (tableDto.getCoreLeadRailId()==0?null:tableDto.getCoreLeadRailId()),  tableDto.getDepartureCity(),  tableDto.getArrivalCity(),  tableDto.getDepartureDate(),  tableDto.getTrainNumber(),  tableDto.getNumberOfAdult(),  tableDto.getNumberOfChild(),  tableDto.getNumberOfInfant(),  tableDto.getTotalPax(),  tableDto.getAdultFare(),  tableDto.getChildFare(),  tableDto.getTotalFare(),  tableDto.getClassOfTravel(),  tableDto.getStatus()));
+        }
+        return railList;
+    }
+
+    private CoreLeadEntity setValuesFromCoreLeadDto( CoreLead coreLeadDto){
 
         //initialising new core lead entity object
         CoreLeadEntity coreLeadEntity=new CoreLeadEntity();
-        coreLeadEntity.setCoreLeadAirEntity(new CoreLeadAirEntity());
+        coreLeadEntity.setCoreLeadAirEntities(new ArrayList<>());
         coreLeadEntity.setCoreLeadCommunicationEntity(new CoreLeadCommunicationEntity());
         coreLeadEntity.setCoreLeadHolidaysEntity(new CoreLeadHolidaysEntity());
-        coreLeadEntity.setCoreLeadHotelEntity(new CoreLeadHotelEntity());
-        coreLeadEntity.setCoreLeadRailEntity(new CoreLeadRailEntity());
+        coreLeadEntity.setCoreLeadHotelEntities(new ArrayList<>());
+        coreLeadEntity.setCoreLeadRailEntities(new ArrayList<>());
 
         //general Details
         coreLeadEntity.setCoreLeadId(coreLeadDto.getCoreLeadId()==0?null:coreLeadDto.getCoreLeadId());
@@ -154,50 +189,10 @@ finally {
         }
 
         //airdetails
-        if (coreLeadDto.getCoreLeadAir()!=null){
-            coreLeadEntity.getCoreLeadAirEntity().setCoreLeadAirId(coreLeadDto.getCoreLeadAir().getCoreLeadAirId()==0? null:coreLeadDto.getCoreLeadAir().getCoreLeadAirId());
-
-            coreLeadEntity.getCoreLeadAirEntity().setFromDestination(coreLeadDto.getCoreLeadAir().getFromDestination());
-            coreLeadEntity.getCoreLeadAirEntity().setToDestination(coreLeadDto.getCoreLeadAir().getToDestination());
-            coreLeadEntity.getCoreLeadAirEntity().setDepartureDate(coreLeadDto.getCoreLeadAir().getDepartureDate());
-            coreLeadEntity.getCoreLeadAirEntity().setReturnDate(coreLeadDto.getCoreLeadAir().getReturnDate());
-            coreLeadEntity.getCoreLeadAirEntity().setAirlinesOffered(coreLeadDto.getCoreLeadAir().getAirlinesOffered());
-            coreLeadEntity.getCoreLeadAirEntity().setCurrencyCode(coreLeadDto.getCoreLeadAir().getCurrencyCode());
-            coreLeadEntity.getCoreLeadAirEntity().setNumberOfAdult(coreLeadDto.getCoreLeadAir().getNumberOfAdult());
-            coreLeadEntity.getCoreLeadAirEntity().setNumberOfChild(coreLeadDto.getCoreLeadAir().getNumberOfChild());
-            coreLeadEntity.getCoreLeadAirEntity().setNumberOfInfant(coreLeadDto.getCoreLeadAir().getNumberOfInfant());
-            coreLeadEntity.getCoreLeadAirEntity().setTotalPax(coreLeadDto.getCoreLeadAir().getTotalPax());
-            coreLeadEntity.getCoreLeadAirEntity().setAdultFare(coreLeadDto.getCoreLeadAir().getAdultFare());
-            coreLeadEntity.getCoreLeadAirEntity().setChildFare(coreLeadDto.getCoreLeadAir().getChildFare());
-            coreLeadEntity.getCoreLeadAirEntity().setInfantFare(coreLeadDto.getCoreLeadAir().getInfantFare());
-            coreLeadEntity.getCoreLeadAirEntity().setTotalPrice(coreLeadDto.getCoreLeadAir().getTotalPrice());
-            coreLeadEntity.getCoreLeadAirEntity().setTypeOfTravel(coreLeadDto.getCoreLeadAir().getTypeOfTravel());
-            coreLeadEntity.getCoreLeadAirEntity().setClassOfTravel(coreLeadDto.getCoreLeadAir().getClassOfTravel());
-            coreLeadEntity.getCoreLeadAirEntity().setStatus(coreLeadDto.getCoreLeadAir().getStatus());
-
-
-        }
+        if (coreLeadDto.getCoreLeadAirList()!=null){coreLeadEntity.setCoreLeadAirEntities(coreLeadDto.getCoreLeadAirList());}
 
         //hotelDetails
-        if (coreLeadDto.getCoreLeadHotel()!=null){
-            coreLeadEntity.getCoreLeadHotelEntity().setCoreLeadHotelId(coreLeadDto.getCoreLeadHotel().getCoreLeadHotelId()==0? null:coreLeadDto.getCoreLeadHotel().getCoreLeadHotelId());
-            coreLeadEntity.getCoreLeadHotelEntity().setCheckInDate(coreLeadDto.getCoreLeadHotel().getCheckInDate());
-            coreLeadEntity.getCoreLeadHotelEntity().setCheckInDate(coreLeadDto.getCoreLeadHotel().getCheckInDate());
-            coreLeadEntity.getCoreLeadHotelEntity().setCheckoutDate(coreLeadDto.getCoreLeadHotel().getCheckoutDate());
-            coreLeadEntity.getCoreLeadHotelEntity().setCurrencyCode(coreLeadDto.getCoreLeadHotel().getCurrencyCode());
-            coreLeadEntity.getCoreLeadHotelEntity().setDestination(coreLeadDto.getCoreLeadHotel().getDestination());
-            coreLeadEntity.getCoreLeadHotelEntity().setExtraBed(coreLeadDto.getCoreLeadHotel().getExtraBed());
-            coreLeadEntity.getCoreLeadHotelEntity().setHotelCategory(coreLeadDto.getCoreLeadHotel().getHotelCategory());
-            coreLeadEntity.getCoreLeadHotelEntity().setHotelPlan(coreLeadDto.getCoreLeadHotel().getHotelPlan());
-            coreLeadEntity.getCoreLeadHotelEntity().setNumberOfAdult(coreLeadDto.getCoreLeadHotel().getNumberOfAdult());
-            coreLeadEntity.getCoreLeadHotelEntity().setNumberOfChild(coreLeadDto.getCoreLeadHotel().getNumberOfChild());
-            coreLeadEntity.getCoreLeadHotelEntity().setNumberOfInfants(coreLeadDto.getCoreLeadHotel().getNumberOfInfants());
-            coreLeadEntity.getCoreLeadHotelEntity().setNumberOfNights(coreLeadDto.getCoreLeadHotel().getNumberOfNights());
-            coreLeadEntity.getCoreLeadHotelEntity().setRoomTariff(coreLeadDto.getCoreLeadHotel().getRoomTariff());
-            coreLeadEntity.getCoreLeadHotelEntity().setStatus(coreLeadDto.getCoreLeadHotel().getStatus());
-            coreLeadEntity.getCoreLeadHotelEntity().setTotalPax(coreLeadDto.getCoreLeadHotel().getTotalPax());
-            coreLeadEntity.getCoreLeadHotelEntity().setTotalPrice(coreLeadDto.getCoreLeadHotel().getTotalPrice());
-        }
+        if (coreLeadDto.getCoreLeadHotelList()!=null){coreLeadEntity.setCoreLeadHotelEntities(coreLeadDto.getCoreLeadHotelList());}
 
         //holidays details
         if(coreLeadDto.getCoreLeadHolidays()!=null){
@@ -222,22 +217,7 @@ finally {
         }
 
         //rail Details
-        if(coreLeadDto.getCoreLeadRail()!=null){
-            coreLeadEntity.getCoreLeadRailEntity().setCoreLeadRailId(coreLeadDto.getCoreLeadRail().getCoreLeadRailId()==0? null:coreLeadDto.getCoreLeadRail().getCoreLeadRailId());
-            coreLeadEntity.getCoreLeadRailEntity().setAdultFare(coreLeadDto.getCoreLeadRail().getAdultFare());
-            coreLeadEntity.getCoreLeadRailEntity().setArrivalCity(coreLeadDto.getCoreLeadRail().getArrivalCity());
-            coreLeadEntity.getCoreLeadRailEntity().setChildFare(coreLeadDto.getCoreLeadRail().getChildFare());
-            coreLeadEntity.getCoreLeadRailEntity().setClassOfTravel(coreLeadDto.getCoreLeadRail().getClassOfTravel());
-            coreLeadEntity.getCoreLeadRailEntity().setDepartureCity(coreLeadDto.getCoreLeadRail().getDepartureCity());
-            coreLeadEntity.getCoreLeadRailEntity().setDepartureDate(coreLeadDto.getCoreLeadRail().getDepartureDate());
-            coreLeadEntity.getCoreLeadRailEntity().setNumberOfAdult(coreLeadDto.getCoreLeadRail().getNumberOfAdult());
-            coreLeadEntity.getCoreLeadRailEntity().setNumberOfChild(coreLeadDto.getCoreLeadRail().getNumberOfChild());
-            coreLeadEntity.getCoreLeadRailEntity().setNumberOfInfant(coreLeadDto.getCoreLeadRail().getNumberOfInfant());
-            coreLeadEntity.getCoreLeadRailEntity().setStatus(coreLeadDto.getCoreLeadRail().getStatus());
-            coreLeadEntity.getCoreLeadRailEntity().setTotalFare(coreLeadDto.getCoreLeadRail().getTotalFare());
-            coreLeadEntity.getCoreLeadRailEntity().setTotalPax(coreLeadDto.getCoreLeadRail().getTotalPax());
-            coreLeadEntity.getCoreLeadRailEntity().setTrainNumber(coreLeadDto.getCoreLeadRail().getTrainNumber());
-        }
+        if(coreLeadDto.getCoreLeadRailList()!=null){coreLeadEntity.setCoreLeadRailEntities(coreLeadDto.getCoreLeadRailList());}
         //notes Details
         coreLeadEntity.setCoreLeadsNotesEntities(coreLeadDto.getCoreLeadNotesEntitySet());
 
@@ -247,15 +227,15 @@ finally {
     }
 
 
-    private CoreLead setValuesFromCoreLeadEntity(@NotNull CoreLeadEntity coreLeadEntity){
+    private CoreLead setValuesFromCoreLeadEntity( CoreLeadEntity coreLeadEntity){
 
                            //initialising new core lead entity object
         CoreLead coreLeadDto=new CoreLead();
-        coreLeadDto.setCoreLeadAir(new CoreLeadAir());
+        coreLeadDto.setCoreLeadAirList(new ArrayList<>());
         coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
         coreLeadDto.setCoreLeadHolidays(new CoreLeadHolidays());
-        coreLeadDto.setCoreLeadHotel(new CoreLeadHotel());
-        coreLeadDto.setCoreLeadRail(new CoreLeadRail());
+        coreLeadDto.setCoreLeadHotelList(new ArrayList<>());
+        coreLeadDto.setCoreLeadRailList(new ArrayList<>());
         coreLeadDto.setCoreLeadNotesEntitySet(new ArrayList<>());
 
                                   //general Details
@@ -289,47 +269,10 @@ finally {
         }
 
                                   //airdetails
-        if (coreLeadEntity.getCoreLeadAirEntity()!=null){
-            coreLeadDto.getCoreLeadAir().setCoreLeadAirId(coreLeadEntity.getCoreLeadAirEntity().getCoreLeadAirId());
-            coreLeadDto.getCoreLeadAir().setFromDestination(coreLeadEntity.getCoreLeadAirEntity().getFromDestination());
-            coreLeadDto.getCoreLeadAir().setToDestination(coreLeadEntity.getCoreLeadAirEntity().getToDestination());
-            coreLeadDto.getCoreLeadAir().setDepartureDate(coreLeadEntity.getCoreLeadAirEntity().getDepartureDate());
-            coreLeadDto.getCoreLeadAir().setReturnDate(coreLeadEntity.getCoreLeadAirEntity().getReturnDate());
-            coreLeadDto.getCoreLeadAir().setAirlinesOffered(coreLeadEntity.getCoreLeadAirEntity().getAirlinesOffered());
-            coreLeadDto.getCoreLeadAir().setCurrencyCode(coreLeadEntity.getCoreLeadAirEntity().getCurrencyCode());
-            coreLeadDto.getCoreLeadAir().setNumberOfAdult(coreLeadEntity.getCoreLeadAirEntity().getNumberOfAdult());
-            coreLeadDto.getCoreLeadAir().setNumberOfChild(coreLeadEntity.getCoreLeadAirEntity().getNumberOfChild());
-            coreLeadDto.getCoreLeadAir().setNumberOfInfant(coreLeadEntity.getCoreLeadAirEntity().getNumberOfInfant());
-            coreLeadDto.getCoreLeadAir().setTotalPax(coreLeadEntity.getCoreLeadAirEntity().getTotalPax());
-            coreLeadDto.getCoreLeadAir().setAdultFare(coreLeadEntity.getCoreLeadAirEntity().getAdultFare());
-            coreLeadDto.getCoreLeadAir().setChildFare(coreLeadEntity.getCoreLeadAirEntity().getChildFare());
-            coreLeadDto.getCoreLeadAir().setInfantFare(coreLeadEntity.getCoreLeadAirEntity().getInfantFare());
-            coreLeadDto.getCoreLeadAir().setTotalPrice(coreLeadEntity.getCoreLeadAirEntity().getTotalPrice());
-            coreLeadDto.getCoreLeadAir().setTypeOfTravel(coreLeadEntity.getCoreLeadAirEntity().getTypeOfTravel());
-            coreLeadDto.getCoreLeadAir().setClassOfTravel(coreLeadEntity.getCoreLeadAirEntity().getClassOfTravel());
-            coreLeadDto.getCoreLeadAir().setStatus(coreLeadEntity.getCoreLeadAirEntity().getStatus());
-        }
+        if (coreLeadEntity.getCoreLeadAirEntities()!=null){coreLeadDto.setCoreLeadAirList(coreLeadEntity.getCoreLeadAirEntities());}
 
         //hotelDetails
-        if (coreLeadEntity.getCoreLeadHotelEntity()!=null){
-            coreLeadDto.getCoreLeadHotel().setCoreLeadHotelId(coreLeadEntity.getCoreLeadHotelEntity().getCoreLeadHotelId());
-            coreLeadDto.getCoreLeadHotel().setCheckInDate(coreLeadEntity.getCoreLeadHotelEntity().getCheckInDate());
-            coreLeadDto.getCoreLeadHotel().setCheckInDate(coreLeadEntity.getCoreLeadHotelEntity().getCheckInDate());
-            coreLeadDto.getCoreLeadHotel().setCheckoutDate(coreLeadEntity.getCoreLeadHotelEntity().getCheckoutDate());
-            coreLeadDto.getCoreLeadHotel().setCurrencyCode(coreLeadEntity.getCoreLeadHotelEntity().getCurrencyCode());
-            coreLeadDto.getCoreLeadHotel().setDestination(coreLeadEntity.getCoreLeadHotelEntity().getDestination());
-            coreLeadDto.getCoreLeadHotel().setExtraBed(coreLeadEntity.getCoreLeadHotelEntity().getExtraBed());
-            coreLeadDto.getCoreLeadHotel().setHotelCategory(coreLeadEntity.getCoreLeadHotelEntity().getHotelCategory());
-            coreLeadDto.getCoreLeadHotel().setHotelPlan(coreLeadEntity.getCoreLeadHotelEntity().getHotelPlan());
-            coreLeadDto.getCoreLeadHotel().setNumberOfAdult(coreLeadEntity.getCoreLeadHotelEntity().getNumberOfAdult());
-            coreLeadDto.getCoreLeadHotel().setNumberOfChild(coreLeadEntity.getCoreLeadHotelEntity().getNumberOfChild());
-            coreLeadDto.getCoreLeadHotel().setNumberOfInfants(coreLeadEntity.getCoreLeadHotelEntity().getNumberOfInfants());
-            coreLeadDto.getCoreLeadHotel().setNumberOfNights(coreLeadEntity.getCoreLeadHotelEntity().getNumberOfNights());
-            coreLeadDto.getCoreLeadHotel().setRoomTariff(coreLeadEntity.getCoreLeadHotelEntity().getRoomTariff());
-            coreLeadDto.getCoreLeadHotel().setStatus(coreLeadEntity.getCoreLeadHotelEntity().getStatus());
-            coreLeadDto.getCoreLeadHotel().setTotalPax(coreLeadEntity.getCoreLeadHotelEntity().getTotalPax());
-            coreLeadDto.getCoreLeadHotel().setTotalPrice(coreLeadEntity.getCoreLeadHotelEntity().getTotalPrice());
-        }
+        if (coreLeadEntity.getCoreLeadHotelEntities()!=null){coreLeadDto.setCoreLeadHotelList(coreLeadEntity.getCoreLeadHotelEntities());}
 
         //holidays details
         if(coreLeadEntity.getCoreLeadHolidaysEntity()!=null){
@@ -354,22 +297,7 @@ finally {
         }
 
         //rail Details
-        if(coreLeadEntity.getCoreLeadRailEntity()!=null){
-            coreLeadDto.getCoreLeadRail().setCoreLeadRailId(coreLeadEntity.getCoreLeadRailEntity().getCoreLeadRailId());
-            coreLeadDto.getCoreLeadRail().setAdultFare(coreLeadEntity.getCoreLeadRailEntity().getAdultFare());
-            coreLeadDto.getCoreLeadRail().setArrivalCity(coreLeadEntity.getCoreLeadRailEntity().getArrivalCity());
-            coreLeadDto.getCoreLeadRail().setChildFare(coreLeadEntity.getCoreLeadRailEntity().getChildFare());
-            coreLeadDto.getCoreLeadRail().setClassOfTravel(coreLeadEntity.getCoreLeadRailEntity().getClassOfTravel());
-            coreLeadDto.getCoreLeadRail().setDepartureCity(coreLeadEntity.getCoreLeadRailEntity().getDepartureCity());
-            coreLeadDto.getCoreLeadRail().setDepartureDate(coreLeadEntity.getCoreLeadRailEntity().getDepartureDate());
-            coreLeadDto.getCoreLeadRail().setNumberOfAdult(coreLeadEntity.getCoreLeadRailEntity().getNumberOfAdult());
-            coreLeadDto.getCoreLeadRail().setNumberOfChild(coreLeadEntity.getCoreLeadRailEntity().getNumberOfChild());
-            coreLeadDto.getCoreLeadRail().setNumberOfInfant(coreLeadEntity.getCoreLeadRailEntity().getNumberOfInfant());
-            coreLeadDto.getCoreLeadRail().setStatus(coreLeadEntity.getCoreLeadRailEntity().getStatus());
-            coreLeadDto.getCoreLeadRail().setTotalFare(coreLeadEntity.getCoreLeadRailEntity().getTotalFare());
-            coreLeadDto.getCoreLeadRail().setTotalPax(coreLeadEntity.getCoreLeadRailEntity().getTotalPax());
-            coreLeadDto.getCoreLeadRail().setTrainNumber(coreLeadEntity.getCoreLeadRailEntity().getTrainNumber());
-        }
+        if(coreLeadEntity.getCoreLeadRailEntities()!=null){coreLeadDto.setCoreLeadRailList(coreLeadEntity.getCoreLeadRailEntities());}
         //notes details
         coreLeadDto.setCoreLeadNotesEntitySet(coreLeadEntity.getCoreLeadsNotesEntities());
 

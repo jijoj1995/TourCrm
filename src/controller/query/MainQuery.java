@@ -1,15 +1,12 @@
 package controller.query;
 
 import com.jfoenix.controls.*;
-import com.jfoenix.validation.RequiredFieldValidator;
 import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
-import db.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
-import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +28,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.Window;
 import main.InventoryConfig;
 import main.Main;
 import main.WorkIndicatorDialog;
@@ -64,7 +60,7 @@ public class MainQuery implements Initializable {
     private CoreLead coreLeadDto;
     private Logger logger=Logger.getLogger(MainQuery.class);
     private InventoryConfig inventoryConfig=InventoryConfig.getInstance();
-    private ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
+    private ObservableList<CoreLeadNotesDto> notesData = FXCollections.observableArrayList();
     private Stage notesDialog=null;
     private WorkIndicatorDialog wd=null;
     @Override
@@ -123,10 +119,10 @@ public class MainQuery implements Initializable {
             usaHome.setText(coreLeadDto.getCoreLeadCommunication().getUsaHome());
             indiaMobile.setText(coreLeadDto.getCoreLeadCommunication().getIndiaMobile());
 
-            //set notes data to table
+            //set notes notesData to table
         if (coreLeadDto.getCoreLeadNotesEntitySet()!=null) {
             for (CoreLeadNotesEntity entity : coreLeadDto.getCoreLeadNotesEntitySet())
-                data.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(), entity.getNotesData()));
+                notesData.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(), entity.getNotesData()));
         }
     }
 
@@ -136,7 +132,7 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void showSubQueryPage(){
-        logger.info("saving entered data to Core Lead dto before going to subQueryPage");
+        logger.info("saving entered notesData to Core Lead dto before going to subQueryPage");
             setTextFieldDataToDto();
             //loading sub queryPage
         FXMLLoader Loader = new FXMLLoader();
@@ -181,16 +177,16 @@ public class MainQuery implements Initializable {
         coreLeadDto.getCoreLeadCommunication().setPaxEmailSecond(paxEmailSecond.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaHome(usaHome.getText());
 
-        //set notes data
+        //set notes notesData
         setNotesDataToDto();
     }
 
     private void setNotesDataToDto(){
-        if (data.isEmpty()){
+        if (notesData.isEmpty()){
             logger.warn("no notes details to be saved. returning");
             return;
         }
-        ArrayList<CoreLeadNotesEntity>coreBookingPassengerEntities= queryService.getNotesListFromTable(data);
+        ArrayList<CoreLeadNotesEntity>coreBookingPassengerEntities= queryService.getNotesListFromTable(notesData);
         coreLeadDto.setCoreLeadNotesEntitySet(coreBookingPassengerEntities);
 
     }
@@ -235,7 +231,6 @@ public class MainQuery implements Initializable {
 
         });
 
-
         wd.addTaskEndNotification(result -> {
             try {
                 reference.set((Integer) result);
@@ -249,11 +244,11 @@ public class MainQuery implements Initializable {
                         showQuickTransactionPage();
                         return;
                     case InventoryConstants.queryInsertionFailed:
-                        Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+                        Toast.makeText(stage,"Unable to save query notesData. Please check input values or restart application",1000,500,500 );
                 }
             }
             catch (Exception e){
-                logger.warn("exception found while saving query data== "+e.getMessage());
+                logger.warn("exception found while saving query notesData== "+e.getMessage());
             }
         });
     }
@@ -330,7 +325,7 @@ public class MainQuery implements Initializable {
 
             addButton.setOnAction(event -> {
                 if (!jfxTextArea.getText().equals(""))
-                    data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
+                    notesData.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
                 jfxTextArea.setText("");
                 jfxTextArea.requestFocus();
 
@@ -362,14 +357,14 @@ public class MainQuery implements Initializable {
                     deleteButton.setGlyphSize(30);
                     setGraphic(deleteButton);
                     deleteButton.setOnMouseClicked(event -> {
-                        data.remove(item);
+                        notesData.remove(item);
                     });
                 }
             });
             HBox buttonHbox=new HBox();
             buttonHbox.getChildren().add(addButton);
             buttonHbox.getChildren().add(closeButton);
-            tableView.setItems(data);
+            tableView.setItems(notesData);
             vBox.getChildren().add(label);
             vBox.getChildren().add(jfxTextArea);
             vBox.getChildren().add(buttonHbox);
@@ -393,8 +388,6 @@ public class MainQuery implements Initializable {
             Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
             queryTabs.getSelectionModel().select(0);
         }
-
-
     }
 
     private boolean isValidEmailEntered(){
@@ -408,16 +401,7 @@ public class MainQuery implements Initializable {
         return !(firstName.getText().isEmpty()||lastName.getText().isEmpty()) ;
     }
     private boolean isNotesAdded(){
-        return  !(data.isEmpty());
+        return  !(notesData.isEmpty());
     }
 
-    /*private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.initModality(Modality.APPLICATION_MODAL);
-        alert.show();
-    }*/
 }
