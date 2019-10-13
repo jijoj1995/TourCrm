@@ -240,112 +240,116 @@
                                     <children>
                                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                      <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
-                                                          <children>
-                                          <HBox HBox.hgrow="ALWAYS">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                             <children>
-                                                                    <HBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                                                        <children>
-                                                      <VBox maxWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
-                                                         <children>
-                                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Destination:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Check-out Date:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Hotel Category:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Adult:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Infants:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Room Tarif:" />
-                                                            <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Price:" />
-                                                            <HBox>
-                                                               <children>
-                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Status:" HBox.hgrow="ALWAYS" />
-                                                               </children>
-                                                               <opaqueInsets>
-                                                                  <Insets right="10.0" />
-                                                               </opaqueInsets>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox spacing="20.0" HBox.hgrow="ALWAYS">
-                                                         <children>
-                                                                                  <JFXTextField fx:id="hotelDestination" prefColumnCount="0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Destination..." />
-                                                                                  <JFXDatePicker fx:id="hotelCheckOutDate" maxWidth="370.0" prefWidth="300.0" />
-                                                                                  <JFXComboBox fx:id="hotelCategory" maxWidth="1.7976931348623157E308" prefWidth="170.0" />
-                                                                                  <JFXTextField fx:id="hotelNumberOfAdult" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Adults..." />
-                                                                                  <JFXTextField fx:id="hotelNumberOfInfant" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Infants..." />
-                                                                                  <JFXTextField fx:id="hotelRoomTariff" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Room Tarif..." />
-                                                                                  <JFXTextField fx:id="hotelTotalPrice" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Price..." />
-                                                            <JFXComboBox fx:id="hotelStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
-                                                         </children>
-                                                      </VBox>
-                                                                        </children>
-                                                                        <opaqueInsets>
-                                                                            <Insets right="10.0" />
-                                                                        </opaqueInsets>
-                                                                    </HBox>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                                    <HBox HBox.hgrow="ALWAYS">
-                                                                        <children>
-                                                      <VBox maxWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
-                                                         <children>
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Check-In Date:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Nights:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Child:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Pax:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Extra Bed:" />
-                                                                                  <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Hotel Plan:" />
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox spacing="20.0" HBox.hgrow="ALWAYS">
-                                                         <children>
-                                                                                  <JFXDatePicker fx:id="hotelCheckInDate" maxWidth="370.0" prefWidth="300.0" />
-                                                                                  <JFXComboBox fx:id="hotelCurrencyCode" maxWidth="1.7976931348623157E308" prefWidth="200.0" />
-                                                                                  <JFXTextField fx:id="hotelNumberOfNights" prefHeight="25.0" prefWidth="170.0" promptText="Enter No. of Nights..." />
-                                                                                  <JFXTextField fx:id="hotelNumberOfChild" prefHeight="25.0" prefWidth="150.0" promptText="Enter No. of Child..." />
-                                                                                  <JFXTextField fx:id="hotelTotalPax" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Pax..." />
-                                                                                  <JFXTextField fx:id="hotelExtraBed" prefHeight="25.0" prefWidth="150.0" promptText="Enter Extra Bed..." />
-                                                                                  <JFXComboBox fx:id="hotelPlan" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
-                                                         </children>
-                                                      </VBox>
-                                                                        </children>
-                                                                    </HBox>
-                                             </children>
-                                          </HBox>
-                                                          </children>
-                                                      </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                    <VBox>
                                        <children>
-                                          <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                                            <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                                                <children>
+                                                <HBox HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <children>
+                                                                          <HBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                              <children>
+                                                            <VBox maxWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                                        <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Destination:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Check-out Date:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Hotel Category:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Adult:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Infants:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Room Tarif:" />
+                                                                  <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Price:" />
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Status:" HBox.hgrow="ALWAYS" />
+                                                                     </children>
+                                                                     <opaqueInsets>
+                                                                        <Insets right="10.0" />
+                                                                     </opaqueInsets>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                                        <JFXTextField fx:id="hotelDestination" prefColumnCount="0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Destination..." />
+                                                                                        <JFXDatePicker fx:id="hotelCheckOutDate" maxWidth="370.0" prefWidth="300.0" />
+                                                                                        <JFXComboBox fx:id="hotelCategory" maxWidth="1.7976931348623157E308" prefWidth="170.0" />
+                                                                                        <JFXTextField fx:id="hotelNumberOfAdult" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Adults..." />
+                                                                                        <JFXTextField fx:id="hotelNumberOfInfant" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Infants..." />
+                                                                                        <JFXTextField fx:id="hotelRoomTariff" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Room Tarif..." />
+                                                                                        <JFXTextField fx:id="hotelTotalPrice" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Price..." />
+                                                                  <JFXComboBox fx:id="hotelStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+                                                               </children>
+                                                            </VBox>
+                                                                              </children>
+                                                                              <opaqueInsets>
+                                                                                  <Insets right="10.0" />
+                                                                              </opaqueInsets>
+                                                                          </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                                          <HBox HBox.hgrow="ALWAYS">
+                                                                              <children>
+                                                            <VBox maxWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Check-In Date:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Nights:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="No. of Child:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Total Pax:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Extra Bed:" />
+                                                                                        <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Hotel Plan:" />
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                                        <JFXDatePicker fx:id="hotelCheckInDate" maxWidth="370.0" prefWidth="300.0" />
+                                                                                        <JFXComboBox fx:id="hotelCurrencyCode" maxWidth="1.7976931348623157E308" prefWidth="200.0" />
+                                                                                        <JFXTextField fx:id="hotelNumberOfNights" prefHeight="25.0" prefWidth="170.0" promptText="Enter No. of Nights..." />
+                                                                                        <JFXTextField fx:id="hotelNumberOfChild" prefHeight="25.0" prefWidth="150.0" promptText="Enter No. of Child..." />
+                                                                                        <JFXTextField fx:id="hotelTotalPax" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Pax..." />
+                                                                                        <JFXTextField fx:id="hotelExtraBed" prefHeight="25.0" prefWidth="150.0" promptText="Enter Extra Bed..." />
+                                                                                        <JFXComboBox fx:id="hotelPlan" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+                                                               </children>
+                                                            </VBox>
+                                                                              </children>
+                                                                          </HBox>
+                                                   </children>
+                                                </HBox>
+                                                                </children>
+                                                            </HBox>
+                                          <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                              <children>
-                                                <FontAwesomeIconView glyphName="PLUS_CIRCLE" onMouseClicked="#addHotelToTable" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
-                                                   <cursor>
-                                                      <Cursor fx:constant="OPEN_HAND" />
-                                                   </cursor>
-                                                </FontAwesomeIconView>
+                                                <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <FontAwesomeIconView glyphName="PLUS_CIRCLE" onMouseClicked="#addHotelToTable" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                         <cursor>
+                                                            <Cursor fx:constant="OPEN_HAND" />
+                                                         </cursor>
+                                                      </FontAwesomeIconView>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets right="10.0" />
+                                                   </opaqueInsets>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </HBox>
                                              </children>
-                                             <opaqueInsets>
-                                                <Insets right="10.0" />
-                                             </opaqueInsets>
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
+                                             <padding>
+                                                <Insets bottom="10.0" />
+                                             </padding>
                                           </HBox>
                                        </children>
                                        <padding>
-                                          <Insets bottom="10.0" />
+                                          <Insets left="50.0" right="50.0" top="20.0" />
                                        </padding>
-                                    </HBox>
-                                    <TableView fx:id="hotelTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
+                                    </VBox>
+                                    <TableView fx:id="hotelTable" editable="true" stylesheets="/resource/css/hotelTable.css" />
                                             </children>
-                                 <padding>
-                                    <Insets left="50.0" right="50.0" top="20.0" />
-                                 </padding>
                                         </VBox>
                                     </children>
                                 </AnchorPane>
@@ -578,7 +582,7 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView fx:id="airTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
+                                    <TableView fx:id="airTable" editable="true" stylesheets="/resource/css/hotelTable.css" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -768,7 +772,7 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView fx:id="railTable" editable="true" stylesheets="/resource/css/passengertableDesign.css" />
+                                    <TableView fx:id="railTable" editable="true" stylesheets="/resource/css/hotelTable.css" />
                                             </children>
                                         </VBox>
                                     </children>

@@ -56,6 +56,7 @@ public class SubQuery implements Initializable {
     private static Logger logger=Logger.getLogger(SubQuery.class);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
                     //set window size based on screens size
         initializeDefaultLayout();
                     //initialise all checkbox with default values
@@ -206,15 +207,15 @@ public class SubQuery implements Initializable {
     }
     private void initialiseHotelTable(){
 
-        TableColumn<CoreLeadHotel, String> destination = new TableColumn<>("destination");
-        TableColumn<CoreLeadHotel, String> checkInDate = new TableColumn<>("checkInDate");
+        TableColumn<CoreLeadHotel, String> destination = new TableColumn<>("Destination");
+        TableColumn<CoreLeadHotel, String> checkInDate = new TableColumn<>("Check In Date");
         TableColumn<CoreLeadHotel, String> checkoutDate = new TableColumn<>("Checkout Date");
-        TableColumn<CoreLeadHotel, String> currencyCode = new TableColumn<>("Currency Code");
-        TableColumn<CoreLeadHotel, String> hotelCategory = new TableColumn<>("Hotel Category");
-        TableColumn<CoreLeadHotel, String> numberOfNights = new TableColumn<>("Number Of Nights");
-        TableColumn<CoreLeadHotel, String> numberOfAdult = new TableColumn<>("Number Of Adult");
-        TableColumn<CoreLeadHotel, String> numberOfChild = new TableColumn<>("Number Of Child");
-        TableColumn<CoreLeadHotel, String> numberOfInfants = new TableColumn<>("Number Of Infants");
+        TableColumn<CoreLeadHotel, String> currencyCode = new TableColumn<>("C. Code");
+        TableColumn<CoreLeadHotel, String> hotelCategory = new TableColumn<>("H. Category");
+        TableColumn<CoreLeadHotel, String> numberOfNights = new TableColumn<>("No. Of Nights");
+        TableColumn<CoreLeadHotel, String> numberOfAdult = new TableColumn<>("No. Of Adult");
+        TableColumn<CoreLeadHotel, String> numberOfChild = new TableColumn<>("No. Of Child");
+        TableColumn<CoreLeadHotel, String> numberOfInfants = new TableColumn<>("No. Of Infants");
         TableColumn<CoreLeadHotel, String> totalPax = new TableColumn<>("Total Pax");
         TableColumn<CoreLeadHotel, String> roomTariff = new TableColumn<>("Room Tariff");
         TableColumn<CoreLeadHotel, String> extraBed = new TableColumn<>("Extra Bed");
@@ -269,23 +270,23 @@ public class SubQuery implements Initializable {
     private void initialiseAirTable(){
 
 
-        TableColumn<CoreLeadAir, String> fromDestination=new TableColumn<>("fromDestination");
-        TableColumn<CoreLeadAir, String> toDestination=new TableColumn<>("toDestination");
-        TableColumn<CoreLeadAir, String> departureDate=new TableColumn<>("departureDate");
-        TableColumn<CoreLeadAir, String> returnDate=new TableColumn<>("returnDate");
-        TableColumn<CoreLeadAir, String> airlinesOffered=new TableColumn<>("airlinesOffered");
-        TableColumn<CoreLeadAir, String> currencyCode=new TableColumn<>("currencyCode");
-        TableColumn<CoreLeadAir, String> numberOfAdult=new TableColumn<>("numberOfAdult");
-        TableColumn<CoreLeadAir, String> numberOfChild=new TableColumn<>("numberOfChild");
-        TableColumn<CoreLeadAir, String> numberOfInfant=new TableColumn<>("numberOfInfant");
-        TableColumn<CoreLeadAir, String> totalPax=new TableColumn<>("totalPax");
-        TableColumn<CoreLeadAir, String> adultFare=new TableColumn<>("adultFare");
-        TableColumn<CoreLeadAir, String> childFare=new TableColumn<>("childFare");
-        TableColumn<CoreLeadAir, String> infantFare=new TableColumn<>("infantFare");
-        TableColumn<CoreLeadAir, String> totalPrice=new TableColumn<>("totalPrice");
-        TableColumn<CoreLeadAir, String> typeOfTravel=new TableColumn<>("typeOfTravel");
-        TableColumn<CoreLeadAir, String> classOfTravel=new TableColumn<>("classOfTravel");
-        TableColumn<CoreLeadAir, String> status=new TableColumn<>("status");
+        TableColumn<CoreLeadAir, String> fromDestination=new TableColumn<>("From Dest.");
+        TableColumn<CoreLeadAir, String> toDestination=new TableColumn<>("To Dest.");
+        TableColumn<CoreLeadAir, String> departureDate=new TableColumn<>("Dept. Date");
+        TableColumn<CoreLeadAir, String> returnDate=new TableColumn<>("Return Date");
+        TableColumn<CoreLeadAir, String> airlinesOffered=new TableColumn<>("Airlines Offered");
+        TableColumn<CoreLeadAir, String> currencyCode=new TableColumn<>("Currency Code");
+        TableColumn<CoreLeadAir, String> numberOfAdult=new TableColumn<>("No. of Adult");
+        TableColumn<CoreLeadAir, String> numberOfChild=new TableColumn<>("No. of Child");
+        TableColumn<CoreLeadAir, String> numberOfInfant=new TableColumn<>("No. of Infant");
+        TableColumn<CoreLeadAir, String> totalPax=new TableColumn<>("Total Pax");
+        TableColumn<CoreLeadAir, String> adultFare=new TableColumn<>("Adult Fare");
+        TableColumn<CoreLeadAir, String> childFare=new TableColumn<>("Child Fare");
+        TableColumn<CoreLeadAir, String> infantFare=new TableColumn<>("Infant Fare");
+        TableColumn<CoreLeadAir, String> totalPrice=new TableColumn<>("Total Price");
+        TableColumn<CoreLeadAir, String> typeOfTravel=new TableColumn<>("Type Of Travel");
+        TableColumn<CoreLeadAir, String> classOfTravel=new TableColumn<>("Class Of Travel");
+        TableColumn<CoreLeadAir, String> status=new TableColumn<>("Status");
 
         TableColumn<CoreLeadAir, CoreLeadAir> delete = new TableColumn<>("Action");
         hotelTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -332,19 +333,19 @@ public class SubQuery implements Initializable {
     }
     private void initialiseRailTable(){
 
-        TableColumn<CoreLeadRail, String> departureCity=new TableColumn<>("departureCity");
-        TableColumn<CoreLeadRail, String> arrivalCity=new TableColumn<>("arrivalCity");
-        TableColumn<CoreLeadRail, String> departureDate=new TableColumn<>("departureDate");
-        TableColumn<CoreLeadRail, String> trainNumber=new TableColumn<>("trainNumber");
-        TableColumn<CoreLeadRail, String> numberOfAdult=new TableColumn<>("numberOfAdult");
-        TableColumn<CoreLeadRail, String> numberOfChild=new TableColumn<>("numberOfChild");
-        TableColumn<CoreLeadRail, String> numberOfInfant=new TableColumn<>("numberOfInfant");
-        TableColumn<CoreLeadRail, String> totalPax=new TableColumn<>("totalPax");
-        TableColumn<CoreLeadRail, String> adultFare=new TableColumn<>("adultFare");
-        TableColumn<CoreLeadRail, String> childFare=new TableColumn<>("childFare");
-        TableColumn<CoreLeadRail, String> totalFare=new TableColumn<>("totalFare");
-        TableColumn<CoreLeadRail, String> classOfTravel=new TableColumn<>("classOfTravel");
-        TableColumn<CoreLeadRail, String> status=new TableColumn<>("status");
+        TableColumn<CoreLeadRail, String> departureCity=new TableColumn<>("Dept City");
+        TableColumn<CoreLeadRail, String> arrivalCity=new TableColumn<>("Arrival City");
+        TableColumn<CoreLeadRail, String> departureDate=new TableColumn<>("Dept. Date");
+        TableColumn<CoreLeadRail, String> trainNumber=new TableColumn<>("Train NO.");
+        TableColumn<CoreLeadRail, String> numberOfAdult=new TableColumn<>("No. of Infant");
+        TableColumn<CoreLeadRail, String> numberOfChild=new TableColumn<>("No. of Child");
+        TableColumn<CoreLeadRail, String> numberOfInfant=new TableColumn<>("No. of Infant");
+        TableColumn<CoreLeadRail, String> totalPax=new TableColumn<>("Total Pax");
+        TableColumn<CoreLeadRail, String> adultFare=new TableColumn<>("Adult Fare");
+        TableColumn<CoreLeadRail, String> childFare=new TableColumn<>("Child Fare");
+        TableColumn<CoreLeadRail, String> totalFare=new TableColumn<>("Total Fare");
+        TableColumn<CoreLeadRail, String> classOfTravel=new TableColumn<>("Class Of Travel");
+        TableColumn<CoreLeadRail, String> status=new TableColumn<>("Status");
 
         TableColumn<CoreLeadRail, CoreLeadRail> delete = new TableColumn<>("Action");
         railTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
