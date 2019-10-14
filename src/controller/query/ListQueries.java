@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -220,6 +221,7 @@ public class ListQueries implements Initializable {
         Parent p = Loader.getRoot();
         mainPane.getChildren().setAll(p);
     }
+
 
     @FXML
     private void showDashboardPage() throws IOException {
