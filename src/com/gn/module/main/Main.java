@@ -65,7 +65,7 @@ public class Main implements Initializable {
     @FXML private VBox views;
     @FXML private Circle cStatus;
     @FXML private Label status;
-    @FXML public  ScrollPane body;
+    @FXML public   ScrollPane body;
     @FXML public  Label title;
     @FXML private TextField search;
     @FXML private ScrollPane scroll;
@@ -120,7 +120,6 @@ public class Main implements Initializable {
         });
 
 
-
         populateItems();
         filteredList = new FilteredList<>(items, s -> true);
 
@@ -139,11 +138,11 @@ public class Main implements Initializable {
             }
         });
         try {
-            body.setContent(ViewManager.getInstance().get("dashboard").load());
+            body.setContent(ViewManager.getInstance().loadPage("dashboard").getRoot());
 
         }
         catch (Exception e){
-
+            e.printStackTrace();
         }
 
         try {
@@ -157,11 +156,8 @@ public class Main implements Initializable {
 
     @FXML
     private void altLayout() {
-
-
         int minimum = 70;
         int max = 250;
-
         if(drawer.getPrefWidth() == max){
 
             drawer.setPrefWidth(minimum);
@@ -274,11 +270,11 @@ public class Main implements Initializable {
             button.setPrefWidth(v.getPrefWidth());
             button.setOnMouseClicked(e -> {
                 try {
-                    body.setContent(ViewManager.getInstance().get(button.getText().toLowerCase()).load());
+                    body.setContent(ViewManager.getInstance().loadPage(button.getText().toLowerCase()).getRoot());
 
                 }
                 catch (Exception ex){
-
+                    ex.printStackTrace();
                 }
                 title.setText(button.getText());
                 popup.hide();
@@ -397,268 +393,274 @@ public class Main implements Initializable {
         search.clear();
     }
 
+    @FXML
+    private void queryPage(){
+        body.setContent(ViewManager.getInstance().loadPage("listQueries").getRoot());
+        title.setText("Query List");
+    }
 
     @FXML
     private void buttons()throws Exception {
-        body.setContent(ViewManager.getInstance().get("button").load());
+        body.setContent(ViewManager.getInstance().loadPage("button").getRoot());
         title.setText("Button");
     }
 
     @FXML
     private void carousel() throws Exception {
         title.setText("Carousel");
-        body.setContent(ViewManager.getInstance().get("carousel").load());
+        body.setContent(ViewManager.getInstance().loadPage("carousel").getRoot());
     }
-/*
+
 
     @FXML
     private void toggle() {
         title.setText("Toggle Button");
-        body.setContent(ViewManager.getInstance().get("toggle"));
+        body.setContent(ViewManager.getInstance().loadPage("toggle").getRoot());
     }
 
     @FXML
     private void cards(){
         title.setText("Cards");
-        body.setContent(ViewManager.getInstance().get("cards"));
+        body.setContent(ViewManager.getInstance().loadPage("cards").getRoot());
     }
 
     @FXML
     private void banners(){
         title.setText("Banners");
-        body.setContent(ViewManager.getInstance().get("banners"));
+        body.setContent(ViewManager.getInstance().loadPage("banners").getRoot());
     }
 
     @FXML
     private void textField(){
         title.setText("TextField");
-        body.setContent(ViewManager.getInstance().get("textfield"));
+        body.setContent(ViewManager.getInstance().loadPage("textfield").getRoot());
     }
 
     @FXML
     private void datePicker(){
         title.setText("DatePicker");
-        body.setContent(ViewManager.getInstance().get("datepicker"));
+        body.setContent(ViewManager.getInstance().loadPage("datepicker").getRoot());
     }
 
     @FXML
     private void checkBox(){
         title.setText("CheckBox");
-        body.setContent(ViewManager.getInstance().get("checkbox"));
+        body.setContent(ViewManager.getInstance().loadPage("checkbox").getRoot());
     }
 
     @FXML
     private void comboBox(){
         title.setText("ComboBox");
-        body.setContent(ViewManager.getInstance().get("combobox"));
+        body.setContent(ViewManager.getInstance().loadPage("combobox").getRoot());
     }
 
     @FXML
     private void colorPicker(){
         title.setText("ComboBox");
-        body.setContent(ViewManager.getInstance().get("colorpicker"));
+        body.setContent(ViewManager.getInstance().loadPage("colorpicker").getRoot());
     }
 
 
     @FXML
     private void choiceBox(){
         title.setText("ChoiceBox");
-        body.setContent(ViewManager.getInstance().get("choicebox"));
+        body.setContent(ViewManager.getInstance().loadPage("choicebox").getRoot());
     }
 
     @FXML
     private void splitMenuButton(){
         title.setText("SplitMenuButton");
-        body.setContent(ViewManager.getInstance().get("splitmenubutton"));
+        body.setContent(ViewManager.getInstance().loadPage("splitmenubutton").getRoot());
     }
 
     @FXML
     private void menuButton(){
         title.setText("MenuButton");
-        body.setContent(ViewManager.getInstance().get("menubutton"));
+        body.setContent(ViewManager.getInstance().loadPage("menubutton").getRoot());
     }
 
     @FXML
     private void menuBar(){
         title.setText("MenuBar");
-        body.setContent(ViewManager.getInstance().get("menubar"));
+        body.setContent(ViewManager.getInstance().loadPage("menubar").getRoot());
     }
 
     @FXML
     private void slider(){
         title.setText("Slider");
-        body.setContent(ViewManager.getInstance().get("slider"));
+        body.setContent(ViewManager.getInstance().loadPage("slider").getRoot());
     }
 
     @FXML
     private void mediaView(){
         title.setText("MediaView");
-        body.setContent(ViewManager.getInstance().get("mediaview"));
+        body.setContent(ViewManager.getInstance().loadPage("mediaview").getRoot());
     }
 
     @FXML
     private void label(){
         title.setText("Label");
-        body.setContent(ViewManager.getInstance().get("label"));
+        body.setContent(ViewManager.getInstance().loadPage("label").getRoot());
     }
 
     @FXML
     private void imageView(){
         title.setText("ImageView");
-        body.setContent(ViewManager.getInstance().get("imageview"));
+        body.setContent(ViewManager.getInstance().loadPage("imageview").getRoot());
     }
 
     @FXML
     private void hyperlink(){
         title.setText("HyperLink");
-        body.setContent(ViewManager.getInstance().get("hyperlink"));
+        body.setContent(ViewManager.getInstance().loadPage("hyperlink").getRoot());
     }
 
     @FXML
     private void spinner(){
         title.setText("Spinner");
-        body.setContent(ViewManager.getInstance().get("spinner"));
+        body.setContent(ViewManager.getInstance().loadPage("spinner").getRoot());
     }
 
     @FXML
     private void listView(){
         title.setText("ListView");
-        body.setContent(ViewManager.getInstance().get("listview"));
+        body.setContent(ViewManager.getInstance().loadPage("listview").getRoot());
     }
 
     @FXML
     private void radio(){
         title.setText("RadioButton");
-        body.setContent(ViewManager.getInstance().get("radiobutton"));
+        body.setContent(ViewManager.getInstance().loadPage("radiobutton").getRoot());
     }
 
     @FXML
     private void progressBar(){
         title.setText("ProgressBar");
-        body.setContent(ViewManager.getInstance().get("progressbar"));
+        body.setContent(ViewManager.getInstance().loadPage("progressbar").getRoot());
     }
 
     @FXML
     private void passwordField(){
         title.setText("PasswordField");
-        body.setContent(ViewManager.getInstance().get("passwordfield"));
+        body.setContent(ViewManager.getInstance().loadPage("passwordfield").getRoot());
     }
 
     @FXML
     private void progressIndicator(){
         title.setText("ProgressIndicator");
-        body.setContent(ViewManager.getInstance().get("progressindicator"));
+        body.setContent(ViewManager.getInstance().loadPage("progressindicator").getRoot());
     }
 
     @FXML
     private void pagination(){
         title.setText("Pagination");
-        body.setContent(ViewManager.getInstance().get("pagination"));
+        body.setContent(ViewManager.getInstance().loadPage("pagination").getRoot());
     }
 
     @FXML
     private void pieChart(){
         title.setText("PieChart");
-        body.setContent(ViewManager.getInstance().get("piechart"));
+        body.setContent(ViewManager.getInstance().loadPage("piechart").getRoot());
     }
 
     @FXML
     private void stackedBarChart(){
         title.setText("StackedBarChart");
-        body.setContent(ViewManager.getInstance().get("stackedbarchart"));
+        body.setContent(ViewManager.getInstance().loadPage("stackedbarchart").getRoot());
     }
 
     @FXML
     private void stackedAreaChart(){
         title.setText("StackedAreaChart");
-        body.setContent(ViewManager.getInstance().get("stackedareachart"));
+        body.setContent(ViewManager.getInstance().loadPage("stackedareachart").getRoot());
     }
 
     @FXML
     private void scatterChart(){
         title.setText("ScatterChart");
-        body.setContent(ViewManager.getInstance().get("scatterchart"));
+        body.setContent(ViewManager.getInstance().loadPage("scatterchart").getRoot());
     }
 
 
     @FXML
     private void dashboard(){
         title.setText("Dashboard");
-        body.setContent(ViewManager.getInstance().get("dashboard"));
+        body.setContent(ViewManager.getInstance().loadPage("dashboard").getRoot());
     }
 
     @FXML
     private void areaChart(){
         title.setText("AreaChart");
-        body.setContent(ViewManager.getInstance().get("areachart"));
+        body.setContent(ViewManager.getInstance().loadPage("areachart").getRoot());
     }
 
     @FXML
     private void barChart(){
         title.setText("BarChart");
-        body.setContent(ViewManager.getInstance().get("barchart"));
+        body.setContent(ViewManager.getInstance().loadPage("barchart").getRoot());
     }
 
     @FXML
     private void bubbleChart(){
         title.setText("BubbleChart");
-        body.setContent(ViewManager.getInstance().get("bubblechart"));
+        body.setContent(ViewManager.getInstance().loadPage("bubblechart").getRoot());
     }
 
     @FXML
     private void lineChart(){
         title.setText("LineChart");
-        body.setContent(ViewManager.getInstance().get("linechart"));
+        body.setContent(ViewManager.getInstance().loadPage("linechart").getRoot());
     }
 
     @FXML
     private void tableView(){
         title.setText("TableView");
-        body.setContent(ViewManager.getInstance().get("tableview"));
+        body.setContent(ViewManager.getInstance().loadPage("tableview").getRoot());
     }
 
     @FXML
     private void scrollBar(){
         title.setText("ScrollBar");
-        body.setContent(ViewManager.getInstance().get("scrollbar"));
+        body.setContent(ViewManager.getInstance().loadPage("scrollbar").getRoot());
     }
 
     @FXML
     private void treeTableView(){
         title.setText("TreeTableView");
-        body.setContent(ViewManager.getInstance().get("treetableview"));
+        body.setContent(ViewManager.getInstance().loadPage("treetableview").getRoot());
     }
 
     @FXML
     private void textArea(){
         title.setText("TextArea");
-        body.setContent(ViewManager.getInstance().get("text-area"));
+        body.setContent(ViewManager.getInstance().loadPage("text-area").getRoot());
     }
 
     @FXML
     private void treeView(){
         title.setText("TreeView");
-        body.setContent(ViewManager.getInstance().get("treeview"));
+        body.setContent(ViewManager.getInstance().loadPage("treeview").getRoot());
     }
 
     @FXML
     private void animateButtons(){
         title.setText("Animated Button");
-        body.setContent(ViewManager.getInstance().get("animated-button"));
+        body.setContent(ViewManager.getInstance().loadPage("animated-button").getRoot());
     }
 
     @FXML
     private void jfxTextField(){
         title.setText("JFXTextField");
-        body.setContent(ViewManager.getInstance().get("jfx-text-field"));
+        body.setContent(ViewManager.getInstance().loadPage("jfx-text-field").getRoot());
     }
 
     @FXML
     private void alerts(){
         title.setText("Alerts");
-        body.setContent(ViewManager.getInstance().get("alerts"));
+        body.setContent(ViewManager.getInstance().loadPage("alerts").getRoot());
     }
-*/
+
+
 
     private PopOver pop = new PopOver();
     @FXML

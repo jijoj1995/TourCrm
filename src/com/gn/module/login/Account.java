@@ -140,7 +140,7 @@ public class Account implements Initializable {
                 App.getUserDetail().getPopOver().hide();
                 Main.ctrl.title.setText("Profile");
                 try {
-                    Main.ctrl.body.setContent(ViewManager.getInstance().get("profile").load());
+                    Main.ctrl.body.setContent(ViewManager.getInstance().loadPage("profile").getRoot());
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -158,7 +158,7 @@ public class Account implements Initializable {
                     this.username.setText("");
                     try {
 
-                        App.decorator.setContent(ViewManager.getInstance().get("login").load());
+                        App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -167,7 +167,7 @@ public class Account implements Initializable {
             });
 
             try {
-                App.decorator.setContent(ViewManager.getInstance().get("main").load());
+                App.decorator.setContent(ViewManager.getInstance().loadPage("main").getRoot());
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -176,7 +176,7 @@ public class Account implements Initializable {
 
     @FXML
     private void back() throws Exception{
-        App.decorator.setContent(ViewManager.getInstance().get("login").load());
+        App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
     }
 
     private void addEffect(Node node){

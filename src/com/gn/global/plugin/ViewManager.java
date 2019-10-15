@@ -33,7 +33,7 @@ import java.util.HashMap;
 public class ViewManager {
 
     private static ViewManager instance;
-    private static final HashMap<String, FXMLLoader> SCREENS = new HashMap<>();
+    private static final HashMap<String, String> SCREENS = new HashMap<>();
     private static String nameView;
 
     private ViewManager(){}
@@ -45,12 +45,12 @@ public class ViewManager {
         return instance;
     }
 
-    public void put(String name, FXMLLoader loader){
+    public void put(String name, String loader){
         nameView = name;
         SCREENS.put(name, loader);
     }
 
-    public FXMLLoader get(String view){
+    public String get(String view){
         return SCREENS.get(view);
     }
 
@@ -58,12 +58,24 @@ public class ViewManager {
         return SCREENS.size();
     }
 
+    public FXMLLoader loadPage(String fxmlPageName){
+        FXMLLoader loader = new FXMLLoader();
+        String page=SCREENS.get(fxmlPageName);
+        loader.setLocation(getClass().getResource(SCREENS.get(fxmlPageName)));
+        try {
+            loader.load();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return loader;
+    }
    /* Node getCurrentView(){
         return SCREENS.get(nameView);
     }*/
 
     public ObservableList<Node> getAll(){
-        Collection<Node>list=new ArrayList<>();
+        /*Collection<Node>list=new ArrayList<>();
         for (FXMLLoader loader:SCREENS.values()) {
             try {
                 list.add(loader.load());
@@ -71,7 +83,8 @@ public class ViewManager {
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
-        return FXCollections.observableArrayList(list);
+        }*/
+
+        return FXCollections.observableArrayList(new ArrayList<>());
     }
 }

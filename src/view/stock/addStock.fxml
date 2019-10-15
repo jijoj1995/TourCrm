@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addStockAnchorPane" stylesheets="/resource/css/customerBilling.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.stock.AddStock">
+   <children>
+      <VBox layoutX="28.0" layoutY="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox>
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label alignment="TOP_CENTER" prefHeight="31.0" prefWidth="208.0" text="Add Stock" underline="true" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+                  <VBox>
+                     <children>
+                        <HBox maxHeight="10.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="billingSectionHeading" VBox.vgrow="NEVER">
+                           <children>
+                              <Label styleClass="detailsVboxLabel" text="Customer Details" textFill="#f8f1f1" HBox.hgrow="ALWAYS" />
+                              <FontAwesomeIconView fill="#e7f8e0" glyphName="ANGLE_DOUBLE_DOWN" glyphSize="24" size="20" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Name:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="nameInput" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name of the stock" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                          <HBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Stock Left:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="stockLeftInput" prefHeight="25.0" prefWidth="150.0" promptText="Stock left in inventory" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Original Price" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="originalPriceInput" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Price at which you bought" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Selling Price:" />
+                                                      <CheckBox fx:id="sellingPriceCheckBox" mnemonicParsing="false" text="Same as Original Price">
+                                                   <font>
+                                                      <Font size="8.0" />
+                                                   </font></CheckBox>
+                                                   </children>
+                                                </VBox>
+                                                <JFXTextField fx:id="sellingPriceInput" cache="true" prefHeight="50.0" prefWidth="150.0" promptText="Price at which you would sell" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="60.0" layoutY="57.0" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                       <children>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Category" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="categoryInput" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Category of the product..." HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Suplier:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="supplierInput" cache="true" prefHeight="50.0" prefWidth="150.0" promptText="Enter name of mainSupplier" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="saveCustomerHbox" alignment="CENTER" spacing="20.0" style="-fx-background-color: ;" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <HBox spacing="30.0" style="-fx-min-width: ;" styleClass="customerSaveButtonGroup" HBox.hgrow="NEVER">
+                                             <children>
+                                                <FontAwesomeIconView fx:id="saveIcon" fill="#022f02" glyphName="SAVE" onMouseClicked="#saveButtonProcess" size="35" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </FontAwesomeIconView>
+                                                <FontAwesomeIconView fx:id="cancelIcon" fill="#022f02" glyphName="ARROW_LEFT" onMouseClicked="#onStockCancelButton" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </FontAwesomeIconView>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="50.0" right="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+                  </VBox>
+            <VBox spacing="15.0" VBox.vgrow="NEVER">
+               <children>
+                  <HBox maxHeight="10.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="billingSectionHeading" VBox.vgrow="NEVER">
+                     <children>
+                        <Label styleClass="detailsVboxLabel" text="Other Options" textFill="#f8f1f1" HBox.hgrow="ALWAYS" />
+                        <FontAwesomeIconView fill="#e7f8e0" glyphName="ANGLE_DOUBLE_DOWN" glyphSize="24" size="20" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                        <VBox fillWidth="false" spacing="20.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label text="Add stocks fromDestination excel File" HBox.hgrow="NEVER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="fileChooserButton" mnemonicParsing="true" prefHeight="37.0" prefWidth="130.0" styleClass="buttonPrimary" text="Choose _File" />
+                                    <Label fx:id="fileNameLabel" prefHeight="17.0" prefWidth="231.0" style="-fx-content-display: none;" />
+                                 </children>
+                              </HBox>
+                        <HBox layoutX="10.0" layoutY="35.0">
+                           <children>
+                                    <Button mnemonicParsing="false" onAction="#generateSampleFile" prefHeight="25.0" prefWidth="130.0" styleClass="buttonPrimary" text="Samle Stock File" />
+                                    <Button fx:id="uploadFileButton" disable="true" mnemonicParsing="true" prefHeight="37.0" prefWidth="130.0" styleClass="buttonPrimary" text="_Upload FiIe" />
+                              <Label fx:id="fileNameLabel1" prefHeight="17.0" prefWidth="231.0" style="-fx-content-display: none;" />
+                           </children>
+                        </HBox>
+                           </children>
+                        </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

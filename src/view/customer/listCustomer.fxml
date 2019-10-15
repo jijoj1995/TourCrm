@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="customerListOuterPane" prefHeight="800.0" prefWidth="600.0" styleClass="mainPane" stylesheets="/resource/css/listcustomer.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer.ListCustomer">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+
+                  <VBox layoutX="10.0" layoutY="50.0">
+                     <children>
+                              <HBox id="HBox" alignment="CENTER" spacing="10.0">
+                                  <children>
+                                      <Label text="Filter Table:" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
+                                      <JFXTextField fx:id="filterField" prefHeight="25.0" prefWidth="300.0" />
+                                      <FontAwesomeIconView fill="#022f02" glyphName="PLUS_CIRCLE" onMouseClicked="#showInfoDialog" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                                          <cursor>
+                                              <Cursor fx:constant="HAND" />
+                                          </cursor>
+                                      </FontAwesomeIconView>
+                                  </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                              </HBox>
+                  <JFXDialog fx:id="jfxDialog" prefHeight="150.0" prefWidth="200.0" />
+                     </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" />
+               </BorderPane.margin>
+                  </VBox>
+            </center>
+            <top>
+                <Label text="Customer List" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets bottom="20.0" />
+                    </BorderPane.margin>
+                </Label>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
