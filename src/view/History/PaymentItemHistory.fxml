@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="outerPane" stylesheets="/resource/css/customerBilling.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.History.PaymentItemHistory">
+   <children>
+
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label alignment="TOP_CENTER" prefHeight="31.0" prefWidth="208.0" text="Payment Details" underline="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_RIGHT" prefWidth="450.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <FontAwesomeIconView fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showPaymentHistoryPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox>
+                     <children>
+                        <HBox maxHeight="10.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="billingSectionHeading" VBox.vgrow="NEVER">
+                           <children>
+                              <Label styleClass="detailsVboxLabel" text="Customer Details" textFill="#f8f1f1" HBox.hgrow="ALWAYS" />
+                              <FontAwesomeIconView fill="#e7f8e0" glyphName="ANGLE_DOUBLE_DOWN" glyphSize="24" size="20" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Name:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="customerName" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Name..." HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                          <HBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Phone No:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="customerPhone" prefHeight="25.0" prefWidth="150.0" promptText="Enter 10 digit number..." HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Email:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextField fx:id="customerEmail" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Email..." HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets right="10.0" />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </HBox>
+                                          <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Address:" HBox.hgrow="ALWAYS" />
+                                                <JFXTextArea fx:id="customerAddress" cache="true" prefHeight="50.0" prefWidth="150.0" promptText="Enter Address..." HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="40.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="50.0" right="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+      
+                    <TableView fx:id="table" prefHeight="200.0">
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin></TableView>
+            <VBox alignment="TOP_CENTER" fillWidth="false">
+               <children>
+                   <VBox fillWidth="false">
+                       <children>
+                           <HBox spacing="20.0">
+                               <children>
+                                   <Label prefHeight="17.0" text="Total Paying Amount:" underline="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                                   <Label fx:id="totalBillAmount" prefHeight="17.0" prefWidth="91.0" />
+                               </children>
+                           </HBox>
+                           <HBox spacing="30.0">
+                               <children>
+                              <VBox>
+                                 <children>
+                                         <Label prefHeight="17.0" text="Amount Payed On:" underline="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                         <Label fx:id="billCreatedDate" prefHeight="17.0" prefWidth="157.0" />
+                                 </children>
+                              </VBox>
+                                   <Label fx:id="billPayedAmount" prefHeight="17.0" prefWidth="91.0" />
+                               </children>
+                           </HBox>
+                       </children>
+                   </VBox>
+               </children>
+            </VBox>
+         </children></VBox>
+         
+   </children>
+</AnchorPane>

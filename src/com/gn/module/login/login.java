@@ -73,7 +73,6 @@ public class login implements Initializable {
 
         addEffect(password);
         addEffect(username);
-
         setupListeners();
 
     }
@@ -163,7 +162,7 @@ public class login implements Initializable {
             SectionManager.save(section);
 try {
 
-    App.decorator.setContent(ViewManager.getInstance().get("main").load());
+    App.decorator.setContent(ViewManager.getInstance().loadPage("main").getRoot());
 }catch (Exception e){
 
 }
@@ -179,7 +178,7 @@ try {
                 Main.ctrl.title.setText("Profile");
                 try {
 
-                    Main.ctrl.body.setContent(ViewManager.getInstance().get("profile").load());
+                    Main.ctrl.body.setContent(ViewManager.getInstance().loadPage("profile").getRoot());
 
                 }catch (Exception ex){
 
@@ -189,7 +188,7 @@ try {
             App.getUserDetail().setSignAction(event -> {
                 App.getUserDetail().getPopOver().hide();
                 try{
-                    App.decorator.setContent(ViewManager.getInstance().get("login").load());
+                    App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
 
                 }
                 catch (Exception e){
@@ -228,6 +227,6 @@ try {
 
     @FXML
     private void switchCreate() throws Exception{
-        App.decorator.setContent(ViewManager.getInstance().get("account").load());
+        App.decorator.setContent(ViewManager.getInstance().loadPage("account").getRoot());
     }
 }

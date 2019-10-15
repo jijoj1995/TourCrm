@@ -63,6 +63,10 @@
     -fx-text-fill : -box-search-fill;
 }
 
+.box-white
+{
+  -fx-background-color : white;
+}
 .box-light
 {
   -fx-background-color : derive( -light-gray, -70%);

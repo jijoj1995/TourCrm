@@ -1,0 +1,27 @@
+.buttonPrimary{
+	-fx-background-color:lightgreen;
+        -fx-background-radius: 40;
+	-fx-border-color:white;
+	-fx-border-radius: 40px;
+	-fx-min-height:30px;
+}
+
+.detailsVbox{
+}
+.customerSaveButtonGroup{
+-fx-background-color:lightgreen;
+ -fx-background-radius: 40;
+	-fx-border-color:white;
+	-fx-border-radius: 40px;
+	}
+.detailsVboxLabel{
+-fx-font-size:14px;
+}
+.billingSectionHeading{
+-fx-pref-width:200px;
+-fx-background-color:#022f02;
+}
+.billingSectionHeading Label{
+-fx-font-size:15px;
+-fx-text-fill:white;
+}

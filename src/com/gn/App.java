@@ -26,6 +26,8 @@ import com.gn.decorator.options.ButtonType;
 import com.gn.module.loader.Loader;
 import com.gn.module.main.Main;
 import com.sun.javafx.application.LauncherImpl;
+import constants.InventoryConstants;
+import db.UserService;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
@@ -35,12 +37,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.InventoryConfig;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.scenicview.ScenicView;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
@@ -55,6 +61,14 @@ public class App extends Application {
     private float  progress = 0;
     private Section section;
     private User    user;
+    public static final GNDecorator decorator = new GNDecorator();
+    public static final Scene scene = decorator.getScene();
+    private Logger logger=Logger.getLogger(App.class);
+
+    public static ObservableList<String>    stylesheets;
+    public static HostServices              hostServices;
+    private static UserDetail userDetail = null;
+    InventoryConfig inventoryConfig=null;
 
     @Override
     public synchronized void init(){
@@ -70,8 +84,30 @@ public class App extends Application {
         float total = 43; // the difference represents the views not loaded
         increment = 100f / total;
 
-        load("jfoenix", "jfx-text-field");
 
+        try {
+            //loading log4j file
+            String log4jConfigFile = "/main/log4j.properties";
+            PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
+            preloaderNotify();
+            preloaderNotify();
+            preloaderNotify();
+            //initialising inventory config object
+            inventoryConfig=InventoryConfig.getInstance();
+            preloaderNotify();
+            //check whether first startup and add admin login access
+            new UserService().insertAdminLoginData();
+            preloaderNotify();
+        }
+        catch (Throwable e){
+            System.out.println(e.getMessage());
+        }
+
+
+
+        load("jfoenix", "jfx-text-field");
+        load("query", "mainQuery");
+        load("query", "listQueries");
         load("designer", "cards");
         load("designer", "banners");
         load("designer", "carousel");
@@ -137,15 +173,23 @@ public class App extends Application {
 
     @Override
     public void stop(){
-
+    logger.info("in stop method of main App Class");
+        //save updated application Properties before exit
+        try {
+            FileOutputStream out = new FileOutputStream(Paths.get(".").toAbsolutePath().normalize().toString()+ InventoryConstants.productionPropertiesFolder+InventoryConstants.productionPropertiesFileLocation);
+            //                      change location in settings page and test
+            inventoryConfig.getAppProperties().store(out, null);
+            out.close();
+            logger.info("property file updated successfully at shutdown");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        Platform.exit(); System.exit(0);
     }
 
-    public static final GNDecorator decorator = new GNDecorator();
-    public static final Scene scene = decorator.getScene();
 
-    public static ObservableList<String>    stylesheets;
-    public static HostServices              hostServices;
-    private static UserDetail userDetail = null;
+
 
     public static GNDecorator getDecorator(){
         return decorator;
@@ -157,7 +201,7 @@ public class App extends Application {
 
     private void initialScene(){
 
-        decorator.setTitle("DashboardFx");
+        decorator.setTitle("Tour Crm");
 //        decorator.setIcon(null);
         decorator.addButton(ButtonType.FULL_EFFECT);
         decorator.initTheme(GNDecorator.Theme.DEFAULT);
@@ -166,9 +210,9 @@ public class App extends Application {
         String log = logged();
         assert log != null;
 
-        if (log.equals("account") || log.equals("login")) {
+        if (/*log.equals("account") || log.equals("login")*/true) {
             try {
-                decorator.setContent(ViewManager.getInstance().get(log).load());
+                decorator.setContent(ViewManager.getInstance().loadPage("account").getRoot());
 
             }
             catch (Exception e){
@@ -179,7 +223,7 @@ public class App extends Application {
             userDetail.setProfileAction(event -> {
                 Main.ctrl.title.setText("Profile");
                 try {
-                    Main.ctrl.body.setContent(ViewManager.getInstance().get("profile").load());
+                    Main.ctrl.body.setContent(ViewManager.getInstance().loadPage("profile").getRoot());
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -189,7 +233,7 @@ public class App extends Application {
 
             userDetail.setSignAction(event -> {
                 try {
-                    App.decorator.setContent(ViewManager.getInstance().get("login").load());
+                    App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -202,7 +246,7 @@ public class App extends Application {
                 App.decorator.removeCustom(userDetail);
             });
             try{
-                decorator.setContent(ViewManager.getInstance().get("main").load());
+                decorator.setContent(ViewManager.getInstance().loadPage("main2").getRoot());
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -250,11 +294,9 @@ public class App extends Application {
 
     private void load(String module, String name){
         try {
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/gn/module/" + module + "/" + name + ".fxml"));
-            ViewManager.getInstance().put(
-                    name,loader
-            );
+          //  FXMLLoader loader=new FXMLLoader();
+            //loader.setLocation(getClass().getResource("/com/gn/module/" + module + "/" + name + ".fxml"));
+            ViewManager.getInstance().put(name,"/com/gn/module/" + module + "/" + name + ".fxml" );
             preloaderNotify();
         } catch (Exception e) {
             e.printStackTrace();
