@@ -27,6 +27,13 @@ public class InventoryConstants {
     public static final String productionPropertiesFolder="/resource/";
     public static final String landlineRegex="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
     public static final String emailRegex="^(.+)@(.+)$";
+    public static final String dashboardPage="dashboard";
+    public static final String mainStructurePage="main";
+    public static final String profilePage="profile";
+    public static final String loginpage="login";
+    public static final String mainQueryPage="mainQuery";
+    public static final String subQueryPage="subQuery";
+
     public static final int userInsertionSuccess=1;
     public static final int userInsertionFailed=0;
     public static final int userInsertionConstraintViolation=2;

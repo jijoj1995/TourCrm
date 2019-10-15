@@ -17,6 +17,7 @@
 package com.gn.global.plugin;
 
 import com.gn.global.User;
+import dto.CoreUserEntity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,6 +45,20 @@ public class UserManager {
             user.setPassword(properties.getProperty("password"));
             return user;
         } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static User loadUser(CoreUserEntity userEntity){
+        try {
+            User user = new User();
+            user.setUserName(userEntity.getUserName());
+            user.setFullName(userEntity.getFirstName()+" "+userEntity.getLastName());
+            user.setEmail(userEntity.getEmailAddress());
+            user.setPassword(userEntity.getUserPassword());
+            return user;
+        } catch (Exception e){
             e.printStackTrace();
             return null;
         }

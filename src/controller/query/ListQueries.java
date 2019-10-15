@@ -2,6 +2,7 @@ package controller.query;
 
 import com.gn.global.plugin.ViewManager;
 import com.gn.module.main.Main;
+import constants.InventoryConstants;
 import controller.booking.MainBooking;
 import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -88,15 +89,13 @@ public class ListQueries implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                editUserButton.getStyleClass().add("buttonLink");
+                editUserButton.getStyleClass().add("round");
                 editUserButton.setCursor(Cursor.HAND);
                 editUserButton.setText(String.valueOf(queriesList.getQueryId()));
                 setGraphic(editUserButton);
                 editUserButton.setOnAction(event -> {
-
                     FXMLLoader Loader = new FXMLLoader();
-                    //Loader.setLocation(getClass().getResource("/view/query/mainQuery.fxml"));
-                    Loader.setLocation(getClass().getResource(ViewManager.getInstance().get("tableview")));
+                    Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
                     try {
                         Loader.load();
                     } catch (Exception e) {
@@ -107,10 +106,7 @@ public class ListQueries implements Initializable {
 
                     controller.initializeCoreLeadDto(coreLeadDto);
                     Parent p = Loader.getRoot();
-
-                   // Main.body.setContent(p);
-                   // body.setContent(ViewManager.getInstance().loadPage("dashboard").getRoot());
-                    mainPane.getChildren().setAll(p);
+                    Main.ctrl.body.setContent(p);
 
                 });
             }
@@ -147,7 +143,7 @@ public class ListQueries implements Initializable {
                 setGraphic(hbox);
 
                 emailIcon.setOnMouseClicked(event -> {
-                    //send email for specific query user
+                          //send email for specific query user
                     Platform.runLater(new Runnable() {
                         @Override public void run() {
                             Stage stage = (Stage) emailIcon.getScene().getWindow();
@@ -206,9 +202,8 @@ public class ListQueries implements Initializable {
 
     @FXML
     private void showMainQueryPage() throws IOException {
-        //Parent root= FXMLLoader.load(getClass().getResource("/com/gn/module/query/mainQuery.fxml"));
-        Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get("mainQuery")));
-        mainPane.getChildren().setAll(root);
+        Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
+       Main.ctrl.body.setContent(root);
     }
 
     @FXML

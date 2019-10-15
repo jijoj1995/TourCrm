@@ -80,9 +80,9 @@ public class LoginPage  implements Initializable {
             // Thinks to do...
             // NO ACCESS TO UI ELEMENTS!
           //  for (int i=0;i<100000;i++)logger.info("reading values"+1);
-            if (new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
+           /* if (new UserService().authenticateUser(userNameInput.getText(),passwordInput.getText())){
                 return InventoryConstants.loginSuccess;
-            }
+            }*/
             return InventoryConstants.loginFailed;
         });
 

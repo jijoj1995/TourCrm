@@ -1,6 +1,8 @@
 package controller.query;
 
 import com.gn.global.plugin.ViewManager;
+import com.gn.global.util.Alerts;
+import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
 import constants.InventoryConstants;
 import constants.LeadsConstants;
@@ -21,7 +23,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -31,7 +32,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.InventoryConfig;
-import main.Main;
 import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 import service.Toast;
@@ -68,7 +68,6 @@ public class MainQuery implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
                                         //set window based on screen size
-        initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
         setNumberOnlyInputCheck();
                    //hide query id checkbox if first time
@@ -138,7 +137,7 @@ public class MainQuery implements Initializable {
             setTextFieldDataToDto();
             //loading sub queryPage
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/query/subQuery.fxml"));
+        Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.subQueryPage)));
         try {
             Loader.load();
         } catch (Exception e) {
@@ -146,15 +145,13 @@ public class MainQuery implements Initializable {
         }
         SubQuery subQueryPage = Loader.getController();
         subQueryPage.initializeCoreLeadObject(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
+        Main.ctrl.body.setContent(Loader.getRoot());
     }
 
     private void setTextFieldDataToDto(){
         if (coreLeadDto ==null){
             coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
-
         }
         coreLeadDto.setFirstName(firstName.getText());
         coreLeadDto.setMiddleName(middleName.getText());
@@ -198,26 +195,24 @@ public class MainQuery implements Initializable {
     private void saveCompleteLeadInformation(){
         Stage stage = (Stage) mainPane.getScene().getWindow();
        if (!isRequiredFieldEntered()){
-           Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
-                                            //   showAlert(Alert.AlertType.ERROR, mainPane.getScene().getWindow(),"Form Error!", "Please enter your email id");
+           Alerts.error("Required Fields","Please enter the Required Fields");
         return;
     }
     if (!isValidEmailEntered()){
-        Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter valid email",1000,500,500);
+        Alerts.error("Validation Error","Please enter valid email");
         return;
     }
                                                                     //check if notes added
         if (!isNotesAdded()){
-            Toast.makeText((Stage)mainPane.getScene().getWindow(),"No notes added",1000,500,500);
+            Alerts.warning("Validation Error","Please add some notes");
             return;
         }
 
         final AtomicReference<Integer> reference = new AtomicReference<>();
         wd = new WorkIndicatorDialog(mainPane.getScene().getWindow(), "Loading...");
         wd.exec("123", inputParam -> {
-                                                                      // NO ACCESS TO UI ELEMENTS!
                  setTextFieldDataToDto();
-                                                                   //set querytime as current time
+                                        //set querytime as current time
             coreLeadDto.setQuerytime(new Date().toString());
             if(queryService.saveQueryData(coreLeadDto)){
                 boolean senEmailNotification=Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("sendEmailOnQuery"));
@@ -281,19 +276,11 @@ public class MainQuery implements Initializable {
         shift.getItems().addAll(LeadsConstants.shift);
         shift.setValue(LeadsConstants.shift[0]);
     }
-    private void initializeDefaultLayout() {
-        //setting window size based on screen size
-      /*  mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 2 - 30;
-        queryTabs.setTabMinWidth(paneWidth);
-        queryTabs.setTabMaxWidth(paneWidth);*/
 
-    }
     @FXML
     private void changeTabPane(){
         if (isGeneralRequiredFieldEntered()) queryTabs.getSelectionModel().selectNext();
-        else Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
+        else Alerts.error("Required Fields","Please enter the required fields");
     }
 
     @FXML

@@ -25,23 +25,37 @@ import com.gn.global.plugin.ViewManager;
 import com.gn.global.*;
 import com.gn.global.plugin.SectionManager;
 import com.gn.global.plugin.UserManager;
+import com.gn.global.util.Alerts;
 import com.gn.module.main.Main;
+import constants.InventoryConstants;
+import controller.login.LoginPage;
+import db.UserService;
+import dto.CoreUserEntity;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
+import main.InventoryConfig;
+import main.WorkIndicatorDialog;
+import org.apache.log4j.Logger;
+import service.Toast;
+import service.Validator;
+import timers.InventoryTimers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Gleidson Neves da Silveira | gleidisonmt@gmail.com
@@ -56,10 +70,14 @@ public class login implements Initializable {
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private Button login;
-
     @FXML private Label lbl_password;
     @FXML private Label lbl_username;
     @FXML private Label lbl_error;
+
+    private WorkIndicatorDialog wd=null;
+
+    private Logger logger=Logger.getLogger(login.class);
+    CoreUserEntity userEntity=null;
 
     private RotateTransition rotateTransition = new RotateTransition();
 
@@ -70,7 +88,6 @@ public class login implements Initializable {
         rotateTransition.setByAngle(360);
         rotateTransition.setDuration(Duration.seconds(1));
         rotateTransition.setAutoReverse(true);
-
         addEffect(password);
         addEffect(username);
         setupListeners();
@@ -139,7 +156,7 @@ public class login implements Initializable {
     }
 
     @FXML
-    private void loginAction(){
+    private void loginAction() throws Exception{
         Pulse pulse = new Pulse(login);
         pulse.setDelay(Duration.millis(20));
         pulse.play();
@@ -151,78 +168,89 @@ public class login implements Initializable {
         }
     }
 
-    private void enter() {
+    private void enter(){
+        if (isTestUserLogin()){
+            logger.info("adding currentUser as= "+username.getText());
+            InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",username.getText());
+            App.getDecorator().setContent(ViewManager.getInstance().loadPage(InventoryConstants.mainStructurePage).getRoot());
+            return;
+        }
 
-        User user = UserManager.get(username.getText());
+        wd = new WorkIndicatorDialog(lbl_username.getScene().getWindow(), "Loading...");
+        wd.exec("123", inputParam -> {
+            try {
 
-        if(user!=null&&user.getUserName().equals(this.username.getText()) && user.getPassword().equals(this.password.getText())){
-            Section section = new Section();
-            section.setLogged(true);
-            section.setUserLogged(this.username.getText());
-            SectionManager.save(section);
-try {
-
-    App.decorator.setContent(ViewManager.getInstance().loadPage("main").getRoot());
-}catch (Exception e){
-
-}
-
-            UserDetail detail = App.getUserDetail();
-            detail.setText(user.getFullName());
-            detail.setHeader(user.getUserName());
-
-            App.decorator.addCustom(App.getUserDetail());
-
-            App.getUserDetail().setProfileAction(event -> {
-                App.getUserDetail().getPopOver().hide();
-                Main.ctrl.title.setText("Profile");
-                try {
-
-                    Main.ctrl.body.setContent(ViewManager.getInstance().loadPage("profile").getRoot());
-
-                }catch (Exception ex){
-
+                for (int i = 0; i <10 ; i++) {
+                        //for showing basic loader. Else the loader sometimes in not visible leading to emptyBox
+                    TimeUnit.MILLISECONDS.sleep(70);
                 }
-            });
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            userEntity=new UserService().authenticateUser(username.getText(),password.getText());
+            if (userEntity!=null){
+                return InventoryConstants.loginSuccess;
+            }
+            return InventoryConstants.loginFailed;
+        });
 
-            App.getUserDetail().setSignAction(event -> {
-                App.getUserDetail().getPopOver().hide();
-                try{
-                    App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
+        wd.addTaskEndNotification(result -> {
+            if((Integer) result==InventoryConstants.loginSuccess){
 
+                logger.info(". Authenticated. adding currentUser as= "+username.getText());
+                InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",username.getText());
+                InventoryConfig.getInstance().getAppProperties().setProperty("currentIpAddress", Validator.getCurrentIpAddress());
+
+                Section section = new Section();
+                section.setLogged(true);
+                section.setUserLogged(this.username.getText());
+                SectionManager.save(section);
+
+                User user = UserManager.loadUser(userEntity);
+                UserDetail detail = App.getUserDetail();
+                detail.setText(user.getUserName());
+                detail.setHeader(user.getUserName());
+
+                App.decorator.addCustom(App.getUserDetail());
+                App.getUserDetail().setProfileAction(event -> { App.getUserDetail().getPopOver().hide();
+                Main.ctrl.title.setText("Profile");
+                        Main.ctrl.body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.profilePage).getRoot());
+                });
+
+                App.getUserDetail().setSignAction(event -> {
+                    App.getUserDetail().getPopOver().hide();
+                    try{
+                        App.decorator.setContent(ViewManager.getInstance().loadPage(InventoryConstants.loginpage).getRoot());
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    this.username.setText("");
+                    this.password.setText("");
+                    if(Main.popConfig.isShowing()) Main.popConfig.hide();
+                    if(Main.popup.isShowing()) Main.popup.hide();
+                    App.decorator.removeCustom(App.getUserDetail());
+                });
+                try {
+                    App.getDecorator().setContent(ViewManager.getInstance().loadPage(InventoryConstants.mainStructurePage).getRoot());
+                    Alerts.success("Login Successful", "Welcome "+username.getText());
                 }
                 catch (Exception e){
-
+                    e.printStackTrace();
                 }
-                this.username.setText("");
-                this.password.setText("");
-                if(Main.popConfig.isShowing()) Main.popConfig.hide();
-                if(Main.popup.isShowing()) Main.popup.hide();
-                App.decorator.removeCustom(App.getUserDetail());
-            });
+                Platform.runLater(()-> new InventoryTimers().initializeTimers());
+            }
 
-           /* TimerTask timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(()-> {
-                        // add notification in later
-    //                                    TrayNotification tray = new TrayNotification();
-    //                                    tray.setNotificationType(NotificationType.NOTICE);
-    //                                    tray.setRectangleFill(Color.web(""));
-    //                                    tray.setTitle("Welcome!");
-    //                                    tray.setMessage("Welcome back " + username);
-    //                                    tray.showAndDismiss(Duration.millis(10000));
-                        }
-                    );
-                }
-            };
+            else{
+                Alerts.error("Error", "Invalid UserName or Password.");
+            }
+            wd=null; // don't keep the object, cleanup
+        });
 
-            Timer timer = new Timer();
-            timer.schedule(timerTask, 300);*/
 
-        } else {
-            lbl_error.setVisible(true);
-        }
+    }
+    private boolean isTestUserLogin(){
+        return  (username.getText()!=null&&password!=null&&username.getText().equals("test")&&password.getText().equals("test"));
     }
 
     @FXML

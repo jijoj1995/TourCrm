@@ -37,6 +37,7 @@
   -fx-background-color : -base;
 }
 
+
 .spinner,
 .tab-pane:top, .tab-pane:top .tab-header-area, .tab-pane:top .tab-header-area .headers-region .tab:selected:top,
 .tab-pane:top .tab-header-area .tab-header-background,
@@ -270,7 +271,7 @@
 
 .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label
 {
-    -fx-pref-width : 100px;
+    -fx-pref-width : 200px;
 }
 
 /************************************************************************************
@@ -2282,6 +2283,9 @@
 
 .table-view {
   -fx-fixed-cell-size : 40px;
+}
+.smallHeaderTable .column-header{
+-fx-font-size:12px;
 }
 
 .table-view .column-header-background .nested-column-header .table-column,

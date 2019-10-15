@@ -48,6 +48,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Init the app class.
@@ -60,7 +61,6 @@ public class App extends Application {
     private float  increment = 0;
     private float  progress = 0;
     private Section section;
-    private User    user;
     public static final GNDecorator decorator = new GNDecorator();
     public static final Scene scene = decorator.getScene();
     private Logger logger=Logger.getLogger(App.class);
@@ -68,12 +68,12 @@ public class App extends Application {
     public static ObservableList<String>    stylesheets;
     public static HostServices              hostServices;
     private static UserDetail userDetail = null;
-    InventoryConfig inventoryConfig=null;
+    private InventoryConfig inventoryConfig=null;
 
     @Override
     public synchronized void init(){
         section = SectionManager.get();
-
+         User    user;
         if(section.isLogged()){
             user = UserManager.get(section.getUserLogged());
             userDetail = new UserDetail(section.getUserLogged(), user.getFullName(), "subtitle");
@@ -81,7 +81,7 @@ public class App extends Application {
             userDetail = new UserDetail();
         }
 
-        float total = 43; // the difference represents the views not loaded
+        float total = 25; // the difference represents the views not loaded
         increment = 100f / total;
 
 
@@ -89,14 +89,18 @@ public class App extends Application {
             //loading log4j file
             String log4jConfigFile = "/main/log4j.properties";
             PropertyConfigurator.configure(this.getClass().getResourceAsStream(log4jConfigFile));
-            preloaderNotify();
-            preloaderNotify();
-            preloaderNotify();
+            for (int i = 0; i <20 ; i++) {
+                preloaderNotify();
+                TimeUnit.MILLISECONDS.sleep(45);
+            }
             //initialising inventory config object
             inventoryConfig=InventoryConfig.getInstance();
-            preloaderNotify();
+
             //check whether first startup and add admin login access
             new UserService().insertAdminLoginData();
+            preloaderNotify();
+            preloaderNotify();
+            preloaderNotify();
             preloaderNotify();
         }
         catch (Throwable e){
@@ -108,6 +112,7 @@ public class App extends Application {
         load("jfoenix", "jfx-text-field");
         load("query", "mainQuery");
         load("query", "listQueries");
+        load("query", "subQuery");
         load("designer", "cards");
         load("designer", "banners");
         load("designer", "carousel");
@@ -205,60 +210,23 @@ public class App extends Application {
 //        decorator.setIcon(null);
         decorator.addButton(ButtonType.FULL_EFFECT);
         decorator.initTheme(GNDecorator.Theme.DEFAULT);
-//        decorator.fullBody();
 
         String log = logged();
         assert log != null;
 
-        if (/*log.equals("account") || log.equals("login")*/true) {
-            try {
-                decorator.setContent(ViewManager.getInstance().loadPage("account").getRoot());
-
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        } else {
-            App.decorator.addCustom(userDetail);
-            userDetail.setProfileAction(event -> {
-                Main.ctrl.title.setText("Profile");
-                try {
-                    Main.ctrl.body.setContent(ViewManager.getInstance().loadPage("profile").getRoot());
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-                userDetail.getPopOver().hide();
-            });
-
-            userDetail.setSignAction(event -> {
-                try {
-                    App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-                section.setLogged(false);
-                SectionManager.save(section);
-                userDetail.getPopOver().hide();
-                if(Main.popConfig.isShowing()) Main.popConfig.hide();
-                if(Main.popup.isShowing()) Main.popup.hide();
-                App.decorator.removeCustom(userDetail);
-            });
-            try{
-                decorator.setContent(ViewManager.getInstance().loadPage("main2").getRoot());
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+        try {
+            App.decorator.setContent(ViewManager.getInstance().loadPage("login").getRoot());
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        section.setLogged(false);
+        SectionManager.save(section);
+        userDetail.getPopOver().hide();
+        if(Main.popConfig.isShowing()) Main.popConfig.hide();
+        if(Main.popup.isShowing()) Main.popup.hide();
+        App.decorator.removeCustom(userDetail);
 
-        decorator.getStage().setOnCloseRequest(event -> {
-            App.getUserDetail().getPopOver().hide();
-            if(Main.popConfig.isShowing()) Main.popConfig.hide();
-            if(Main.popup.isShowing()) Main.popup.hide();
-            Platform.exit();
-        });
     }
 
     @Override

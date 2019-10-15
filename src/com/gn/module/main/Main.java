@@ -23,6 +23,7 @@ import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import constants.InventoryConstants;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -138,7 +139,7 @@ public class Main implements Initializable {
             }
         });
         try {
-            body.setContent(ViewManager.getInstance().loadPage("dashboard").getRoot());
+            body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.dashboardPage).getRoot());
 
         }
         catch (Exception e){
@@ -744,9 +745,9 @@ public class Main implements Initializable {
             avatar3.setImage(new Image(getClass().getResource("/com/gn/module/media/notification-35.png").toExternalForm()));
 
             ObservableList<AlertCell> list = FXCollections.observableArrayList(
-                    new AlertCell(avatar1, "Warning","Lorem ipsum dolor color", "24 minutes ago"),
-                    new AlertCell(avatar2, "Error","Lorem ipsum dolor color", "today"),
-                    new AlertCell(avatar3, "Notification","Lorem ipsum dolor color", "3 seconds ago")
+                    new AlertCell(avatar1, "Notification","New Bookng Added", "24 minutes ago"),
+                    new AlertCell(avatar2, "Error","Booking Cancelled", "today"),
+                    new AlertCell(avatar3, "Notification","Booking Scheduled", "3 seconds ago")
             );
 
             Separator top = new Separator();

@@ -96,7 +96,7 @@ class Dialog {
                 icon = new ImageView(new Image("/com/gn/module/media/img/error_48dp.png"));
                 break;
             case SUCCESS:
-                color = Color.web("#02C852");
+                color = Color.web("#33B5E5");
                 icon = new ImageView(new Image("/com/gn/module/media/img/done_48dp.png"));
                 break;
         }
@@ -160,7 +160,6 @@ class Dialog {
         button.setOnMouseReleased(eventEventHandler);
         button.setPrefWidth(100);
         button.addEventHandler(MouseEvent.MOUSE_RELEASED, close);
-
         switch (type){
             case CANCEL:
                 button.setDefaultButton(true);

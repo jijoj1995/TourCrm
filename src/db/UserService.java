@@ -96,9 +96,9 @@ public class UserService extends BaseConnection {
 
 
 
-    public boolean authenticateUser(String userName,String password){
+    public CoreUserEntity authenticateUser(String userName,String password){
         logger.info("in authenticating user method");
-        boolean isSuccessful=false;
+        CoreUserEntity userEntity=null;
         Connection connection=null;
         ResultSet resultSet=null;
         PreparedStatement statement=null;
@@ -113,10 +113,15 @@ public class UserService extends BaseConnection {
                     query.setString("password",password);
             List<CoreUserEntity> results = query.list();
 
-           if (results.size()>0){
-               isSuccessful=true;
-           }
-
+               for (CoreUserEntity entity:results) {
+                   userEntity=new CoreUserEntity();
+                   userEntity.setFirstName(entity.getFirstName());
+                   userEntity.setLastName(entity.getLastName());
+                   userEntity.setEmailAddress(entity.getEmailAddress());
+                   userEntity.setUserPassword(entity.getUserPassword());
+                   userEntity.setUserName(entity.getUserName());
+                   userEntity.setCoreUserId(entity.getCoreUserId());
+               }
         }
         catch (Throwable ex){
             logger.info("error while fetching user "+ex.getMessage());
@@ -126,7 +131,7 @@ public class UserService extends BaseConnection {
                 session.close();
             }
         }
-        return isSuccessful;
+        return userEntity;
     }
 
 
