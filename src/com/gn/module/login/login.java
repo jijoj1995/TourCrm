@@ -156,7 +156,7 @@ public class login implements Initializable {
     }
 
     @FXML
-    private void loginAction() throws Exception{
+    private void loginAction(){
         Pulse pulse = new Pulse(login);
         pulse.setDelay(Duration.millis(20));
         pulse.play();
@@ -170,16 +170,42 @@ public class login implements Initializable {
 
     private void enter(){
         if (isTestUserLogin()){
-            logger.info("adding currentUser as= "+username.getText());
+            logger.info("Current user is TEST. Adding currentUser as= "+username.getText());
             InventoryConfig.getInstance().getAppProperties().setProperty("currentUser",username.getText());
+
+            User user = new User("test","test","test@test.com");
+            UserDetail detail = App.getUserDetail();
+            detail.setText(user.getUserName());
+            detail.setHeader(user.getUserName());
+
+            App.decorator.addCustom(App.getUserDetail());
+            App.getUserDetail().setProfileAction(event -> { App.getUserDetail().getPopOver().hide();
+                Main.ctrl.title.setText("Profile");
+                Main.ctrl.body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.profilePage).getRoot());
+            });
+            App.getUserDetail().setSignAction(event -> {
+                App.getUserDetail().getPopOver().hide();
+                try{
+                    App.decorator.setContent(ViewManager.getInstance().loadPage(InventoryConstants.loginpage).getRoot());
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+                this.username.setText("");
+                this.password.setText("");
+                if(Main.popConfig.isShowing()) Main.popConfig.hide();
+                if(Main.popup.isShowing()) Main.popup.hide();
+                App.decorator.removeCustom(App.getUserDetail());
+            });
+
             App.getDecorator().setContent(ViewManager.getInstance().loadPage(InventoryConstants.mainStructurePage).getRoot());
+            Alerts.success("Login Successful", "Welcome "+username.getText());
             return;
         }
 
         wd = new WorkIndicatorDialog(lbl_username.getScene().getWindow(), "Loading...");
         wd.exec("123", inputParam -> {
             try {
-
                 for (int i = 0; i <10 ; i++) {
                         //for showing basic loader. Else the loader sometimes in not visible leading to emptyBox
                     TimeUnit.MILLISECONDS.sleep(70);
@@ -254,7 +280,7 @@ public class login implements Initializable {
     }
 
     @FXML
-    private void switchCreate() throws Exception{
+    private void switchCreate(){
         App.decorator.setContent(ViewManager.getInstance().loadPage("account").getRoot());
     }
 }

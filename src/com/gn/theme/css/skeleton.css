@@ -802,8 +802,11 @@
 }
 
 .date-picker-popup > * > .spinner {
-    -fx-background-color: white;
+    -fx-background-color: black;
     -fx-background-insets: 0;
+}
+.date-picker-popup > * > .spinner .label{
+    -fx-text-fill:black;
 }
 
 .date-picker-popup > * > .spinner > .button:hover {
@@ -1607,7 +1610,9 @@
 {
   -fx-background-color : -elegant;
 }
-
+.btn-transparent{
+  -fx-background-color : transparent;
+}
 .cyan, .btn-cyan,
  .cyan .virtual-flow .clipped-container .sheet .jfx-list-cell:filled
 {

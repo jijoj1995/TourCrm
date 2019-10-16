@@ -61,7 +61,8 @@ public class MainBooking implements Initializable {
     @FXML
     private Button notesButton;
     @FXML
-    private HBox shippingHbox;
+    private HBox shippingHbox,userMainHbox,userSubHbox1,userSubHbox2,dateMainHbox,dateSubHbox1,dateSubHbox2,qcStatusMainHbox,
+            qcStatusSubBox1,qcStatusSubBox2,qcDateMainHbox,qcDateSubBox1,qcDateSubBox2;
     @FXML
     private JFXToggleButton showShippingBox;
     private  Stage notesDialog=null;
@@ -75,6 +76,18 @@ public class MainBooking implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
+
+        userSubHbox1.prefWidthProperty().bind(userMainHbox.widthProperty().divide(2));
+        userSubHbox2.prefWidthProperty().bind(userMainHbox.widthProperty().divide(2));
+
+        dateSubHbox1.prefWidthProperty().bind(dateMainHbox.widthProperty().divide(2));
+        dateSubHbox2.prefWidthProperty().bind(dateMainHbox.widthProperty().divide(2));
+
+        qcStatusSubBox1.prefWidthProperty().bind(qcStatusMainHbox.widthProperty().divide(2));
+        qcStatusSubBox2.prefWidthProperty().bind(qcStatusMainHbox.widthProperty().divide(2));
+
+        qcDateSubBox1.prefWidthProperty().bind(qcDateMainHbox.widthProperty().divide(2));
+        qcDateSubBox2.prefWidthProperty().bind(qcDateMainHbox.widthProperty().divide(2));
 
         //hide booking id and time details
         hideBookingIdAndTimeDetails();

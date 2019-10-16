@@ -1,26 +1,25 @@
 package controller.settings;
 
+import com.gn.global.util.Alerts;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import constants.InventoryConstants;
 import db.DbBackupService;
-import db.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.InventoryConfig;
 import main.Main;
 import org.apache.log4j.Logger;
-import service.SettingsListDao;
 import service.Toast;
 import service.Validator;
 import timers.InventoryTimers;
@@ -40,7 +39,7 @@ public class SettingsList implements Initializable {
     private static Logger log = Logger.getLogger(SettingsList.class.getName());
     private DateFormat fileNameDateFormat = new SimpleDateFormat(InventoryConstants.FileNamedateTimeFormat);
     @FXML
-    private AnchorPane settingsAnchorPane;
+    private StackPane mainPane;
     @FXML
     private TabPane settingsTabPane;
 
@@ -67,7 +66,6 @@ public class SettingsList implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeDefaultLayout();
                     //check whether to give full access or not
         enableTabBasedOnUser();
         initialiseDatabaseProperties();
@@ -82,7 +80,6 @@ public class SettingsList implements Initializable {
                                         //set vbox visibility based on backup property
         if (!isAutomaticBackupEnabled) {
             backupDetailsBox.setVisible(false);
-            //test log
         }
         automaticBackupCheckBox.setSelected(isAutomaticBackupEnabled);
 
@@ -115,7 +112,6 @@ public class SettingsList implements Initializable {
             }
         });
 
-        //usePortCheck.setSelected(Boolean.parseBoolean(inventoryConfig.getAppProperties().getProperty("usePortCheck")));
         //toggle port hbox
         usePortCheck.setOnAction((event) -> {
             ToggleButton but = (ToggleButton) event.getTarget();
@@ -217,14 +213,13 @@ public class SettingsList implements Initializable {
         inventoryConfig.getAppProperties().setProperty("emailSubject",emailSubjectField.getText());
         inventoryConfig.getAppProperties().setProperty("emailMessage",emailMessageField.getText());
         inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery",String.valueOf(emableEmailCheck.isSelected()));
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
-        Toast.makeText(stage, "Updated Successfully", 1000, 500, 500);
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        Alerts.success("Updated","Updated Successfully");
     }
 
 
     @FXML
     private void saveDatabaseConnection(){
-
         inventoryConfig.getAppProperties().setProperty("databaseName",dbName.getText());
         inventoryConfig.getAppProperties().setProperty("databaseIpAddress",dbIpAddress.getText());
         inventoryConfig.getAppProperties().setProperty("databasePassword",dbPassword.getText());
@@ -233,14 +228,14 @@ public class SettingsList implements Initializable {
         inventoryConfig.getAppProperties().setProperty("usePortCheck",String.valueOf(usePortCheck.isSelected()));
         inventoryConfig.getAppProperties().setProperty("useDatabasePassword",String.valueOf(usePasswordCheck.isSelected()));
 
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
-        Toast.makeText(stage, "Updated Successfully", 1000, 500, 500);
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        Alerts.success("Updated","Updated Successfully");
     }
 
     @FXML
     private void backupEntireDatabase() {
             //stage for showing messages
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
+        Stage stage = (Stage) mainPane.getScene().getWindow();
 
         //choose file for saving
         FileChooser fileChooser = new FileChooser();
@@ -266,7 +261,7 @@ public class SettingsList implements Initializable {
     @FXML
     private void restoreEntireDatabase() {
         //stage for showing messages
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
+        Stage stage = (Stage) mainPane.getScene().getWindow();
         //choose file for saving
         FileChooser fileChooser = new FileChooser();
         //Set extension filter for xlsx files
@@ -310,26 +305,13 @@ public class SettingsList implements Initializable {
         InventoryTimers.getInstance().reinitializeDbBackupTimers();
     }
 
-    @FXML
-    private void showDashboardPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
-        settingsAnchorPane.getChildren().setAll(root);
-    }
 
-
-    private void initializeDefaultLayout() {
-        settingsAnchorPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        settingsAnchorPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 3 - 21;
-        settingsTabPane.setTabMinWidth(paneWidth);
-        settingsTabPane.setTabMaxWidth(paneWidth);
-    }
 
     /*  @FXML
     private void exportStocksData() {
 
         log.info("going to backup stock data");
-        Stage stage = (Stage) settingsAnchorPane.getScene().getWindow();
+        Stage stage = (Stage) mainPane.getScene().getWindow();
         ArrayList<Stock> stockArrayList = new StockService().getAscendingStockList();
 
         //checking whether stock data present or not

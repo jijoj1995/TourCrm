@@ -2,6 +2,7 @@ package controller.query;
 
 import com.gn.global.plugin.ViewManager;
 import com.gn.global.util.Alerts;
+import com.gn.lab.GNButton;
 import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
 import constants.InventoryConstants;
@@ -52,7 +53,7 @@ public class MainQuery implements Initializable {
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
     @FXML
-    private Button notesButton;
+    private GNButton notesButton;
     @FXML
     private HBox queryIdHbox;
     @FXML
@@ -93,7 +94,7 @@ public class MainQuery implements Initializable {
             queryIdHbox.setPrefHeight(25);
             queryIdHbox.setMaxHeight(25);
         }
-        //userId.setText(coreLeadDto.getCoreLeadId());
+        userId.setText(coreLeadDto.getUserId());
         firstName.setText(coreLeadDto.getFirstName());
         middleName.setText(coreLeadDto.getMiddleName());
         lastName.setText(coreLeadDto.getLastName());
@@ -153,6 +154,7 @@ public class MainQuery implements Initializable {
             coreLeadDto =new CoreLead();
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
         }
+
         coreLeadDto.setFirstName(firstName.getText());
         coreLeadDto.setMiddleName(middleName.getText());
         coreLeadDto.setLastName(lastName.getText());
@@ -168,6 +170,7 @@ public class MainQuery implements Initializable {
         if (coreLeadDto.getCoreLeadCommunication()==null){
             coreLeadDto.setCoreLeadCommunication(new CoreLeadCommunication());
         }
+
         coreLeadDto.getCoreLeadCommunication().setUsaWorkNumber(usaWork.getText());
         coreLeadDto.getCoreLeadCommunication().setPaxEmailFirst(paxEmailFirst.getText());
         coreLeadDto.getCoreLeadCommunication().setUsaMobile(usaMobile.getText());
@@ -277,9 +280,13 @@ public class MainQuery implements Initializable {
     }
 
     @FXML
-    private void changeTabPane(){
+    private void selectCommunicationTabPane(){
         if (isGeneralRequiredFieldEntered()) queryTabs.getSelectionModel().selectNext();
         else Alerts.error("Required Fields","Please enter the required fields");
+    }
+    @FXML
+    private void selectGeneralTabPane(){
+        queryTabs.getSelectionModel().selectPrevious();
     }
 
     @FXML
@@ -374,7 +381,7 @@ public class MainQuery implements Initializable {
     @FXML
     private void onTabSelection(){
         if(queryTabs.getSelectionModel().isSelected(1)&&!isGeneralRequiredFieldEntered()){
-            Toast.makeText((Stage)mainPane.getScene().getWindow(),"Please enter the Required Fields",1000,500,500);
+            Alerts.error("Required Fields","Please enter the required fields");
             queryTabs.getSelectionModel().select(0);
         }
     }

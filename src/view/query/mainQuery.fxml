@@ -204,7 +204,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" spacing="70.0">
                                              <children>
-                                                <FontAwesomeIconView glyphName="ARROW_CIRCLE_RIGHT" onMouseClicked="#changeTabPane" size="40" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                <FontAwesomeIconView glyphName="ARROW_CIRCLE_RIGHT" onMouseClicked="#selectCommunicationTabPane" size="40" strokeType="OUTSIDE" strokeWidth="0.0">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>

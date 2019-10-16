@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.booking.MainBooking">
+<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.booking.MainBooking">
    <stylesheets>
       <URL value="@../../theme/css/material-color.css" />
       <URL value="@../../theme/css/skeleton.css" />
@@ -100,7 +100,7 @@
                                           </HBox>
                                           <HBox HBox.hgrow="ALWAYS">
                                              <children>
-                                                <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                                <VBox spacing="26.0" HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking Date:" />
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="User ID:" />
@@ -113,16 +113,16 @@
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Shift:" />
                                                    </children>
                                                 </VBox>
-                                                <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+                                                <VBox spacing="22.0" HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <JFXDatePicker fx:id="bookingTime" disable="true" editable="false" maxWidth="1.7976931348623157E308" />
                                                       <JFXTextField fx:id="userId" prefHeight="25.0" prefWidth="150.0" promptText="Enter User Id..." />
                                                       <JFXTextField fx:id="departmentCode" prefHeight="25.0" prefWidth="150.0" promptText="Enter Department Code..." />
-                                                      <JFXComboBox fx:id="channelCode" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0" />
-                                                      <JFXComboBox fx:id="querySource" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0" />
-                                                      <JFXComboBox fx:id="currencyCode" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0" />
-                                                      <JFXDatePicker fx:id="dueDate" maxWidth="1.7976931348623157E308" prefHeight="30.0" />
-                                                      <JFXComboBox fx:id="supplierName" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0" />
+                                                      <JFXComboBox fx:id="channelCode" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
+                                                      <JFXComboBox fx:id="querySource" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
+                                                      <JFXComboBox fx:id="currencyCode" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
+                                                      <JFXDatePicker fx:id="dueDate" prefHeight="30.0" prefWidth="200.0" />
+                                                      <JFXComboBox fx:id="supplierName" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
                                                       <JFXTextField fx:id="shift" prefHeight="25.0" prefWidth="150.0" promptText="Enter Shift..." />
                                                    </children>
                                                 </VBox>
@@ -152,7 +152,7 @@
                                        <children>
                                           <HBox VBox.vgrow="ALWAYS">
                                              <children>
-                                                <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
+                                                <VBox spacing="25.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                                          <children>
@@ -272,7 +272,8 @@
                                                       <Insets right="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXToggleButton fx:id="showShippingBox" alignment="TOP_CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="74.0" text=" " HBox.hgrow="ALWAYS">
+
+                                                <JFXToggleButton fx:id="showShippingBox" alignment="TOP_CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="74.0" styleClass="btn-transparent" text=" " HBox.hgrow="ALWAYS">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
@@ -281,7 +282,7 @@
                                           </HBox>
                                           <HBox fx:id="shippingHbox" VBox.vgrow="ALWAYS">
                                              <children>
-                                                <VBox spacing="20.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
+                                                <VBox spacing="25.0" styleClass="detailsVbox" HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                                          <children>
@@ -389,7 +390,7 @@
                            <children>
                               <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <VBox spacing="20.0" styleClass="detailsVbox">
+                                    <VBox spacing="25.0" styleClass="detailsVbox">
                                        <children>
                                           <HBox layoutX="60.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                              <children>
@@ -488,11 +489,11 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
-                              <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                    <HBox fx:id="dateMainHbox" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                        <children>
-                                          <HBox HBox.hgrow="ALWAYS">
+                                          <HBox fx:id="dateSubHbox1" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Query Date &amp; Time:" HBox.hgrow="ALWAYS" />
                                                 <JFXDatePicker fx:id="statusQueryDate" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
@@ -505,7 +506,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </HBox>
-                                          <HBox HBox.hgrow="ALWAYS">
+                                          <HBox fx:id="dateSubHbox2" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Booking Date:" HBox.hgrow="ALWAYS" />
                                                 <JFXDatePicker fx:id="statusBookingDate" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
@@ -519,9 +520,9 @@
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                    <HBox fx:id="userMainHbox" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                        <children>
-                                          <HBox HBox.hgrow="ALWAYS">
+                                          <HBox fx:id="userSubHbox1" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="User ID:" HBox.hgrow="ALWAYS" />
                                                 <JFXTextField fx:id="statusUserId" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter User Id..." HBox.hgrow="ALWAYS" />
@@ -533,12 +534,12 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </HBox>
-                                          <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                          <HBox fx:id="userSubHbox2" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                              <children>
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Payment Committed" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="statusPaymentCommitted" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="statusPaymentCommitted" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="10.0" />
@@ -551,12 +552,12 @@
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                    <HBox fx:id="qcStatusMainHbox" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                        <children>
-                                          <HBox HBox.hgrow="ALWAYS">
+                                          <HBox fx:id="qcStatusSubBox1" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="QC Status:" HBox.hgrow="ALWAYS" />
-                                                <JFXComboBox fx:id="statusQcStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                <JFXComboBox fx:id="statusQcStatus" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                              </children>
                                              <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -565,7 +566,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </HBox>
-                                          <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                          <HBox fx:id="qcStatusSubBox2" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                              <children>
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
@@ -583,9 +584,9 @@
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                    <HBox fx:id="qcDateMainHbox" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                        <children>
-                                          <HBox HBox.hgrow="ALWAYS">
+                                          <HBox fx:id="qcDateSubBox1" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="QC Date &amp; Time:" HBox.hgrow="ALWAYS" />
                                                 <JFXDatePicker fx:id="statusQcDate" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
@@ -598,12 +599,12 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </HBox>
-                                          <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
+                                          <HBox fx:id="qcDateSubBox2" nodeOrientation="LEFT_TO_RIGHT" spacing="70.0">
                                              <children>
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Move toDestination Dispatch:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="statusMoveToDispatch" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="statusMoveToDispatch" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="10.0" />
@@ -634,17 +635,17 @@
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                      </padding>
                      <children>
-                        <GNButton prefHeight="50.0" prefWidth="150.0" onMouseClicked="#showNotesTab" styleClass="buttonPrimary" text="Notes">
+                        <GNButton fx:id="notesButton" buttonType="DIAGONAL_SWIPE" onMouseClicked="#showNotesTab" prefHeight="35.0" prefWidth="130.0" styleClass="buttonPrimary" text="Notes">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </GNButton>
-                        <GNButton prefHeight="50.0" prefWidth="150.0" layoutX="50.0" layoutY="20.0" onMouseClicked="#showSubBookingPage" styleClass="buttonPrimary" text="Sub Details">
+                        <GNButton buttonType="DIAGONAL_SWIPE" layoutX="50.0" layoutY="20.0" onMouseClicked="#showSubBookingPage" prefHeight="35.0" prefWidth="130.0" styleClass="buttonPrimary" text="Sub Details">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </GNButton>
-                        <GNButton prefHeight="50.0" prefWidth="150.0" layoutX="50.0" layoutY="20.0" onMouseClicked="#saveCompleteBookingInformationToDb"  styleClass="buttonPrimary" text="Save">
+                        <GNButton buttonType="DIAGONAL_SWIPE" layoutX="50.0" layoutY="20.0" onMouseClicked="#saveCompleteBookingInformationToDb" prefHeight="35.0" prefWidth="130.0" styleClass="buttonPrimary" text="Save">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.ListQueries">
+<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.ListQueries">
    <children>
       <VBox alignment="CENTER" prefHeight="378.0" prefWidth="952.0" styleClass="box-white">
          <children>
@@ -25,7 +25,7 @@
                      </font>
                   </Label>
                   <JFXTextField fx:id="filterField" prefHeight="25.0" />
-                  <FontAwesomeIconView fill="#022f02" glyphName="PLUS_CIRCLE" onMouseClicked="#showMainQueryPage" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
+                  <FontAwesomeIconView fill="#022f02" glyphName="PLUS_CIRCLE" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

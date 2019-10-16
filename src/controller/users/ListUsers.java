@@ -1,5 +1,8 @@
 package controller.users;
 
+import com.gn.global.plugin.ViewManager;
+import com.gn.module.main.Main;
+import constants.InventoryConstants;
 import controller.query.ListQueries;
 import db.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -20,8 +23,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import main.Main;
 import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
 
@@ -32,7 +35,7 @@ import java.util.ResourceBundle;
 public class ListUsers implements Initializable {
 
     @FXML
-    private AnchorPane mainPane;
+    private StackPane mainPane;
     @FXML
     private TextField filterField;
     @FXML
@@ -62,7 +65,6 @@ public class ListUsers implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeDefaultLayout();
         Stage stage=new Stage();
         wd = new WorkIndicatorDialog(stage, "Loading...");
         wd.exec("123", inputParam -> {
@@ -84,18 +86,14 @@ public class ListUsers implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                payButton.getStyleClass().add("buttonLink");
-                /*payButton.setStyle("-fx-text-fill: #006464;\n" +
-                        "    -fx-background-color: #b8ffb0;\n" +
-                        "    -fx-border-radius: 20;\n" +
-                        "    -fx-background-radius: 20;\n" +
-                        "    -fx-padding: 5;-fx-min-width:100");*/
+                payButton.getStyleClass().add("round");
+
                 payButton.setText(String.valueOf(usersList.getCoreUserId()));
                 setGraphic(payButton);
                 payButton.setOnAction(event -> {
 
                     FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("/view/users/editUser.fxml"));
+                    Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.editUserPage)));
                     try {
                         Loader.load();
 
@@ -106,9 +104,8 @@ public class ListUsers implements Initializable {
                     CoreUserEntity coreUserEntity = usersList.getCoreUserEntity();
 
                     controller.initializeCoreUserDto(coreUserEntity);
-                    Parent p = Loader.getRoot();
-                    mainPane.getChildren().setAll(p);
-
+                    Main.ctrl.body.setContent(Loader.getRoot());
+                    Main.ctrl.title.setText(" Edit User");
 
                 });
             }
@@ -180,19 +177,13 @@ public class ListUsers implements Initializable {
     }
 
     @FXML
-    private void showEditUserPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/users/editUser.fxml"));
-        mainPane.getChildren().setAll(root);
-    }
-    @FXML
-    private void showDashboardPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
-        mainPane.getChildren().setAll(root);
+    private void showEditUserPage() {
+        Main.ctrl.title.setText(" Add User");
+        Main.ctrl.body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.editUserPage).getRoot());
     }
 
 
-    private void initializeDefaultLayout(){
-        mainPane.setPrefWidth(Main.WIDTH-Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT-30);
-    }
+
+
+
 }

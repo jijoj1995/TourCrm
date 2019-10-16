@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
+<StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.SubQuery">
    <children>
       <VBox alignment="CENTER" prefHeight="378.0" prefWidth="952.0" styleClass="box-white" StackPane.alignment="TOP_LEFT">
          <children>
@@ -97,7 +97,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="120.0" styleClass="detailsVboxLabel" text="Currency Code:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="holidaysCurrencyCode" maxWidth="1.7976931348623157E308" prefWidth="170.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="holidaysCurrencyCode" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="30.0" prefWidth="170.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="50.0" />
@@ -109,7 +109,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="120.0" styleClass="detailsVboxLabel" text="Hotel Category:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="holidaysHotelCategory" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="holidaysHotelCategory" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -219,7 +219,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="120.0" styleClass="detailsVboxLabel" text="Travel Type:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="holidaysTravelType" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="holidaysTravelType" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -229,7 +229,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="120.0" styleClass="detailsVboxLabel" text="Status:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="holidaysStatus" maxWidth="1.7976931348623157E308" prefWidth="170.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="holidaysStatus" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="170.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="10.0" />
@@ -296,7 +296,7 @@
                                                                   <JFXTextField fx:id="hotelNumberOfInfant" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter No. of Infants..." />
                                                                   <JFXTextField fx:id="hotelRoomTariff" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Room Tarif..." />
                                                                   <JFXTextField fx:id="hotelTotalPrice" editable="false" prefColumnCount="0" prefHeight="25.0" prefWidth="177.0" promptText="Enter Total Price..." />
-                                                                  <JFXComboBox fx:id="hotelStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+                                                                  <JFXComboBox fx:id="hotelStatus" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
                                                                </children>
                                                             </VBox>
                                                          </children>
@@ -329,7 +329,7 @@
                                                                   <JFXTextField fx:id="hotelNumberOfChild" prefHeight="25.0" prefWidth="150.0" promptText="Enter No. of Child..." />
                                                                   <JFXTextField fx:id="hotelTotalPax" prefHeight="25.0" prefWidth="150.0" promptText="Enter Total Pax..." />
                                                                   <JFXTextField fx:id="hotelExtraBed" prefHeight="25.0" prefWidth="150.0" promptText="Enter Extra Bed..." />
-                                                                  <JFXComboBox fx:id="hotelPlan" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+                                                                  <JFXComboBox fx:id="hotelPlan" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" />
                                                                </children>
                                                             </VBox>
                                                          </children>
@@ -445,7 +445,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Currency Code:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="airCurrencyCode" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="airCurrencyCode" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -543,7 +543,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Type Of Travel:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="airTypeOfTravel" maxWidth="1.7976931348623157E308" prefWidth="175.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="airTypeOfTravel" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="175.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="10.0" />
@@ -555,7 +555,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Class Of Travel:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="airClassOfTravel" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="airClassOfTravel" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -749,7 +749,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="25.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Class of travel:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="railClassOfTravel" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="railClassOfTravel" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -759,7 +759,7 @@
                                                 <HBox HBox.hgrow="ALWAYS">
                                                    <children>
                                                       <Label prefHeight="27.0" prefWidth="100.0" styleClass="detailsVboxLabel" text="Status:" HBox.hgrow="ALWAYS" />
-                                                      <JFXComboBox fx:id="railStatus" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                                      <JFXComboBox fx:id="railStatus" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                                    </children>
                                                    <opaqueInsets>
                                                       <Insets right="10.0" />

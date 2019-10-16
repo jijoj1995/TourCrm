@@ -38,6 +38,11 @@ public class InventoryConstants {
     public static final String mainBookingPage="mainBooking";
     public static final String subBookingPage="subBooking";
 
+    public static final String listUsersPage="listUsers";
+    public static final String editUserPage="editUser";
+
+    public static final String settingsPage="settingsList";
+
     public static final int userInsertionSuccess=1;
     public static final int userInsertionFailed=0;
     public static final int userInsertionConstraintViolation=2;

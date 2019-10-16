@@ -1,5 +1,8 @@
 package controller.users;
 
+import com.gn.global.plugin.ViewManager;
+import com.gn.global.util.Alerts;
+import com.gn.module.main.Main;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import constants.InventoryConstants;
@@ -12,8 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import main.Main;
 import org.apache.log4j.Logger;
 import service.Toast;
 
@@ -23,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class EditUser implements Initializable {
     @FXML
-    private AnchorPane mainPane;
+    private StackPane mainPane;
     @FXML
     private TabPane userTabs;
     @FXML
@@ -36,7 +39,7 @@ public class EditUser implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeDefaultLayout();
+
     }
     public void initializeCoreUserDto(CoreUserEntity coreUserEntity){
         //this method called when already present userdata is clicked
@@ -73,34 +76,21 @@ public class EditUser implements Initializable {
             showUserListPage();
         }
         else if (userInsertionResult== InventoryConstants.userInsertionConstraintViolation){
-            Toast.makeText(stage,"UserName Already assigned",1000,500,500 );
+            Alerts.warning("UserName Error","UserName Already assigned");
         }
         else {
-            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+            Alerts.warning("Error","Unable to save query data. Please check input values or restart application");
         }
-
     }
+
     private boolean isRequiredFieldsEntered(){
         return  !(firstName.getText().isEmpty()||lastName.getText().isEmpty()||passwordField.getText().isEmpty()||email.getText().isEmpty()||userId.getText().isEmpty());
     }
 
     @FXML
     private void showUserListPage() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/users/listUsers.fxml"));
-            mainPane.getChildren().setAll(root);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        Main.ctrl.body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.listUsersPage).getRoot());
+        Main.ctrl.title.setText("Users List");
     }
-    private void initializeDefaultLayout() {
-        //setting window size based on screen size
-        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 2 - 20;
-        userTabs.setTabMinWidth(paneWidth);
-        userTabs.setTabMaxWidth(paneWidth);
 
-    }
 }

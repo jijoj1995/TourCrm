@@ -382,9 +382,6 @@ public class SubBooking implements Initializable {
         resetPassengerDataFields();
     }
 
-    private void initializeDefaultLayout() {
-
-    }
 
     private void initialiseAllCheckBoxDefalutValues(){
 

@@ -55,11 +55,7 @@ public class Validator {
     }
 
 
-    /**
-     * Test for empty or null String
-     * @param s String
-     * @return boolean
-     */
+
     public static boolean isNullOrEmpty(String s) {
         return ((s == null) || (s.trim().length() < 1 || s.trim().toUpperCase().equals("NULL")));
     }
@@ -69,28 +65,7 @@ public class Validator {
     }
 
 
-    /**
-     * Validate an String value for range, mostly used for data captured from forms
-     * @param s pass in the string to be validated
-     * @param from int value for starting of the range
-     * @param to int value for end of the range
-     * @return boolean
-     */
-    public static boolean isIntegerBetween(String s, int from, int to) {
-        if (!Validator.isNullOrEmpty(s)) {
-            try {
-                Integer i = new Integer(s);
-                if (i.intValue() >= from && i.intValue() <= to) {
-                    return true;
-                }
-                else return false;
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+
 
    public static int getIntValue(String value){
         try {
@@ -100,16 +75,29 @@ public class Validator {
             return 0;
         }
    }
-
-    public static boolean isNotNullOrEmpty(String s) {
-        return !isNullOrEmpty(s);
+    public static Float getFloatValue(String value){
+        try {
+            return Float.parseFloat(value);
+        }
+        catch (Exception e){
+            return 0f;
+        }
     }
+
 
     public static boolean isNumberOnly(String value){
         if(Validator.isNullOrEmpty(value))
             return false;
 
         String regex = "\\d+";
+        return value.matches(regex);
+    }
+
+    public static boolean isDouble(String value){
+        if(Validator.isNullOrEmpty(value))
+            return false;
+
+        String regex = "[0-9]{1,13}(\\\\.[0-9]*)?";
         return value.matches(regex);
     }
 
@@ -231,25 +219,19 @@ public class Validator {
     }
     public static boolean useSpecificDatabasePort(){
         String portCheck=InventoryConfig.getInstance().getAppProperties().getProperty("usePortCheck");
-        if (portCheck!=null&&portCheck.equals("true")){
-            return true;
-        }
-        else return false;
+        return  (portCheck!=null&&portCheck.equals("true"));
     }
     public static boolean useSpecificDatabasePassword(){
         String useDatabasePassword=InventoryConfig.getInstance().getAppProperties().getProperty("useDatabasePassword");
-        if (useDatabasePassword!=null&&useDatabasePassword.equals("true")){
-            return true;
-        }
-        else return false;
+        return  (useDatabasePassword!=null&&useDatabasePassword.equals("true"));
+
     }
 
     public static boolean isproductionPropertyFileExists(){
         logger.info("checking if property file exists");
        // File file =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+InventoryConstants.productionPropertiesFilename);
         File propertyFile =new File(Paths.get(".").toAbsolutePath().normalize().toString()+InventoryConstants.productionPropertiesFolder+ InventoryConstants.productionPropertiesFileLocation);
-        if (propertyFile!=null&&propertyFile.exists()) return true;
-        else return false;
+        return  (propertyFile.exists());
     }
 
 

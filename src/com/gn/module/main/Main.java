@@ -46,7 +46,9 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import main.InventoryConfig;
+import org.apache.log4j.Logger;
 import org.controlsfx.control.PopOver;
+import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -74,7 +76,7 @@ public class Main implements Initializable {
     @FXML private TitledPane design;
     @FXML private TitledPane controls;
     @FXML private TitledPane charts;
-    @FXML private Button home;
+    @FXML private Button home,usersButton,bookingsButton;
     @FXML private Button  about;
     @FXML private Button hamburger;
     @FXML private SVGPath searchIcon;
@@ -107,11 +109,23 @@ public class Main implements Initializable {
 
     private Parent popContent;
     public static Main ctrl;
+    private Logger logger=Logger.getLogger(Main.class);
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ctrl = this;
         loadContentPopup();
+
+        //restrict based on users
+        if (!Validator.isCurrentUserAdmin()){
+            logger.info("current user is not admin. Restricting");
+            usersButton.setDisable(true);
+        }
+        if (Validator.isCurrentUserTest()){
+            logger.info("current user is Test user. Restricting");
+            usersButton.setDisable(true);
+            bookingsButton.setDisable(true);
+        }
 
         group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
@@ -399,6 +413,17 @@ public class Main implements Initializable {
     private void queryPage(){
         body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.listQueryPage).getRoot());
         title.setText("Query List");
+    }
+
+    @FXML
+    private void usersPage(){
+        body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.listUsersPage).getRoot());
+        title.setText("Users List");
+    }
+    @FXML
+    private void settingsPage(){
+        body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.settingsPage).getRoot());
+        title.setText("Settings List");
     }
 
     @FXML

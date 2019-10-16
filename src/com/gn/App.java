@@ -66,7 +66,7 @@ public class App extends Application {
     private Logger logger=Logger.getLogger(App.class);
 
     public static ObservableList<String>    stylesheets;
-    public static HostServices              hostServices;
+    public static HostServices hostServices;
     private static UserDetail userDetail = null;
     private InventoryConfig inventoryConfig=null;
 
@@ -74,7 +74,7 @@ public class App extends Application {
     public synchronized void init(){
         section = SectionManager.get();
          User    user;
-        if(section.isLogged()){
+        if(/*section.isLogged()*/false){
             user = UserManager.get(section.getUserLogged());
             userDetail = new UserDetail(section.getUserLogged(), user.getFullName(), "subtitle");
         } else {
@@ -108,7 +108,6 @@ public class App extends Application {
         }
 
 
-
         load("jfoenix", "jfx-text-field");
         load("query", "mainQuery");
         load("query", "listQueries");
@@ -116,6 +115,11 @@ public class App extends Application {
 
         load("booking", "mainBooking");
         load("booking", "subBooking");
+
+        load("users", "listUsers");
+        load("users", "editUser");
+
+        load("settings", "settingsList");
 
         load("designer", "cards");
         load("designer", "banners");

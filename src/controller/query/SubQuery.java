@@ -15,13 +15,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.apache.log4j.Logger;
-import service.BookingService;
 import service.Validator;
 
 import java.net.URL;
@@ -553,25 +550,24 @@ public class SubQuery implements Initializable {
     }
 
 
-
     private void setTotalAirPrice(){
-       airTotalPrice.setText( String.valueOf(Validator.getIntValue(airAdultFare.getText())*Validator.getIntValue(airNumberOfAdult.getText())+
-                Validator.getIntValue(airChildFare.getText())*Validator.getIntValue(airNumberOfChild.getText())+
-                Validator.getIntValue(airInfantFare.getText())*Validator.getIntValue(airNumberOfInfant.getText())));
+       airTotalPrice.setText( String.valueOf(Validator.getFloatValue(airAdultFare.getText())*Validator.getFloatValue(airNumberOfAdult.getText())+
+                Validator.getFloatValue(airChildFare.getText())*Validator.getFloatValue(airNumberOfChild.getText())+
+                Validator.getFloatValue(airInfantFare.getText())*Validator.getFloatValue(airNumberOfInfant.getText())));
     }
 
     private void setTotalRailPrice(){
-        railTotalFare.setText( String.valueOf(Validator.getIntValue(railAdultFare.getText())*Validator.getIntValue(railNumberOfAdult.getText())+
-                Validator.getIntValue(railChildFare.getText())*Validator.getIntValue(railNumberOfChild.getText())+
-                Validator.getIntValue("0"/*railInfantFare.getText()*/)*Validator.getIntValue(railNumberOfInfant.getText())));
+        railTotalFare.setText( String.valueOf(Validator.getFloatValue(railAdultFare.getText())*Validator.getFloatValue(railNumberOfAdult.getText())+
+                Validator.getFloatValue(railChildFare.getText())*Validator.getIntValue(railNumberOfChild.getText())+
+                Validator.getFloatValue("0"/*railInfantFare.getText()*/)*Validator.getFloatValue(railNumberOfInfant.getText())));
     }
     private void setTotalHotelPrice(){
-        hotelTotalPrice.setText( String.valueOf((Validator.getIntValue(hotelRoomTariff.getText())+
-                Validator.getIntValue(hotelExtraBed.getText()))*Validator.getIntValue(hotelNumberOfNights.getText())));
+        hotelTotalPrice.setText( String.valueOf((Validator.getFloatValue(hotelRoomTariff.getText())+
+                Validator.getFloatValue(hotelExtraBed.getText()))*Validator.getFloatValue(hotelNumberOfNights.getText())));
     }
     private void setTotalHolidaysPrice(){
-        holidaysTotalPrice.setText( String.valueOf(Validator.getIntValue(holidaysAdultFare.getText())*Validator.getIntValue(holidaysNumberOfAdult.getText())+
-                Validator.getIntValue(holidaysChildFare.getText())*Validator.getIntValue(holidaysNumberOfChild.getText())+
-                Validator.getIntValue(holidaysInfantFare.getText())*Validator.getIntValue(holidaysTotalInfant.getText())));
+        holidaysTotalPrice.setText( String.valueOf(Validator.getFloatValue(holidaysAdultFare.getText())*Validator.getFloatValue(holidaysNumberOfAdult.getText())+
+                Validator.getFloatValue(holidaysChildFare.getText())*Validator.getFloatValue(holidaysNumberOfChild.getText())+
+                Validator.getFloatValue(holidaysInfantFare.getText())*Validator.getFloatValue(holidaysTotalInfant.getText())));
     }
 }

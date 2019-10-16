@@ -1,6 +1,7 @@
 package controller.query;
 
 import com.gn.global.plugin.ViewManager;
+import com.gn.global.util.Alerts;
 import com.gn.module.main.Main;
 import constants.InventoryConstants;
 import controller.booking.MainBooking;
@@ -75,8 +76,6 @@ public class ListQueries implements Initializable {
         wd.addTaskEndNotification(result -> {
            logger.info(result);
         });
-        initializeDefaultLayout();
-
 
         idColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         idColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
@@ -120,8 +119,7 @@ public class ListQueries implements Initializable {
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
             FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.BOOK);
-            FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.ENVELOPE);
-
+            FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.ENVELOPE_ALT);
 
             @Override
             protected void updateItem(QueriesListDto queriesListDto, boolean empty) {
@@ -149,9 +147,9 @@ public class ListQueries implements Initializable {
                             Stage stage = (Stage) emailIcon.getScene().getWindow();
                             boolean emailSendSuccessful= queryService.sendEmailNotification(queriesListDto.getCoreLeadDto().getCoreLeadCommunication().getPaxEmailFirst());
                             if (emailSendSuccessful){
-                                Toast.makeText(stage,"Email sent Successfully",1000,1000,1000 );
+                                Alerts.success("Success","Email sent Successfully");
                             }
-                            else Toast.makeText(stage,"Unable to send Email. Please check your internet or firewall Settings",1000,500,500 );
+                            else Alerts.error("Failed","Unable to send Email. Please check your settings/internet configuration");;
                         }
                     });
                 });
@@ -221,12 +219,7 @@ public class ListQueries implements Initializable {
         MainBooking mainBookingPage = Loader.getController();
         mainBookingPage.initializeCoreLeadDto(coreLeadDto);
         Main.ctrl.body.setContent(Loader.getRoot());
-        Main.ctrl.title.setText("Main Query Page");
+        Main.ctrl.title.setText("Booking Section");
     }
 
-
-    private void initializeDefaultLayout(){
-    //    mainPane.setPrefWidth(Main.WIDTH-Main.SIDE_BAR_WIDTH);
-     //   mainPane.setPrefHeight(Main.HEIGHT-30);
-    }
 }
