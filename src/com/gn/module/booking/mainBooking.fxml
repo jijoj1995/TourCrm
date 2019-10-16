@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gn.lab.GNButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -9,7 +10,6 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -17,7 +17,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
 
 <StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.booking.MainBooking">
    <stylesheets>
@@ -38,7 +37,7 @@
                <children>
                   <VBox alignment="TOP_RIGHT">
                      <children>
-                        <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showQuickTransactionPage" size="50" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showQuickTransactionPage" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -635,21 +634,21 @@
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#saveCompleteBookingInformationToDb" styleClass="buttonPrimary" text="Save">
+                        <GNButton prefHeight="50.0" prefWidth="150.0" onMouseClicked="#showNotesTab" styleClass="buttonPrimary" text="Notes">
                            <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#showSubBookingPage" styleClass="buttonPrimary" text="Sub Details">
+                        </GNButton>
+                        <GNButton prefHeight="50.0" prefWidth="150.0" layoutX="50.0" layoutY="20.0" onMouseClicked="#showSubBookingPage" styleClass="buttonPrimary" text="Sub Details">
                            <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
-                        <Button fx:id="notesButton" mnemonicParsing="false" onAction="#showNotesTab" styleClass="buttonPrimary" text="Notes">
+                        </GNButton>
+                        <GNButton prefHeight="50.0" prefWidth="150.0" layoutX="50.0" layoutY="20.0" onMouseClicked="#saveCompleteBookingInformationToDb"  styleClass="buttonPrimary" text="Save">
                            <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
+                        </GNButton>
                      </children>
                   </HBox>
                </children>

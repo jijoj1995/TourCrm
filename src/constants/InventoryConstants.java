@@ -33,6 +33,10 @@ public class InventoryConstants {
     public static final String loginpage="login";
     public static final String mainQueryPage="mainQuery";
     public static final String subQueryPage="subQuery";
+    public static final String listQueryPage="listQueries";
+
+    public static final String mainBookingPage="mainBooking";
+    public static final String subBookingPage="subBooking";
 
     public static final int userInsertionSuccess=1;
     public static final int userInsertionFailed=0;

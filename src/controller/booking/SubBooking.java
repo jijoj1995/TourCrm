@@ -1,9 +1,12 @@
 package controller.booking;
 
+import com.gn.global.plugin.ViewManager;
+import com.gn.module.main.Main;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import constants.InventoryConstants;
 import constants.LeadsConstants;
 import dto.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -16,7 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import main.Main;
+import javafx.scene.layout.StackPane;
 import org.apache.log4j.Logger;
 import service.BookingService;
 import service.Validator;
@@ -27,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class SubBooking implements Initializable {
     @FXML
-    private AnchorPane mainPane;
+    private StackPane mainPane;
     @FXML
     private TabPane bookingTabs;
     @FXML
@@ -58,7 +61,6 @@ public class SubBooking implements Initializable {
     private ObservableList<PassengerTableList> passengerTableData = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeDefaultLayout();
         initialiseAllCheckBoxDefalutValues();
         initialisePassengerTable();
     }
@@ -364,7 +366,7 @@ public class SubBooking implements Initializable {
     @FXML
     private void showMainBookingPage() {
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/booking/mainBooking.fxml"));
+        Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainBookingPage)));
         try {
             Loader.load();
         } catch (Exception e) {
@@ -372,8 +374,7 @@ public class SubBooking implements Initializable {
         }
         MainBooking mainBooking = Loader.getController();
         mainBooking.initializeCoreLeadDto(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
+        Main.ctrl.body.setContent(Loader.getRoot());
     }
     @FXML
     private void addPassengerToTable(){
@@ -382,11 +383,7 @@ public class SubBooking implements Initializable {
     }
 
     private void initializeDefaultLayout() {
-        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 6 - 20;
-        bookingTabs.setTabMinWidth(paneWidth);
-        bookingTabs.setTabMaxWidth(paneWidth);
+
     }
 
     private void initialiseAllCheckBoxDefalutValues(){

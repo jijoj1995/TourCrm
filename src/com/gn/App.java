@@ -113,6 +113,10 @@ public class App extends Application {
         load("query", "mainQuery");
         load("query", "listQueries");
         load("query", "subQuery");
+
+        load("booking", "mainBooking");
+        load("booking", "subBooking");
+
         load("designer", "cards");
         load("designer", "banners");
         load("designer", "carousel");

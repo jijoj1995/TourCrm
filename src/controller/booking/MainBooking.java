@@ -1,6 +1,9 @@
 package controller.booking;
 
+import com.gn.global.plugin.ViewManager;
+import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
+import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -21,13 +24,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.Main;
 import org.apache.log4j.Logger;
 import service.BookingService;
 import service.Toast;
@@ -40,7 +43,7 @@ import java.util.ResourceBundle;
 
 public class MainBooking implements Initializable {
     @FXML
-    private AnchorPane mainPane;
+    private StackPane mainPane;
     @FXML
     private TabPane bookingTabs;
     @FXML
@@ -249,7 +252,7 @@ public class MainBooking implements Initializable {
         setAllTextFieldDataToDto();
         //loading sub booking page
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/booking/subBooking.fxml"));
+        Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.subBookingPage)));
         try {
             Loader.load();
         } catch (Exception e) {
@@ -257,9 +260,7 @@ public class MainBooking implements Initializable {
         }
         SubBooking subBooking = Loader.getController();
         subBooking.initializeCoreLeadObject(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
-
+        Main.ctrl.body.setContent(Loader.getRoot());
     }
 
     @FXML
@@ -457,17 +458,12 @@ public class MainBooking implements Initializable {
 
 
     @FXML
-    private void showQuickTransactionPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
-        mainPane.getChildren().setAll(root);
+    private void showQuickTransactionPage()  {
+        Main.ctrl.body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.listQueryPage).getRoot());
     }
 
     private void initializeDefaultLayout() {
-        mainPane.setPrefWidth(Main.WIDTH - Main.SIDE_BAR_WIDTH);
-        mainPane.setPrefHeight(Main.HEIGHT - 30);
-        double paneWidth = (Main.WIDTH - Main.SIDE_BAR_WIDTH) / 5 - 20;
-        bookingTabs.setTabMinWidth(paneWidth);
-        bookingTabs.setTabMaxWidth(paneWidth);
+
     }
     private void initialiseAllCheckBoxDefalutValues(){
         channelCode.getItems().addAll(LeadsConstants.channelCode);
