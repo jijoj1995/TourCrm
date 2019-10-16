@@ -32,7 +32,7 @@
                   </FontAwesomeIconView>
                </children>
                <padding>
-                  <Insets right="15.0" />
+                  <Insets right="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER" prefHeight="283.0" prefWidth="940.0" spacing="10.0" VBox.vgrow="ALWAYS">
@@ -55,9 +55,6 @@
                </children>
             </HBox>
          </children>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
       </VBox>
    </children>
    <stylesheets>

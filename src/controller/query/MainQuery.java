@@ -252,9 +252,8 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void showQuickTransactionPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/query/listQueries.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get("booking")));
-        mainPane.getChildren().setAll(root);
+        Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.listQueryPage)));
+        Main.ctrl.body.setContent(root);
     }
 
     private void initialiseAllCheckBoxDefalutValues(){

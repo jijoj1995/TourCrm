@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <StackPane fx:id="mainPane" prefHeight="1120.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.query.MainQuery">
    <children>
       <VBox alignment="CENTER" prefHeight="378.0" prefWidth="952.0" styleClass="box-white" StackPane.alignment="TOP_LEFT">
@@ -352,9 +351,6 @@
                </children>
             </HBox>
          </children>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
       </VBox>
    </children>
    <stylesheets>

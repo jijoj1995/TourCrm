@@ -119,8 +119,8 @@ public class ListQueries implements Initializable {
         callReasonColumn.setCellValueFactory(cellData -> cellData.getValue().callReasonProperty());
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
-            FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.LIST);
-            FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.INBOX);
+            FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.BOOK);
+            FontAwesomeIconView emailIcon = new FontAwesomeIconView(FontAwesomeIcon.ENVELOPE);
 
 
             @Override
@@ -136,7 +136,7 @@ public class ListQueries implements Initializable {
                 hbox.getChildren().add(listIcon);
                 hbox.getChildren().add(emailIcon);
                 hbox.setSpacing(20);
-                hbox.setAlignment(Pos.CENTER);
+                hbox.setAlignment(Pos.TOP_CENTER);
                // setGraphic(listIcon);
                 emailIcon.setCursor(Cursor.HAND);
                 emailIcon.setGlyphSize(30);
@@ -203,7 +203,8 @@ public class ListQueries implements Initializable {
     @FXML
     private void showMainQueryPage() throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
-       Main.ctrl.body.setContent(root);
+        Main.ctrl.title.setText("Main Query Page");
+        Main.ctrl.body.setContent(root);
     }
 
     @FXML
@@ -211,7 +212,7 @@ public class ListQueries implements Initializable {
         logger.info("showing Main booking page for query id= "+coreLeadDto.getCoreLeadId());
         //loading mainBookingPage
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("/view/booking/mainBooking.fxml"));
+        Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainBookingPage)));
         try {
             Loader.load();
         } catch (Exception e) {
@@ -219,14 +220,8 @@ public class ListQueries implements Initializable {
         }
         MainBooking mainBookingPage = Loader.getController();
         mainBookingPage.initializeCoreLeadDto(coreLeadDto);
-        Parent p = Loader.getRoot();
-        mainPane.getChildren().setAll(p);
-    }
-
-    @FXML
-    private void showDashboardPage() throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("/view/main/dashboard.fxml"));
-        mainPane.getChildren().setAll(root);
+        Main.ctrl.body.setContent(Loader.getRoot());
+        Main.ctrl.title.setText("Main Query Page");
     }
 
 

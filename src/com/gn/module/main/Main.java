@@ -45,6 +45,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
+import main.InventoryConfig;
 import org.controlsfx.control.PopOver;
 
 import java.io.IOException;
@@ -396,7 +397,7 @@ public class Main implements Initializable {
 
     @FXML
     private void queryPage(){
-        body.setContent(ViewManager.getInstance().loadPage("listQueries").getRoot());
+        body.setContent(ViewManager.getInstance().loadPage(InventoryConstants.listQueryPage).getRoot());
         title.setText("Query List");
     }
 
@@ -794,7 +795,6 @@ public class Main implements Initializable {
             pop.setHeaderAlwaysVisible(false);
             pop.setCornerRadius(0);
             pop.show(notifications);
-
         } else {
               pop.hide();
         }
