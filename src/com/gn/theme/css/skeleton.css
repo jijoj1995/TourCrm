@@ -273,6 +273,10 @@
 {
     -fx-pref-width : 200px;
 }
+.tab-pane-tight .tab-header-area .headers-region  .tab  .tab-container .tab-label
+{
+    -fx-pref-width : 150px;
+}
 
 /************************************************************************************
 *

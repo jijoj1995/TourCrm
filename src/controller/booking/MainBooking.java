@@ -1,6 +1,7 @@
 package controller.booking;
 
 import com.gn.global.plugin.ViewManager;
+import com.gn.lab.GNButton;
 import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
 import constants.InventoryConstants;
@@ -59,7 +60,7 @@ public class MainBooking implements Initializable {
     @FXML
     JFXDatePicker statusQueryDate,statusQcDate,statusBookingDate,bookingTime,dueDate;
     @FXML
-    private Button notesButton;
+    private GNButton notesButton;
     @FXML
     private HBox shippingHbox,userMainHbox,userSubHbox1,userSubHbox2,dateMainHbox,dateSubHbox1,dateSubHbox2,qcStatusMainHbox,
             qcStatusSubBox1,qcStatusSubBox2,qcDateMainHbox,qcDateSubBox1,qcDateSubBox2;

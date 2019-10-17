@@ -2,6 +2,7 @@ package controller.query;
 
 import com.gn.global.plugin.ViewManager;
 import com.gn.global.util.Alerts;
+import com.gn.global.util.NotesDialog;
 import com.gn.lab.GNButton;
 import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
@@ -17,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,6 +37,7 @@ import javafx.stage.StageStyle;
 import main.InventoryConfig;
 import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
+import org.controlsfx.control.PopOver;
 import service.Toast;
 
 import java.io.IOException;
@@ -64,7 +67,7 @@ public class MainQuery implements Initializable {
     private Logger logger=Logger.getLogger(MainQuery.class);
     private InventoryConfig inventoryConfig=InventoryConfig.getInstance();
     private ObservableList<CoreLeadNotesDto> notesData = FXCollections.observableArrayList();
-    private Stage notesDialog=null;
+    private PopOver notesDialog=new PopOver();
     private WorkIndicatorDialog wd=null;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -291,21 +294,10 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void showNotesTab(){
-        if (notesDialog==null) {
-            notesDialog = new Stage();
-            notesDialog.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-                if (KeyCode.ESCAPE == event.getCode()) {
-                    notesDialog.close();
-                }
-            });
-            notesDialog.setX(notesButton.getLayoutX() + 200);
-            notesDialog.setY(notesButton.getLayoutY() + 350);
-            notesDialog.setWidth(400);
-            notesDialog.setHeight(350);
-            notesDialog.initOwner(mainPane.getScene().getWindow());
-            notesDialog.initModality(Modality.APPLICATION_MODAL);
+
             VBox vBox = new VBox();
             vBox.setSpacing(15);
+            vBox.setAlignment(Pos.TOP_CENTER);
             Label label = new Label("Notes Section");
             label.setFont(Font.font("", FontWeight.BOLD, 16));
             JFXTextArea jfxTextArea = new JFXTextArea();
@@ -316,7 +308,7 @@ public class MainQuery implements Initializable {
             closeButton.getStyleClass().add("buttonPrimary");
             addButton.setCursor(Cursor.HAND);
             closeButton.setOnAction(event -> {
-                notesDialog.close();
+                notesDialog.hide();
             });
 
             addButton.setOnAction(event -> {
@@ -360,22 +352,17 @@ public class MainQuery implements Initializable {
             HBox buttonHbox=new HBox();
             buttonHbox.getChildren().add(addButton);
             buttonHbox.getChildren().add(closeButton);
+            buttonHbox.setAlignment(Pos.TOP_CENTER);
+            buttonHbox.setSpacing(20);
             tableView.setItems(notesData);
             vBox.getChildren().add(label);
             vBox.getChildren().add(jfxTextArea);
             vBox.getChildren().add(buttonHbox);
             vBox.getChildren().add(tableView);
-            Scene scene = new Scene(vBox);
-            scene.getStylesheets().add("/resource/css/notesPopup.css");
-            notesDialog.setScene(scene);
-            notesDialog.initStyle(StageStyle.UNDECORATED);
-            notesDialog.show();
-        }
-        else if (notesDialog.isShowing()){
-            notesDialog.close();
-        }
-        else
-            notesDialog.show();
+            vBox.setPrefSize(400,350);
+            NotesDialog.createAlert(NotesDialog.Type.SUCCESS,"",vBox);
+
+
     }
 
     @FXML

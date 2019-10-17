@@ -52,6 +52,8 @@ import service.Validator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -823,5 +825,17 @@ public class Main implements Initializable {
         } else {
               pop.hide();
         }
+    }
+    public static ArrayList<String> getAllStylesheets(){
+        ArrayList<String> stylesheets=new ArrayList<>();
+        stylesheets.add("/com/gn/theme/css/skeleton.css");
+       // stylesheets.add("/com/gn/theme/css/bootstrap.css");
+        //stylesheets.add("/com/gn/theme/css/custom-scroll.css");
+        //stylesheets.add("/com/gn/theme/css/custom.css");
+        //stylesheets.add("/com/gn/theme/css/dark.css");
+        //stylesheets.add("/com/gn/theme/css/fonts.css");
+        //stylesheets.add("/com/gn/theme/css/login.css");
+      //  stylesheets.add("/com/gn/theme/css/poplight.css");
+        return stylesheets;
     }
 }

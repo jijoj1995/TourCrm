@@ -19,10 +19,7 @@ package com.gn.global.util;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-/**
- * @author Gleidson Neves da Silveira | gleidisonmt@gmail.com
- * Create on  30/01/2019
- */
+
 public class Alerts {
 
     public static void warning(String title, String content){
