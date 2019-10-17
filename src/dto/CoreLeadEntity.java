@@ -10,8 +10,8 @@ import java.util.List;
 @Entity
 @Table( name = "core_lead" )
 @NamedQueries({
-        @NamedQuery(name = "CoreLeadEntity.findAll", query = "SELECT f FROM CoreLeadEntity f"),
-        @NamedQuery(name = "CoreLeadEntity.findBasedOnUser", query = "SELECT f FROM CoreLeadEntity f where employeeName=:employeeName")
+        @NamedQuery(name = "CoreLeadEntity.findAll", query = "FROM CoreLeadEntity order by 1 desc"),
+        @NamedQuery(name = "CoreLeadEntity.findBasedOnUser", query = "FROM CoreLeadEntity where employeeName=:employeeName order by 1 desc")
 })
 @NamedEntityGraph(
         name = "post-entity-graph",

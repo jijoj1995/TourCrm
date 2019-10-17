@@ -9,7 +9,10 @@
 {
   -fx-text-fill : -text-color;
 }
-
+.notes-header{
+-fx-text-fill: white;
+-fx-text-size:24px;
+}
 .h1
 {
   -fx-font-size : 36px;

@@ -294,75 +294,7 @@ public class MainQuery implements Initializable {
 
     @FXML
     private void showNotesTab(){
-
-            VBox vBox = new VBox();
-            vBox.setSpacing(15);
-            vBox.setAlignment(Pos.TOP_CENTER);
-            Label label = new Label("Notes Section");
-            label.setFont(Font.font("", FontWeight.BOLD, 16));
-            JFXTextArea jfxTextArea = new JFXTextArea();
-            Button addButton = new Button("Add");
-            addButton.getStyleClass().add("buttonPrimary");
-            addButton.setCursor(Cursor.HAND);
-            Button closeButton = new Button("Close");
-            closeButton.getStyleClass().add("buttonPrimary");
-            addButton.setCursor(Cursor.HAND);
-            closeButton.setOnAction(event -> {
-                notesDialog.hide();
-            });
-
-            addButton.setOnAction(event -> {
-                if (!jfxTextArea.getText().equals(""))
-                    notesData.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
-                jfxTextArea.setText("");
-                jfxTextArea.requestFocus();
-
-            });
-            TableView tableView = new TableView();
-            TableColumn notesColumn = new TableColumn("Notes");
-            TableColumn<CoreLeadNotesDto, CoreLeadNotesDto> deleteColumn = new TableColumn<>("Action");
-            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-            tableView.getColumns().addAll(notesColumn,deleteColumn);
-            tableView.setEditable(true);
-
-            notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
-
-            deleteColumn.setCellValueFactory(
-                    new PropertyValueFactory<CoreLeadNotesDto, CoreLeadNotesDto>("Action")
-            );
-            deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-            deleteColumn.setCellFactory(param -> new TableCell<CoreLeadNotesDto, CoreLeadNotesDto>() {
-                FontAwesomeIconView deleteButton = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
-
-                @Override
-                protected void updateItem(CoreLeadNotesDto item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null) {
-                        setGraphic(null);
-                        return;
-                    }
-                    deleteButton.setCursor(Cursor.HAND);
-                    deleteButton.setGlyphSize(30);
-                    setGraphic(deleteButton);
-                    deleteButton.setOnMouseClicked(event -> {
-                        notesData.remove(item);
-                    });
-                }
-            });
-            HBox buttonHbox=new HBox();
-            buttonHbox.getChildren().add(addButton);
-            buttonHbox.getChildren().add(closeButton);
-            buttonHbox.setAlignment(Pos.TOP_CENTER);
-            buttonHbox.setSpacing(20);
-            tableView.setItems(notesData);
-            vBox.getChildren().add(label);
-            vBox.getChildren().add(jfxTextArea);
-            vBox.getChildren().add(buttonHbox);
-            vBox.getChildren().add(tableView);
-            vBox.setPrefSize(400,350);
-            NotesDialog.createAlert(NotesDialog.Type.SUCCESS,"",vBox);
-
-
+            NotesDialog.createAlert(NotesDialog.Type.SUCCESS,"",notesData);
     }
 
     @FXML

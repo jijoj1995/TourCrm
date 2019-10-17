@@ -40,8 +40,7 @@ public class SettingsList implements Initializable {
     private DateFormat fileNameDateFormat = new SimpleDateFormat(InventoryConstants.FileNamedateTimeFormat);
     @FXML
     private StackPane mainPane;
-    @FXML
-    private TabPane settingsTabPane;
+
 
     @FXML
     private JFXToggleButton automaticBackupCheckBox,usePortCheck,usePasswordCheck,emableEmailCheck;
@@ -52,13 +51,13 @@ public class SettingsList implements Initializable {
     @FXML
     private JFXComboBox<DayOfWeek> backupDayOptionList;
     @FXML
-    private PasswordField oldPasswordField, newPasswordField, confirmPasswordField,emailPasswordField;
+    private PasswordField dbPassword,emailPasswordField;
     @FXML
-    private JFXTextField dbName,systemIpAddress,dbUserName,dbPassword,dbIpAddress,dbPortNumber,emailField,emailSubjectField;
+    private JFXTextField dbName,systemIpAddress,dbUserName,dbIpAddress,dbPortNumber,emailField,emailSubjectField,maxQueryLimit;
     @FXML
     private JFXTextArea emailMessageField;
     @FXML
-    private Tab overallSettingsTab,databaseTab,emailTab;
+    private Tab overallSettingsTab,emailTab;
     private Logger logger=Logger.getLogger(SettingsList.class);
 
     private InventoryConfig inventoryConfig = InventoryConfig.getInstance();
@@ -178,6 +177,7 @@ public class SettingsList implements Initializable {
         dbPassword.setText(inventoryConfig.getAppProperties().getProperty("databasePassword"));
         dbPortNumber.setText(inventoryConfig.getAppProperties().getProperty("databasePortNumber"));
         dbUserName.setText(inventoryConfig.getAppProperties().getProperty("databaseUserName"));
+        maxQueryLimit.setText(inventoryConfig.getAppProperties().getProperty("maxNumberOfQueries"));
     }
 
 
@@ -213,10 +213,9 @@ public class SettingsList implements Initializable {
         inventoryConfig.getAppProperties().setProperty("emailSubject",emailSubjectField.getText());
         inventoryConfig.getAppProperties().setProperty("emailMessage",emailMessageField.getText());
         inventoryConfig.getAppProperties().setProperty("sendEmailOnQuery",String.valueOf(emableEmailCheck.isSelected()));
-        Stage stage = (Stage) mainPane.getScene().getWindow();
+
         Alerts.success("Updated","Updated Successfully");
     }
-
 
     @FXML
     private void saveDatabaseConnection(){
@@ -225,10 +224,10 @@ public class SettingsList implements Initializable {
         inventoryConfig.getAppProperties().setProperty("databasePassword",dbPassword.getText());
         inventoryConfig.getAppProperties().setProperty("databasePortNumber",dbPortNumber.getText());
         inventoryConfig.getAppProperties().setProperty("databaseUserName",dbUserName.getText());
+        inventoryConfig.getAppProperties().setProperty("maxNumberOfQueries",maxQueryLimit.getText());
         inventoryConfig.getAppProperties().setProperty("usePortCheck",String.valueOf(usePortCheck.isSelected()));
         inventoryConfig.getAppProperties().setProperty("useDatabasePassword",String.valueOf(usePasswordCheck.isSelected()));
 
-        Stage stage = (Stage) mainPane.getScene().getWindow();
         Alerts.success("Updated","Updated Successfully");
     }
 
@@ -240,7 +239,7 @@ public class SettingsList implements Initializable {
         //choose file for saving
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialFileName("InventoryBackup_" + fileNameDateFormat.format(new Date()));
-        //Set extension filter for xlsx files
+           //Set extension filter for xlsx files
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Sql Files (*.sql)", "*.sql");
         fileChooser.getExtensionFilters().add(extFilter);
 

@@ -1,37 +1,23 @@
 package controller.booking;
 
 import com.gn.global.plugin.ViewManager;
+import com.gn.global.util.NotesDialog;
 import com.gn.lab.GNButton;
 import com.gn.module.main.Main;
 import com.jfoenix.controls.*;
 import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.apache.log4j.Logger;
 import service.BookingService;
 import service.Toast;
@@ -69,7 +55,7 @@ public class MainBooking implements Initializable {
     private  Stage notesDialog=null;
     private CoreLead coreLeadDto;
     private CoreBookingEntity coreBookingEntity;
-    private ObservableList<CoreLeadNotesDto> data = FXCollections.observableArrayList();
+    private ObservableList<CoreLeadNotesDto> notesData = FXCollections.observableArrayList();
     private BookingService bookingService=new BookingService();
     private QueryService queryService=new QueryService();
     private Logger logger =Logger.getLogger(MainBooking.class);
@@ -122,9 +108,9 @@ public class MainBooking implements Initializable {
         checkForSameBillingShippingAddress();
     }
     private void initialiseNotesTabData(){
-        //set notes data to table
+        //set notes notesData to table
         if (coreLeadDto.getCoreLeadNotesEntitySet()!=null)
-        for (CoreLeadNotesEntity entity:coreLeadDto.getCoreLeadNotesEntitySet()) data.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(),entity.getNotesData()));
+        for (CoreLeadNotesEntity entity:coreLeadDto.getCoreLeadNotesEntitySet()) notesData.add(new CoreLeadNotesDto(entity.getCoreLeadNotesId(),entity.getNotesData()));
     }
 
     private void initialiseDefaultCoreBookingCommunicationFromDto(){
@@ -250,11 +236,11 @@ public class MainBooking implements Initializable {
     }
 
     private void setNotesDataToDto(){
-        if (data.isEmpty()){
+        if (notesData.isEmpty()){
             logger.warn("no notes details to be saved. returning");
             return;
         }
-        ArrayList<CoreLeadNotesEntity> coreBookingPassengerEntities= queryService.getNotesListFromTable(data);
+        ArrayList<CoreLeadNotesEntity> coreBookingPassengerEntities= queryService.getNotesListFromTable(notesData);
         coreLeadDto.setCoreLeadNotesEntitySet(coreBookingPassengerEntities);
 
     }
@@ -262,7 +248,7 @@ public class MainBooking implements Initializable {
     @FXML
     private void showSubBookingPage() {
 
-        logger.info("saving entered data to Core Booking dto before going to subBookingPage");
+        logger.info("saving entered notesData to Core Booking dto before going to subBookingPage");
         setAllTextFieldDataToDto();
         //loading sub booking page
         FXMLLoader Loader = new FXMLLoader();
@@ -279,91 +265,7 @@ public class MainBooking implements Initializable {
 
     @FXML
     private void showNotesTab(){
-        if (notesDialog==null) {
-            notesDialog = new Stage();
-            notesDialog.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-                if (KeyCode.ESCAPE == event.getCode()) {
-                    notesDialog.close();
-                }
-            });
-            notesDialog.setX(notesButton.getLayoutX() + 200);
-            notesDialog.setY(notesButton.getLayoutY() + 350);
-            notesDialog.setWidth(400);
-            notesDialog.setHeight(350);
-            notesDialog.initOwner(mainPane.getScene().getWindow());
-            notesDialog.initModality(Modality.APPLICATION_MODAL);
-            VBox vBox = new VBox();
-            vBox.setSpacing(15);
-            Label label = new Label("Notes Section");
-            label.setFont(Font.font("", FontWeight.BOLD, 16));
-            JFXTextArea jfxTextArea = new JFXTextArea();
-            Button addButton = new Button("Add");
-            addButton.getStyleClass().add("buttonPrimary");
-            addButton.setCursor(Cursor.HAND);
-            Button closeButton = new Button("Close");
-            closeButton.getStyleClass().add("buttonPrimary");
-            addButton.setCursor(Cursor.HAND);
-            closeButton.setOnAction(event -> {
-                notesDialog.close();
-            });
-
-            addButton.setOnAction(event -> {
-                if (!jfxTextArea.getText().equals(""))
-                    data.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
-                jfxTextArea.setText("");
-                jfxTextArea.requestFocus();
-
-            });
-            TableView tableView = new TableView();
-            TableColumn notesColumn = new TableColumn("Notes");
-            TableColumn<CoreLeadNotesDto, CoreLeadNotesDto> deleteColumn = new TableColumn<>("Action");
-            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-            tableView.getColumns().addAll(notesColumn,deleteColumn);
-            tableView.setEditable(true);
-
-            notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
-
-            deleteColumn.setCellValueFactory(
-                    new PropertyValueFactory<CoreLeadNotesDto, CoreLeadNotesDto>("Action")
-            );
-            deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-            deleteColumn.setCellFactory(param -> new TableCell<CoreLeadNotesDto, CoreLeadNotesDto>() {
-                FontAwesomeIconView deleteButton = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
-
-                @Override
-                protected void updateItem(CoreLeadNotesDto item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null) {
-                        setGraphic(null);
-                        return;
-                    }
-                    deleteButton.setCursor(Cursor.HAND);
-                    deleteButton.setGlyphSize(30);
-                    setGraphic(deleteButton);
-                    deleteButton.setOnMouseClicked(event -> {
-                        data.remove(item);
-                    });
-                }
-            });
-            HBox buttonHbox=new HBox();
-            buttonHbox.getChildren().add(addButton);
-            buttonHbox.getChildren().add(closeButton);
-            tableView.setItems(data);
-            vBox.getChildren().add(label);
-            vBox.getChildren().add(jfxTextArea);
-            vBox.getChildren().add(buttonHbox);
-            vBox.getChildren().add(tableView);
-            Scene scene = new Scene(vBox);
-            scene.getStylesheets().add("/resource/css/notesPopup.css");
-            notesDialog.setScene(scene);
-            notesDialog.initStyle(StageStyle.UNDECORATED);
-            notesDialog.show();
-        }
-        else if (notesDialog.isShowing()){
-            notesDialog.close();
-        }
-        else
-            notesDialog.show();
+        NotesDialog.createAlert(NotesDialog.Type.SUCCESS,"", notesData);
     }
 
 
@@ -382,7 +284,7 @@ public class MainBooking implements Initializable {
         setShippingAddressTextFieldDataToDto();
         setCommunicationTextFieldDataToDto();
         setStatusTextFieldDataToDto();
-        //set notes data to dto
+        //set notes notesData to dto
         setNotesDataToDto();
             //set all booking Details to coreLeadDto
         coreLeadDto.setCoreBookingEntity(coreBookingEntity);
@@ -454,7 +356,7 @@ public class MainBooking implements Initializable {
 
     @FXML
     private void saveCompleteBookingInformationToDb() throws IOException{
-                                //before saving set data from all textFields
+                                //before saving set notesData from all textFields
         setAllTextFieldDataToDto();
                                //set booking details dto to main Lead dto
         coreLeadDto.setCoreBookingEntity(coreBookingEntity);
@@ -466,7 +368,7 @@ public class MainBooking implements Initializable {
         }
         else{
             Stage stage = (Stage) mainPane.getScene().getWindow();
-            Toast.makeText(stage,"Unable to save query data. Please check input values or restart application",1000,500,500 );
+            Toast.makeText(stage,"Unable to save query notesData. Please check input values or restart application",1000,500,500 );
         }
     }
 

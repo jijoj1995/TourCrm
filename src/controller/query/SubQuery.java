@@ -8,6 +8,8 @@ import com.jfoenix.controls.JFXTextField;
 import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -15,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
@@ -225,7 +228,7 @@ public class SubQuery implements Initializable {
 
         TableColumn<CoreLeadHotel, CoreLeadHotel> delete = new TableColumn<>("Action");
         hotelTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        hotelTable.getColumns().addAll(destination, checkInDate,checkoutDate,currencyCode,hotelCategory, numberOfNights,numberOfAdult,numberOfChild,numberOfInfants,totalPax, roomTariff,extraBed,totalPrice,hotelPlan,status);
+        hotelTable.getColumns().addAll(destination, checkInDate,checkoutDate,currencyCode,hotelCategory, numberOfNights,numberOfAdult,numberOfChild,numberOfInfants,totalPax, roomTariff,extraBed,totalPrice,hotelPlan,status,delete);
         hotelTable.setEditable(true);
 
         destination.setCellValueFactory(new PropertyValueFactory<>("destination"));
@@ -247,8 +250,7 @@ public class SubQuery implements Initializable {
 
         delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delete.setCellFactory(param -> new TableCell<CoreLeadHotel, CoreLeadHotel>() {
-            private final Button deleteButton = new Button("Delete");
-
+            FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
             @Override
             protected void updateItem(CoreLeadHotel item, boolean empty) {
                 super.updateItem(item, empty);
@@ -256,9 +258,10 @@ public class SubQuery implements Initializable {
                     setGraphic(null);
                     return;
                 }
-
-                setGraphic(deleteButton);
-                deleteButton.setOnAction(event -> {
+                deleteIcon.setGlyphSize(25);
+                deleteIcon.setCursor(Cursor.HAND);
+                setGraphic(deleteIcon);
+                deleteIcon.setOnMouseClicked(event -> {
                     hotelTableData.remove(item);
                 });
             }
@@ -290,7 +293,7 @@ public class SubQuery implements Initializable {
 
         TableColumn<CoreLeadAir, CoreLeadAir> delete = new TableColumn<>("Action");
         hotelTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        airTable.getColumns().addAll(fromDestination,toDestination,departureDate,returnDate,airlinesOffered,currencyCode,numberOfAdult,numberOfChild,numberOfInfant,totalPax,adultFare,childFare,infantFare,totalPrice,typeOfTravel,classOfTravel,status);
+        airTable.getColumns().addAll(fromDestination,toDestination,departureDate,returnDate,airlinesOffered,currencyCode,numberOfAdult,numberOfChild,numberOfInfant,totalPax,adultFare,childFare,infantFare,totalPrice,typeOfTravel,classOfTravel,status,delete);
 
         fromDestination.setCellValueFactory(new PropertyValueFactory<>("fromDestination"));
         toDestination.setCellValueFactory(new PropertyValueFactory<>("toDestination"));
@@ -313,7 +316,7 @@ public class SubQuery implements Initializable {
 
         delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delete.setCellFactory(param -> new TableCell<CoreLeadAir, CoreLeadAir>() {
-            private final Button deleteButton = new Button("Delete");
+            FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
 
             @Override
             protected void updateItem(CoreLeadAir item, boolean empty) {
@@ -322,10 +325,11 @@ public class SubQuery implements Initializable {
                     setGraphic(null);
                     return;
                 }
-
-                setGraphic(deleteButton);
-                deleteButton.setOnAction(event -> {
-                    hotelTableData.remove(item);
+                deleteIcon.setGlyphSize(25);
+                deleteIcon.setCursor(Cursor.HAND);
+                setGraphic(deleteIcon);
+                deleteIcon.setOnMouseClicked(event -> {
+                    airTableData.remove(item);
                 });
             }
         });
@@ -349,7 +353,7 @@ public class SubQuery implements Initializable {
 
         TableColumn<CoreLeadRail, CoreLeadRail> delete = new TableColumn<>("Action");
         railTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        railTable.getColumns().addAll( departureCity,  arrivalCity,  departureDate,  trainNumber,  numberOfAdult,  numberOfChild,  numberOfInfant,  totalPax,  adultFare,  childFare,  totalFare,  classOfTravel,  status);
+        railTable.getColumns().addAll(departureCity,  arrivalCity,  departureDate,  trainNumber,  numberOfAdult,  numberOfChild,  numberOfInfant,  totalPax,  adultFare,  childFare,  totalFare,  classOfTravel,  status,delete);
 
         departureCity.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
         arrivalCity.setCellValueFactory(new PropertyValueFactory<>("arrivalCity"));
@@ -369,8 +373,7 @@ public class SubQuery implements Initializable {
 
         delete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delete.setCellFactory(param -> new TableCell<CoreLeadRail, CoreLeadRail>() {
-            private final Button deleteButton = new Button("Delete");
-
+            FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
             @Override
             protected void updateItem(CoreLeadRail item, boolean empty) {
                 super.updateItem(item, empty);
@@ -378,9 +381,11 @@ public class SubQuery implements Initializable {
                     setGraphic(null);
                     return;
                 }
-                setGraphic(deleteButton);
-                deleteButton.setOnAction(event -> {
-                    hotelTableData.remove(item);
+                deleteIcon.setGlyphSize(25);
+                deleteIcon.setCursor(Cursor.HAND);
+                setGraphic(deleteIcon);
+                deleteIcon.setOnMouseClicked(event -> {
+                    railTableData.remove(item);
                 });
             }
         });
@@ -486,13 +491,16 @@ public class SubQuery implements Initializable {
     private void showMainQueryPage() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
+
         try {
             loader.load();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         MainQuery mainQuery = loader.getController();
         mainQuery.initializeCoreLeadDto(coreLeadDto);
+
         Main.ctrl.body.setContent(loader.getRoot());
     }
     private void initialiseAllCheckBoxDefaultValues(){

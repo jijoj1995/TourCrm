@@ -33,6 +33,7 @@ import service.Toast;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class ListQueries implements Initializable {
     @FXML
@@ -62,13 +63,15 @@ public class ListQueries implements Initializable {
     private ObservableList<QueriesListDto> masterData = FXCollections.observableArrayList();
     private QueryService queryService=new QueryService();
     private Logger logger=Logger.getLogger(ListQueries.class);
-    private WorkIndicatorDialog wd=null;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Stage stage=new Stage();
+         WorkIndicatorDialog wd=null;
         wd = new WorkIndicatorDialog(stage, "Loading...");
         wd.exec("123", inputParam -> {
+
             masterData.addAll(queryService.getAllQueriesList());
             return 1;
         });
@@ -93,19 +96,7 @@ public class ListQueries implements Initializable {
                 editUserButton.setText(String.valueOf(queriesList.getQueryId()));
                 setGraphic(editUserButton);
                 editUserButton.setOnAction(event -> {
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
-                    try {
-                        Loader.load();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    MainQuery controller = Loader.getController();
-                    CoreLead coreLeadDto = queriesList.getCoreLeadDto();
-
-                    controller.initializeCoreLeadDto(coreLeadDto);
-                    Parent p = Loader.getRoot();
-                    Main.ctrl.body.setContent(p);
+                    loadMainQueryPage(queriesList.getCoreLeadDto());
 
                 });
             }
@@ -142,15 +133,13 @@ public class ListQueries implements Initializable {
 
                 emailIcon.setOnMouseClicked(event -> {
                           //send email for specific query user
-                    Platform.runLater(new Runnable() {
-                        @Override public void run() {
+                    Platform.runLater(()-> {
                             Stage stage = (Stage) emailIcon.getScene().getWindow();
                             boolean emailSendSuccessful= queryService.sendEmailNotification(queriesListDto.getCoreLeadDto().getCoreLeadCommunication().getPaxEmailFirst());
                             if (emailSendSuccessful){
                                 Alerts.success("Success","Email sent Successfully");
                             }
                             else Alerts.error("Failed","Unable to send Email. Please check your settings/internet configuration");;
-                        }
                     });
                 });
                 listIcon.setOnMouseClicked(event -> {
@@ -198,12 +187,28 @@ public class ListQueries implements Initializable {
 
     }
 
+    private void loadMainQueryPage(CoreLead coreLeadDto){
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
+        try {
+            Loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        MainQuery controller = Loader.getController();
+        //CoreLead coreLeadDto = queriesList.getCoreLeadDto();
+        controller.initializeCoreLeadDto(coreLeadDto);
+        Parent p = Loader.getRoot();
+        Main.ctrl.body.setContent(p);
+    }
+
     @FXML
     private void showMainQueryPage() throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource(ViewManager.getInstance().get(InventoryConstants.mainQueryPage)));
         Main.ctrl.title.setText("Main Query Page");
         Main.ctrl.body.setContent(root);
     }
+
 
     @FXML
     private void showMainBookingPage(CoreLead coreLeadDto)  {

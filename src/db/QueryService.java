@@ -63,12 +63,12 @@ try {
      EntityGraph graph = session.getEntityGraph("post-entity-graph");
 
     if (employeeName.equals("admin")) {
-        results = session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph", graph).getResultList();
+        results = session.createNamedQuery("CoreLeadEntity.findAll", CoreLeadEntity.class).setHint("javax.persistence.fetchgraph", graph).setMaxResults(getMaxNumberOfQueries()).getResultList();
     }
     else {
        results = session.createNamedQuery("CoreLeadEntity.findBasedOnUser", CoreLeadEntity.class)
                .setParameter("employeeName", employeeName)
-               .setHint("javax.persistence.fetchgraph", graph).getResultList();
+               .setHint("javax.persistence.fetchgraph", graph).setMaxResults(getMaxNumberOfQueries()).getResultList();
     }
 
     for (CoreLeadEntity coreLeadEntity : results) {
@@ -316,6 +316,14 @@ finally {
             e.printStackTrace();
             return false;
         }
+    }
+    private int getMaxNumberOfQueries(){
+        try {
+            return Integer.parseInt(InventoryConfig.getInstance().getAppProperties().getProperty("maxNumberOfQueries"));
+        }catch (Exception e){
+            logger.warn("error while fetching max no. of queries. returning 100 "+e);
+        }
+        return 100;
     }
 }
 

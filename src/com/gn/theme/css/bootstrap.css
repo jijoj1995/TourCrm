@@ -403,6 +403,10 @@
     -fx-scale-shape : false;
     -fx-background-color: -icon-color;
 }
+.notes-header{
+-fx-text-fill: white;
+-fx-text-size:24px;
+}
 
 
 /************************************************************************************

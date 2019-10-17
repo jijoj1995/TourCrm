@@ -1771,6 +1771,10 @@
 .title {
   -fx-font-family : Roboto;
 }
+.notes-header{
+-fx-text-fill: white;
+-fx-text-size:24px;
+}
 
 /************************************************************************************
 *

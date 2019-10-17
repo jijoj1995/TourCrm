@@ -42,6 +42,15 @@
   -fx-text-fill: inherit;
   -fx-fill: inherit;
 }
+.h1-light,.h2-light,.h3-light,.h4-light,.h5-light,.h6-light{
+-fx-text-fill: white;
+}
+
+.notes-header{
+-fx-text-fill: white;
+-fx-text-size:24px;
+}
+
 .h1 small,
 .h1 .small, .h2 small,
 .h2 .small, .h3 small,
@@ -95,6 +104,32 @@
 .h6 {
   -fx-font-size: 12px;
 }
+
+.h1-light{
+  -fx-font-size: 36px;
+}
+
+.h2-light{
+  -fx-font-size: 30px;
+  -fx-text-fill:white;
+}
+
+.h3-light{
+  -fx-font-size: 24px;
+}
+
+.h4-light{
+  -fx-font-size: 18px;
+}
+
+.h5-light{
+  -fx-font-size: 14px;
+}
+
+.h6-light{
+  -fx-font-size: 12px;
+}
+
 
 .lead {
   -fx-font-size: 16px;

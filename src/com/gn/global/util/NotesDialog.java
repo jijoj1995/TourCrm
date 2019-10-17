@@ -18,14 +18,20 @@ package com.gn.global.util;
 
 import com.gn.App;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXTextArea;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import dto.CoreLeadNotesDto;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -53,16 +59,11 @@ import java.util.Arrays;
     public enum Type { INFO, WARNING, ERROR, SUCCESS }
     public enum ButtonType { OK, CANCEL }
 
-   public static void createAlert(Type type, String title, VBox vbox) {
-        createLayout(createHeader(type), createContent(title, vbox), createActions(type, new EventHandler[]{
+   public static void createAlert(Type type, String title, ObservableList<CoreLeadNotesDto> notesData) {
+        createLayout(createHeader(type), createContent(title, notesData), createActions(type, new EventHandler[]{
                 close
         }));
     }
-
-   /*public  static void createAlert(Type type, String title, String message, EventHandler<MouseEvent>... confirm) {
-        createLayout(createHeader(type), createContent(title, message), createActions(type, confirm));
-    }*/
-
 
     private static void createLayout(VBox header, VBox content, HBox actions){
         StackPane root = new StackPane();
@@ -79,27 +80,26 @@ import java.util.Arrays;
 
     private static VBox createHeader(Type type){
         VBox header = new VBox();
-        header.setPrefHeight(50);
+        header.setPrefHeight(60);
         header.setAlignment(Pos.CENTER);
+
         Label headerLabel=new Label("Notes Section");
         headerLabel.getStyleClass().add("h2");
         headerLabel.setTextFill(Color.WHITE);
+
         header.setBackground(new Background(new BackgroundFill(Color.web("#33B5E5"), new CornerRadii(10, 0, 0, 0,false), Insets.EMPTY)));
         header.getChildren().add(headerLabel);
         return header;
     }
 
-    private static VBox  createContent(String title, VBox message){
+    private static VBox  createContent(String title, ObservableList<CoreLeadNotesDto> notesData){
         VBox container = new VBox();
         container.setAlignment(Pos.TOP_CENTER);
         container.setSpacing(20D);
-
         VBox.setMargin(container, new Insets(10,0,0,0));
-
         Label lblTitle = new Label(title);
         lblTitle.getStyleClass().add("h2");
-
-        container.getChildren().addAll(lblTitle, message);
+        container.getChildren().addAll(lblTitle,createVbox(notesData) );
 
         return container;
     }
@@ -143,7 +143,6 @@ import java.util.Arrays;
     }
 
     private static void show(Region region){
-
         dialog.setDialogContainer(App.getDecorator().getBackground());
         dialog.setContent(region);
         dialog.setTransitionType(JFXDialog.DialogTransition.TOP);
@@ -155,5 +154,72 @@ import java.util.Arrays;
                 return null;
             }
         }).start());
+    }
+
+    private static VBox createVbox(ObservableList<CoreLeadNotesDto> notesData){
+        VBox vBox = new VBox();
+        vBox.setSpacing(15);
+        vBox.setAlignment(Pos.TOP_CENTER);
+        Label label = new Label("Notes Section");
+        label.setFont(Font.font("", FontWeight.BOLD, 16));
+
+        JFXTextArea jfxTextArea = new JFXTextArea();
+
+        Button addButton = new Button("Add");
+        addButton.getStyleClass().add("buttonPrimary");
+        addButton.setCursor(Cursor.HAND);
+
+        Button closeButton = new Button("Close");
+        closeButton.getStyleClass().add("buttonPrimary");
+        closeButton.setOnAction(event -> {dialog.close();});
+
+        addButton.setOnAction(event -> {
+            if (!jfxTextArea.getText().isEmpty())notesData.add(new CoreLeadNotesDto(null, jfxTextArea.getText()));
+            jfxTextArea.setText("");
+            jfxTextArea.requestFocus();
+
+        });
+        TableView tableView = new TableView();
+        TableColumn notesColumn = new TableColumn("Notes");
+        TableColumn<CoreLeadNotesDto, CoreLeadNotesDto> deleteColumn = new TableColumn<>("Action");
+
+        tableView.getColumns().addAll(notesColumn,deleteColumn);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        notesColumn.setCellValueFactory(new PropertyValueFactory<CoreLeadNotesDto, String>("notesData"));
+        deleteColumn.setCellValueFactory(new PropertyValueFactory<>("Action"));
+        deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        deleteColumn.setCellFactory(param -> new TableCell<CoreLeadNotesDto, CoreLeadNotesDto>() {
+            FontAwesomeIconView deleteButton = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
+
+            @Override
+            protected void updateItem(CoreLeadNotesDto item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null) {
+                    setGraphic(null);
+                    return;
+                }
+                deleteButton.setCursor(Cursor.HAND);
+                deleteButton.setGlyphSize(30);
+                setGraphic(deleteButton);
+                deleteButton.setOnMouseClicked(event -> {notesData.remove(item);});
+            }
+        });
+        HBox buttonHbox=new HBox();
+
+        buttonHbox.getChildren().add(addButton);
+        buttonHbox.getChildren().add(closeButton);
+        buttonHbox.setAlignment(Pos.TOP_CENTER);
+        buttonHbox.setSpacing(20);
+
+        tableView.setItems(notesData);
+
+        vBox.getChildren().add(label);
+        vBox.getChildren().add(jfxTextArea);
+        vBox.getChildren().add(buttonHbox);
+        vBox.getChildren().add(tableView);
+        vBox.setPrefSize(400,350);
+
+        return vBox;
     }
 }
