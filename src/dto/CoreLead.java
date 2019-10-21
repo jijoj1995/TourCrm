@@ -23,6 +23,7 @@ public class CoreLead implements Serializable {
     private StringProperty lobCode=new SimpleStringProperty();
     private StringProperty employeeName=new SimpleStringProperty();
     private StringProperty querytime=new SimpleStringProperty();
+    private StringProperty totalBookingAmount=new SimpleStringProperty();
 
     private CoreLeadCommunication coreLeadCommunication;
     private List<CoreLeadAirEntity> coreLeadAirList;
@@ -31,6 +32,18 @@ public class CoreLead implements Serializable {
     private List<CoreLeadRailEntity> coreLeadRailList;
     private CoreBookingEntity coreBookingEntity;
     private List<CoreLeadNotesEntity> coreLeadNotesEntitySet;
+
+    public String getTotalBookingAmount() {
+        return totalBookingAmount.get();
+    }
+
+    public StringProperty totalBookingAmountProperty() {
+        return totalBookingAmount;
+    }
+
+    public void setTotalBookingAmount(String totalBookingAmount) {
+        this.totalBookingAmount.set(totalBookingAmount);
+    }
 
     public String getUserId() {
         return userId.get();

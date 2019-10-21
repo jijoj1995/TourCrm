@@ -13,6 +13,7 @@ public class QueriesListDto {
     private StringProperty branchCode = new SimpleStringProperty();
     private StringProperty callReason = new SimpleStringProperty();
     private StringProperty employeeName = new SimpleStringProperty();
+    private StringProperty totalBookingAmount = new SimpleStringProperty();
     private CoreLead coreLeadDto;
 
     public QueriesListDto() {
@@ -45,6 +46,18 @@ public class QueriesListDto {
 
     public StringProperty firstNameProperty() {
         return firstName;
+    }
+
+    public String getTotalBookingAmount() {
+        return totalBookingAmount.get();
+    }
+
+    public StringProperty totalBookingAmountProperty() {
+        return totalBookingAmount;
+    }
+
+    public void setTotalBookingAmount(String totalBookingAmount) {
+        this.totalBookingAmount.set(totalBookingAmount);
     }
 
     public void setFirstName(String firstName) {

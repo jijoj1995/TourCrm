@@ -9,10 +9,14 @@ import service.EmailService;
 import service.HibernateUtil;
 
 import javax.persistence.EntityGraph;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueryService {
+public class QueryService extends BaseConnection{
     private Logger logger=Logger.getLogger(QueryService.class);
 
     /*
@@ -82,6 +86,7 @@ try {
         limitedQueriesListDto.setLastName(coreLeadEntity.getLastName());
         limitedQueriesListDto.setQueryId(coreLeadEntity.getCoreLeadId());
         limitedQueriesListDto.setEmployeeName(coreLeadEntity.getEmployeeName());
+        limitedQueriesListDto.setTotalBookingAmount(coreLeadEntity.getTotalBookingAmount());
         limitedQueriesListDto.setCoreLeadDto(setValuesFromCoreLeadEntity(coreLeadEntity));
         queriesListDtoArrayList.add(limitedQueriesListDto);
     }
@@ -93,6 +98,37 @@ finally {
     if (session!=null)session.close();
 }
         return queriesListDtoArrayList;
+    }
+
+    public ArrayList<CoreCustomerDetailsDto>getCustomerDetailsList(){
+        ArrayList<CoreCustomerDetailsDto>customerDetailsDtos=new ArrayList<>();
+
+        Connection connection=null;
+        PreparedStatement statement=null;
+        ResultSet resultSet=null;
+        try{
+            String query="select * from core_lead inner join core_lead_communication using(core_lead_communication_id)";
+            connection=getDBConnection();
+            statement=connection.prepareStatement(query);
+            resultSet=statement.executeQuery();
+            while (resultSet.next()){
+                customerDetailsDtos.add(new CoreCustomerDetailsDto(null,resultSet.getString("firstName"),resultSet.getString("middleName"),
+                        resultSet.getString("lastName"),resultSet.getString("userid"),resultSet.getString("branchCode"),
+                        resultSet.getString("channelCode"),resultSet.getString("country"),resultSet.getString("querySource"),
+                        resultSet.getString("currencyCode"),resultSet.getString("shift"),resultSet.getString("callReason"),
+                        resultSet.getString("lobCode"),resultSet.getString("userid"),resultSet.getString("usaWorkNumber"),
+                        resultSet.getString("indiaLandline"),resultSet.getString("paxEmailFirst"),resultSet.getString("paxEmailSecond"),
+                        resultSet.getString("indiaMobile"),resultSet.getString("usaHome")));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            sqlCleanup(connection,statement,resultSet);
+        }
+
+        return customerDetailsDtos;
     }
 
     public ArrayList<CoreLeadNotesEntity> getNotesListFromTable(ObservableList<CoreLeadNotesDto> data){
@@ -174,6 +210,7 @@ finally {
         coreLeadEntity.setEmployeeName(coreLeadDto.getEmployeeName());
         coreLeadEntity.setQueryTime(coreLeadDto.getQuerytime());
         coreLeadEntity.setUserId(coreLeadDto.getUserId());
+        coreLeadEntity.setTotalBookingAmount(coreLeadDto.getTotalBookingAmount());
 
 
         //communication details
@@ -254,6 +291,7 @@ finally {
         coreLeadDto.setEmployeeName(coreLeadEntity.getEmployeeName());
         coreLeadDto.setQuerytime(coreLeadEntity.getQueryTime());
         coreLeadDto.setUserId(coreLeadEntity.getUserId());
+        coreLeadDto.setTotalBookingAmount(coreLeadEntity.getTotalBookingAmount());
 
 
                               //communication details
@@ -324,6 +362,63 @@ finally {
             logger.warn("error while fetching max no. of queries. returning 100 "+e);
         }
         return 100;
+    }
+
+    public Double calculateEntireBookingCharges(CoreLead coreLead){
+        double airCharges=0d;
+        double railCharges=0d;
+        double hotelCharges=0d;
+
+        if (coreLead.getCoreLeadAirList()!=null && !coreLead.getCoreLeadAirList().isEmpty()){
+           airCharges= calculateAirBookingCharges(coreLead.getCoreLeadAirList());
+        }
+
+        if (coreLead.getCoreLeadRailList()!=null && !coreLead.getCoreLeadRailList().isEmpty()){
+            railCharges= calculateRailBookingCharges(coreLead.getCoreLeadRailList());
+        }
+        if (coreLead.getCoreLeadHotelList()!=null && !coreLead.getCoreLeadHotelList().isEmpty()){
+            hotelCharges= calculateHotelBookingCharges(coreLead.getCoreLeadHotelList());
+        }
+
+        return airCharges+railCharges+hotelCharges;
+    }
+
+    private double calculateAirBookingCharges(List<CoreLeadAirEntity> coreLeadAirArrayList){
+        double value=0d;
+        try {
+            for (CoreLeadAirEntity coreLeadAir : coreLeadAirArrayList) {
+                value += Double.valueOf(coreLeadAir.getTotalPrice());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return value;
+    }
+
+    private double calculateRailBookingCharges(List<CoreLeadRailEntity> coreLeadRailArrayList){
+        double value=0d;
+        try {
+            for (CoreLeadRailEntity leadRail : coreLeadRailArrayList) {
+                value += Double.valueOf(leadRail.getTotalFare());
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return value;
+    }
+
+    private double calculateHotelBookingCharges(List<CoreLeadHotelEntity> coreLeadHotelEntityList ){
+        double value=0d;
+        try {
+        for (CoreLeadHotelEntity hotelEntity:coreLeadHotelEntityList) {
+            value+=Double.valueOf(hotelEntity.getTotalPrice());
+        }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return value;
     }
 }
 

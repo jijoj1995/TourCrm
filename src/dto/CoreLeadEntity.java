@@ -62,6 +62,7 @@ public class CoreLeadEntity implements Serializable {
     private String lobCode;
     private String employeeName;
     private String queryTime;
+    private String totalBookingAmount;
 
     @OneToOne(targetEntity=CoreLeadCommunicationEntity.class,cascade=CascadeType.ALL)
     @JoinColumn(name="core_lead_communication_id")
@@ -95,6 +96,14 @@ public class CoreLeadEntity implements Serializable {
     @JoinColumn(name="core_lead_id")
     private List<CoreLeadNotesEntity> coreLeadsNotesEntities;
 
+
+    public String getTotalBookingAmount() {
+        return totalBookingAmount;
+    }
+
+    public void setTotalBookingAmount(String totalBookingAmount) {
+        this.totalBookingAmount = totalBookingAmount;
+    }
 
     public String getUserId() {
         return userId;

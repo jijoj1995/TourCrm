@@ -58,6 +58,9 @@ public class ListQueries implements Initializable {
     private TableColumn<QueriesListDto, String> employeeColumn;
 
     @FXML
+    private TableColumn<QueriesListDto, String> totalBookingAmountColumn;
+
+    @FXML
     private TableColumn<QueriesListDto, QueriesListDto> actionColumn;
 
     private ObservableList<QueriesListDto> masterData = FXCollections.observableArrayList();
@@ -107,6 +110,7 @@ public class ListQueries implements Initializable {
         branchCodeColumn.setCellValueFactory(cellData -> cellData.getValue().branchCodeProperty());
         employeeColumn.setCellValueFactory(cellData -> cellData.getValue().employeeNameProperty());
         callReasonColumn.setCellValueFactory(cellData -> cellData.getValue().callReasonProperty());
+        totalBookingAmountColumn.setCellValueFactory(cellData -> cellData.getValue().totalBookingAmountProperty());
         actionColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         actionColumn.setCellFactory(param -> new TableCell<QueriesListDto, QueriesListDto>() {
             FontAwesomeIconView listIcon = new FontAwesomeIconView(FontAwesomeIcon.BOOK);

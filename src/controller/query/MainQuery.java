@@ -2,6 +2,7 @@ package controller.query;
 
 import com.gn.global.plugin.ViewManager;
 import com.gn.global.util.Alerts;
+import com.gn.global.util.ExistingCustomerDialog;
 import com.gn.global.util.NotesDialog;
 import com.gn.lab.GNButton;
 import com.gn.module.main.Main;
@@ -9,10 +10,7 @@ import com.jfoenix.controls.*;
 import constants.InventoryConstants;
 import constants.LeadsConstants;
 import db.QueryService;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dto.*;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,19 +19,15 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import main.AutoCompleteComboBoxListener;
+import main.FxUtilTest;
 import main.InventoryConfig;
 import main.WorkIndicatorDialog;
 import org.apache.log4j.Logger;
@@ -56,7 +50,7 @@ public class MainQuery implements Initializable {
     @FXML
     private JFXComboBox<String> channelCode,querySource,reasonOfCall,currencyCode,lobCode,shift;
     @FXML
-    private GNButton notesButton;
+    private GNButton notesButton,customerButton;
     @FXML
     private HBox queryIdHbox;
     @FXML
@@ -69,6 +63,8 @@ public class MainQuery implements Initializable {
     private ObservableList<CoreLeadNotesDto> notesData = FXCollections.observableArrayList();
     private PopOver notesDialog=new PopOver();
     private WorkIndicatorDialog wd=null;
+    private CoreCustomerDetailsDto selectedCustomer;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
                                         //set window based on screen size
@@ -84,6 +80,14 @@ public class MainQuery implements Initializable {
                                  //this method called when already present queryData is clicked
         this.coreLeadDto=coreLead;
         initializeAllInputTextsFromDto(coreLeadDto);
+
+        if (coreLead.getCoreLeadId()!=0){
+           hideExistingCustomerButton();
+        }
+    }
+
+    private void hideExistingCustomerButton(){
+        customerButton.setVisible(false);
     }
 
     private void initializeAllInputTextsFromDto(CoreLead coreLeadDto){
@@ -218,6 +222,8 @@ public class MainQuery implements Initializable {
         wd = new WorkIndicatorDialog(mainPane.getScene().getWindow(), "Loading...");
         wd.exec("123", inputParam -> {
                  setTextFieldDataToDto();
+
+               coreLeadDto.setTotalBookingAmount(String.valueOf(queryService.calculateEntireBookingCharges(coreLeadDto)));
                                         //set querytime as current time
             coreLeadDto.setQuerytime(new Date().toString());
             if(queryService.saveQueryData(coreLeadDto)){
@@ -296,6 +302,63 @@ public class MainQuery implements Initializable {
     private void showNotesTab(){
             NotesDialog.createAlert(NotesDialog.Type.SUCCESS,"",notesData);
     }
+    @FXML
+    private void showExistingCustomerDialog(){
+         ArrayList<CoreCustomerDetailsDto> coreCustomerDetailsDtos=queryService.getCustomerDetailsList();
+    ExistingCustomerDialog.showDialog(ExistingCustomerDialog.Type.SUCCESS,"",createExistingCustomerDialogVbox(coreCustomerDetailsDtos));
+
+    }
+
+    private  VBox createExistingCustomerDialogVbox(ArrayList<CoreCustomerDetailsDto> coreCustomerDetailsDtos){
+        VBox vBox = new VBox();
+        vBox.setSpacing(15);
+        vBox.setAlignment(Pos.TOP_CENTER);
+        Label label = new Label("Existing Customer");
+        label.setFont(Font.font("", FontWeight.BOLD, 16));
+        ComboBox<CoreCustomerDetailsDto>customerComboBox = new ComboBox<>();
+        customerComboBox.getItems().addAll(coreCustomerDetailsDtos);
+
+        FxUtilTest.autoCompleteComboBoxPlus(customerComboBox, (typedText, itemToCompare) -> itemToCompare.getFirstName().toLowerCase().contains(typedText.toLowerCase()) || itemToCompare.getLastName().toLowerCase().contains(typedText.toLowerCase()));
+        FxUtilTest.getComboBoxValue(customerComboBox);
+
+        new AutoCompleteComboBoxListener(customerComboBox);
+
+        customerComboBox.setOnAction(event -> {
+            if (customerComboBox.getSelectionModel().getSelectedIndex() != -1) {
+                selectedCustomer=FxUtilTest.getComboBoxValue(customerComboBox);
+
+                firstName.setText(selectedCustomer.getFirstName());
+                middleName.setText(selectedCustomer.getMiddleName());
+                lastName.setText(selectedCustomer.getLastName());
+                country.setText(selectedCustomer.getCountry());
+                currencyCode.setValue(selectedCustomer.getCurrencyCode());
+                reasonOfCall.setValue(selectedCustomer.getCallReason());
+                branchCode.setText(selectedCustomer.getBranchCode());
+                channelCode.setValue(selectedCustomer.getChannelCode());
+                querySource.setValue(selectedCustomer.getQuerySource());
+                lobCode.setValue(selectedCustomer.getLobCode());
+                paxEmailFirst.setText(selectedCustomer.getPaxEmailFirst());
+                paxEmailSecond.setText(selectedCustomer.getPaxEmailSecond());
+                indiaLandLine.setText(selectedCustomer.getIndiaLandline());
+                indiaMobile.setText(selectedCustomer.getIndiaMobile());
+                usaHome.setText(selectedCustomer.getUsaHome());
+                usaMobile.setText(selectedCustomer.getUsaMobile());
+                usaWork.setText(selectedCustomer.getUsaWorkNumber());
+            }
+        });
+
+        Button addButton = new Button("Add");
+        addButton.getStyleClass().add("buttonPrimary");
+        addButton.setCursor(Cursor.HAND);
+
+        vBox.getChildren().add(label);
+        vBox.getChildren().add(customerComboBox);
+        vBox.getChildren().add(addButton);
+        vBox.setPrefSize(400,350);
+
+        return vBox;
+    }
+
 
     @FXML
     private void onTabSelection(){

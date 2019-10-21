@@ -22,6 +22,18 @@
          <children>
             <HBox alignment="TOP_RIGHT">
                <children>
+                  <HBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <GNButton fx:id="customerButton" buttonType="DIAGONAL_SWIPE" onMouseClicked="#showExistingCustomerDialog" prefHeight="40.0" prefWidth="150.0" styleClass="buttonPrimary" text="Existing Customer">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </GNButton>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
                   <VBox alignment="TOP_RIGHT">
                      <children>
                         <FontAwesomeIconView fx:id="backIcon" fill="#022f02" glyphName="ARROW_CIRCLE_LEFT" onMouseClicked="#showQuickTransactionPage" size="35" strokeType="OUTSIDE" strokeWidth="0.0">
