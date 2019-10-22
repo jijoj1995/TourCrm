@@ -1,5 +1,6 @@
 package main;
 
+import com.gn.GNAvatarView;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -11,6 +12,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -36,7 +39,7 @@ public class WorkIndicatorDialog<P> {
     private final Stage dialog = new Stage(StageStyle.UNDECORATED);
     private final Label label = new Label();
     private final Group root = new Group();
-    private final Scene scene = new Scene(root, 330, 120, Color.WHITE);
+    private final Scene scene = new Scene(root, 200, 200, Color.WHITE);
     private final BorderPane mainPane = new BorderPane();
     private final VBox vbox = new VBox();
 
@@ -78,13 +81,17 @@ public class WorkIndicatorDialog<P> {
      *
      */
     private void setupDialog() {
-        root.getChildren().add(mainPane);
-        vbox.setSpacing(5);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setMinSize(330, 120);
-        vbox.getChildren().addAll(label,progressIndicator);
-        mainPane.setTop(vbox);
+
+        GNAvatarView image=new GNAvatarView();
+        image.setImage(new Image("/com/gn/media/img/pt-logo-loader-dark.gif"));
+        //vbox.setSpacing(5);
+        //vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().addAll(image);
+
+       // mainPane.setCenter(vbox);
         dialog.setScene(scene);
+        root.getChildren().add(vbox);
+
         dialog.initStyle(StageStyle.TRANSPARENT);
 
         dialog.setOnHiding(event -> { /* Gets notified when task ended, but BEFORE

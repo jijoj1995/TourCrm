@@ -56,7 +56,7 @@ public class Loader extends Preloader {
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add(getClass().getResource("/com/gn/theme/css/fonts.css").toExternalForm());
         progressBar = (JFXProgressBar) scene.lookup("#progressBar");
-        primary.getIcons().add(new Image("/com/gn/module/media/icon.png"));
+        primary.getIcons().add(new Image("/com/gn/media/img/pt-logo-circle-small.png"));
         primary.setScene(scene);
 //        primary.setAlwaysOnTop(true);
         primary.show();

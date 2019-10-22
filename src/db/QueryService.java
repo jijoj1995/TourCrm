@@ -108,7 +108,7 @@ finally {
         ResultSet resultSet=null;
         try{
             String query="select * from core_lead inner join core_lead_communication using(core_lead_communication_id)";
-            connection=getDBConnection();
+            connection=getNamedDBConnection();
             statement=connection.prepareStatement(query);
             resultSet=statement.executeQuery();
             while (resultSet.next()){

@@ -258,7 +258,7 @@ public class App extends Application {
         );
 
         decorator.setMaximized(true);
-        decorator.getStage().getIcons().add(new Image("/com/gn/module/media/logomain.png"));
+        decorator.getStage().getIcons().add(new Image("/com/gn/media/img/pt-logo-circle-small.png"));
         decorator.show();
 
 //        ScenicView.show(decorator.getScene());

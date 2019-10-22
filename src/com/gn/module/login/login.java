@@ -205,19 +205,22 @@ public class login implements Initializable {
 
         wd = new WorkIndicatorDialog(lbl_username.getScene().getWindow(), "Loading...");
         wd.exec("123", inputParam -> {
+
+            userEntity=new UserService().authenticateUser(username.getText(),password.getText());
             try {
                 for (int i = 0; i <10 ; i++) {
-                        //for showing basic loader. Else the loader sometimes in not visible leading to emptyBox
-                    TimeUnit.MILLISECONDS.sleep(70);
+                    //for showing basic loader. Else the loader sometimes in not visible leading to emptyBox
+                    TimeUnit.MILLISECONDS.sleep(100);
                 }
             }catch (Exception e){
                 e.printStackTrace();
             }
-            userEntity=new UserService().authenticateUser(username.getText(),password.getText());
             if (userEntity!=null){
                 return InventoryConstants.loginSuccess;
             }
+
             return InventoryConstants.loginFailed;
+
         });
 
         wd.addTaskEndNotification(result -> {
